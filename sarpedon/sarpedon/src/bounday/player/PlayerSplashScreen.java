@@ -1,4 +1,4 @@
-package boundary.builder;
+package bounday.player;
 import java.awt.*;
 
 import javax.swing.JFrame;
@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 
-public class SplashScreen extends JFrame implements ActionListener{
+public class PlayerSplashScreen extends JFrame{
 
 	private JPanel contentPane;
 
@@ -23,7 +23,7 @@ public class SplashScreen extends JFrame implements ActionListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SplashScreen frame = new SplashScreen();
+					PlayerSplashScreen frame = new PlayerSplashScreen();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,9 +35,10 @@ public class SplashScreen extends JFrame implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public SplashScreen() {
+	public PlayerSplashScreen() {
+		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(500, 500, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -57,10 +58,5 @@ public class SplashScreen extends JFrame implements ActionListener{
 		contentPane.add(lblCreatedByDrew);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		System.exit(0);
-		
-	}
 
 }

@@ -39,7 +39,7 @@ public class LevelBuilderGui extends JFrame {
 	public LevelBuilderGui() {
 		setTitle("Kabasuji Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 1000);
+		setBounds(100, 10, 1500, 1000);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

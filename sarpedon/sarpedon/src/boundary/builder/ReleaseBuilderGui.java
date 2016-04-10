@@ -88,7 +88,7 @@ public class ReleaseBuilderGui extends JFrame {
 		scrollPane.setBounds(767, 54, 600, 148);
 		contentPane.add(scrollPane);
 		
-		BullpenPanel bullpenView = new BullpenPanel();
+		BuilderBullpenPanel bullpenView = new BuilderBullpenPanel();
 		scrollPane.setViewportView(bullpenView);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -109,7 +109,7 @@ public class ReleaseBuilderGui extends JFrame {
 		comboBox.setBounds(245, 151, 53, 45);
 		contentPane.add(comboBox);
 		
-		BoardPanel panel = new BoardPanel();
+		BuilderBoardPanel panel = new BuilderBoardPanel();
 		panel.setBounds(767, 213, 600, 600);
 		contentPane.add(panel);
 		

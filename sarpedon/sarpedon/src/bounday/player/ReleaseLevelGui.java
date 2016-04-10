@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import boundary.builder.BoardPanel;
+import boundary.builder.BuilderBoardPanel;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;
@@ -48,7 +48,7 @@ public class ReleaseLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		BoardPanel panel = new BoardPanel();
+		BuilderBoardPanel panel = new BuilderBoardPanel();
 		panel.setBounds(620, 126, 720, 720);
 		contentPane.add(panel);
 		

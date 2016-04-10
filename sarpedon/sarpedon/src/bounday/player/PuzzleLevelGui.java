@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import boundary.builder.BoardPanel;
+import boundary.builder.BuilderBoardPanel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -44,14 +44,14 @@ public class PuzzleLevelGui extends JFrame {
 	public PuzzleLevelGui() {
 		setTitle("Puzzle Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 1000);
+		setBounds(100, 10, 1500, 1000);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		BoardPanel panel = new BoardPanel();
+		BuilderBoardPanel panel = new BuilderBoardPanel();
 		panel.setBounds(620, 123, 720, 720);
 		contentPane.add(panel);
 		

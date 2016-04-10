@@ -1,14 +1,14 @@
-package bounday.player;
+package boundary.builder;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-public class BullpenPanel extends JPanel {
+public class BuilderBullpenPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public BullpenPanel() {
+	public BuilderBullpenPanel() {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");

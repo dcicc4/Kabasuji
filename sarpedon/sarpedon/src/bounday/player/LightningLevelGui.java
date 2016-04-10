@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import boundary.builder.BoardPanel;
+import boundary.builder.BuilderBoardPanel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -86,7 +86,7 @@ public class LightningLevelGui extends JFrame {
 		btnReturnToMain.setBounds(300, 167, 171, 41);
 		contentPane.add(btnReturnToMain);
 		
-		BoardPanel panel = new BoardPanel();
+		BuilderBoardPanel panel = new BuilderBoardPanel();
 		panel.setBounds(620, 83, 720, 720);
 		contentPane.add(panel);
 		

@@ -78,10 +78,10 @@ public class LightningLevelGui extends JFrame {
 		lblLevel.setBounds(174, 11, 327, 82);
 		contentPane.add(lblLevel);
 		
-		JButton button_1 = new JButton("Hint");
-		button_1.setBackground(Color.LIGHT_GRAY);
-		button_1.setBounds(300, 167, 171, 41);
-		contentPane.add(button_1);
+		JButton btnReturnToMain = new JButton("Return to Main Menu");
+		btnReturnToMain.setBackground(Color.LIGHT_GRAY);
+		btnReturnToMain.setBounds(300, 167, 171, 41);
+		contentPane.add(btnReturnToMain);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(620, 83, 720, 720);

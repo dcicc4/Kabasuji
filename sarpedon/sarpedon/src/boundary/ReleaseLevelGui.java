@@ -79,10 +79,10 @@ public class ReleaseLevelGui extends JFrame {
 		lblLevel.setBounds(195, 29, 327, 82);
 		contentPane.add(lblLevel);
 		
-		JButton button_1 = new JButton("Hint");
-		button_1.setBackground(Color.LIGHT_GRAY);
-		button_1.setBounds(321, 185, 171, 41);
-		contentPane.add(button_1);
+		JButton btnReturnToMain = new JButton("Return to Main Menu");
+		btnReturnToMain.setBackground(Color.LIGHT_GRAY);
+		btnReturnToMain.setBounds(321, 185, 171, 41);
+		contentPane.add(btnReturnToMain);
 		
 		JLabel lblRed = new JLabel("RED: ");
 		lblRed.setFont(new Font("Tahoma", Font.PLAIN, 14));

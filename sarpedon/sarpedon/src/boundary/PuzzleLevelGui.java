@@ -85,7 +85,7 @@ public class PuzzleLevelGui extends JFrame {
 		lblLevel.setBounds(190, 28, 327, 82);
 		contentPane.add(lblLevel);
 		
-		JButton btnHint = new JButton("Hint");
+		JButton btnHint = new JButton("Return to Main Menu");
 		btnHint.setBackground(Color.LIGHT_GRAY);
 		btnHint.setBounds(316, 184, 171, 41);
 		contentPane.add(btnHint);

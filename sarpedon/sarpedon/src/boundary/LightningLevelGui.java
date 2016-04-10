@@ -83,7 +83,7 @@ public class LightningLevelGui extends JFrame {
 		btnReturnToMain.setBounds(300, 167, 171, 41);
 		contentPane.add(btnReturnToMain);
 		
-		JPanel panel = new JPanel();
+		BoardPanel panel = new BoardPanel();
 		panel.setBounds(620, 83, 720, 720);
 		contentPane.add(panel);
 		

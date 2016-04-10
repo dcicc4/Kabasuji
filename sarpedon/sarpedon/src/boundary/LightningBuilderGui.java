@@ -113,7 +113,7 @@ public class LightningBuilderGui extends JFrame {
 		label_2.setBounds(20, 138, 138, 41);
 		contentPane.add(label_2);
 		
-		JPanel panel = new JPanel();
+		BoardPanel panel = new BoardPanel();
 		panel.setBounds(752, 222, 600, 600);
 		contentPane.add(panel);
 		

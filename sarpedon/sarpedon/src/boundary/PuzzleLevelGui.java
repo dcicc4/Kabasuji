@@ -48,7 +48,7 @@ public class PuzzleLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
+		BoardPanel panel = new BoardPanel();
 		panel.setBounds(620, 123, 720, 720);
 		contentPane.add(panel);
 		

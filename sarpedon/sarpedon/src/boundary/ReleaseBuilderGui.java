@@ -88,16 +88,15 @@ public class ReleaseBuilderGui extends JFrame {
 		scrollPane.setBounds(767, 54, 600, 148);
 		contentPane.add(scrollPane);
 		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollBar_1.setOrientation(JScrollBar.HORIZONTAL);
-		scrollPane.setColumnHeaderView(scrollBar_1);
+		BullpenPanel bullpenView = new BullpenPanel();
+		scrollPane.setViewportView(bullpenView);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(454, 54, 303, 758);
 		contentPane.add(scrollPane_1);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollPane_1.setRowHeaderView(scrollBar);
+		JScrollBar stockScrollBar = new JScrollBar();
+		scrollPane_1.setRowHeaderView(stockScrollBar);
 		
 		JLabel label_2 = new JLabel("Board Size");
 		label_2.setBounds(35, 151, 138, 41);
@@ -110,7 +109,7 @@ public class ReleaseBuilderGui extends JFrame {
 		comboBox.setBounds(245, 151, 53, 45);
 		contentPane.add(comboBox);
 		
-		JPanel panel = new JPanel();
+		BoardPanel panel = new BoardPanel();
 		panel.setBounds(767, 213, 600, 600);
 		contentPane.add(panel);
 		

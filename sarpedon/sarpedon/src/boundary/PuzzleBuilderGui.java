@@ -58,7 +58,7 @@ public class PuzzleBuilderGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
+		BoardPanel panel = new BoardPanel();
 		panel.setBounds(744, 207, 600, 600);
 		contentPane.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));

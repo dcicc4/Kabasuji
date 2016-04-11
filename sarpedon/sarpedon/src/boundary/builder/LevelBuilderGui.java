@@ -16,6 +16,14 @@ import java.awt.Font;
 public class LevelBuilderGui extends JFrame {
 
 	private JPanel contentPane;
+	
+	JButton btnLightningBuilder;
+	JButton btnPuzzleBuilder;
+	JButton btnReleaseBuilder;
+	JButton btnEditExisting;
+	
+	JLabel lblKabasujiLevelBuilder;
+	JLabel lblSelectTheType;
 
 	/**
 	 * Launch the application.
@@ -46,13 +54,13 @@ public class LevelBuilderGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnPuzzleBuilder = new JButton("Puzzle Builder");
+		btnPuzzleBuilder = new JButton("Puzzle Builder");
 		btnPuzzleBuilder.setBackground(Color.LIGHT_GRAY);
 		btnPuzzleBuilder.setForeground(Color.BLUE);
 		btnPuzzleBuilder.setBounds(575, 279, 350, 60);
 		contentPane.add(btnPuzzleBuilder);
 		
-		JButton btnLightningBuilder = new JButton("Lightning Builder");
+		btnLightningBuilder = new JButton("Lightning Builder");
 		btnLightningBuilder.setForeground(Color.GREEN);
 		btnLightningBuilder.setBackground(Color.LIGHT_GRAY);
 		btnLightningBuilder.addActionListener(new ActionListener() {
@@ -62,24 +70,24 @@ public class LevelBuilderGui extends JFrame {
 		btnLightningBuilder.setBounds(575, 446, 350, 60);
 		contentPane.add(btnLightningBuilder);
 		
-		JButton btnReleaseBuilder = new JButton("Release Builder");
+		btnReleaseBuilder = new JButton("Release Builder");
 		btnReleaseBuilder.setBackground(Color.LIGHT_GRAY);
 		btnReleaseBuilder.setForeground(Color.RED);
 		btnReleaseBuilder.setBounds(575, 617, 350, 60);
 		contentPane.add(btnReleaseBuilder);
 		
-		JLabel lblKabasujiLevelBuilder = new JLabel("KabaSuji Level Builder");
+		lblKabasujiLevelBuilder = new JLabel("KabaSuji Level Builder");
 		lblKabasujiLevelBuilder.setFont(new Font("Tahoma", Font.PLAIN, 52));
 		lblKabasujiLevelBuilder.setBounds(494, 59, 647, 75);
 		contentPane.add(lblKabasujiLevelBuilder);
 		
-		JLabel lblSelectTheType = new JLabel("Select the type of level you wish to build");
+		lblSelectTheType = new JLabel("Select the type of level you wish to build");
 		lblSelectTheType.setBounds(646, 145, 239, 60);
 		contentPane.add(lblSelectTheType);
 		
-		JButton btnNewButton = new JButton("Edit Existing Level");
-		btnNewButton.setBackground(Color.LIGHT_GRAY);
-		btnNewButton.setBounds(575, 809, 350, 60);
-		contentPane.add(btnNewButton);
+		btnEditExisting = new JButton("Edit Existing Level");
+		btnEditExisting.setBackground(Color.LIGHT_GRAY);
+		btnEditExisting.setBounds(575, 809, 350, 60);
+		contentPane.add(btnEditExisting);
 	}
 }

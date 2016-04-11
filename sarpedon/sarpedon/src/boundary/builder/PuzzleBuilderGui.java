@@ -28,6 +28,23 @@ public class PuzzleBuilderGui extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
+	JLabel warningLabel;
+	
+	JButton btnSave;
+	JButton btnUndo;
+
+	JButton btnFlipVert;
+	JButton btnFlipHor;
+	JButton btnRotateClockwise;
+	JButton btnRotateCClockwise;
+	
+	JRadioButton addHintRadio;
+	JRadioButton movePiecesRadio;
+	JRadioButton moveTilesRadio;
+	
+	JComboBox boardSizeCombo;
+	JComboBox levelNumberCombo;
 
 	/**
 	 * Launch the application.
@@ -51,7 +68,7 @@ public class PuzzleBuilderGui extends JFrame {
 	public PuzzleBuilderGui() {
 		setTitle("Kabasuji Puzzle Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 1000);
+		setBounds(100, 10, 1500, 1000);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,80 +103,80 @@ public class PuzzleBuilderGui extends JFrame {
 		lblBoardsize.setBounds(16, 143, 138, 41);
 		contentPane.add(lblBoardsize);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
-		comboBox.setSelectedIndex(13);
-		comboBox.setBounds(242, 141, 53, 45);
-		contentPane.add(comboBox);
+		boardSizeCombo = new JComboBox();
+		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+		boardSizeCombo.setSelectedIndex(13);
+		boardSizeCombo.setBounds(242, 141, 53, 45);
+		contentPane.add(boardSizeCombo);
 		
 		textField = new JTextField();
 		textField.setBounds(190, 679, 105, 39);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Possible Warning");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setBounds(26, 745, 251, 33);
-		contentPane.add(lblNewLabel);
+		warningLabel = new JLabel("Possible Warning");
+		warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		warningLabel.setForeground(Color.RED);
+		warningLabel.setBounds(26, 745, 251, 33);
+		contentPane.add(warningLabel);
 		
-		JButton btnSaveAndQuit = new JButton("Save");
-		btnSaveAndQuit.setBounds(26, 28, 279, 41);
-		contentPane.add(btnSaveAndQuit);
+		btnSave = new JButton("Save");
+		btnSave.setBounds(26, 28, 279, 41);
+		contentPane.add(btnSave);
 		
-		JButton btnUndo = new JButton("Undo");
+		btnUndo = new JButton("Undo");
 		btnUndo.setBounds(26, 84, 112, 41);
 		contentPane.add(btnUndo);
 		
-		JRadioButton rdbtnAddHint = new JRadioButton("Add Hint");
-		rdbtnAddHint.setBackground(Color.WHITE);
-		buttonGroup.add(rdbtnAddHint);
-		rdbtnAddHint.setBounds(82, 361, 251, 41);
-		contentPane.add(rdbtnAddHint);
+		addHintRadio = new JRadioButton("Add Hint");
+		addHintRadio.setBackground(Color.WHITE);
+		buttonGroup.add(addHintRadio);
+		addHintRadio.setBounds(82, 361, 251, 41);
+		contentPane.add(addHintRadio);
 		
-		JRadioButton rdbtnMovePieces = new JRadioButton("Move Pieces");
-		rdbtnMovePieces.setBackground(Color.WHITE);
-		buttonGroup.add(rdbtnMovePieces);
-		rdbtnMovePieces.setBounds(82, 422, 251, 41);
-		contentPane.add(rdbtnMovePieces);
+		addHintRadio = new JRadioButton("Move Pieces");
+		addHintRadio.setBackground(Color.WHITE);
+		buttonGroup.add(addHintRadio);
+		addHintRadio.setBounds(82, 422, 251, 41);
+		contentPane.add(addHintRadio);
 		
-		JRadioButton rdbtnAddremoveTiles = new JRadioButton("Move Tiles");
-		rdbtnAddremoveTiles.setBackground(Color.WHITE);
-		buttonGroup.add(rdbtnAddremoveTiles);
-		rdbtnAddremoveTiles.setBounds(82, 483, 251, 41);
-		contentPane.add(rdbtnAddremoveTiles);
+		movePiecesRadio = new JRadioButton("Move Tiles");
+		movePiecesRadio.setBackground(Color.WHITE);
+		buttonGroup.add(movePiecesRadio);
+		movePiecesRadio.setBounds(82, 483, 251, 41);
+		contentPane.add(movePiecesRadio);
 		
 		JLabel label = new JLabel("Level Number");
 		label.setBounds(10, 241, 105, 14);
 		contentPane.add(label);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		comboBox_1.setBounds(242, 226, 53, 39);
-		contentPane.add(comboBox_1);
+		levelNumberCombo = new JComboBox();
+		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
+		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		levelNumberCombo.setBounds(242, 226, 53, 39);
+		contentPane.add(levelNumberCombo);
 		
-		JButton button = new JButton("Flip Vertically");
-		button.setBackground(Color.LIGHT_GRAY);
-		button.setBounds(1082, 818, 125, 125);
-		contentPane.add(button);
+		JButton btnFlipVert = new JButton("Flip Vertically");
+		btnFlipVert.setBackground(Color.LIGHT_GRAY);
+		btnFlipVert.setBounds(1082, 818, 125, 125);
+		contentPane.add(btnFlipVert);
 		
-		JButton button_1 = new JButton("Rotate Clockwise");
-		button_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		button_1.setBackground(Color.LIGHT_GRAY);
-		button_1.setBounds(429, 834, 125, 125);
-		contentPane.add(button_1);
+		btnRotateClockwise = new JButton("Rotate Clockwise");
+		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnRotateClockwise.setBackground(Color.LIGHT_GRAY);
+		btnRotateClockwise.setBounds(429, 834, 125, 125);
+		contentPane.add(btnRotateClockwise);
 		
-		JButton button_2 = new JButton("Rotate C. Clockwise");
-		button_2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		button_2.setBackground(Color.LIGHT_GRAY);
-		button_2.setBounds(607, 834, 125, 125);
-		contentPane.add(button_2);
+		btnRotateCClockwise = new JButton("Rotate C. Clockwise");
+		btnRotateCClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnRotateCClockwise.setBackground(Color.LIGHT_GRAY);
+		btnRotateCClockwise.setBounds(607, 834, 125, 125);
+		contentPane.add(btnRotateCClockwise);
 		
-		JButton button_3 = new JButton("Flip Horizontally");
-		button_3.setBackground(Color.LIGHT_GRAY);
-		button_3.setBounds(1217, 818, 125, 125);
-		contentPane.add(button_3);
+		btnFlipHor = new JButton("Flip Horizontally");
+		btnFlipHor.setBackground(Color.LIGHT_GRAY);
+		btnFlipHor.setBounds(1217, 818, 125, 125);
+		contentPane.add(btnFlipHor);
 	}
 }

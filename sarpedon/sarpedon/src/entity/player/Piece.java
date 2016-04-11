@@ -2,6 +2,7 @@ package entity.player;
 
 
 public class Piece {
+	
 int number;
 int row;
 int column;
@@ -9,6 +10,7 @@ Square[] dependant = new Square[5];
 Square anchor;
 boolean board;
 boolean bullpen;
+
 public Piece(int number, Square[] dependent)
 {
 	this.number = number;

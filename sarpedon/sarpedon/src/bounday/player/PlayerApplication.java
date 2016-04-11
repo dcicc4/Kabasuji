@@ -19,9 +19,10 @@ public class PlayerApplication {
 	}
 	
 	void initializeControllers() {
+		//initialize controllers for main menu
 		menu.btnLevelSelect.addActionListener(new SwitchWindowController(menu, levelSelect));
 		menu.btnNewGame.addActionListener(new SwitchWindowController(menu, puzzleLevel));
-		
+		//initialize controllers for the individual levels on level select screen (may want to replace with LoadLevelController or something
 		levelSelect.btnLevel1.addActionListener(new SwitchWindowController(levelSelect, puzzleLevel));
 		levelSelect.btnLevel2.addActionListener(new SwitchWindowController(levelSelect, lightningLevel));
 		levelSelect.btnLevel3.addActionListener(new SwitchWindowController(levelSelect, releaseLevel));
@@ -37,7 +38,7 @@ public class PlayerApplication {
 		levelSelect.btnLevel13.addActionListener(new SwitchWindowController(levelSelect, puzzleLevel));
 		levelSelect.btnLevel14.addActionListener(new SwitchWindowController(levelSelect, lightningLevel));
 		levelSelect.btnLevel15.addActionListener(new SwitchWindowController(levelSelect, releaseLevel));
-		
+		//initialize return to menu buttons in the Level Guis
 		lightningLevel.btnReturn.addActionListener(new SwitchWindowController(lightningLevel, menu));
 		releaseLevel.btnReturn.addActionListener(new SwitchWindowController(releaseLevel, menu));
 		puzzleLevel.btnReturn.addActionListener(new SwitchWindowController(puzzleLevel, menu));
@@ -51,6 +52,7 @@ public class PlayerApplication {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					//show splash screen window
 					app.splashScreen.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,11 +60,13 @@ public class PlayerApplication {
 			}
 		});
 		try {
+			//wait three seconds
 			Thread.sleep(3000);
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		//show main menu
 		app.splashScreen.setVisible(false);
 		app.splashScreen.dispose();
 		app.menu.setVisible(true);

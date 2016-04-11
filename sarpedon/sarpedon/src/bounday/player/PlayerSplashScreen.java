@@ -38,7 +38,7 @@ public class PlayerSplashScreen extends JFrame{
 	public PlayerSplashScreen() {
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500, 500, 450, 300);
+		setBounds(600, 400, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -21,6 +21,16 @@ import java.awt.Color;
 public class PuzzleLevelGui extends JFrame {
 
 	private JPanel contentPane;
+	
+	JLabel lblStars;
+	JLabel lblMoves;
+	
+	JButton btnReset;
+	JButton btnReturn;
+	JButton btnRotateClockwise;
+	JButton btnrotateCClockwise;
+	JButton btnFlipVert;
+	JButton btnFlipHor;
 
 	/**
 	 * Launch the application.
@@ -68,17 +78,17 @@ public class PuzzleLevelGui extends JFrame {
 		lblNewLabel.setBounds(26, 350, 271, 49);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("0");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblNewLabel_1.setBounds(316, 350, 122, 49);
-		contentPane.add(lblNewLabel_1);
+		lblMoves = new JLabel("0");
+		lblMoves.setFont(new Font("Tahoma", Font.PLAIN, 48));
+		lblMoves.setBounds(316, 350, 122, 49);
+		contentPane.add(lblMoves);
 		
-		JLabel lblStars = new JLabel("Stars");
+		lblStars = new JLabel("Stars");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblStars.setBounds(26, 268, 144, 54);
 		contentPane.add(lblStars);
 		
-		JButton btnReset = new JButton("Reset");
+		btnReset = new JButton("Reset");
 		btnReset.setBackground(Color.LIGHT_GRAY);
 		btnReset.setBounds(61, 184, 171, 41);
 		contentPane.add(btnReset);
@@ -88,31 +98,31 @@ public class PuzzleLevelGui extends JFrame {
 		lblLevel.setBounds(190, 28, 327, 82);
 		contentPane.add(lblLevel);
 		
-		JButton btnHint = new JButton("Return to Main Menu");
-		btnHint.setBackground(Color.LIGHT_GRAY);
-		btnHint.setBounds(316, 184, 171, 41);
-		contentPane.add(btnHint);
+		btnReturn = new JButton("Return to Main Menu");
+		btnReturn.setBackground(Color.LIGHT_GRAY);
+		btnReturn.setBounds(316, 184, 171, 41);
+		contentPane.add(btnReturn);
 		
-		JButton button = new JButton("Rotate Clockwise");
-		button.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		button.setBackground(Color.LIGHT_GRAY);
-		button.setBounds(1349, 123, 125, 125);
-		contentPane.add(button);
+		btnRotateClockwise = new JButton("Rotate Clockwise");
+		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnRotateClockwise.setBackground(Color.LIGHT_GRAY);
+		btnRotateClockwise.setBounds(1349, 123, 125, 125);
+		contentPane.add(btnRotateClockwise);
 		
-		JButton button_1 = new JButton("Flip Horizontally");
-		button_1.setBackground(Color.LIGHT_GRAY);
-		button_1.setBounds(1349, 718, 125, 125);
-		contentPane.add(button_1);
+		btnFlipHor = new JButton("Flip Horizontally");
+		btnFlipHor.setBackground(Color.LIGHT_GRAY);
+		btnFlipHor.setBounds(1349, 718, 125, 125);
+		contentPane.add(btnFlipHor);
 		
-		JButton button_2 = new JButton("Flip Vertically");
-		button_2.setBackground(Color.LIGHT_GRAY);
-		button_2.setBounds(1349, 543, 125, 125);
-		contentPane.add(button_2);
+		btnFlipVert = new JButton("Flip Vertically");
+		btnFlipVert.setBackground(Color.LIGHT_GRAY);
+		btnFlipVert.setBounds(1349, 543, 125, 125);
+		contentPane.add(btnFlipVert);
 		
-		JButton button_3 = new JButton("Rotate C. Clockwise");
-		button_3.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		button_3.setBackground(Color.LIGHT_GRAY);
-		button_3.setBounds(1349, 297, 125, 125);
-		contentPane.add(button_3);
+		btnrotateCClockwise = new JButton("Rotate C. Clockwise");
+		btnrotateCClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnrotateCClockwise.setBackground(Color.LIGHT_GRAY);
+		btnrotateCClockwise.setBounds(1349, 297, 125, 125);
+		contentPane.add(btnrotateCClockwise);
 	}
 }

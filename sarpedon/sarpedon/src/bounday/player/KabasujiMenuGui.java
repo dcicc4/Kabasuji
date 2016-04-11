@@ -16,6 +16,9 @@ public class KabasujiMenuGui extends JFrame {
 
 	private JPanel contentPane;
 
+	JButton btnNewGame;
+	JButton btnLevelSelect;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -38,14 +41,14 @@ public class KabasujiMenuGui extends JFrame {
 	public KabasujiMenuGui() {
 		setTitle("Kabasuji");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 1000);
+		setBounds(100, 10, 1500, 1000);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewGame = new JButton("New Game");
+		btnNewGame = new JButton("New Game");
 		btnNewGame.setBackground(Color.YELLOW);
 		btnNewGame.setForeground(Color.RED);
 		btnNewGame.setFont(new Font("Tahoma", Font.PLAIN, 48));
@@ -56,7 +59,7 @@ public class KabasujiMenuGui extends JFrame {
 		btnNewGame.setBounds(561, 287, 304, 110);
 		contentPane.add(btnNewGame);
 		
-		JButton btnLevelSelect = new JButton("Level Select");
+		btnLevelSelect = new JButton("Level Select");
 		btnLevelSelect.setBackground(Color.GREEN);
 		btnLevelSelect.setForeground(Color.BLUE);
 		btnLevelSelect.setFont(new Font("Tahoma", Font.PLAIN, 48));

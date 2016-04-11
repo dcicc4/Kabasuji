@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Board {
 	Tile[][] shape;
 	ArrayList <Piece> pieces;
+	
 	Piece getPiece(Integer row, Integer col){
 		for (Piece p : pieces){
 			

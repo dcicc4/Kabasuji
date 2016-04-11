@@ -11,6 +11,18 @@ public class Tile {
 		covered = cvrd;
 	}
 	
+	Integer getRow(){
+		return this.row;
+	}
+	
+	Integer getColumn(){
+		return this.col;
+	}
+	
+	boolean getCovered(){
+		return this.covered;
+	}
+	
 	boolean overTile(Integer rw, Integer cl){
 		if ((rw <= this.row) && (rw > (this.row - 1)) && (cl <= this.col) && (cl > (this.col -1))){
 			return true;

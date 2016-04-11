@@ -59,7 +59,7 @@ public class Piece {
 
 	}
 
-	boolean fits(Tile[5] aTile)
+	boolean fits(Tile[] aTile)
 	{ int match = 0;
 	for (int x = 0; x<  dependant.length; x++)
 	{
@@ -74,13 +74,14 @@ public class Piece {
 	}
 	if (match == 6)
 	{return true;}
+	else{return false;}
 	}
 
 	boolean tileFit(Tile aTile, Square aSquare)
 	{
-		if (Tile.getColumn() == aSquare.getX()+column && Tile.getRow() == aSquare.getY() + row)
+		if (aTile.getColumn() == aSquare.getX()+column && aTile.getRow() == aSquare.getY() + row)
 			return true;
 		return false;
 	}
 }
-}
+

@@ -45,6 +45,9 @@ public class PuzzleBuilderGui extends JFrame {
 	
 	JComboBox boardSizeCombo;
 	JComboBox levelNumberCombo;
+	
+	BuilderBullpenPanel bullpen;
+	BuilderStockPanel stock;
 
 	/**
 	 * Launch the application.
@@ -80,24 +83,23 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(748, 48, 596, 148);
-		contentPane.add(scrollPane);
+		JScrollPane bullpenScrollPane = new JScrollPane();
+		bullpenScrollPane.setBounds(744, 48, 596, 148);
+		contentPane.add(bullpenScrollPane);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setOrientation(JScrollBar.HORIZONTAL);
-		scrollPane.setColumnHeaderView(scrollBar);
+		bullpen = new BuilderBullpenPanel();
+		bullpenScrollPane.setViewportView(bullpen);
 		
 		JLabel lblTotalMoves = new JLabel("Total Moves");
 		lblTotalMoves.setBounds(16, 682, 148, 33);
 		contentPane.add(lblTotalMoves);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(429, 48, 303, 759);
-		contentPane.add(scrollPane_1);
+		JScrollPane stockScrollPane = new JScrollPane();
+		stockScrollPane.setBounds(429, 48, 303, 759);
+		contentPane.add(stockScrollPane);
 		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollPane_1.setRowHeaderView(scrollBar_1);
+		stock = new BuilderStockPanel();
+		stockScrollPane.setViewportView(stock);
 		
 		JLabel lblBoardsize = new JLabel("Board Size");
 		lblBoardsize.setBounds(16, 143, 138, 41);

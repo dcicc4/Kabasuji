@@ -93,7 +93,7 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(lblTotalMoves);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(429, 48, 303, 775);
+		scrollPane_1.setBounds(429, 48, 303, 759);
 		contentPane.add(scrollPane_1);
 		
 		JScrollBar scrollBar_1 = new JScrollBar();
@@ -107,7 +107,7 @@ public class PuzzleBuilderGui extends JFrame {
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		boardSizeCombo.setSelectedIndex(13);
-		boardSizeCombo.setBounds(242, 141, 53, 45);
+		boardSizeCombo.setBounds(220, 141, 75, 45);
 		contentPane.add(boardSizeCombo);
 		
 		textField = new JTextField();
@@ -126,7 +126,7 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnSave);
 		
 		btnUndo = new JButton("Undo");
-		btnUndo.setBounds(26, 84, 112, 41);
+		btnUndo.setBounds(26, 80, 279, 41);
 		contentPane.add(btnUndo);
 		
 		addHintRadio = new JRadioButton("Add Hint");
@@ -154,7 +154,7 @@ public class PuzzleBuilderGui extends JFrame {
 		levelNumberCombo = new JComboBox();
 		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
 		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		levelNumberCombo.setBounds(242, 226, 53, 39);
+		levelNumberCombo.setBounds(220, 226, 75, 39);
 		contentPane.add(levelNumberCombo);
 		
 		JButton btnFlipVert = new JButton("Flip Vertically");
@@ -165,13 +165,13 @@ public class PuzzleBuilderGui extends JFrame {
 		btnRotateClockwise = new JButton("Rotate Clockwise");
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateClockwise.setBounds(429, 834, 125, 125);
+		btnRotateClockwise.setBounds(429, 818, 125, 125);
 		contentPane.add(btnRotateClockwise);
 		
 		btnRotateCClockwise = new JButton("Rotate C. Clockwise");
 		btnRotateCClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateCClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateCClockwise.setBounds(607, 834, 125, 125);
+		btnRotateCClockwise.setBounds(607, 818, 125, 125);
 		contentPane.add(btnRotateCClockwise);
 		
 		btnFlipHor = new JButton("Flip Horizontally");

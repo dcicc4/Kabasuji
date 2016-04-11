@@ -83,7 +83,7 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(btnSave);
 		
 		btnUndo = new JButton("Undo");
-		btnUndo.setBounds(25, 80, 112, 41);
+		btnUndo.setBounds(25, 80, 279, 41);
 		contentPane.add(btnUndo);
 		
 		 addHintRadio = new JRadioButton("Add Hint");
@@ -126,7 +126,7 @@ public class ReleaseBuilderGui extends JFrame {
 		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		boardSizeCombo.setSelectedIndex(13);
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		boardSizeCombo.setBounds(245, 151, 53, 45);
+		boardSizeCombo.setBounds(223, 151, 75, 45);
 		contentPane.add(boardSizeCombo);
 		
 		BuilderBoardPanel panel = new BuilderBoardPanel();
@@ -165,7 +165,7 @@ public class ReleaseBuilderGui extends JFrame {
 		levelNumberCombo = new JComboBox();
 		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
-		levelNumberCombo.setBounds(245, 235, 53, 39);
+		levelNumberCombo.setBounds(223, 235, 75, 39);
 		contentPane.add(levelNumberCombo);
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");

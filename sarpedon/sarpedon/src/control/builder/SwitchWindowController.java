@@ -17,7 +17,8 @@ public class SwitchWindowController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		currentFrame.setVisible(false);
 		nextFrame.setVisible(true);	
+		currentFrame.setVisible(false);
+		
 	}
 }

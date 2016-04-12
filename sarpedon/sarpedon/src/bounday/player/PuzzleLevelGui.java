@@ -34,6 +34,7 @@ public class PuzzleLevelGui extends JFrame {
 	JButton btnFlipHor;
 
 	PlayerBullpenPanel bullpen;
+	PlayerBoardPanel board;
 
 	/**
 	 * Launch the application.
@@ -64,9 +65,9 @@ public class PuzzleLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		BuilderBoardPanel panel = new BuilderBoardPanel();
-		panel.setBounds(620, 123, 720, 720);
-		contentPane.add(panel);
+		board = new PlayerBoardPanel();
+		board.setBounds(620, 123, 720, 720);
+		contentPane.add(board);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 522, 600, 300);

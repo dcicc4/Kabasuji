@@ -17,11 +17,18 @@ import javax.swing.JMenuItem;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.FlowLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 public class PuzzleBuilderGui extends JFrame {
 
@@ -40,6 +47,7 @@ public class PuzzleBuilderGui extends JFrame {
 	JButton btnRotateCClockwise;
 	
 	JRadioButton addHintRadio;
+	private JRadioButton addHintRadio_1;
 	JRadioButton movePiecesRadio;
 	JRadioButton moveTilesRadio;
 	
@@ -76,109 +84,123 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		BuilderBoardPanel panel = new BuilderBoardPanel();
-		panel.setBounds(744, 207, 600, 600);
-		contentPane.add(panel);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+		panel.setBounds(738, 205, 600, 600);
 		
 		JScrollPane bullpenScrollPane = new JScrollPane();
-		bullpenScrollPane.setBounds(744, 48, 596, 148);
-		contentPane.add(bullpenScrollPane);
+		bullpenScrollPane.setBounds(738, 48, 600, 153);
 		
 		bullpen = new BuilderBullpenPanel();
+		bullpen.setPreferredSize(new Dimension(1000, 130));
 		bullpenScrollPane.setViewportView(bullpen);
+		bullpen.setLayout(null);
 		
 		JLabel lblTotalMoves = new JLabel("Total Moves");
 		lblTotalMoves.setBounds(16, 682, 148, 33);
-		contentPane.add(lblTotalMoves);
 		
 		JScrollPane stockScrollPane = new JScrollPane();
-		stockScrollPane.setBounds(429, 48, 303, 759);
-		contentPane.add(stockScrollPane);
+		stockScrollPane.setBounds(429, 48, 303, 757);
 		
 		stock = new BuilderStockPanel();
+		stock.setPreferredSize(new Dimension(280, 1200));
 		stockScrollPane.setViewportView(stock);
+		stock.setLayout(null);
 		
 		JLabel lblBoardsize = new JLabel("Board Size");
 		lblBoardsize.setBounds(16, 143, 138, 41);
-		contentPane.add(lblBoardsize);
 		
 		boardSizeCombo = new JComboBox();
+		boardSizeCombo.setBounds(220, 141, 85, 45);
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		boardSizeCombo.setSelectedIndex(13);
-		boardSizeCombo.setBounds(220, 141, 75, 45);
-		contentPane.add(boardSizeCombo);
 		
 		textField = new JTextField();
 		textField.setBounds(190, 679, 105, 39);
-		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		warningLabel = new JLabel("Possible Warning");
+		warningLabel.setBounds(26, 745, 251, 33);
 		warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		warningLabel.setForeground(Color.RED);
-		warningLabel.setBounds(26, 745, 251, 33);
-		contentPane.add(warningLabel);
 		
 		btnSave = new JButton("Save");
 		btnSave.setBounds(26, 28, 279, 41);
-		contentPane.add(btnSave);
 		
 		btnUndo = new JButton("Undo");
 		btnUndo.setBounds(26, 80, 279, 41);
-		contentPane.add(btnUndo);
 		
-		addHintRadio = new JRadioButton("Add Hint");
-		addHintRadio.setBackground(Color.WHITE);
-		buttonGroup.add(addHintRadio);
-		addHintRadio.setBounds(82, 361, 251, 41);
-		contentPane.add(addHintRadio);
+		addHintRadio_1 = new JRadioButton("Add Hint");
+		addHintRadio_1.setBounds(82, 361, 251, 41);
+		addHintRadio_1.setBackground(Color.WHITE);
+		buttonGroup.add(addHintRadio_1);
 		
 		addHintRadio = new JRadioButton("Move Pieces");
+		addHintRadio.setSelected(true);
+		addHintRadio.setBounds(82, 422, 251, 41);
 		addHintRadio.setBackground(Color.WHITE);
 		buttonGroup.add(addHintRadio);
-		addHintRadio.setBounds(82, 422, 251, 41);
-		contentPane.add(addHintRadio);
 		
 		movePiecesRadio = new JRadioButton("Move Tiles");
+		movePiecesRadio.setBounds(82, 483, 251, 41);
 		movePiecesRadio.setBackground(Color.WHITE);
 		buttonGroup.add(movePiecesRadio);
-		movePiecesRadio.setBounds(82, 483, 251, 41);
-		contentPane.add(movePiecesRadio);
 		
 		JLabel label = new JLabel("Level Number");
 		label.setBounds(10, 241, 105, 14);
-		contentPane.add(label);
 		
 		levelNumberCombo = new JComboBox();
+		levelNumberCombo.setBounds(220, 226, 85, 39);
 		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
 		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		levelNumberCombo.setBounds(220, 226, 75, 39);
-		contentPane.add(levelNumberCombo);
 		
 		JButton btnFlipVert = new JButton("Flip Vertically");
+		btnFlipVert.setBounds(1059, 813, 125, 125);
 		btnFlipVert.setBackground(Color.LIGHT_GRAY);
-		btnFlipVert.setBounds(1082, 818, 125, 125);
-		contentPane.add(btnFlipVert);
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");
+		btnRotateClockwise.setBounds(738, 813, 125, 125);
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateClockwise.setBounds(429, 818, 125, 125);
-		contentPane.add(btnRotateClockwise);
 		
 		btnRotateCClockwise = new JButton("Rotate C. Clockwise");
+		btnRotateCClockwise.setBounds(897, 813, 125, 125);
 		btnRotateCClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateCClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateCClockwise.setBounds(607, 818, 125, 125);
-		contentPane.add(btnRotateCClockwise);
 		
 		btnFlipHor = new JButton("Flip Horizontally");
+		btnFlipHor.setBounds(1213, 813, 125, 125);
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
-		btnFlipHor.setBounds(1217, 818, 125, 125);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 598, Short.MAX_VALUE)
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 598, Short.MAX_VALUE)
+		);
+		panel.setLayout(gl_panel);
+		contentPane.setLayout(null);
+		contentPane.add(btnSave);
+		contentPane.add(btnUndo);
+		contentPane.add(lblBoardsize);
+		contentPane.add(boardSizeCombo);
+		contentPane.add(label);
+		contentPane.add(levelNumberCombo);
+		contentPane.add(addHintRadio_1);
+		contentPane.add(addHintRadio);
+		contentPane.add(movePiecesRadio);
+		contentPane.add(lblTotalMoves);
+		contentPane.add(textField);
+		contentPane.add(warningLabel);
+		contentPane.add(btnRotateClockwise);
+		contentPane.add(btnRotateCClockwise);
+		contentPane.add(stockScrollPane);
+		contentPane.add(bullpenScrollPane);
+		contentPane.add(panel);
+		contentPane.add(btnFlipVert);
 		contentPane.add(btnFlipHor);
 	}
 }

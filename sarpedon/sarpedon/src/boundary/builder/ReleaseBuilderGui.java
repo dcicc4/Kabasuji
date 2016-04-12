@@ -42,6 +42,9 @@ public class ReleaseBuilderGui extends JFrame {
 	JComboBox levelNumberCombo;
 	JComboBox colorCombo;
 	JComboBox numberCombo;
+	
+	BuilderBullpenPanel bullpen;
+	BuilderStockPanel stock;
 
 	/**
 	 * Launch the application.
@@ -93,6 +96,7 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(addHintRadio);
 		
 		movePiecesRadio = new JRadioButton("Move Pieces");
+		movePiecesRadio.setSelected(true);
 		buttonGroup.add(movePiecesRadio);
 		movePiecesRadio.setBackground(Color.WHITE);
 		movePiecesRadio.setBounds(81, 418, 251, 41);
@@ -108,15 +112,15 @@ public class ReleaseBuilderGui extends JFrame {
 		scrollPane.setBounds(767, 54, 600, 148);
 		contentPane.add(scrollPane);
 		
-		BuilderBullpenPanel bullpenView = new BuilderBullpenPanel();
-		scrollPane.setViewportView(bullpenView);
+		bullpen = new BuilderBullpenPanel();
+		scrollPane.setViewportView(bullpen);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(454, 54, 303, 758);
-		contentPane.add(scrollPane_1);
+		JScrollPane stockScrollPane = new JScrollPane();
+		stockScrollPane.setBounds(440, 54, 323, 758);
+		contentPane.add(stockScrollPane);
 		
-		JScrollBar stockScrollBar = new JScrollBar();
-		scrollPane_1.setRowHeaderView(stockScrollBar);
+		stock = new BuilderStockPanel();
+		stockScrollPane.setViewportView(stock);
 		
 		JLabel label_2 = new JLabel("Board Size");
 		label_2.setBounds(35, 151, 138, 41);
@@ -171,18 +175,18 @@ public class ReleaseBuilderGui extends JFrame {
 		btnRotateClockwise = new JButton("Rotate Clockwise");
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateClockwise.setBounds(454, 823, 125, 125);
+		btnRotateClockwise.setBounds(767, 824, 125, 125);
 		contentPane.add(btnRotateClockwise);
 		
 		btnRotateCClockwise = new JButton("Rotate C. Clockwise");
 		btnRotateCClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateCClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateCClockwise.setBounds(632, 823, 125, 125);
+		btnRotateCClockwise.setBounds(931, 824, 125, 125);
 		contentPane.add(btnRotateCClockwise);
 		
 		btnFlipVert = new JButton("Flip Vertically");
 		btnFlipVert.setBackground(Color.LIGHT_GRAY);
-		btnFlipVert.setBounds(1107, 824, 125, 125);
+		btnFlipVert.setBounds(1088, 824, 125, 125);
 		contentPane.add(btnFlipVert);
 		
 		btnFlipHor = new JButton("Flip Horizontally");

@@ -11,6 +11,7 @@ public class ReleaseLevel extends Level {
 	Integer numBlue;
 	Integer numGreen;
 	Integer numRed;
+	// change to dynamically calculated?
 
 	
 	public ReleaseLevel(ReleaseBoard rboard, Bullpen bull, Integer strs,
@@ -19,56 +20,56 @@ public class ReleaseLevel extends Level {
 		//stub
 	}
 	
-	// better way to handle variable types?
-	boolean calculateColor(String str){
-		int numColor = 0;
-		if (str.compareToIgnoreCase("blue") == 0){
-			for (Boolean b: blueNumCovered){
-				if (b == true){
-					numColor += 1;
-				}
-			}
-			numBlue = numColor;
-			return true;
-		}
-		else if (str.compareToIgnoreCase("green")==0){
-			for (Boolean b: greenNumCovered){
-				if (b == true){
-					numColor += 1;
-				}
-			}
-			numGreen = numColor;
-			return true;
-		}
-		else if (str.compareToIgnoreCase("red")==0){
-			for (Boolean b: redNumCovered){
-				if (b == true){
-					numColor += 1;
-				}
-			}
-			numRed = numColor;
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	
-	void updateStars(){
-		this.calculateColor("blue");
-		this.calculateColor("green");
-		this.calculateColor("red");
-		int numStars = 0;
-		if (numGreen == MAX_NUM){
-			numStars += 1;
-		}
-		if (numBlue == MAX_NUM){
-			numStars += 1;
-		}
-		if (numRed == MAX_NUM){
-			numStars += 1;
-		}
-		this.stars = numStars;
-	}
+	// better way to handle variable types - going to rewrite
+//	boolean calculateColor(String str){
+//		int numColor = 0;
+//		if (str.compareToIgnoreCase("blue") == 0){
+//			for (Boolean b: blueNumCovered){
+//				if (b == true){
+//					numColor += 1;
+//				}
+//			}
+//			numBlue = numColor;
+//			return true;
+//		}
+//		else if (str.compareToIgnoreCase("green")==0){
+//			for (Boolean b: greenNumCovered){
+//				if (b == true){
+//					numColor += 1;
+//				}
+//			}
+//			numGreen = numColor;
+//			return true;
+//		}
+//		else if (str.compareToIgnoreCase("red")==0){
+//			for (Boolean b: redNumCovered){
+//				if (b == true){
+//					numColor += 1;
+//				}
+//			}
+//			numRed = numColor;
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
+//	
+//	void updateStars(){
+//		this.calculateColor("blue");
+//		this.calculateColor("green");
+//		this.calculateColor("red");
+//		int numStars = 0;
+//		if (numGreen == MAX_NUM){
+//			numStars += 1;
+//		}
+//		if (numBlue == MAX_NUM){
+//			numStars += 1;
+//		}
+//		if (numRed == MAX_NUM){
+//			numStars += 1;
+//		}
+//		this.stars = numStars;
+//	}
 	
 }

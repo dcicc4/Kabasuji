@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import boundary.builder.BuilderBoardPanel;
 
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -30,6 +32,8 @@ public class ReleaseLevelGui extends JFrame {
 	JButton btnrotateCClockwise;
 	JButton btnFlipVert;
 	JButton btnFlipHor;
+
+	PlayerBullpenPanel bullpen;
 	
 	/**
 	 * Launch the application.
@@ -68,11 +72,9 @@ public class ReleaseLevelGui extends JFrame {
 		scrollPane.setBounds(10, 544, 600, 300);
 		contentPane.add(scrollPane);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setForeground(Color.LIGHT_GRAY);
-		scrollBar.setBackground(Color.WHITE);
-		scrollBar.setOrientation(JScrollBar.HORIZONTAL);
-		scrollPane.setColumnHeaderView(scrollBar);
+		bullpen = new PlayerBullpenPanel();
+		bullpen.setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(bullpen);
 		
 		JLabel lblNumbersCovered = new JLabel("Numbers Covered:");
 		lblNumbersCovered.setFont(new Font("Tahoma", Font.PLAIN, 40));

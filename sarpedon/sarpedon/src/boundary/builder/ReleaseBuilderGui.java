@@ -82,10 +82,12 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(warningLabel);
 		
 		btnSave = new JButton("Save");
+		btnSave.setBackground(Color.LIGHT_GRAY);
 		btnSave.setBounds(25, 24, 279, 41);
 		contentPane.add(btnSave);
 		
 		btnUndo = new JButton("Undo");
+		btnUndo.setBackground(Color.LIGHT_GRAY);
 		btnUndo.setBounds(25, 80, 279, 41);
 		contentPane.add(btnUndo);
 		

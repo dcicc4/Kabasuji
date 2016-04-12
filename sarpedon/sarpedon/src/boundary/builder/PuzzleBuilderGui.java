@@ -126,9 +126,11 @@ public class PuzzleBuilderGui extends JFrame {
 		warningLabel.setForeground(Color.RED);
 		
 		btnSave = new JButton("Save");
+		btnSave.setBackground(Color.LIGHT_GRAY);
 		btnSave.setBounds(26, 28, 279, 41);
 		
 		btnUndo = new JButton("Undo");
+		btnUndo.setBackground(Color.LIGHT_GRAY);
 		btnUndo.setBounds(26, 80, 279, 41);
 		
 		addHintRadio_1 = new JRadioButton("Add Hint");

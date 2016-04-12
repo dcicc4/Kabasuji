@@ -17,6 +17,7 @@ import javax.swing.JProgressBar;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Dimension;
 
 public class PuzzleLevelGui extends JFrame {
 
@@ -31,6 +32,8 @@ public class PuzzleLevelGui extends JFrame {
 	JButton btnrotateCClockwise;
 	JButton btnFlipVert;
 	JButton btnFlipHor;
+
+	PlayerBullpenPanel bullpen;
 
 	/**
 	 * Launch the application.
@@ -69,9 +72,9 @@ public class PuzzleLevelGui extends JFrame {
 		scrollPane.setBounds(10, 522, 600, 300);
 		contentPane.add(scrollPane);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setOrientation(JScrollBar.HORIZONTAL);
-		scrollPane.setColumnHeaderView(scrollBar);
+		bullpen = new PlayerBullpenPanel();
+		bullpen.setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(bullpen);
 		
 		JLabel lblNewLabel = new JLabel("Moves Left:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 48));

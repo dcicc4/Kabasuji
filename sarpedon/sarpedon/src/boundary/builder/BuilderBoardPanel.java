@@ -98,7 +98,7 @@ public class BuilderBoardPanel extends JPanel {
 			//draws a 12 by 12 grid, but it will take in the models board object eventually
 			for(int i = 0; i<12; i++){
 				for(int j = 0; j<12; j++){
-					g.drawRect(offset + i*N, offset + j*N, N, N);
+					g.drawRect(offset + i*N, offset + j*N, N, N);				
 				}
 			}
 			
@@ -117,7 +117,8 @@ public class BuilderBoardPanel extends JPanel {
 		offScreenGraphics.setColor(Color.black);
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
-				offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);
+					offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);
+					
 			}
 		}
 		

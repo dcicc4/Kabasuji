@@ -6,7 +6,7 @@ public class Piece {
 	int number;
 	int row;
 	int column;
-	Square[] dependant = new Square[5];
+	Square[] dependant;
 	Square anchor;
 	boolean board;
 	boolean bullpen;
@@ -18,7 +18,9 @@ public class Piece {
 		this.board = false;
 		this.bullpen = false;
 		this.anchor = new Square (0,0);
-		this.dependant[5] = new Square (0,0);
+	}
+	public Square[] getDependant(){
+		return dependant;
 	}
 	void onBoard()
 	{

@@ -17,9 +17,15 @@ public class Bullpen {
 	
 	Piece removePiece(Piece p){
 		int i = pieces.indexOf(p);
-		Piece ret = pieces.remove(i);
-		return ret;
+		// checks for invalid index then removes piece, otherwise throws error
+		if (i > -1){
+			Piece ret = pieces.remove(i);
+			return ret;
 		}
+		else {
+			throw new RuntimeException ("Piece not found in Bullpen!");
+		}
+	}
 	
 	int piecesLeft(){
 		return pieces.size();

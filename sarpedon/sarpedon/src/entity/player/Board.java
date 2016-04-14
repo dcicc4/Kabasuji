@@ -5,17 +5,15 @@ import java.util.ArrayList;
 public class Board {
 	Tile[][] shape;
 	ArrayList <Piece> pieces;
-	// add second 2 dimensional array to map location to piece ids
-	// or change boolean covered to int coveredBy (tile id)
 	// add hashmap between piece ids and piece objects
-	// assign id in piece constructor
+	// assign id in piece constructor?
 	// add and remove piece from board method
 	// move piece on board method
 	// move class?
 	
-	Piece getPiece(Integer row, Integer col){
-		for (Piece p : pieces){
-			
-		}
-	}
+//	Piece getPiece(Integer row, Integer col){
+//		for (Piece p : pieces){
+//			
+//		}
+//	}
 }

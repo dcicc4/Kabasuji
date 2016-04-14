@@ -2,6 +2,10 @@ package boundary.builder;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class BuilderBullpenPanel extends JPanel {
 
@@ -9,15 +13,24 @@ public class BuilderBullpenPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public BuilderBullpenPanel() {
-		setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(51, 105, 46, 14);
-		add(lblNewLabel);
+		setBorder(null);
+		setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(1132, 105, 46, 14);
-		add(lblNewLabel_1);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(1132)
+					.addComponent(lblNewLabel_1))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(105)
+					.addComponent(lblNewLabel_1))
+		);
+		setLayout(groupLayout);
 
 	}
 

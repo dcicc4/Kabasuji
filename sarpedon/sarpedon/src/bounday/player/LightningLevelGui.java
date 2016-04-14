@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JScrollBar;
 
 public class LightningLevelGui extends JFrame {
@@ -28,6 +30,8 @@ public class LightningLevelGui extends JFrame {
 	JButton btnrotateCClockwise;
 	JButton btnFlipVert;
 	JButton btnFlipHor;
+
+	PlayerBullpenPanel bullpen;
 	
 	/**
 	 * Launch the application.
@@ -62,9 +66,9 @@ public class LightningLevelGui extends JFrame {
 		scrollPane.setBounds(10, 503, 600, 300);
 		contentPane.add(scrollPane);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setOrientation(JScrollBar.HORIZONTAL);
-		scrollPane.setColumnHeaderView(scrollBar);
+		bullpen = new PlayerBullpenPanel();
+		bullpen.setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(bullpen);
 		
 		JLabel lblTimeLeft = new JLabel("Time Left:");
 		lblTimeLeft.setFont(new Font("Tahoma", Font.PLAIN, 48));

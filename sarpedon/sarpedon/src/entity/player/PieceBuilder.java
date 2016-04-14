@@ -47,12 +47,12 @@ public class PieceBuilder {
 	Piece P4 = new Piece(4, new Square[] { D, D2, D3, D4, D2R });
 
 	Piece P5 = new Piece(5, new Square[] { D, D2, D3R, D2R, L }); // rotated
-																	// clockwise
-																	// once
+	// clockwise
+	// once
 
 	Piece P6 = new Piece(6, new Square[] { D, D2, D3R, D2R, D4R }); // rotated
-																	// clockwise
-																	// once
+	// clockwise
+	// once
 
 	Piece P7 = new Piece(7, new Square[] { D, D2L, D3L, DL, D4L });
 
@@ -79,13 +79,13 @@ public class PieceBuilder {
 	Piece P18 = new Piece(18, new Square[] { D, D2, D2R, D2R2, D3R });
 
 	Piece P19 = new Piece(19, new Square[] { D, D2, D2L, D2L2, D3L2 }); // rotated
-																		// clockwise
+	// clockwise
 
 	Piece P20 = new Piece(20, new Square[] { D, D2, D2R, D2R2, DR }); // rotated
-																		// clockwise
+	// clockwise
 
 	Piece P21 = new Piece(21, new Square[] { D, D2, D2R, L, DL }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P22 = new Piece(22, new Square[] { D, D2, DL, D2L, DR });
 
@@ -94,35 +94,39 @@ public class PieceBuilder {
 	Piece P24 = new Piece(24, new Square[] { D, DL, DR, D2L, D2R });
 
 	Piece P25 = new Piece(25, new Square[] { D, D2, L, L2, DL2 }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P26 = new Piece(26, new Square[] { D, D2, R, R2, DR }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P27 = new Piece(27, new Square[] { D, D2, D3, L, DR });
 
 	Piece P28 = new Piece(28, new Square[] { D, D2, D3, D2L, D2L2 });
 
 	Piece P29 = new Piece(29, new Square[] { D, D2, R, D2R, D3R }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P30 = new Piece(30, new Square[] { D, D2, L, D2L, D2R }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P31 = new Piece(31, new Square[] { D, D2, D2L, L, R }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P32 = new Piece(32, new Square[] { D, D2, D3L, D2L, D2R });
 
 	Piece P33 = new Piece(33, new Square[] { D, D2, D3, D2L, R }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P34 = new Piece(34, new Square[] { D, D2, D3, DR, D2L }); // rotated
-																	// clockwise
+	// clockwise
 
 	Piece P35 = new Piece(35, new Square[] { D, DR, D2R, D2R2, D3R }); // rotated
-																		// clockwise
+	// clockwise
 
+	public PieceBuilder(){
+		initialize();
+	}
+	
 	public void initialize() {
 		pieces.put(1,P1);
 		pieces.put(2,P2);
@@ -134,7 +138,7 @@ public class PieceBuilder {
 		pieces.put(8, P8);
 		pieces.put(9, P9);
 		pieces.put(10, P10);
-		
+
 		pieces.put(11, P11);
 		pieces.put(12, P12);
 		pieces.put(13, P13);
@@ -145,7 +149,7 @@ public class PieceBuilder {
 		pieces.put(18, P18);
 		pieces.put(19, P19);
 		pieces.put(20, P20);
-		
+
 		pieces.put(21,P21);
 		pieces.put(22,P22);
 		pieces.put(23,P23);
@@ -156,17 +160,16 @@ public class PieceBuilder {
 		pieces.put(28, P28);
 		pieces.put(29, P29);
 		pieces.put(30, P30);
-		
+
 		pieces.put(31, P31);
 		pieces.put(32,P32);
 		pieces.put(33, P33);
 		pieces.put(34, P34);
 		pieces.put(35, P35);
-		
+
 	}
-	
-public Piece getPiece (int num)
-{
-	return pieces.get(num);
-}
+
+	public Piece getPiece (int num){
+		return pieces.get(num);
+	}
 }

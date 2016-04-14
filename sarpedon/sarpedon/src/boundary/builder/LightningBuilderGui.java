@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -38,6 +40,9 @@ public class LightningBuilderGui extends JFrame {
 	
 	JComboBox boardSizeCombo;
 	JComboBox levelNumberCombo;
+	
+	BuilderBullpenPanel bullpen;
+	BuilderStockPanel stock;
 	
 	/**
 	 * Launch the application.
@@ -94,6 +99,7 @@ public class LightningBuilderGui extends JFrame {
 		contentPane.add(addHintRadio);
 		
 		movePiecesRadio = new JRadioButton("Move Pieces");
+		movePiecesRadio.setSelected(true);
 		buttonGroup.add(movePiecesRadio);
 		movePiecesRadio.setBackground(Color.WHITE);
 		movePiecesRadio.setBounds(66, 405, 251, 41);
@@ -105,24 +111,25 @@ public class LightningBuilderGui extends JFrame {
 		moveTilesRadio.setBounds(66, 466, 251, 41);
 		contentPane.add(moveTilesRadio);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(752, 63, 600, 148);
-		contentPane.add(scrollPane);
+		JScrollPane bullpenScrollPane = new JScrollPane();
+		bullpenScrollPane.setBounds(752, 63, 600, 157);
+		contentPane.add(bullpenScrollPane);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setOrientation(JScrollBar.HORIZONTAL);
-		scrollPane.setColumnHeaderView(scrollBar);
+		bullpen = new BuilderBullpenPanel();
+		bullpen.setPreferredSize(new Dimension(1000, 130));
+		bullpenScrollPane.setViewportView(bullpen);
 		
 		JLabel lblTotalTime = new JLabel("Total Time");
 		lblTotalTime.setBounds(20, 677, 148, 33);
 		contentPane.add(lblTotalTime);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(433, 64, 303, 758);
-		contentPane.add(scrollPane_1);
+		JScrollPane stockScrollPane = new JScrollPane();
+		stockScrollPane.setBounds(433, 64, 316, 758);
+		contentPane.add(stockScrollPane);
 		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollPane_1.setRowHeaderView(scrollBar_1);
+		stock = new BuilderStockPanel();
+		stock.setPreferredSize(new Dimension(280, 1200));
+		stockScrollPane.setViewportView(stock);
 		
 		JLabel label_2 = new JLabel("Board Size");
 		label_2.setBounds(20, 138, 138, 41);
@@ -151,24 +158,24 @@ public class LightningBuilderGui extends JFrame {
 		
 		btnFlipVert = new JButton("Flip Vertically");
 		btnFlipVert.setBackground(Color.LIGHT_GRAY);
-		btnFlipVert.setBounds(1092, 836, 125, 125);
+		btnFlipVert.setBounds(1074, 833, 125, 125);
 		contentPane.add(btnFlipVert);
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateClockwise.setBounds(439, 835, 125, 125);
+		btnRotateClockwise.setBounds(752, 833, 125, 125);
 		contentPane.add(btnRotateClockwise);
 		
 		btnRotateCClockwise = new JButton("Rotate C. Clockwise");
 		btnRotateCClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRotateCClockwise.setBackground(Color.LIGHT_GRAY);
-		btnRotateCClockwise.setBounds(617, 835, 125, 125);
+		btnRotateCClockwise.setBounds(913, 833, 125, 125);
 		contentPane.add(btnRotateCClockwise);
 		
 		btnFlipHor = new JButton("Flip Horizontally");
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
-		btnFlipHor.setBounds(1227, 836, 125, 125);
+		btnFlipHor.setBounds(1227, 833, 125, 125);
 		contentPane.add(btnFlipHor);
 	}
 }

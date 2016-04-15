@@ -6,10 +6,7 @@ import java.util.UUID;
 
 public class Board {
 	Tile[][] shape; // an array of tiles or null describing the shape of the board
-	HashMap <UUID, Piece> pieces;
-	// add and remove piece from board method
-	// move piece on board method
-	// move class?
+	HashMap <UUID, Piece> pieces; // mapping of pieces to uuid's stored in tiles
 	
 	Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
@@ -52,6 +49,7 @@ public class Board {
 		}
 		return placeable;
 	}
+	
 	boolean addPiece(Integer row, Integer col, Piece p){
 		if (piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
@@ -73,6 +71,7 @@ public class Board {
 			return false;
 		}
 	}
+	
 	boolean removePiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID pUUID = t.getCoveredBy();
@@ -91,4 +90,31 @@ public class Board {
 			return false;
 		}
 	}
+	
+	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){
+		Piece p = getPiece(startRow, startCol);
+		if (p!= null){ // check that there is a piece at the start location
+			if(piecePlaceable(endRow, endCol, p)){ // check that the end location is placeable
+				addPiece(endRow, endCol, p); // add the piece to the new location
+				removePiece(startRow, startCol); // remove the piece from the old location
+				return true;
+			}
+			else {
+				return false; // end location not valid
+			}
+		}
+		else {
+			return false; // there was no starting piece
+		}
+	}
+	
+	void removeAll(){
+		for (Tile[] tileRow: shape){ // clear coveredBy for all tiles
+			for (Tile aTile: tileRow){
+				aTile.setCoveredBy(null);
+			}
+		}
+		pieces.clear();	 // removes all mappings from hashmap
+	}
+	
 }

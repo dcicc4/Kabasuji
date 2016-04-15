@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.Rectangle;
 
 import javax.swing.border.LineBorder;
 
@@ -17,6 +19,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
 public class BuilderStockPanel extends JPanel {
+	
 	/**All possible Pieces*/
 	PieceBuilder pieces = new PieceBuilder();
 	
@@ -33,7 +36,6 @@ public class BuilderStockPanel extends JPanel {
 	int width = 280;
 	int height = 2500;
 	//colors the pieces can be
-	Color[] palette = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE};
 	
 	/** Off-screen image for drawing (and Graphics object). */
 	Image offScreenImage = null;
@@ -124,14 +126,16 @@ public class BuilderStockPanel extends JPanel {
 			g.fillRect(0,0,width,height);
 			
 			for(int i = 1; i<36; i++){
+				Piece p = pieces.getPiece(i);
+				
 				for(int j = 0; j<5; j++){
-					Square[] drawn = pieces.getPiece(i).getDependant(); 
-					g.setColor(palette[i%palette.length]);
+					Square[] drawn = p.getDependant(); 
+					g.setColor(p.getColor());
 					g.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 					g.setColor(Color.black);
 					g.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 				}
-				g.setColor(palette[i%palette.length]);
+				g.setColor(p.getColor());
 				g.fillRect(getXAnchor(i), getYAnchor(i), N, N);
 				g.setColor(Color.black);
 				g.drawRect(getXAnchor(i), getYAnchor(i), N, N);
@@ -148,19 +152,21 @@ public class BuilderStockPanel extends JPanel {
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, width, height);
 		for(int i = 1; i<36; i++){
+			Piece p = pieces.getPiece(i);
+			
 			for(int j = 0; j<5; j++){
-				Square[] drawn = pieces.getPiece(i).getDependant(); 
-				offScreenGraphics.setColor(palette[i%palette.length]);
+				Square[] drawn = p.getDependant(); 
+				offScreenGraphics.setColor(p.getColor());
 				offScreenGraphics.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 				offScreenGraphics.setColor(Color.black);
 				offScreenGraphics.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 			}
-			offScreenGraphics.setColor(palette[i%palette.length]);
+			offScreenGraphics.setColor(p.getColor());
 			offScreenGraphics.fillRect(getXAnchor(i), getYAnchor(i), N, N);
 			offScreenGraphics.setColor(Color.black);
 			offScreenGraphics.drawRect(getXAnchor(i), getYAnchor(i), N, N);
 		}
-		
+
 		// placed pieces.
 		/*if (model.getPlacedPieces() != null) {
 			for (PlacedPiece pp : model.getPlacedPieces()) {
@@ -171,6 +177,25 @@ public class BuilderStockPanel extends JPanel {
 			}
 		}*/		
 	}
+	
+	/** returns piece that is at given point, or null if the point does not contain a piece*/ 
+	public Piece getPieceAtCoordinate(Point point) {
+		for(int i = 1; i<36; i++){
+			for(int j = 0; j<5; j++){
+				Square[] drawn = pieces.getPiece(i).getDependant();
+				Rectangle r = new Rectangle(getX(i, j, drawn), getY(i, j, drawn), N, N);
+				if(r.contains(point)){
+					return pieces.getPiece(i);
+				}
+			}
+			Rectangle r = new Rectangle(getXAnchor(i), getYAnchor(i), N, N);
+			if(r.contains(point)){
+				return pieces.getPiece(i);
+			}
+		}
+		return null;
+	}
+
 
 
 }

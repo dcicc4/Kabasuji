@@ -1,9 +1,11 @@
 package entity.player;
+import java.awt.Color;
 import java.util.HashMap;
 
 public class PieceBuilder {
 
 	HashMap<Integer, Piece> pieces = new HashMap<Integer, Piece>();
+	Color[] palette = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE};
 
 	final Square R = new Square(1, 0);
 	final Square D = new Square(0, 1);
@@ -38,93 +40,97 @@ public class PieceBuilder {
 	final Square D3L2 = new Square(-2, 3);
 	final Square D3R2 = new Square(2, 3);
 
-	Piece P1 = new Piece(1, new Square[] { D, D2, D3, D4, D5 });
+	Piece P1 = new Piece(1,  D, D2, D3, D4, D5 );
 
-	Piece P2 = new Piece(2, new Square[] { D, D2, D3, D4, R });
+	Piece P2 = new Piece(2,  D, D2, D3, D4, R );
 
-	Piece P3 = new Piece(3, new Square[] { D, D2, D3, D4, D3L });
+	Piece P3 = new Piece(3,  D, D2, D3, D4, D3L );
 
-	Piece P4 = new Piece(4, new Square[] { D, D2, D3, D4, D2R });
+	Piece P4 = new Piece(4,  D, D2, D3, D4, D2R );
 
-	Piece P5 = new Piece(5, new Square[] { D, D2, D3R, D2R, L }); // rotated
+	Piece P5 = new Piece(5,  D, D2, D3R, D2R, L ); // rotated
 	// clockwise
 	// once
 
-	Piece P6 = new Piece(6, new Square[] { D, D2, D3R, D2R, D4R }); // rotated
+	Piece P6 = new Piece(6,  D, D2, D3R, D2R, D4R ); // rotated
 	// clockwise
 	// once
 
-	Piece P7 = new Piece(7, new Square[] { D, D2L, D3L, DL, D4L });
+	Piece P7 = new Piece(7,  D, D2L, D3L, DL, D4L );
 
-	Piece P8 = new Piece(8, new Square[] { D, D2, D3, D2L, D3L });
+	Piece P8 = new Piece(8,  D, D2, D3, D2L, D3L );
 
-	Piece P9 = new Piece(9, new Square[] { D, D2, D3, D3L, L });
+	Piece P9 = new Piece(9,  D, D2, D3, D3L, L );
 
-	Piece P10 = new Piece(10, new Square[] { D, R, L, D2, D3 });
+	Piece P10 = new Piece(10,  D, R, L, D2, D3 );
 
-	Piece P11 = new Piece(11, new Square[] { D, D2, D3, D3L, D3L2 });
+	Piece P11 = new Piece(11,  D, D2, D3, D3L, D3L2 );
 
-	Piece P12 = new Piece(12, new Square[] { D, D2, R, DR, D2R });
+	Piece P12 = new Piece(12,  D, D2, R, DR, D2R );
 
-	Piece P13 = new Piece(13, new Square[] { D, R, DL, D2L, D3L });
+	Piece P13 = new Piece(13,  D, R, DL, D2L, D3L );
 
-	Piece P14 = new Piece(14, new Square[] { D, DL, D2L, D2L2, D3L2 });
+	Piece P14 = new Piece(14,  D, DL, D2L, D2L2, D3L2 );
 
-	Piece P15 = new Piece(15, new Square[] { D, D2, D3, DL, D2L });
+	Piece P15 = new Piece(15,  D, D2, D3, DL, D2L );
 
-	Piece P16 = new Piece(16, new Square[] { D, D2, D3, DL, DR });
+	Piece P16 = new Piece(16,  D, D2, D3, DL, DR );
 
-	Piece P17 = new Piece(17, new Square[] { D, D2, D3, D3R, DR });
+	Piece P17 = new Piece(17,  D, D2, D3, D3R, DR );
 
-	Piece P18 = new Piece(18, new Square[] { D, D2, D2R, D2R2, D3R });
+	Piece P18 = new Piece(18,  D, D2, D2R, D2R2, D3R );
 
-	Piece P19 = new Piece(19, new Square[] { D, D2, D2L, D2L2, D3L2 }); // rotated
+	Piece P19 = new Piece(19,  D, D2, D2L, D2L2, D3L2 ); // rotated
 	// clockwise
 
-	Piece P20 = new Piece(20, new Square[] { D, D2, D2R, D2R2, DR }); // rotated
+	Piece P20 = new Piece(20,  D, D2, D2R, D2R2, DR ); // rotated
 	// clockwise
 
-	Piece P21 = new Piece(21, new Square[] { D, D2, D2R, L, DL }); // rotated
+	Piece P21 = new Piece(21,  D, D2, D2R, L, DL ); // rotated
 	// clockwise
 
-	Piece P22 = new Piece(22, new Square[] { D, D2, DL, D2L, DR });
+	Piece P22 = new Piece(22,  D, D2, DL, D2L, DR );
 
-	Piece P23 = new Piece(23, new Square[] { D, D2, D3, L, D3L });
+	Piece P23 = new Piece(23,  D, D2, D3, L, D3L );
 
-	Piece P24 = new Piece(24, new Square[] { D, DL, DR, D2L, D2R });
+	Piece P24 = new Piece(24,  D, DL, DR, D2L, D2R );
 
-	Piece P25 = new Piece(25, new Square[] { D, D2, L, L2, DL2 }); // rotated
+	Piece P25 = new Piece(25,  D, D2, L, L2, DL2 ); // rotated
 	// clockwise
 
-	Piece P26 = new Piece(26, new Square[] { D, D2, R, R2, DR }); // rotated
+	Piece P26 = new Piece(26,  D, D2, R, R2, DR ); // rotated
 	// clockwise
 
-	Piece P27 = new Piece(27, new Square[] { D, D2, D3, L, DR });
+	Piece P27 = new Piece(27,  D, D2, D3, L, DR);
 
-	Piece P28 = new Piece(28, new Square[] { D, D2, D3, D2L, D2L2 });
+	Piece P28 = new Piece(28,  D, D2, D3, D2L, D2L2 );
 
-	Piece P29 = new Piece(29, new Square[] { D, D2, R, D2R, D3R }); // rotated
+	Piece P29 = new Piece(29,  D, D2, R, D2R, D3R ); // rotated
 	// clockwise
 
-	Piece P30 = new Piece(30, new Square[] { D, D2, L, D2L, D2R }); // rotated
+	Piece P30 = new Piece(30,  D, D2, L, D2L, D2R ); // rotated
 	// clockwise
 
-	Piece P31 = new Piece(31, new Square[] { D, D2, D2L, L, R }); // rotated
+	Piece P31 = new Piece(31,  D, D2, D2L, L, R ); // rotated
 	// clockwise
 
-	Piece P32 = new Piece(32, new Square[] { D, D2, D3L, D2L, D2R });
+	Piece P32 = new Piece(32,  D, D2, D3L, D2L, D2R );
 
-	Piece P33 = new Piece(33, new Square[] { D, D2, D3, D2L, R }); // rotated
+	Piece P33 = new Piece(33,  D, D2, D3, D2L, R ); // rotated
 	// clockwise
 
-	Piece P34 = new Piece(34, new Square[] { D, D2, D3, DR, D2L }); // rotated
+	Piece P34 = new Piece(34,  D, D2, D3, DR, D2L ); // rotated
 	// clockwise
 
-	Piece P35 = new Piece(35, new Square[] { D, DR, D2R, D2R2, D3R }); // rotated
+	Piece P35 = new Piece(35,  D, DR, D2R, D2R2, D3R ); // rotated
 	// clockwise
 
 	public PieceBuilder(){
+		//make all pieces then set their colors
 		initialize();
+		for(int i=1; i<36; i++ ){
+			pieces.get(i).setColor(palette[i%palette.length]);
+		}
 	}
 	
 	public void initialize() {

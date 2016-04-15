@@ -24,6 +24,15 @@ public class Tile {
 		return this.coveredBy;
 	}
 	
+	void setCoveredBy(Integer i){
+		if (i >=0){
+			this.coveredBy = i;
+		}
+		else {
+			throw new RuntimeException("CoveredBy cannot be set to a negative value!");
+		}
+	}
+	
 	// checks if a location is over the tile
 	boolean overTile(Integer rw, Integer cl){
 		if ((rw <= this.row) && (rw > (this.row - 1)) && (cl <= this.col) && (cl > (this.col -1))){

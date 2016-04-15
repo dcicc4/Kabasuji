@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.builder.AddPieceToBullpenController;
+import entity.builder.BuilderModel;
+import entity.player.Bullpen;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -54,29 +59,34 @@ public class PuzzleBuilderGui extends JFrame {
 	JComboBox boardSizeCombo;
 	JComboBox levelNumberCombo;
 	
-	BuilderBullpenPanel bullpen;
-	BuilderStockPanel stock;
+	BuilderBullpenPanel bullpenView;
+	BuilderStockPanel stockView;
+	
+	
+	BuilderModel model;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PuzzleBuilderGui frame = new PuzzleBuilderGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					PuzzleBuilderGui frame = new PuzzleBuilderGui();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleBuilderGui() {
+	public PuzzleBuilderGui(BuilderModel bm) {
+		model = bm;
+		
 		setTitle("Kabasuji Puzzle Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -91,10 +101,9 @@ public class PuzzleBuilderGui extends JFrame {
 		JScrollPane bullpenScrollPane = new JScrollPane();
 		bullpenScrollPane.setBounds(738, 48, 600, 153);
 		
-		bullpen = new BuilderBullpenPanel();
-		bullpen.setPreferredSize(new Dimension(1000, 130));
-		bullpenScrollPane.setViewportView(bullpen);
-		bullpen.setLayout(null);
+		bullpenView = new BuilderBullpenPanel(model.getBullpen());
+		bullpenView.setPreferredSize(new Dimension(1000, 130));
+		bullpenScrollPane.setViewportView(bullpenView);
 		
 		JLabel lblTotalMoves = new JLabel("Total Moves");
 		lblTotalMoves.setBounds(16, 682, 148, 33);
@@ -102,10 +111,9 @@ public class PuzzleBuilderGui extends JFrame {
 		JScrollPane stockScrollPane = new JScrollPane();
 		stockScrollPane.setBounds(429, 48, 303, 757);
 		
-		stock = new BuilderStockPanel();
-		stock.setPreferredSize(new Dimension(280, 1200));
-		stockScrollPane.setViewportView(stock);
-		stock.setLayout(null);
+		stockView = new BuilderStockPanel();
+		stockView.setPreferredSize(new Dimension(280, 1200));
+		stockScrollPane.setViewportView(stockView);
 		
 		JLabel lblBoardsize = new JLabel("Board Size");
 		lblBoardsize.setBounds(16, 143, 138, 41);
@@ -204,5 +212,9 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(panel);
 		contentPane.add(btnFlipVert);
 		contentPane.add(btnFlipHor);
+		
+		//install controllers
+		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
+		stockView.addMouseListener(apb);
 	}
 }

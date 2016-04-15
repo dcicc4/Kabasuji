@@ -1,26 +1,40 @@
 package entity.player;
 
+import java.awt.Color;
 
 public class Piece {
 
 	int number;
 	int row;
 	int column;
-	Square[] dependant;
+	Square[] dependent = new Square[6];
 	Square anchor;
 	boolean board;
 	boolean bullpen;
+	Color color;
 
-	public Piece(int number, Square[] dependent)
+	public Piece(int number, Square a, Square b, Square c, Square d, Square e)
 	{
 		this.number = number;
-		this.dependant = dependent;
+		Square[] sqs = {a,  b,  c, d, e, new Square (0,0)};
 		this.board = false;
 		this.bullpen = false;
 		this.anchor = new Square (0,0);
+		
+		for (int x = 0; x< sqs.length ; x++)
+		{
+			this.dependent[x] = sqs[x];
+		}
 	}
 	public Square[] getDependant(){
-		return dependant;
+		return dependent;
+	}
+	
+	public void setColor(Color c){
+		color = c;
+	}
+	public Color getColor(){
+		return color;
 	}
 	void onBoard()
 	{
@@ -41,33 +55,49 @@ public class Piece {
 		bullpen = false;
 	}
 
-	void rotateHorizontal ()
+	void rotateClockwise ()
 	{
-		//put code here
+		for(int x = 0; x< dependent.length; x++)
+		{
+			dependent[x].rotateClockwise();
+		 
+		}
 	}
 
-	void rotateVertical ()
+	void rotateCounterClockwise ()
 	{
-
+		for(int x = 0; x< dependent.length; x++)
+		{
+			dependent[x].rotateCounter();
+		 
+		}
 	}
 
 	void flipHorizontal()
 	{
-
+		for(int x = 0; x< dependent.length; x++)
+		{
+			dependent[x].flipHorizontal();
+		 
+		}
 	}
 
 	void flipVertical()
 	{
-
+		for(int x = 0; x< dependent.length; x++)
+		{
+			dependent[x].flipVertical();
+		 
+		}
 	}
 
 	boolean fits(Tile[] aTile)
 	{ int match = 0;
-	for (int x = 0; x<  dependant.length; x++)
+	for (int x = 0; x<  dependent.length; x++)
 	{
 		for(int y = 0; y < aTile.length; y++)
 		{
-			if (tileFit(aTile[y], dependant [x]))
+			if (tileFit(aTile[y], dependent [x]))
 			{match ++;
 			y = aTile.length;
 			}
@@ -86,4 +116,3 @@ public class Piece {
 		return false;
 	}
 }
-

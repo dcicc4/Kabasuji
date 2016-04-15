@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.builder.AddPieceToBullpenController;
+import entity.builder.BuilderModel;
+import entity.player.Bullpen;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -43,29 +48,35 @@ public class ReleaseBuilderGui extends JFrame {
 	JComboBox colorCombo;
 	JComboBox numberCombo;
 	
-	BuilderBullpenPanel bullpen;
-	BuilderStockPanel stock;
+	BuilderBullpenPanel bullpenView;
+	BuilderStockPanel stockView;
 
+	
+	BuilderModel model;
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ReleaseBuilderGui frame = new ReleaseBuilderGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					ReleaseBuilderGui frame = new ReleaseBuilderGui();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseBuilderGui() {
+	public ReleaseBuilderGui(BuilderModel bm) {
+		model = bm;
+		
+		
 		setTitle("Kabasuji Release Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -114,15 +125,15 @@ public class ReleaseBuilderGui extends JFrame {
 		scrollPane.setBounds(767, 54, 600, 148);
 		contentPane.add(scrollPane);
 		
-		bullpen = new BuilderBullpenPanel();
-		scrollPane.setViewportView(bullpen);
+		bullpenView = new BuilderBullpenPanel(model.getBullpen());
+		scrollPane.setViewportView(bullpenView);
 		
 		JScrollPane stockScrollPane = new JScrollPane();
 		stockScrollPane.setBounds(440, 54, 323, 758);
 		contentPane.add(stockScrollPane);
 		
-		stock = new BuilderStockPanel();
-		stockScrollPane.setViewportView(stock);
+		stockView = new BuilderStockPanel();
+		stockScrollPane.setViewportView(stockView);
 		
 		JLabel label_2 = new JLabel("Board Size");
 		label_2.setBounds(35, 151, 138, 41);
@@ -195,5 +206,9 @@ public class ReleaseBuilderGui extends JFrame {
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
 		btnFlipHor.setBounds(1242, 824, 125, 125);
 		contentPane.add(btnFlipHor);
+		
+		//install controllers
+		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
+		stockView.addMouseListener(apb);
 	}
 }

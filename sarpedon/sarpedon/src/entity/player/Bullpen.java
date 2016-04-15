@@ -8,10 +8,23 @@ public class Bullpen {
 	
 	Bullpen(ArrayList <Piece> pcs, Piece sPiece){
 		pieces = pcs;
-		selectedPiece = sPiece; // do we need this?
+		selectedPiece = sPiece; 
+	}
+	public Bullpen(){
+		pieces = new ArrayList<Piece>(0);
+		selectedPiece = null;
 	}
 	
-	void addPiece(Piece p){
+	public void setSelected(Piece p ){
+		selectedPiece = p;
+	}
+	public ArrayList<Piece> getPieces(){
+		return pieces;
+	}
+	public void removeSelected(){
+		selectedPiece = null;
+	}
+	public void addPiece(Piece p){
 		pieces.add(p);
 	}
 	

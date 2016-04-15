@@ -5,14 +5,19 @@ import java.awt.EventQueue;
 import javax.swing.*;
 
 import control.builder.SwitchWindowController;
+import entity.builder.BuilderModel;
 
 public class BuilderApplication{
 
+	
+	BuilderModel model = new BuilderModel();
+	
 	BuilderSplashScreen splashScreen = new BuilderSplashScreen();
 	LevelBuilderGui levelBuilder = new LevelBuilderGui();
-	LightningBuilderGui lightningBuilder = new LightningBuilderGui();
-	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui();
-	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui();
+	LightningBuilderGui lightningBuilder = new LightningBuilderGui(model);
+	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(model);
+	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(model);
+	
 	
 	
 	public BuilderApplication(){

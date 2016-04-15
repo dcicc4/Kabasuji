@@ -1,5 +1,6 @@
 package entity.player;
 
+import java.awt.Color;
 
 public class Piece {
 
@@ -10,6 +11,7 @@ public class Piece {
 	Square anchor;
 	boolean board;
 	boolean bullpen;
+	Color color;
 
 	public Piece(int number, Square a, Square b, Square c, Square d, Square e)
 	{
@@ -26,6 +28,13 @@ public class Piece {
 	}
 	public Square[] getDependant(){
 		return dependent;
+	}
+	
+	public void setColor(Color c){
+		color = c;
+	}
+	public Color getColor(){
+		return color;
 	}
 	void onBoard()
 	{

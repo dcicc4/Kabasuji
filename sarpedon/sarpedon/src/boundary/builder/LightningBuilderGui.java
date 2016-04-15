@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.builder.AddPieceToBullpenController;
+import entity.builder.BuilderModel;
+import entity.player.Bullpen;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -41,29 +46,36 @@ public class LightningBuilderGui extends JFrame {
 	JComboBox boardSizeCombo;
 	JComboBox levelNumberCombo;
 	
-	BuilderBullpenPanel bullpen;
-	BuilderStockPanel stock;
+	BuilderBullpenPanel bullpenView;
+	BuilderStockPanel stockView;
+	
+	
+	BuilderModel model;
+	
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LightningBuilderGui frame = new LightningBuilderGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					LightningBuilderGui frame = new LightningBuilderGui();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public LightningBuilderGui() {
+	public LightningBuilderGui(BuilderModel bm) {
+		model = bm;
+		
+		
 		setTitle("Kabasuji Lightning Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -115,9 +127,9 @@ public class LightningBuilderGui extends JFrame {
 		bullpenScrollPane.setBounds(752, 63, 600, 157);
 		contentPane.add(bullpenScrollPane);
 		
-		bullpen = new BuilderBullpenPanel();
-		bullpen.setPreferredSize(new Dimension(1000, 130));
-		bullpenScrollPane.setViewportView(bullpen);
+		bullpenView = new BuilderBullpenPanel(model.getBullpen());
+		bullpenView.setPreferredSize(new Dimension(1000, 130));
+		bullpenScrollPane.setViewportView(bullpenView);
 		
 		JLabel lblTotalTime = new JLabel("Total Time");
 		lblTotalTime.setBounds(20, 677, 148, 33);
@@ -127,9 +139,9 @@ public class LightningBuilderGui extends JFrame {
 		stockScrollPane.setBounds(433, 64, 316, 758);
 		contentPane.add(stockScrollPane);
 		
-		stock = new BuilderStockPanel();
-		stock.setPreferredSize(new Dimension(280, 1200));
-		stockScrollPane.setViewportView(stock);
+		stockView = new BuilderStockPanel();
+		stockView.setPreferredSize(new Dimension(280, 1200));
+		stockScrollPane.setViewportView(stockView);
 		
 		JLabel label_2 = new JLabel("Board Size");
 		label_2.setBounds(20, 138, 138, 41);
@@ -177,5 +189,9 @@ public class LightningBuilderGui extends JFrame {
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
 		btnFlipHor.setBounds(1227, 833, 125, 125);
 		contentPane.add(btnFlipHor);
+		
+		//Install controllers
+		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
+		stockView.addMouseListener(apb);
 	}
 }

@@ -1,9 +1,11 @@
 package entity.player;
+import java.awt.Color;
 import java.util.HashMap;
 
 public class PieceBuilder {
 
 	HashMap<Integer, Piece> pieces = new HashMap<Integer, Piece>();
+	Color[] palette = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE};
 
 	final Square R = new Square(1, 0);
 	final Square D = new Square(0, 1);
@@ -124,7 +126,11 @@ public class PieceBuilder {
 	// clockwise
 
 	public PieceBuilder(){
+		//make all pieces then set their colors
 		initialize();
+		for(int i=1; i<36; i++ ){
+			pieces.get(i).setColor(palette[i%palette.length]);
+		}
 	}
 	
 	public void initialize() {

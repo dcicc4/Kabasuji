@@ -2,33 +2,33 @@ package entity.player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-// This class is a stub till piece class is implemented
+import java.util.UUID;
+
 public class Board {
-	Tile[][] shape;
-	HashMap <Long, Piece> pieces;
-	// add hashmap between piece ids and piece objects
-	// assign id in piece constructor?
+	Tile[][] shape; // an array of tiles or null describing the shape of the board
+	HashMap <UUID, Piece> pieces;
 	// add and remove piece from board method
 	// move piece on board method
 	// move class?
 	
 	Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
-		Integer tid = t.getCoveredBy();
-		Piece p = pieces.get(tid);
+		UUID tUUID = t.getCoveredBy();
+		Piece p = pieces.get(tUUID);
 		return p;
 	}
 	
 	boolean availableTile(Integer row, Integer col){
+		// check if out of bounds of rectangular representation of the board
 		if ((row > shape[0].length) || (col > shape.length)){
 			return false;
 		}
 		Tile t = shape[row][col];
 		if (t == null){
-			return false; // tile out of bounds
+			return false; // location not a playable tile
 		}
-		Integer tid = t.getCoveredBy();
-		if (tid != null){
+		UUID tUUID = t.getCoveredBy();
+		if (tUUID != null){
 			return false; // tile already covered by another piece
 		}
 		else {
@@ -51,5 +51,44 @@ public class Board {
 			placeable = false;
 		}
 		return placeable;
+	}
+	boolean addPiece(Integer row, Integer col, Piece p){
+		if (piecePlaceable(row, col, p)){
+			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
+			while (pieces.get(pUUID) != null){ // ensuring a unique UUID
+				pUUID = UUID.randomUUID();
+			}
+			Tile t = shape[row][col];
+			t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
+			for (Square s : p.dependent){ // mark the rest 
+				int drow = row + s.xFromAnchor;
+				int dcol = col + s.yFromAnchor;
+				t = shape[drow][dcol];
+				t.setCoveredBy(pUUID);
+				}
+			pieces.put(pUUID, p); // put mapping into hashmap
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	boolean removePiece(Integer row, Integer col){
+		Tile t = shape[row][col];
+		UUID pUUID = t.getCoveredBy();
+		if (pUUID.compareTo(null)!=0){ // check if tile is covered
+			for (Tile[] tileRow: shape){ // update coveredBy for tiles in shape
+				for (Tile aTile: tileRow){
+					if (aTile.getCoveredBy().compareTo(pUUID) == 0){
+						aTile.setCoveredBy(null);
+					}
+				}
+			}
+			pieces.remove(pUUID); // remove mapping from hash
+			return true;
+		}
+		else { // tried to remove a piece from a tile that is not covered
+			return false;
+		}
 	}
 }

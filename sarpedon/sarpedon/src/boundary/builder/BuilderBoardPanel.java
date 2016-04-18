@@ -5,11 +5,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.MouseInfo;
+import java.awt.Point;
 
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
+import entity.builder.BuilderModel;
+import entity.player.Board;
 import entity.player.Model;
+import entity.player.Piece;
+import entity.player.Square;
+import entity.player.Tile;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,8 +24,7 @@ import javax.swing.GroupLayout.Alignment;
 public class BuilderBoardPanel extends JPanel {
 
 	/** Core model. */
-	Model model; //this is currently the player model, change it when we have builder model(check imports)
-	
+	BuilderModel model;
 	/** around edges. */
 	int offset = 20;
 	
@@ -91,16 +97,30 @@ public class BuilderBoardPanel extends JPanel {
 		//double check if no model (for WindowBuilder)
 		if (model == null) { return; }
 		
-		// draw active polygon.
+		// draw board.
 			g.setColor(Color.white);
 			g.fillRect(0,0,16*N,16*N);
 			g.setColor(Color.black);
 			//draws a 12 by 12 grid, but it will take in the models board object eventually
+			Tile[][] tiles = model.getBoard().getTileArray();
 			for(int i = 0; i<12; i++){
 				for(int j = 0; j<12; j++){
+					if(tiles[i][j] != null)
 					g.drawRect(offset + i*N, offset + j*N, N, N);				
 				}
 			}
+			Square[] drawn = model.getBullpen().getSelectedPiece().getDependant();
+			Point location = MouseInfo.getPointerInfo().getLocation();
+			for(int i = 0; i<6; i++){
+				g.setColor(model.getBullpen().getSelectedPiece().getColor());		
+				g.fillRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
+				g.setColor(Color.BLACK);	
+				g.drawRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
+			}
+			g.setColor(model.getBullpen().getSelectedPiece().getColor());		
+			g.fillRect(location.x, location.y, N, N);
+			g.setColor(Color.BLACK);	
+			g.drawRect(location.x, location.y, N, N);
 			
 	}
 	public void redraw() {
@@ -115,11 +135,25 @@ public class BuilderBoardPanel extends JPanel {
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
+		Tile[][] tiles = model.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
-					offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);
-					
+				if(tiles[i][j] != null)
+					offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);				
 			}
+		}
+		Square[] drawn = model.getBullpen().getSelectedPiece().getDependant();
+		Point location = MouseInfo.getPointerInfo().getLocation();
+		for(int i = 0; i<6; i++){
+			offScreenGraphics.setColor(model.getBullpen().getSelectedPiece().getColor());		
+			offScreenGraphics.fillRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
+			offScreenGraphics.setColor(Color.BLACK);	
+			offScreenGraphics.drawRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
+		}
+		offScreenGraphics.setColor(model.getBullpen().getSelectedPiece().getColor());		
+		offScreenGraphics.fillRect(location.x, location.y, N, N);
+		offScreenGraphics.setColor(Color.BLACK);	
+		offScreenGraphics.drawRect(location.x, location.y, N, N);
 		}
 		
 		// placed pieces.
@@ -133,4 +167,3 @@ public class BuilderBoardPanel extends JPanel {
 		}*/		
 	}
 
-}

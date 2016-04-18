@@ -16,5 +16,9 @@ public class Level {
 		completed = cmplted;
 		hints = hnts;
 	}
+	
+	public Bullpen getBullpen(){
+		return bp;
+	}
 
 }

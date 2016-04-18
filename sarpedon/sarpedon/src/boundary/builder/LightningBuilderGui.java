@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.FlipController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
 

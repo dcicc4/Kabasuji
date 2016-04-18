@@ -9,21 +9,28 @@ import boundary.builder.*;
 
 public class FlipController implements ActionListener{
 
-	BuilderBullpenPanel bullpenPanel;
-	Piece piece;
+	BuilderBoardPanel boardPanel;
+	Level level;
+	Boolean direction;
 	
-	public FlipController(BuilderBullpenPanel newbullpenPanel, Piece newpiece){
-		bullpenPanel = newbullpenPanel;
-		piece = newpiece;
-	}
-	
-	public void flip(boolean direction){
-
+	public FlipController(BuilderBoardPanel newBoardPanel, Level newLevel, Boolean newdirection){
+		boardPanel = newBoardPanel;
+		level = newLevel;
+		direction = newdirection;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		Piece piece = level.getBullpen().getSelectedPiece();
+		if (piece == null){return;}
+		if (direction){
+			piece.flipVertical();
+		} else {
+			piece.flipHorizontal();
+		}
+		level.getBullpen().setSelected(piece);
+		boardPanel.redraw();
+		boardPanel.repaint();
 	}
 }

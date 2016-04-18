@@ -51,6 +51,7 @@ public class BuilderBullpenPanel extends JPanel {
 		setBounds(0, 0, width, height);
 		setBackground(Color.WHITE);
 	}
+
 	public void setPieces(Bullpen b){
 		pieces = b;
 	}

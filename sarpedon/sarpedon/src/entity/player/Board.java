@@ -18,6 +18,9 @@ public class Board {
 		Piece p = pieces.get(tid);
 		return p;
 	}
+	public Tile[][] getTileArray(){
+		return shape;
+	}
 	
 	boolean availableTile(Integer row, Integer col){
 		if ((row > shape[0].length) || (col > shape.length)){

@@ -27,6 +27,9 @@ public class Bullpen {
 	public void addPiece(Piece p){
 		pieces.add(p);
 	}
+	public Piece getSelectedPiece(){
+		return selectedPiece;
+	}
 	
 	Piece removePiece(Piece p){
 		int i = pieces.indexOf(p);

@@ -8,23 +8,22 @@ import entity.builder.*;
 
 //import javax.swing.*;
 
-public class BullpenToStockController implements ActionListener{
+public class DeleteFromBullpenController implements ActionListener{
 
-	PieceStock stock;
 	Bullpen bullpen;
 	BuilderStockPanel stockPanel;
 	BuilderBullpenPanel bullpenPanel;
 	Piece piece;
 	
-	public BullpenToStockController(PieceStock newstock, Bullpen newbullpen, BuilderStockPanel newstockPanel, BuilderBullpenPanel newbullpenPanel){
-		stock = newstock;
+	public DeleteFromBullpenController(Bullpen newbullpen, BuilderStockPanel newstockPanel, BuilderBullpenPanel newbullpenPanel){
 		bullpen = newbullpen;
 		stockPanel = newstockPanel;
 		bullpenPanel = newbullpenPanel;
 	}
 	
 	public void move(Piece piece, int col, int row){
-
+		
+		
 	}
 
 	@Override

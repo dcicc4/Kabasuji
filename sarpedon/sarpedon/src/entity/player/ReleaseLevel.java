@@ -17,7 +17,6 @@ public class ReleaseLevel extends Level {
 	public ReleaseLevel(ReleaseBoard rboard, Bullpen bull, Integer strs,
 			boolean cmplted, ArrayList<Hint> hnts) {
 		super(rboard, bull, strs, cmplted, hnts);
-		//stub
 	}
 	
 	void calculateColor(ArrayList <Boolean> numCovered, Integer numColor){

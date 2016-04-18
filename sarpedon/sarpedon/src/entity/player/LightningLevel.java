@@ -13,7 +13,22 @@ public class LightningLevel extends Level {
 	}
 	
 	void updateStars(){
-		
+		int spcLeft = ((LightningBoard) this.brd).spacesLeft();
+		if (spcLeft > 12){
+			this.stars = 0;
+			return;
+		} else if (spcLeft > 6){
+			this.stars = 2;
+			return;
+		} else if (spcLeft > 0){
+			this.stars = 2;
+			return;
+		} else if (spcLeft == 0){
+			this.stars = 3;
+			return;
+		} else {
+			throw new RuntimeException("LightningLevel::updateStars: Error calculating stars");
+		}
 	}
 
 }

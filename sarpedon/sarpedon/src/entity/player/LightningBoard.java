@@ -9,16 +9,34 @@ public class LightningBoard extends Board {
 	}
 	
 	@Override
+	boolean availableTile(Integer row, Integer col){
+		// check if out of bounds of rectangular representation of the board
+		if ((row > shape[0].length) || (col > shape.length)){
+			return false;
+		}
+		Tile t = shape[row][col];
+		if (t == null){
+			return false; // location not a playable tile
+		} else {
+			return true;
+		}
+	}
+	
+	@Override
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = false;
-		for (Square s : p.dependent){
-			int drow = row + s.xFromAnchor;
-			int dcol = col + s.yFromAnchor;
-			if (availableTile(drow, dcol)){
-				placeable = true;
+		if (availableTile(row, col)){
+			for (Square s : p.dependent){
+				int drow = row + s.xFromAnchor;
+				int dcol = col + s.yFromAnchor;
+				if (availableTile(drow, dcol)){
+					placeable = true;
+				}
 			}
+		} else {
+			placeable = false;
 		}
-		return placeable;
+			return placeable;
 	}
 	
 	@Override

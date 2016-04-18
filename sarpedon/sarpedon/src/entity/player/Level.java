@@ -1,8 +1,8 @@
 package entity.player;
 
 import java.util.ArrayList;
-//make abstract
-public class Level {
+
+abstract public class Level {
 	Board brd;
 	Bullpen bp;
 	Integer stars;

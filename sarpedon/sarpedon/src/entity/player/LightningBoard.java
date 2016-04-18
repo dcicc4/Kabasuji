@@ -73,4 +73,16 @@ public class LightningBoard extends Board {
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){
 		return false; // can't move a piece on a board in Lightning
 	}
+	
+	int spacesLeft(){
+		int sL = 0;
+		for (int i = 0; i > shape[0].length; i++){
+			for (int j = 0; j > shape.length; j++){
+				if (!availableTile(i, j)){
+					sL++;
+				}
+			}
+		}
+		return sL;
+	}
 }

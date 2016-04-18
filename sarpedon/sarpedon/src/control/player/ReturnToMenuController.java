@@ -1,8 +1,11 @@
 package control.player;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import bounday.player.KabasujiMenuGui;
 
-public class ReturnToMenuController {
+public class ReturnToMenuController implements ActionListener{
 	KabasujiMenuGui parentPanel;
 	
 	ReturnToMenuController(KabasujiMenuGui parentPanel) {
@@ -10,6 +13,12 @@ public class ReturnToMenuController {
 	}
 	
 	void quit() {
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 	

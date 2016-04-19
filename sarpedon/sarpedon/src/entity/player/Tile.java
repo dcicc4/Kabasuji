@@ -1,15 +1,23 @@
 package entity.player;
 
+import java.util.UUID;
+
 public class Tile {
 	// a tile with it's lower right corner denoted by the tuple (row, col)
 	Integer row; 
 	Integer col;
-	Integer coveredBy; //stores the unique ID of the piece covering it
+	UUID coveredBy; //stores the unique ID of the piece covering it
 	
-	public Tile(Integer rw, Integer cl, Integer cvrd){
+	public Tile(Integer rw, Integer cl, UUID cvrd){
 		row = rw;
 		col = cl;
 		coveredBy = cvrd;
+	}
+	
+	public Tile(Integer rw, Integer cl){
+		row = rw;
+		col = cl;
+		coveredBy = null;
 	}
 	
 	Integer getRow(){
@@ -20,12 +28,12 @@ public class Tile {
 		return this.col;
 	}
 	
-	Integer getCoveredBy(){
+	UUID getCoveredBy(){
 		return this.coveredBy;
 	}
 	
-	void setCoveredBy(Integer i){
-		if (i >=0){
+	void setCoveredBy(UUID i){
+		if (i.compareTo(null) == 0){
 			this.coveredBy = i;
 		}
 		else {

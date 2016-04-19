@@ -55,7 +55,7 @@ public class Piece {
 		bullpen = false;
 	}
 
-	void rotateClockwise ()
+	public void rotateClockwise ()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{
@@ -64,7 +64,7 @@ public class Piece {
 		}
 	}
 
-	void rotateCounterClockwise ()
+	public void rotateCounterClockwise ()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{
@@ -73,7 +73,7 @@ public class Piece {
 		}
 	}
 
-	void flipHorizontal()
+	public void flipHorizontal()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{
@@ -82,7 +82,7 @@ public class Piece {
 		}
 	}
 
-	void flipVertical()
+	public void flipVertical()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{

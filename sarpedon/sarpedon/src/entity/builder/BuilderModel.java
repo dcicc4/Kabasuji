@@ -1,21 +1,30 @@
 package entity.builder;
 
+import java.util.ArrayList;
+
 import entity.player.*;
 
-public class BuilderModel {
+public class BuilderModel extends Level{
 
-	Bullpen bullpen;
-	PieceBuilder pieceBuilder;
+	Board brd;
+	Bullpen bp;
+	Integer stars;
+	boolean completed;
+	ArrayList <Hint> hints;
+	PieceBuilder pb;
+
 	
 	public BuilderModel(){
-		bullpen = new Bullpen();
-		pieceBuilder = new PieceBuilder();
+		bp = new Bullpen();
+		pb = new PieceBuilder();
 	}
 	
 	public Bullpen getBullpen(){
-		return bullpen;
+		return bp;
 	}
 	public void setBullpen(Bullpen bp){
-		bullpen = bp;
+		this.bp = bp;
 	}
+	
+
 }

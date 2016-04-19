@@ -17,7 +17,7 @@ public class BuilderApplication{
 	LightningBuilderGui lightningBuilder = new LightningBuilderGui(model);
 	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(model);
 	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(model);
-	
+	SaveGui aSave = new SaveGui(model);
 	
 	
 	public BuilderApplication(){
@@ -29,6 +29,11 @@ public class BuilderApplication{
 		levelBuilder.btnLightningBuilder.addActionListener(new SwitchWindowController(levelBuilder, lightningBuilder));
 		levelBuilder.btnPuzzleBuilder.addActionListener(new SwitchWindowController(levelBuilder, puzzleBuilder));
 		levelBuilder.btnReleaseBuilder.addActionListener(new SwitchWindowController(levelBuilder, releaseBuilder));
+		
+		lightningBuilder.btnSave.addActionListener(new SwitchWindowController(lightningBuilder, aSave));
+		puzzleBuilder.btnSave.addActionListener(new SwitchWindowController(puzzleBuilder, aSave));
+		releaseBuilder.btnSave.addActionListener(new SwitchWindowController(releaseBuilder, aSave));
+		
 	}
 	
 	public static void main(String[] args) {	

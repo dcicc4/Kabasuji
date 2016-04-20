@@ -28,8 +28,8 @@ public class BuilderBoardPanel extends JPanel {
 	/** around edges. */
 	int offset = 20;
 	
-	/** Base size of puzzle. */
-	public final int N = 46;   // size of the edge of one tile
+	/** Size of a tile */
+	public final int N = 46;  
 	
 	/** Off-screen image for drawing (and Graphics object). */
 	Image offScreenImage = null;
@@ -65,7 +65,7 @@ public class BuilderBoardPanel extends JPanel {
 
 
 	/** 
-	 * Swing thing. We must be large enough to draw all Tangram pieces. 
+	 * Swing thing. We must be large enough to draw all Kabasuji pieces. 
 	 */
 	@Override
 	public Dimension getPreferredSize() {
@@ -164,6 +164,8 @@ public class BuilderBoardPanel extends JPanel {
 			offScreenGraphics.drawRect(location.x, location.y, N, N);
 		}
 	}
+	
+	
 
 }
 

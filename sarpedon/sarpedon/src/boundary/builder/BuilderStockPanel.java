@@ -127,57 +127,26 @@ public class BuilderStockPanel extends JPanel {
 			
 			for(int i = 1; i<36; i++){
 				Piece p = pieces.getPiece(i);
-				
-				for(int j = 0; j<5; j++){
-					Square[] drawn = p.getDependant(); 
-					g.setColor(p.getColor());
-					g.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
-					g.setColor(Color.black);
-					g.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
-				}
-				g.setColor(p.getColor());
-				g.fillRect(getXAnchor(i), getYAnchor(i), N, N);
-				g.setColor(Color.black);
-				g.drawRect(getXAnchor(i), getYAnchor(i), N, N);
+				drawPiece(g, p, i);
 			}
-			
+
 	}
 	public void redraw() {
 		// Once created, draw each, with buffer.
-		
+
 		Dimension dim = getPreferredSize();
 		offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
-		
+
 		//Board b = model.getBoard();
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, width, height);
 		for(int i = 1; i<36; i++){
 			Piece p = pieces.getPiece(i);
-			
-			for(int j = 0; j<5; j++){
-				Square[] drawn = p.getDependant(); 
-				offScreenGraphics.setColor(p.getColor());
-				offScreenGraphics.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
-				offScreenGraphics.setColor(Color.black);
-				offScreenGraphics.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
-			}
-			offScreenGraphics.setColor(p.getColor());
-			offScreenGraphics.fillRect(getXAnchor(i), getYAnchor(i), N, N);
-			offScreenGraphics.setColor(Color.black);
-			offScreenGraphics.drawRect(getXAnchor(i), getYAnchor(i), N, N);
-		}
+			drawPiece(offScreenGraphics, p, i);
 
-		// placed pieces.
-		/*if (model.getPlacedPieces() != null) {
-			for (PlacedPiece pp : model.getPlacedPieces()) {
-				if (pp != model.getDraggingPiece()) {
-					offScreenGraphics.setColor(colorMapping.get(pp.getPiece()));
-					offScreenGraphics.fillPolygon(pp.getPolygon());
-				}
-			}
-		}*/		
+		}
 	}
-	
+
 	/** returns piece that is at given point, or null if the point does not contain a piece*/ 
 	public Piece getPieceAtCoordinate(Point point) {
 		for(int i = 1; i<36; i++){
@@ -196,6 +165,25 @@ public class BuilderStockPanel extends JPanel {
 		return null;
 	}
 
-
+	/**
+	 * Helper method to draw a piece.
+	 * 
+	 * @param g - the graphics object being drawn to.
+	 * @param p - the piece being drawn.
+	 * @param i - the number piece it is.
+	 */
+	private void drawPiece(Graphics g, Piece p, int i) {
+		for(int j = 0; j<5; j++){
+			Square[] drawn = p.getDependant(); 
+			g.setColor(p.getColor());
+			g.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
+			g.setColor(Color.black);
+			g.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
+		}
+		g.setColor(p.getColor());
+		g.fillRect(getXAnchor(i), getYAnchor(i), N, N);
+		g.setColor(Color.black);
+		g.drawRect(getXAnchor(i), getYAnchor(i), N, N);
+	}
 
 }

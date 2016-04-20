@@ -47,12 +47,7 @@ public class Tile implements Serializable {
 	
 	/** Sets the UUID of the Piece that covers the Tile */
 	void setCoveredBy(UUID i){
-		if (i.compareTo(null) == 0){
-			this.coveredBy = i;
-		}
-		else {
-			throw new RuntimeException("CoveredBy cannot be set to a negative value!");
-		}
+		this.coveredBy = i;	
 	}
 	
 	/** Checks if a location is over the tile, returns true if it is */

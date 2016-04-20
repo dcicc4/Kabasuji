@@ -77,8 +77,9 @@ public class PlayerBoardPanel extends JPanel {
 		// copy image into place.
 		g.drawImage(offScreenImage, 0, 0, this);
 		
+		
 		//double check if no model (for WindowBuilder)
-		if (model == null) { return; }
+		if (aLevel == null) { return; }
 		
 		// draw active polygon.
 			g.setColor(Color.white);

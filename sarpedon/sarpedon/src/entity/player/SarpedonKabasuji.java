@@ -21,5 +21,14 @@ public class SarpedonKabasuji {
 		// stub
 
 	}
+	public boolean getGameOver(){
+		return gameOver;
+	}
+	public int getCurrentLevel(){
+		return currentLevel;
+	}
+	public Level[] getLevels(){
+		return levels;
+	}
 
 }

@@ -14,6 +14,7 @@ abstract public class Level implements Serializable {
 	protected boolean completed;
 	protected ArrayList <Hint> hints;
 	protected String type;
+	protected Integer number;
 	
 	public Level(){
 		
@@ -22,8 +23,25 @@ abstract public class Level implements Serializable {
 	public Bullpen getBullpen(){
 		return bp;
 	}
-public String getType()
-{
-	return type;
-}
+	public String getType(){
+		return type;
+	}
+	public boolean getCompleted(){
+		return completed;
+	}
+	public Integer getStars(){
+		return stars;
+	}
+	public Board getBoard(){
+		return brd;
+	}
+	public ArrayList<Hint> getHints(){
+		return hints;
+	}
+	public Integer getNumber(){
+		return number;
+	}
+	public void setNumber(Integer num){
+		number = num;
+	}
 }

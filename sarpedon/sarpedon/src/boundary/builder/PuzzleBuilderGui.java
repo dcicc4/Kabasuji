@@ -89,7 +89,7 @@ public class PuzzleBuilderGui extends JFrame {
 	 */
 	public PuzzleBuilderGui(BuilderModel bm) {
 		model = bm;
-		
+		model.setType("Puzzle");
 		setTitle("Kabasuji Puzzle Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);

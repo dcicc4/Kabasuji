@@ -1,10 +1,15 @@
 package entity.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Board {
+public class Board implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6584127615090719915L;
 	Tile[][] shape; // an array of tiles or null describing the shape of the board
 	HashMap <UUID, Piece> pieces; // mapping of pieces to uuid's stored in tiles
 	

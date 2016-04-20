@@ -1,9 +1,14 @@
 package entity.player;
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class PieceBuilder {
+public class PieceBuilder implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	HashMap<Integer, Piece> pieces = new HashMap<Integer, Piece>();
 	Color[] palette = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE};
 

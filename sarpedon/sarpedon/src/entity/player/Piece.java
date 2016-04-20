@@ -1,9 +1,14 @@
 package entity.player;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class Piece {
+public class Piece implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6485170791118171377L;
 	int number;
 	int row;
 	int column;

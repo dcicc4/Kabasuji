@@ -3,6 +3,14 @@ package entity.player;
 import java.util.ArrayList;
 
 public class PuzzleLevel extends Level {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+
 	Integer movesleft;
 	
 	public PuzzleLevel(Board board, Bullpen bull, Integer strs,

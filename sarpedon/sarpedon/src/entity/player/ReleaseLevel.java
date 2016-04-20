@@ -3,6 +3,11 @@ package entity.player;
 import java.util.ArrayList;
 
 public class ReleaseLevel extends Level {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final int MAX_NUM = 6;
 	
 	ArrayList <Boolean> blueNumCovered;

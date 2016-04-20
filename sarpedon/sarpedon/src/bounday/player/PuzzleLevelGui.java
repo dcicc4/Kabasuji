@@ -33,7 +33,7 @@ public class PuzzleLevelGui extends JFrame {
 	JButton btnFlipVert;
 	JButton btnFlipHor;
 
-	PlayerBullpenPanel bullpen;
+	private PlayerBullpenPanel bullpen;
 	PlayerBoardPanel board;
 
 	/**
@@ -73,9 +73,9 @@ public class PuzzleLevelGui extends JFrame {
 		scrollPane.setBounds(10, 522, 600, 300);
 		contentPane.add(scrollPane);
 		
-		bullpen = new PlayerBullpenPanel();
-		bullpen.setPreferredSize(new Dimension(1200, 150));
-		scrollPane.setViewportView(bullpen);
+		setBullpen(new PlayerBullpenPanel());
+		getBullpen().setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(getBullpen());
 		
 		JLabel lblNewLabel = new JLabel("Moves Left:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 48));
@@ -128,5 +128,13 @@ public class PuzzleLevelGui extends JFrame {
 		btnrotateCClockwise.setBackground(Color.LIGHT_GRAY);
 		btnrotateCClockwise.setBounds(1349, 297, 125, 125);
 		contentPane.add(btnrotateCClockwise);
+	}
+
+	public PlayerBullpenPanel getBullpen() {
+		return bullpen;
+	}
+
+	public void setBullpen(PlayerBullpenPanel bullpen) {
+		this.bullpen = bullpen;
 	}
 }

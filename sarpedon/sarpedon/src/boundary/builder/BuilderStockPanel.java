@@ -24,7 +24,7 @@ public class BuilderStockPanel extends JPanel {
 	PieceBuilder pieces = new PieceBuilder();
 	
 	/** Core model. */
-	BuilderModel model;
+	BuilderModel model; 
 	
 	/** around edges. */
 	int offsetY = 20;

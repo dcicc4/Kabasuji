@@ -64,7 +64,7 @@ public class SaveGui extends JFrame {
 		txtEnterHere.setColumns(10);
 		contentPane.add(btnSaveGuiAndQuit);
 	
-	SaveController sVC = new SaveController(btnSaveGuiAndQuit, txtEnterHere.getText(), model);
+	SaveController sVC = new SaveController(btnSaveGuiAndQuit, txtEnterHere, model);
 	btnSaveGuiAndQuit.addMouseListener(sVC);
 	}
 }

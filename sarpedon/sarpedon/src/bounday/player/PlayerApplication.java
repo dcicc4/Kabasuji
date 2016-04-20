@@ -2,7 +2,9 @@ package bounday.player;
 
 import java.awt.EventQueue;
 
+import control.player.Loader;
 import control.player.SwitchWindowController;
+import entity.player.Level;
 
 
 public class PlayerApplication {
@@ -10,12 +12,17 @@ public class PlayerApplication {
 	PlayerSplashScreen splashScreen = new PlayerSplashScreen();
 	KabasujiMenuGui menu = new KabasujiMenuGui();
 	LevelSelectGui levelSelect = new LevelSelectGui();
-	LightningLevelGui lightningLevel = new LightningLevelGui();
+
+	LightningLevelGui lightningLevel  = new LightningLevelGui();
 	ReleaseLevelGui releaseLevel = new ReleaseLevelGui();
 	PuzzleLevelGui puzzleLevel = new PuzzleLevelGui();
 	
+	
 	public PlayerApplication(){
 		initializeControllers();
+		int levelNumber = 0;
+		Loader l = new Loader();
+		Level currentLevel = l.getLevel(levelNumber);
 	}
 	
 	void initializeControllers() {

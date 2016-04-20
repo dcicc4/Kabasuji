@@ -8,11 +8,12 @@ abstract public class Level implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -884584409157199554L;
-	Board brd;
-	Bullpen bp;
-	Integer stars;
-	boolean completed;
-	ArrayList <Hint> hints;
+	protected Board brd;
+	protected Bullpen bp;
+	protected Integer stars;
+	protected boolean completed;
+	protected ArrayList <Hint> hints;
+	protected String type;
 	
 	public Level(){
 		
@@ -21,5 +22,8 @@ abstract public class Level implements Serializable {
 	public Bullpen getBullpen(){
 		return bp;
 	}
-
+public String getType()
+{
+	return type;
+}
 }

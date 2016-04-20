@@ -7,7 +7,7 @@ public class LightningLevel extends Level {
 
 	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
 			boolean cmplted, ArrayList<Hint> hnts, Integer tLeft) {
-		super(lboard, bull, strs, cmplted, hnts);
+		super();
 		timeLeft = tLeft;
 		// stub
 	}

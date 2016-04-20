@@ -18,7 +18,7 @@ public class PuzzleLevel extends Level {
 	
 	}
 
-	void updateStars(){
+	public void updateStars(){
 		int s = this.bp.piecesLeft();
 		if (s > 2){
 			this.stars = 0;
@@ -34,5 +34,8 @@ public class PuzzleLevel extends Level {
 		} else {
 			throw new RuntimeException("PuzzleLevel::updateStars: received incompatible bullpen");
 		}
+	}
+	public Integer getMovesLeft(){
+		return movesleft;
 	}
 }

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import control.builder.AddPieceToBullpenController;
 import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
+import control.builder.RotateController;
 import control.builder.SelectPieceController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
@@ -202,5 +203,7 @@ public class LightningBuilderGui extends JFrame {
 		boardView.addMouseMotionListener(movePiece);
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
+		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
+		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 	}
 }

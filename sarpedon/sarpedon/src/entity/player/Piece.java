@@ -31,6 +31,22 @@ public class Piece implements Serializable{
 			this.dependent[x] = sqs[x];
 		}
 	}
+	public Piece(Square[] dep, int num ,Color c){
+		dependent = dep;
+		number = num;
+		color = c;
+	}
+	
+	/**
+	 * Clones piece so two of the same pieces aren't the same object.
+	 */
+	public Piece clone(){
+		Square[] dep = new Square[6];
+		for(int i =0; i<6 ;i++){
+			dep[i] = new Square(dependent[i].getX(), dependent[i].getY());
+		}
+		return new Piece(dep, this.number, this.color);
+	}
 	public Square[] getDependant(){
 		return dependent;
 	}

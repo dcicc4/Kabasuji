@@ -29,11 +29,19 @@ public class BuilderBoardPanel extends JPanel {
 	
 	/** Size of a tile */
 	public final int N = 46;  
-	
+
 	/** Off-screen image for drawing (and Graphics object). */
 	Image offScreenImage = null;
 	Graphics offScreenGraphics = null;
 	
+	Point mouse = null;
+	
+	public int getN(){
+		return N;
+	}
+	public void setMouse(Point p){
+		mouse = p;
+	}
 	/**
 	 * Create the panel.
 	 */
@@ -112,6 +120,13 @@ public class BuilderBoardPanel extends JPanel {
 				if(tiles[i][j] != null)
 					g.drawRect(offset + i*N, offset + j*N, N, N);				
 			}
+		}
+		Piece selected = model.getBullpen().getSelectedPiece();
+		if (selected != null){
+			if(mouse!= null){
+				drawPiece(g, selected, mouse);
+			}
+			return;
 		}
 	}
 	public void redraw() {

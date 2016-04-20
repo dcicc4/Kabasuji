@@ -8,6 +8,9 @@ import javax.swing.border.EmptyBorder;
 
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.BullpenToBoardController;
+import control.builder.FlipController;
+import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
@@ -219,6 +222,11 @@ public class PuzzleBuilderGui extends JFrame {
 		//install controllers
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
-		
+		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView);
+		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
+		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 	}
 }

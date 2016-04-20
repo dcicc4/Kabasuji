@@ -197,5 +197,9 @@ public class ReleaseBuilderGui extends JFrame {
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView);
 		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
+		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 	}
 }

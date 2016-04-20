@@ -36,7 +36,7 @@ public class Bullpen implements Serializable{
 		return selectedPiece;
 	}
 	
-	Piece removePiece(Piece p){
+	public Piece removePiece(Piece p){
 		int i = pieces.indexOf(p);
 		// checks for invalid index then removes piece, otherwise throws error
 		if (i > -1){

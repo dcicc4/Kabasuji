@@ -2,6 +2,8 @@ package control.builder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import entity.builder.BuilderModel;
 import entity.player.*;
 import boundary.builder.*;
 
@@ -9,11 +11,14 @@ import boundary.builder.*;
 
 public class RotateController implements ActionListener{
 
-	BuilderBullpenPanel bullpenPanel;
-	Piece piece;
+	BuilderModel model;
+	BuilderBoardPanel boardPanel;
+	boolean direction;
 	
-	public RotateController(BuilderBullpenPanel newbullpenPanel, Piece newpiece){
-		bullpenPanel = newbullpenPanel;
+	public RotateController(BuilderBoardPanel newBoardPanel, BuilderModel bm, Boolean newdirection){
+		boardPanel = newBoardPanel;
+		model = bm;
+		direction = newdirection;
 	}
 	
 	public void rotate(boolean direction){
@@ -22,7 +27,16 @@ public class RotateController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		Piece piece = model.getBullpen().getSelectedPiece();
+		if (piece == null){return;}
+		if (direction){
+			piece.rotateCounterClockwise();;
+		} else {
+			piece.rotateClockwise();
+		}
+		model.getBullpen().setSelected(piece);
+		boardPanel.redraw();
+		boardPanel.repaint();
 		
 	}
 }

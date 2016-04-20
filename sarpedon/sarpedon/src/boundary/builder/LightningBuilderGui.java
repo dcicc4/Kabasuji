@@ -7,7 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
+import control.builder.RotateController;
+import control.builder.SelectPieceController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
 
@@ -49,7 +52,7 @@ public class LightningBuilderGui extends JFrame {
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
-	
+	BuilderBoardPanel boardView;
 	
 	BuilderModel model;
 	
@@ -148,9 +151,9 @@ public class LightningBuilderGui extends JFrame {
 		label_2.setBounds(20, 138, 138, 41);
 		contentPane.add(label_2);
 		
-		BuilderBoardPanel panel = new BuilderBoardPanel(model);
-		panel.setBounds(752, 222, 600, 600);
-		contentPane.add(panel);
+		boardView = new BuilderBoardPanel(model);
+		boardView.setBounds(752, 222, 600, 600);
+		contentPane.add(boardView);
 		
 		boardSizeCombo = new JComboBox();
 		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
@@ -194,5 +197,13 @@ public class LightningBuilderGui extends JFrame {
 		//Install controllers
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
+		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView);
+		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
+		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
+		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
+		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 	}
 }

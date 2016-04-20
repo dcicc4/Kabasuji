@@ -126,7 +126,10 @@ public class BuilderBoardPanel extends JPanel {
 			if(mouse!= null){
 				drawPiece(g, selected, mouse);
 			}
-			return;
+			if(mouse == null){
+				drawPiece(g, selected, new Point(offset + N*6, offset + N*6));
+			}
+			
 		}
 	}
 	public void redraw() {

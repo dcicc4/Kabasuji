@@ -30,6 +30,8 @@ public class SelectPieceController extends MouseAdapter {
 			bullpen.removeSelected();
 			bullpenView.redraw();
 			bullpenView.repaint();
+			boardView.redraw();
+			boardView.repaint();
 			}
 			return;
 		}

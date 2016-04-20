@@ -24,7 +24,7 @@ public class BuilderStockPanel extends JPanel {
 	PieceBuilder pieces = new PieceBuilder();
 	
 	/** Core model. */
-	BuilderModel model; //this is currently the player model, change it when we have builder model(check imports)
+	BuilderModel model; 
 	
 	/** around edges. */
 	int offsetY = 20;

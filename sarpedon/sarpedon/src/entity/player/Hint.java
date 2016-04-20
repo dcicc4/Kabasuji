@@ -10,5 +10,15 @@ public class Hint {
 		row = rw;
 		column = clmn;
 	}
+	
+	public Piece getPiece(){
+		return piece;
+	}
+	public Integer getRow(){
+		return row;
+	}
+	public Integer getColumn(){
+		return column;
+	}
 
 }

@@ -1,5 +1,6 @@
 package control.builder;
 
+import java.awt.Polygon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -28,7 +29,17 @@ public class SelectPieceController extends MouseAdapter {
 		// if this is the selected piece, add it to the bullpen
 		bullpen.setSelected(p);
 		System.out.println("selected");
-		boardView.redraw();
-		boardView.repaint();
 	}
+	
+	public void mouseMoved (MouseEvent me) {
+		Piece selected = bullpen.getSelectedPiece();
+		if (selected == null) { return; }
+
+		boardView.redraw();
+		boardView.drawPiece(boardView.getGraphics(), selected, me.getPoint());
+		boardView.repaint();
+		
+	}
+	
+	
 }

@@ -6,27 +6,25 @@ import entity.player.*;
 
 public class BuilderModel extends Level{
 
-	Board board;
-	Bullpen bullpen;
-	Integer stars;
-	boolean completed;
-	ArrayList <Hint> hints;
-	PieceBuilder pieceBuilder;
+PieceBuilder PB = new PieceBuilder();
 	
 	public BuilderModel(){
-		bullpen = new Bullpen();
-		pieceBuilder = new PieceBuilder();
-		board = new Board();
+		super();
+		bp = new Bullpen();
+		PB = new PieceBuilder();
+		brd = new Board();
 	}
 	public Board getBoard(){
-		return board;
+		return brd;
 	}
-	public Bullpen getBullpen(){
-		return bullpen;
+	public entity.player.Bullpen getBullpen(){
+		return bp;
 	}
 	public void setBullpen(Bullpen bp){
-		this.bullpen = bp;
+		this.bp = bp;
 	}
-	
+	public void setType(String s){
+		type = s;
+	}
 
 }

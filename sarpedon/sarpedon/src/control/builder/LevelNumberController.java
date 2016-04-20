@@ -8,12 +8,13 @@ import javax.swing.*;
 
 public class LevelNumberController implements ActionListener{
 
-	JPanel parentPanel;
+	JFrame aFrame;
 	Level level;
-	
-	public LevelNumberController(JPanel panel, Level newlevel){
-		parentPanel = panel;
+	String type;
+	public LevelNumberController(JFrame frame, Level newlevel){
+		this.aFrame= frame;
 		level = newlevel;
+		type = level.
 	}
 	
 	public void changeLevelNumber(int number){

@@ -61,7 +61,7 @@ public class ReleaseBuilderGui extends JFrame {
 	public ReleaseBuilderGui(BuilderModel bm) {
 		model = bm;
 		
-		
+		model.setType("Release");
 		setTitle("Kabasuji Release Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);

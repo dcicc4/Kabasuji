@@ -78,7 +78,7 @@ public class LightningBuilderGui extends JFrame {
 	public LightningBuilderGui(BuilderModel bm) {
 		model = bm;
 		
-		
+		model.setType("Lightning");
 		setTitle("Kabasuji Lightning Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);

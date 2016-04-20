@@ -48,7 +48,7 @@ public class Bullpen implements Serializable{
 		}
 	}
 	
-	int piecesLeft(){
+	public int piecesLeft(){
 		return pieces.size();
 	}
 }

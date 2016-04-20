@@ -14,11 +14,11 @@ public class LevelNumberController implements ActionListener{
 	public LevelNumberController(JFrame frame, Level newlevel){
 		this.aFrame= frame;
 		level = newlevel;
-		type = level.
+		type = level.getType();
 	}
 	
-	public void changeLevelNumber(int number){
-
+	public void changeLevelNumber(Integer number){
+		level.setNumber(number);
 	}
 
 	@Override

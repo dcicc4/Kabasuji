@@ -15,7 +15,7 @@ import entity.player.*;
 public class PlayerBoardPanel extends JPanel {
 
 	/** Core model. */
-	Model model;
+	Level aLevel;
 	
 	/** around edges. */
 	int offset = 32;
@@ -46,7 +46,7 @@ public class PlayerBoardPanel extends JPanel {
 
 
 	/** 
-	 * Swing thing. We must be large enough to draw all Tangram pieces. 
+	 * Swing thing. We must be large enough to draw all Kabasuji pieces. 
 	 */
 	@Override
 	public Dimension getPreferredSize() {

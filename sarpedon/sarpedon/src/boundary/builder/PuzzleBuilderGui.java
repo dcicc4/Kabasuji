@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
 import control.builder.AddPieceToBullpenController;
+import control.builder.SwitchWindowController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
 
@@ -61,6 +63,7 @@ public class PuzzleBuilderGui extends JFrame {
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
+	BuilderBoardPanel boardView;
 	
 	
 	BuilderModel model;
@@ -95,8 +98,8 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		BuilderBoardPanel panel = new BuilderBoardPanel();
-		panel.setBounds(738, 205, 600, 600);
+		boardView = new BuilderBoardPanel(model);
+		boardView.setBounds(738, 205, 600, 600);
 		
 		JScrollPane bullpenScrollPane = new JScrollPane();
 		bullpenScrollPane.setBounds(738, 48, 600, 153);
@@ -182,7 +185,7 @@ public class PuzzleBuilderGui extends JFrame {
 		btnFlipHor = new JButton("Flip Horizontally");
 		btnFlipHor.setBounds(1213, 813, 125, 125);
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
-		GroupLayout gl_panel = new GroupLayout(panel);
+		GroupLayout gl_panel = new GroupLayout(boardView);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 598, Short.MAX_VALUE)
@@ -191,7 +194,7 @@ public class PuzzleBuilderGui extends JFrame {
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 598, Short.MAX_VALUE)
 		);
-		panel.setLayout(gl_panel);
+		boardView.setLayout(gl_panel);
 		contentPane.setLayout(null);
 		contentPane.add(btnSave);
 		contentPane.add(btnUndo);
@@ -209,12 +212,13 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnRotateCClockwise);
 		contentPane.add(stockScrollPane);
 		contentPane.add(bullpenScrollPane);
-		contentPane.add(panel);
+		contentPane.add(boardView);
 		contentPane.add(btnFlipVert);
 		contentPane.add(btnFlipHor);
 		
 		//install controllers
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
+		
 	}
 }

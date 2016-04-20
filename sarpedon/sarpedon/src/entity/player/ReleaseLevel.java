@@ -3,6 +3,11 @@ package entity.player;
 import java.util.ArrayList;
 
 public class ReleaseLevel extends Level {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final int MAX_NUM = 6;
 	
 	ArrayList <Boolean> blueNumCovered;
@@ -17,7 +22,6 @@ public class ReleaseLevel extends Level {
 	public ReleaseLevel(ReleaseBoard rboard, Bullpen bull, Integer strs,
 			boolean cmplted, ArrayList<Hint> hnts) {
 		super(rboard, bull, strs, cmplted, hnts);
-		//stub
 	}
 	
 	void calculateColor(ArrayList <Boolean> numCovered, Integer numColor){

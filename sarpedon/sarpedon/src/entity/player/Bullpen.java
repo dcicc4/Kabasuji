@@ -1,8 +1,13 @@
 package entity.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Bullpen {
+public class Bullpen implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6879604314610676141L;
 	ArrayList <Piece> pieces;
 	Piece selectedPiece;
 	
@@ -26,6 +31,9 @@ public class Bullpen {
 	}
 	public void addPiece(Piece p){
 		pieces.add(p);
+	}
+	public Piece getSelectedPiece(){
+		return selectedPiece;
 	}
 	
 	Piece removePiece(Piece p){

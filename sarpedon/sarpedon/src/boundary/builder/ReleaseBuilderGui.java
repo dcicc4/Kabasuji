@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import control.builder.AddPieceToBullpenController;
+import control.builder.*;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
 
@@ -50,25 +50,10 @@ public class ReleaseBuilderGui extends JFrame {
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
+	BuilderBoardPanel boardView;
 
 	
 	BuilderModel model;
-	
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					ReleaseBuilderGui frame = new ReleaseBuilderGui();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the frame.
@@ -146,9 +131,9 @@ public class ReleaseBuilderGui extends JFrame {
 		boardSizeCombo.setBounds(223, 151, 75, 45);
 		contentPane.add(boardSizeCombo);
 		
-		BuilderBoardPanel panel = new BuilderBoardPanel();
-		panel.setBounds(767, 213, 600, 600);
-		contentPane.add(panel);
+		boardView = new BuilderBoardPanel(model);
+		boardView.setBounds(767, 213, 600, 600);
+		contentPane.add(boardView);
 		
 		rdbtnNumberTile = new JRadioButton("Number Tile");
 		buttonGroup.add(rdbtnNumberTile);
@@ -210,5 +195,7 @@ public class ReleaseBuilderGui extends JFrame {
 		//install controllers
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
+		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView);
+		bullpenView.addMouseListener(spc);
 	}
 }

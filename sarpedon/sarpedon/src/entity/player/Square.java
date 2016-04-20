@@ -1,7 +1,13 @@
 package entity.player;
 
-public class Square {
+import java.io.Serializable;
+
+public class Square implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int xFromAnchor;
 	int yFromAnchor;
 	

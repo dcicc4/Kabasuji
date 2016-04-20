@@ -1,18 +1,36 @@
 package entity.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Board {
+public class Board implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6584127615090719915L;
 	Tile[][] shape; // an array of tiles or null describing the shape of the board
 	HashMap <UUID, Piece> pieces; // mapping of pieces to uuid's stored in tiles
+	
+	public Board(){
+		shape = new Tile[12][12];
+		for(int i=0; i< 12; i++){
+			for(int j =0; j<12;j++){
+				shape[i][j]	= new Tile(i,j);
+			}
+		}
+	}
+	
 	
 	Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID tUUID = t.getCoveredBy();
 		Piece p = pieces.get(tUUID);
 		return p;
+	}
+	public Tile[][] getTileArray(){
+		return shape;
 	}
 	
 	boolean availableTile(Integer row, Integer col){

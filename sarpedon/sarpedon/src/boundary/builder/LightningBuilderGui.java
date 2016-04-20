@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.FlipController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
 
@@ -147,7 +148,7 @@ public class LightningBuilderGui extends JFrame {
 		label_2.setBounds(20, 138, 138, 41);
 		contentPane.add(label_2);
 		
-		BuilderBoardPanel panel = new BuilderBoardPanel();
+		BuilderBoardPanel panel = new BuilderBoardPanel(model);
 		panel.setBounds(752, 222, 600, 600);
 		contentPane.add(panel);
 		

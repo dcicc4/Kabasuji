@@ -1,20 +1,25 @@
 package entity.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-//make abstract
-public class Level {
+
+abstract public class Level implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -884584409157199554L;
 	Board brd;
 	Bullpen bp;
 	Integer stars;
 	boolean completed;
 	ArrayList <Hint> hints;
 	
-	Level(Board board, Bullpen bull, Integer strs, boolean cmplted, ArrayList <Hint> hnts){
-		brd = board;
-		bp = bull;
-		stars = strs;
-		completed = cmplted;
-		hints = hnts;
+	public Level(){
+		
+	}
+	
+	public Bullpen getBullpen(){
+		return bp;
 	}
 
 }

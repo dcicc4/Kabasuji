@@ -1,9 +1,14 @@
 package entity.player;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class Piece {
+public class Piece implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6485170791118171377L;
 	int number;
 	int row;
 	int column;
@@ -55,7 +60,7 @@ public class Piece {
 		bullpen = false;
 	}
 
-	void rotateClockwise ()
+	public void rotateClockwise ()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{
@@ -64,7 +69,7 @@ public class Piece {
 		}
 	}
 
-	void rotateCounterClockwise ()
+	public void rotateCounterClockwise ()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{
@@ -73,7 +78,7 @@ public class Piece {
 		}
 	}
 
-	void flipHorizontal()
+	public void flipHorizontal()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{
@@ -82,7 +87,7 @@ public class Piece {
 		}
 	}
 
-	void flipVertical()
+	public void flipVertical()
 	{
 		for(int x = 0; x< dependent.length; x++)
 		{

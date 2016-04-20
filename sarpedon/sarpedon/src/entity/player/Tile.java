@@ -1,8 +1,13 @@
 package entity.player;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Tile {
+public class Tile implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// a tile with it's lower right corner denoted by the tuple (row, col)
 	Integer row; 
 	Integer col;

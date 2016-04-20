@@ -1,6 +1,6 @@
 package entity.builder;
 
-import entity.player.Tile;
+//import entity.player.Tile;
 
 public class ReleaseTile extends Tile {
 	Integer rnumber; // the number associated with the instance of the Release Tile

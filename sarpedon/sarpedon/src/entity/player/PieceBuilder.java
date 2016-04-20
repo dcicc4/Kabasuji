@@ -60,7 +60,7 @@ public class PieceBuilder {
 
 	Piece P8 = new Piece(8,  D, D2, D3, D2L, D3L );
 
-	Piece P9 = new Piece(9,  D, D2, D3, D3L, L );
+	Piece P9 = new Piece(9,  D, D2, D3, D3R, L );
 
 	Piece P10 = new Piece(10,  D, R, L, D2, D3 );
 
@@ -83,7 +83,7 @@ public class PieceBuilder {
 	Piece P19 = new Piece(19,  D, D2, D2L, D2L2, D3L2 ); // rotated
 	// clockwise
 
-	Piece P20 = new Piece(20,  D, D2, D2R, D2R2, DR ); // rotated
+	Piece P20 = new Piece(20,  D, D2, D2R, D3R, DR ); // rotated
 	// clockwise
 
 	Piece P21 = new Piece(21,  D, D2, D2R, L, DL ); // rotated
@@ -111,8 +111,7 @@ public class PieceBuilder {
 	Piece P30 = new Piece(30,  D, D2, L, D2L, D2R ); // rotated
 	// clockwise
 
-	Piece P31 = new Piece(31,  D, D2, D2L, L, R ); // rotated
-	// clockwise
+	Piece P31 = new Piece(31,  D, D2, D2R, DR, DR2 ); 
 
 	Piece P32 = new Piece(32,  D, D2, D3L, D2L, D2R );
 

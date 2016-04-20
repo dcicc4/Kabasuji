@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
 import control.builder.AddPieceToBullpenController;
+import control.builder.SwitchWindowController;
 import entity.builder.BuilderModel;
 import entity.player.Bullpen;
 
@@ -217,5 +219,6 @@ public class PuzzleBuilderGui extends JFrame {
 		//install controllers
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
+		
 	}
 }

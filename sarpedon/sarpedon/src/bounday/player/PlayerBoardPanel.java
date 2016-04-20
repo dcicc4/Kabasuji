@@ -15,7 +15,7 @@ import entity.player.*;
 public class PlayerBoardPanel extends JPanel {
 
 	/** Core model. */
-	Model model;
+	SarpedonKabasuji model;
 	
 	/** around edges. */
 	int offset = 32;

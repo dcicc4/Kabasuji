@@ -13,7 +13,7 @@ import javax.swing.border.LineBorder;
 
 import entity.builder.BuilderModel;
 import entity.player.Board;
-import entity.player.Model;
+
 import entity.player.Piece;
 import entity.player.Square;
 import entity.player.Tile;

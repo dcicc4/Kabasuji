@@ -7,7 +7,11 @@ public class Square implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1967981073234849684L;
+	/**
+	 * 
+	 */
+	
 	int xFromAnchor;
 	int yFromAnchor;
 	

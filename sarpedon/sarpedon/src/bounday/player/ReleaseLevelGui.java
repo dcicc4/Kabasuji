@@ -64,7 +64,7 @@ public class ReleaseLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		BuilderBoardPanel panel = new BuilderBoardPanel();
+		PlayerBoardPanel panel = new PlayerBoardPanel();
 		panel.setBounds(620, 126, 720, 720);
 		contentPane.add(panel);
 		

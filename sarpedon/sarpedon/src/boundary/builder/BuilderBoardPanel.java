@@ -38,7 +38,9 @@ public class BuilderBoardPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public BuilderBoardPanel() {
+	public BuilderBoardPanel(BuilderModel model) {
+		this.model = model;
+		
 		setBorder(new LineBorder(Color.DARK_GRAY, 1, true));
 		setBackground(Color.WHITE);
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -72,7 +74,7 @@ public class BuilderBoardPanel extends JPanel {
 		
 		return new Dimension (width, height);
 	}
-	
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -93,23 +95,26 @@ public class BuilderBoardPanel extends JPanel {
 
 		// copy image into place.
 		g.drawImage(offScreenImage, 0, 0, this);
-		
+
 		//double check if no model (for WindowBuilder)
 		if (model == null) { return; }
-		
+
 		// draw board.
-			g.setColor(Color.white);
-			g.fillRect(0,0,16*N,16*N);
-			g.setColor(Color.black);
-			//draws a 12 by 12 grid, but it will take in the models board object eventually
-			Tile[][] tiles = model.getBoard().getTileArray();
-			for(int i = 0; i<12; i++){
-				for(int j = 0; j<12; j++){
-					if(tiles[i][j] != null)
+		g.setColor(Color.white);
+		g.fillRect(0,0,16*N,16*N);
+		g.setColor(Color.black);
+		//draws a 12 by 12 grid, but it will take in the models board object eventually
+		Tile[][] tiles = model.getBoard().getTileArray();
+		for(int i = 0; i<12; i++){
+			for(int j = 0; j<12; j++){
+				if(tiles[i][j] != null)
 					g.drawRect(offset + i*N, offset + j*N, N, N);				
-				}
 			}
-			Square[] drawn = model.getBullpen().getSelectedPiece().getDependant();
+		}
+		Piece selected = model.getBullpen().getSelectedPiece();
+		if(selected != null){
+		Square[] drawn = selected.getDependant();
+		
 			Point location = MouseInfo.getPointerInfo().getLocation();
 			for(int i = 0; i<6; i++){
 				g.setColor(model.getBullpen().getSelectedPiece().getColor());		
@@ -121,16 +126,17 @@ public class BuilderBoardPanel extends JPanel {
 			g.fillRect(location.x, location.y, N, N);
 			g.setColor(Color.BLACK);	
 			g.drawRect(location.x, location.y, N, N);
-			
+		}
+
 	}
 	public void redraw() {
 		// Once created, draw each, with buffer.
 		int x = offset;
 		int y = offset;
-		
+
 		Dimension dim = getPreferredSize();
 		offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
-		
+
 		//Board b = model.getBoard();
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
@@ -142,28 +148,22 @@ public class BuilderBoardPanel extends JPanel {
 					offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);				
 			}
 		}
-		Square[] drawn = model.getBullpen().getSelectedPiece().getDependant();
-		Point location = MouseInfo.getPointerInfo().getLocation();
-		for(int i = 0; i<6; i++){
-			offScreenGraphics.setColor(model.getBullpen().getSelectedPiece().getColor());		
-			offScreenGraphics.fillRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
-			offScreenGraphics.setColor(Color.BLACK);	
-			offScreenGraphics.drawRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
-		}
-		offScreenGraphics.setColor(model.getBullpen().getSelectedPiece().getColor());		
-		offScreenGraphics.fillRect(location.x, location.y, N, N);
-		offScreenGraphics.setColor(Color.BLACK);	
-		offScreenGraphics.drawRect(location.x, location.y, N, N);
-		}
-		
-		// placed pieces.
-		/*if (model.getPlacedPieces() != null) {
-			for (PlacedPiece pp : model.getPlacedPieces()) {
-				if (pp != model.getDraggingPiece()) {
-					offScreenGraphics.setColor(colorMapping.get(pp.getPiece()));
-					offScreenGraphics.fillPolygon(pp.getPolygon());
-				}
+		Piece selected = model.getBullpen().getSelectedPiece();
+		if(selected != null){
+		Square[] drawn = selected.getDependant();
+			Point location = MouseInfo.getPointerInfo().getLocation();
+			for(int i = 0; i<6; i++){
+				offScreenGraphics.setColor(model.getBullpen().getSelectedPiece().getColor());		
+				offScreenGraphics.fillRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
+				offScreenGraphics.setColor(Color.BLACK);	
+				offScreenGraphics.drawRect(location.x +drawn[i].getX()*N, location.y+drawn[i].getY()*N, N, N);
 			}
-		}*/		
+			offScreenGraphics.setColor(model.getBullpen().getSelectedPiece().getColor());		
+			offScreenGraphics.fillRect(location.x, location.y, N, N);
+			offScreenGraphics.setColor(Color.BLACK);	
+			offScreenGraphics.drawRect(location.x, location.y, N, N);
+		}
 	}
+
+}
 

@@ -32,7 +32,7 @@ public class BuilderApplication{
 	}
 	
 	public static void main(String[] args) {	
-		BuilderApplication app = new BuilderApplication();
+		final BuilderApplication app = new BuilderApplication();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

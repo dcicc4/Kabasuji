@@ -43,12 +43,10 @@ public class PlayerApplication {
 		releaseLevel.btnReturn.addActionListener(new SwitchWindowController(releaseLevel, menu));
 		puzzleLevel.btnReturn.addActionListener(new SwitchWindowController(puzzleLevel, menu));
 		
-		
-		
 	}
 
 	public static void main(String[] args) {
-		PlayerApplication app = new PlayerApplication();
+		final PlayerApplication app = new PlayerApplication();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.Rectangle;
 
 import javax.swing.border.LineBorder;
 
@@ -22,7 +24,7 @@ public class BuilderBullpenPanel extends JPanel {
 
 	
 	/**All Pieces in bullpen*/
-	Bullpen pieces;
+	Bullpen bullpen;
 	PieceBuilder pb = new PieceBuilder();
 	
 	/** Core model. */
@@ -46,14 +48,14 @@ public class BuilderBullpenPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public BuilderBullpenPanel(Bullpen bp) {
-		pieces = bp;
+		bullpen = bp;
 		
 		setBounds(0, 0, width, height);
 		setBackground(Color.WHITE);
 	}
 
 	public void setPieces(Bullpen b){
-		pieces = b;
+		bullpen = b;
 	}
 	@Override
 	public Dimension getMinimumSize() {
@@ -98,7 +100,7 @@ public class BuilderBullpenPanel extends JPanel {
 			g.fillRect(0,0,width,height);
 			
 			int idx = 0;
-			for(Piece p : pieces.getPieces()){
+			for(Piece p : bullpen.getPieces()){
 				for(int j = 0; j<5; j++){
 					Square[] drawn = p.getDependant(); 
 					g.setColor(p.getColor());
@@ -133,6 +135,9 @@ public class BuilderBullpenPanel extends JPanel {
 		return offsetX + idx*7*N + drawn[j].getX()*N;
 	}
 
+	/**
+	 * Draws screen to the offScreenGraphics.
+	 */
 	public void redraw() {
 		// Once created, draw each, with buffer.
 		
@@ -144,7 +149,7 @@ public class BuilderBullpenPanel extends JPanel {
 		offScreenGraphics.fillRect(0, 0, width, height);
 		
 		int idx = 0;
-		for(Piece p : pieces.getPieces()){
+		for(Piece p : bullpen.getPieces()){
 			for(int j = 0; j<5; j++){
 				Square[] drawn = p.getDependant(); 
 				offScreenGraphics.setColor(p.getColor());
@@ -157,17 +162,26 @@ public class BuilderBullpenPanel extends JPanel {
 			offScreenGraphics.setColor(Color.black);
 			offScreenGraphics.drawRect(getXAnchor(idx), getYAnchor(idx), N, N);
 			idx++;
-		}
-
-		// placed pieces.
-		/*if (model.getPlacedPieces() != null) {
-			for (PlacedPiece pp : model.getPlacedPieces()) {
-				if (pp != model.getDraggingPiece()) {
-					offScreenGraphics.setColor(colorMapping.get(pp.getPiece()));
-					offScreenGraphics.fillPolygon(pp.getPolygon());
+		}	
+	}
+	/** returns piece that is at given point, or null if the point does not contain a piece*/ 
+	public Piece getPieceAtCoordinate(Point point) {
+		int i = 0;
+		for(Piece p: bullpen.getPieces()){
+			for(int j = 0; j<5; j++){
+				Square[] drawn = p.getDependant();
+				Rectangle r = new Rectangle(getX(i, j, drawn), getY(i, j, drawn), N, N);
+				if(r.contains(point)){
+					return p;
 				}
 			}
-		}*/		
+			Rectangle r = new Rectangle(getXAnchor(i), getYAnchor(i), N, N);
+			if(r.contains(point)){
+				return p;
+			}
+			i++;
+		}
+		return null;
 	}
 
 }

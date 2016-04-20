@@ -2,6 +2,8 @@ package control.builder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 //import entity.player.*;
 import entity.builder.*;
 
@@ -9,7 +11,7 @@ import javax.swing.*;
 
 public class UndoController implements ActionListener{
 
-	Move moves[];
+	ArrayList<Move> moves;
 	JPanel parentPanel;
 	
 	public UndoController(JPanel panel){

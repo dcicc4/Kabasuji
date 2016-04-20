@@ -91,7 +91,7 @@ public class Piece {
 		}
 	}
 
-	public boolean fits(Tile[] aTile)
+	boolean fits(Tile[] aTile)
 	{ int match = 0;
 	for (int x = 0; x<  dependent.length; x++)
 	{

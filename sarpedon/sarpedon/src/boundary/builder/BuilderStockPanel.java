@@ -81,22 +81,11 @@ public class BuilderStockPanel extends JPanel {
 		//modulus 2 is the number of columns of pieces
 		return offsetX + ((i-1)%2)*7*N + drawn[j].getX()*N;	
 	}
-	/** gets the x position of the anchor of the ith piece in stock*/
-	private int getXAnchor(int i){
-		//modulus 2 is the number of columns of pieces
-		return offsetX + ((i-1)%2)*7*N;	
-	}
 	/** gets the y position of the j square of the ith piece in the stock*/
 	private int getY(int i, int j, Square[] drawn){
 		//(i-1)/2 is due to the two columns as well
 		return offsetY + (i-1)/2*7*N + drawn[j].getY()*N;
 	}
-	/** gets the y position of the anchor of the ith piece in stock*/
-	private int getYAnchor(int i){
-		//(i-1)/2 is due to the two columns as well
-		return offsetY + (i-1)/2*7*N;
-	}
-	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -150,16 +139,12 @@ public class BuilderStockPanel extends JPanel {
 	/** returns piece that is at given point, or null if the point does not contain a piece*/ 
 	public Piece getPieceAtCoordinate(Point point) {
 		for(int i = 1; i<36; i++){
-			for(int j = 0; j<5; j++){
+			for(int j = 0; j<6; j++){
 				Square[] drawn = pieces.getPiece(i).getDependant();
 				Rectangle r = new Rectangle(getX(i, j, drawn), getY(i, j, drawn), N, N);
 				if(r.contains(point)){
 					return pieces.getPiece(i);
 				}
-			}
-			Rectangle r = new Rectangle(getXAnchor(i), getYAnchor(i), N, N);
-			if(r.contains(point)){
-				return pieces.getPiece(i);
 			}
 		}
 		return null;
@@ -173,17 +158,13 @@ public class BuilderStockPanel extends JPanel {
 	 * @param i - the number piece it is.
 	 */
 	private void drawPiece(Graphics g, Piece p, int i) {
-		for(int j = 0; j<5; j++){
+		for(int j = 0; j<6; j++){
 			Square[] drawn = p.getDependant(); 
 			g.setColor(p.getColor());
 			g.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 			g.setColor(Color.black);
 			g.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 		}
-		g.setColor(p.getColor());
-		g.fillRect(getXAnchor(i), getYAnchor(i), N, N);
-		g.setColor(Color.black);
-		g.drawRect(getXAnchor(i), getYAnchor(i), N, N);
 	}
 
 }

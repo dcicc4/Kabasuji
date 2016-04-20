@@ -20,26 +20,31 @@ public class SelectPieceController extends MouseAdapter {
 		boardView = boardv;
 		bullpenView = bullv;
 	}
-	
+
 	public void mousePressed (MouseEvent me) {
 		Piece p = bullpenView.getPieceAtCoordinate(me.getPoint());
 		if(p == null){
 			Piece selected = bullpen.getSelectedPiece();
 			if(selected != null){
-			bullpen.addPiece(selected);
-			bullpen.removeSelected();
-			bullpenView.redraw();
-			bullpenView.repaint();
-			boardView.redraw();
-			boardView.repaint();
+				bullpen.addPiece(selected);
+				bullpen.removeSelected();
+				bullpenView.redraw();
+				bullpenView.repaint();
+				boardView.redraw();
+				boardView.repaint();
 			}
 			return;
 		}
 		// if this is the selected piece, add it to the bullpen
+		if(bullpen.getSelectedPiece() != null){
+			bullpen.addPiece(bullpen.getSelectedPiece());
+		}
 		bullpen.setSelected(p);
 		bullpen.removePiece(p);
 		bullpenView.redraw();
 		bullpenView.repaint();
+		boardView.redraw();
+		boardView.repaint();
 	}
 	
 	

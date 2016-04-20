@@ -139,33 +139,23 @@ public class BuilderBullpenPanel extends JPanel {
 	public Piece getPieceAtCoordinate(Point point) {
 		int i = 0;
 		for(Piece p: bullpen.getPieces()){
-			for(int j = 0; j<5; j++){
+			for(int j = 0; j<6; j++){
 				Square[] drawn = p.getDependant();
 				Rectangle r = new Rectangle(getX(i, j, drawn), getY(i, j, drawn), N, N);
 				if(r.contains(point)){
 					return p;
 				}
 			}
-			Rectangle r = new Rectangle(getXAnchor(i), getYAnchor(i), N, N);
-			if(r.contains(point)){
-				return p;
-			}
 			i++;
 		}
 		return null;
 	}
 
-	private int getYAnchor(int idx) {
-		return offsetY;
-	}
 
 	private int getY(int idx, int j, Square[] drawn) {
 		return offsetY + drawn[j].getY()*N;
 	}
 
-	private int getXAnchor(int idx) {
-		return offsetX + idx*7*N;
-	}
 
 	private int getX(int idx, int j, Square[] drawn) {
 		return offsetX + idx*7*N + drawn[j].getX()*N;
@@ -179,17 +169,13 @@ public class BuilderBullpenPanel extends JPanel {
 	 * @param i - the number piece it is.
 	 */
 	private void drawPiece(Graphics g, Piece p, int i) {
-		for(int j = 0; j<5; j++){
+		for(int j = 0; j<6; j++){
 			Square[] drawn = p.getDependant(); 
 			g.setColor(p.getColor());
 			g.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 			g.setColor(Color.black);
 			g.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 		}
-		g.setColor(p.getColor());
-		g.fillRect(getXAnchor(i), getYAnchor(i), N, N);
-		g.setColor(Color.black);
-		g.drawRect(getXAnchor(i), getYAnchor(i), N, N);
 	}
 
 }

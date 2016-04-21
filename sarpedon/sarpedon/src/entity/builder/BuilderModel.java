@@ -23,6 +23,9 @@ PieceBuilder PB = new PieceBuilder();
 	public void setBullpen(Bullpen bp){
 		this.bp = bp;
 	}
+	public void setBoard(Board b){
+		brd = b;
+	}
 	public void setType(String s){
 		type = s;
 	}

@@ -43,7 +43,7 @@ public class ReleaseBuilderGui extends JFrame {
 	JRadioButton moveTilesRadio;
 	JRadioButton rdbtnNumberTile;
 	
-	JComboBox boardSizeCombo;
+	JComboBox<Integer> boardSizeCombo;
 	JComboBox levelNumberCombo;
 	JComboBox colorCombo;
 	JComboBox numberCombo;
@@ -124,8 +124,8 @@ public class ReleaseBuilderGui extends JFrame {
 		label_2.setBounds(35, 151, 138, 41);
 		contentPane.add(label_2);
 		
-		boardSizeCombo = new JComboBox();
-		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+		boardSizeCombo = new JComboBox<Integer>();
+		boardSizeCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}));
 		boardSizeCombo.setSelectedIndex(13);
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		boardSizeCombo.setBounds(223, 151, 75, 45);
@@ -203,5 +203,7 @@ public class ReleaseBuilderGui extends JFrame {
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
+		boardSizeCombo.addActionListener(new BoardSizeController(boardSizeCombo, boardView, bullpenView, model));
+		boardSizeCombo.addItemListener(new BoardSizeController(boardSizeCombo, boardView, bullpenView, model));
 	}
 }

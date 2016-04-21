@@ -9,7 +9,13 @@ import java.awt.event.MouseMotionListener;
 import entity.player.*;
 import boundary.builder.*;
 
-
+/**
+ * Gets a piece from the bullpen to the board.
+ * 
+ * 
+ * @author Nathan
+ *
+ */
 public class BullpenToBoardController implements MouseMotionListener{
 
 	Board board;

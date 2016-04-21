@@ -21,6 +21,9 @@ public class Board implements Serializable{
 			}
 		}
 	}
+	public Board(Tile[][] s){
+		shape = s;
+	}
 	
 	
 	Piece getPiece(Integer row, Integer col){

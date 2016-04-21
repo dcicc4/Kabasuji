@@ -47,16 +47,17 @@ public class Piece implements Serializable{
 		}
 		return new Piece(dep, this.number, this.color);
 	}
-	/**
-	 * shifts all squares to right.
-	 * 
-	 * @param i - how far to shift
-	 */
-	public void shiftRight(int i){
-		for(int j=0;j<6;j++){
-			dependent[j].setX(dependent[j].getX()+i);
-		}
-	}
+//	/**
+//	 * shifts all squares to right.
+//	 * 
+//	 * @param i - how far to shift
+//	 */
+//	public void shiftRight(int i){
+//		for(int j=0; j<6; j++){
+//			int shift = dependent[j].getX() + i;
+//			dependent[j].setX(shift);
+//		}
+//	}
 	/**
 	 * shifts all squares down.
 	 * 
@@ -67,23 +68,26 @@ public class Piece implements Serializable{
 			dependent[j].setY(dependent[j].getY()+i);
 		}
 	}
-	public void center(){
-		int minY = 0;
-		int minX = 0;
-		int maxX = 0;
+	/**
+	 * centers piece for drawing.
+	 */
+	public void centerPiece(){
+		int minY = 10;
+//		int minX = 10;
+//		int maxX = -10;
 		for(int i = 0; i<6; i++){
-			int x = dependent[i].getX();
+//			int x = dependent[i].getX();
 			int y = dependent[i].getY();
-			if(x > maxX){maxX = x;}
-			if(x < minX){minX = x;}
+//			if(x > maxX){maxX = x;}
+//			if(x < minX){minX = x;}
 			if(y < minY){minY = y;}
 		}
 		if(minY < 0){
 			shiftDown(-1*minY);
 		}
-		if((maxX-minX)/2 != 0){
-			shiftRight((maxX-minX)/2);
-		}
+//		if((maxX+minX)/2 != 0){
+//			shiftRight((maxX+minX)/2);
+//		}
 	}
 	
 	public Square[] getDependant(){

@@ -26,6 +26,12 @@ public class Square implements Serializable {
 	public int getY(){
 		return this.yFromAnchor;
 	}
+	public void setX(int x)	{
+		xFromAnchor = x;
+	}
+	public void setY(int y){
+		yFromAnchor = y;
+	}
 	
 	
 	void rotateClockwise(){

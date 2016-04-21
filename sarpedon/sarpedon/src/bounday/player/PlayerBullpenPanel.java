@@ -16,12 +16,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
 public class PlayerBullpenPanel extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
 	/**All Pieces in bullpen*/
 	Bullpen bullpen;
 	PieceBuilder pb = new PieceBuilder();
@@ -127,9 +125,12 @@ public class PlayerBullpenPanel extends JPanel {
 		offScreenGraphics.fillRect(0, 0, width, height);
 
 		int idx = 0;
-		for(Piece p : bullpen.getPieces()){
-			drawPiece(offScreenGraphics, p , idx);
-			idx++;
+		ArrayList<Piece> pieces = bullpen.getPieces();
+		if(pieces != null){
+			for(Piece p : pieces){
+				drawPiece(offScreenGraphics, p , idx);
+				idx++;
+			}
 		}	
 	}
 

@@ -30,6 +30,7 @@ public class Bullpen implements Serializable{
 		selectedPiece = null;
 	}
 	public void addPiece(Piece p){
+		p.center();
 		pieces.add(p);
 	}
 	public Piece getSelectedPiece(){

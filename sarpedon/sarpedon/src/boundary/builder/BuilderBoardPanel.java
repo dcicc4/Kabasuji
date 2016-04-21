@@ -121,6 +121,7 @@ public class BuilderBoardPanel extends JPanel {
 					g.drawRect(offset + i*N, offset + j*N, N, N);				
 			}
 		}
+		//draw the selected piece at the mouse tip
 		Piece selected = model.getBullpen().getSelectedPiece();
 		if (selected != null){
 			if(mouse!= null){
@@ -153,23 +154,21 @@ public class BuilderBoardPanel extends JPanel {
 	/**
 	 * Helper method to draw a piece.
 	 * 
+	 * This belongs in the boundary class because it is the one drawing the pixels.
+	 * 
 	 * @param g - the graphics object being drawn to.
 	 * @param p - the piece being drawn.
 	 * @param i - the number piece it is.
 	 */
 	public void drawPiece(Graphics g, Piece p, Point point) {
 		Square[] drawn = p.getDependant();
-		for(int j = 0; j<5; j++){ 
+		for(int j = 0; j<6; j++){ 
 			Square sq = drawn[j];
 			g.setColor(p.getColor());
 			g.fillRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
 			g.setColor(Color.black);
 			g.drawRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
 		}
-		g.setColor(p.getColor());
-		g.fillRect(point.x, point.y, N, N);
-		g.setColor(Color.black);
-		g.drawRect(point.x, point.y, N, N);
 	}
 	
 	

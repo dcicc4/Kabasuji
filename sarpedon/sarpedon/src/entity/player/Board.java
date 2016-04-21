@@ -5,14 +5,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * A Board entity object.
+ * Contains:
+ * shape = a two dimensional array with tiles where the board is playble and null, elsewhere
+ * pieces = a hash of UUIDs to pieces
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class Board implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6584127615090719915L;
-	Tile[][] shape; // an array of tiles or null describing the shape of the board
-	HashMap <UUID, Piece> pieces; // mapping of pieces to uuid's stored in tiles
+	/** an array of tiles or null describing the shape of the board 
+	 * playable locations on the board are represented by a tile 
+	 * non playable locations on the board are marked with null */
+	Tile[][] shape; 
+	/** a mapping of pieces to uuid's stored in tiles */
+	HashMap <UUID, Piece> pieces; 
 	
+	/** default constructor, a 12 x 12 board of tiles */
 	public Board(){
 		shape = new Tile[12][12];
 		for(int i=0; i< 12; i++){
@@ -20,15 +29,35 @@ public class Board implements Serializable{
 				shape[i][j]	= new Tile(i,j);
 			}
 		}
+		pieces = new HashMap<UUID, Piece>();
 	}
 	
-	
+	/** constructor taking a two dimensional array of Tiles describing the shape */
+	public Board(Tile[][] s){
+		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12
+		if ((s.length <= 12)&&(s.length>=1)){
+			if ((s[0].length <= 12)&&(s[0].length >=1)){
+				shape = s;
+				}
+		} else {
+			throw new RuntimeException("entity.player::Board: invalid board array");
+		}
+		pieces = new HashMap<UUID, Piece>();
+	}
+
+	/** looks up the Piece covering a given location, returns null if no piece present */
 	Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID tUUID = t.getCoveredBy();
-		Piece p = pieces.get(tUUID);
-		return p;
+		if (tUUID != null){
+			Piece p = pieces.get(tUUID);
+			return p;
+		} else {
+			return null; // could instead throw an exception?
+		}
 	}
+	
+	/** getter for shape */
 	public Tile[][] getTileArray(){
 		return shape;
 	}

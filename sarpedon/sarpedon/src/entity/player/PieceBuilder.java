@@ -133,6 +133,7 @@ public class PieceBuilder implements Serializable {
 		//make all pieces then set their colors
 		initialize();
 		for(int i=1; i<36; i++ ){
+			pieces.get(i).centerPiece();
 			pieces.get(i).setColor(palette[i%palette.length]);
 		}
 	}

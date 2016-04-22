@@ -32,11 +32,11 @@ public class Tile implements Serializable {
 	}
 	
 	/** Gets the row location of the Tile */
-	public Integer getRow(){
+	Integer getRow(){
 		return this.row;
 	}
 	/** Gets the column location of the Tile */
-	public Integer getColumn(){
+	Integer getColumn(){
 		return this.col;
 	}
 	

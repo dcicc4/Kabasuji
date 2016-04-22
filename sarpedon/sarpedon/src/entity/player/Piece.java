@@ -65,31 +65,35 @@ public class Piece implements Serializable{
 	 */
 	public void shiftDown(int i){
 		for(int j=0;j<6;j++){
-			dependent[j].setY(dependent[j].getY()+i);
+			dependent[j].setY(dependent[j].getY()-i);
 		}
 	}
 	/**
 	 * centers piece for drawing.
 	 */
 	public void centerPiece(){
-		int minY = 10;
-//		int minX = 10;
-//		int maxX = -10;
+		int minY = 0;
+	int minX = 0;
+		int maxX = 0;
 		for(int i = 0; i<6; i++){
-//			int x = dependent[i].getX();
+		int x = dependent[i].getX();
 			int y = dependent[i].getY();
-//			if(x > maxX){maxX = x;}
-//			if(x < minX){minX = x;}
+			if(x > maxX){maxX = x;}
+		if(x < minX){minX = x;}
 			if(y < minY){minY = y;}
 		}
 		if(minY < 0){
-			shiftDown(-1*minY);
+			shiftDown(minY);
 		}
-//		if((maxX+minX)/2 != 0){
-//			shiftRight((maxX+minX)/2);
-//		}
+	shiftRight(-(maxX+minX)/2);
 	}
 	
+	private void shiftRight(int i) {
+		for(int j=0;j<6;j++){
+			dependent[j].setX(dependent[j].getX()+i);
+		}
+		
+	}
 	public Square[] getDependant(){
 		return dependent;
 	}
@@ -126,6 +130,7 @@ public class Piece implements Serializable{
 			dependent[x].rotateClockwise();
 		 
 		}
+		centerPiece();
 	}
 
 	public void rotateCounterClockwise ()
@@ -135,6 +140,7 @@ public class Piece implements Serializable{
 			dependent[x].rotateCounter();
 		 
 		}
+		centerPiece();
 	}
 
 	public void flipHorizontal()
@@ -142,8 +148,8 @@ public class Piece implements Serializable{
 		for(int x = 0; x< dependent.length; x++)
 		{
 			dependent[x].flipHorizontal();
-		 
 		}
+		centerPiece();
 	}
 
 	public void flipVertical()
@@ -153,6 +159,7 @@ public class Piece implements Serializable{
 			dependent[x].flipVertical();
 		 
 		}
+		centerPiece();
 	}
 
 	boolean fits(Tile[] aTile)

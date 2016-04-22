@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import control.builder.AddPieceToBullpenController;
 import control.builder.SaveController;
 import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -42,7 +43,7 @@ public class SaveGui extends JFrame {
 	 * Create the frame.
 	 * @param model 
 	 */
-	public SaveGui(BuilderModel model) {
+	public SaveGui(IBuilderModel model) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 694, 257);
 		contentPane = new JPanel();

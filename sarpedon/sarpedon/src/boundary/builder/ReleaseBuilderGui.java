@@ -7,7 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.*;
+import entity.builder.BuildablePuzzle;
+import entity.builder.BuildableRelease;
 import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 import entity.player.Bullpen;
 
 import javax.swing.JTextField;
@@ -53,13 +56,13 @@ public class ReleaseBuilderGui extends JFrame {
 	BuilderBoardPanel boardView;
 
 	
-	BuilderModel model;
+	BuildableRelease model;
 
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseBuilderGui(BuilderModel bm) {
-		model = bm;
+	public ReleaseBuilderGui(IBuilderModel bm) {
+		model = new BuildableRelease();
 		
 		model.setType("Release");
 		setTitle("Kabasuji Release Level Builder");

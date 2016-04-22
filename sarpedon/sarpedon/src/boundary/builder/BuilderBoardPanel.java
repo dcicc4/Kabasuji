@@ -11,7 +11,7 @@ import java.awt.Point;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
-import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 import entity.player.Board;
 import entity.player.Piece;
 import entity.player.Square;
@@ -23,7 +23,7 @@ import javax.swing.GroupLayout.Alignment;
 public class BuilderBoardPanel extends JPanel {
 
 	/** Core model. */
-	BuilderModel model;
+	IBuilderModel model;
 	/** around edges. */
 	int offset = 20;
 	
@@ -45,7 +45,7 @@ public class BuilderBoardPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public BuilderBoardPanel(BuilderModel model) {
+	public BuilderBoardPanel(IBuilderModel model) {
 		this.model = model;
 		
 		setBorder(new LineBorder(Color.DARK_GRAY, 1, true));

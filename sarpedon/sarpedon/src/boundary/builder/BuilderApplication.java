@@ -7,11 +7,12 @@ import javax.swing.*;
 
 import control.builder.SwitchWindowController;
 import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 
 public class BuilderApplication{
 
 	
-	BuilderModel model = new BuilderModel();
+	IBuilderModel model;
 	
 	BuilderSplashScreen splashScreen = new BuilderSplashScreen();
 	LevelBuilderGui levelBuilder = new LevelBuilderGui();

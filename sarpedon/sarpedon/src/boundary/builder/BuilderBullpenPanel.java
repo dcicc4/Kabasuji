@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 import entity.player.Bullpen;
 
 import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 import entity.player.Piece;
 import entity.player.PieceBuilder;
 import entity.player.Square;
@@ -30,7 +31,7 @@ public class BuilderBullpenPanel extends JPanel {
 	PieceBuilder pb = new PieceBuilder();
 
 	/** Core model. */
-	BuilderModel model; 
+	IBuilderModel model; 
 
 	/** around edges. */
 	int offsetY = 20;

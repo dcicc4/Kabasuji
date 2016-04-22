@@ -13,7 +13,10 @@ import control.builder.FlipController;
 import control.builder.RotateController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
-import entity.builder.BuilderModel;
+import entity.builder.BuildableLightning;
+import entity.builder.BuildablePuzzle;
+
+import entity.builder.IBuilderModel;
 import entity.player.Bullpen;
 
 import javax.swing.JScrollPane;
@@ -70,7 +73,7 @@ public class PuzzleBuilderGui extends JFrame {
 	BuilderBoardPanel boardView;
 	
 	
-	BuilderModel model;
+	BuildablePuzzle model;
 
 	/**
 	 * Launch the application.
@@ -91,8 +94,8 @@ public class PuzzleBuilderGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleBuilderGui(BuilderModel bm) {
-		model = bm;
+	public PuzzleBuilderGui(IBuilderModel bm) {
+		model = new BuildablePuzzle();
 		model.setType("Puzzle");
 		setTitle("Kabasuji Puzzle Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

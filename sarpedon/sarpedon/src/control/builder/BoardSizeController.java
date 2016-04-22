@@ -6,6 +6,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 import entity.player.*;
 
 import javax.swing.*;
@@ -25,9 +26,9 @@ public class BoardSizeController implements ActionListener, ItemListener{
 	BuilderBoardPanel boardView;
 	JComboBox<Integer> boardSize;
 	BuilderBullpenPanel bullpenView;
-	BuilderModel model;
+	IBuilderModel model;
 	
-	public BoardSizeController(JComboBox<Integer> size, BuilderBoardPanel bv, BuilderBullpenPanel bpv, BuilderModel bm){
+	public BoardSizeController(JComboBox<Integer> size, BuilderBoardPanel bv, BuilderBullpenPanel bpv, IBuilderModel bm){
 		boardView = bv;
 		boardSize = size;
 		bullpenView = bpv;

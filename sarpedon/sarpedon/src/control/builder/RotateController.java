@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 import entity.player.*;
 import boundary.builder.*;
 
@@ -11,11 +12,11 @@ import boundary.builder.*;
 
 public class RotateController implements ActionListener{
 
-	BuilderModel model;
+	IBuilderModel model;
 	BuilderBoardPanel boardPanel;
 	boolean direction;
 	
-	public RotateController(BuilderBoardPanel newBoardPanel, BuilderModel bm, Boolean newdirection){
+	public RotateController(BuilderBoardPanel newBoardPanel, IBuilderModel bm, Boolean newdirection){
 		boardPanel = newBoardPanel;
 		model = bm;
 		direction = newdirection;

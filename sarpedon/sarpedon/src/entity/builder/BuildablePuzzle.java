@@ -1,14 +1,15 @@
 package entity.builder;
 
-import java.util.ArrayList;
-
 import entity.player.*;
 
-public class BuilderModel extends Level{
-
+public class BuildablePuzzle extends Level implements IBuilderModel{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 PieceBuilder PB = new PieceBuilder();
 	
-	public BuilderModel(){
+	public BuildablePuzzle(){
 		super();
 		bp = new Bullpen();
 		PB = new PieceBuilder();
@@ -29,5 +30,4 @@ PieceBuilder PB = new PieceBuilder();
 	public void setType(String s){
 		type = s;
 	}
-
 }

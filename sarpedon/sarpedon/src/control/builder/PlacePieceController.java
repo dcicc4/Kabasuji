@@ -4,7 +4,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import boundary.builder.BuilderBoardPanel;
-import entity.builder.BuilderModel;
+
+import entity.builder.IBuilderModel;
 import entity.player.Board;
 import entity.player.Piece;
 import entity.player.Tile;
@@ -16,10 +17,10 @@ import entity.player.Tile;
  */
 public class PlacePieceController implements MouseListener{
 	
-	BuilderModel model;
+	IBuilderModel model;
 	BuilderBoardPanel boardView;
 	
-	public PlacePieceController(BuilderModel bm, BuilderBoardPanel bv){
+	public PlacePieceController(IBuilderModel bm, BuilderBoardPanel bv){
 		model = bm;
 		boardView = bv;
 	}

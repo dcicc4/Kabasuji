@@ -199,11 +199,13 @@ public class ReleaseBuilderGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		PlacePieceController place = new PlacePieceController(model, boardView);
+		boardView.addMouseListener(place);
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
-		boardSizeCombo.addActionListener(new BoardSizeController(boardSizeCombo, boardView, bullpenView, model));
-		boardSizeCombo.addItemListener(new BoardSizeController(boardSizeCombo, boardView, bullpenView, model));
+		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
+		boardSizeCombo.addActionListener(size);
 	}
 }

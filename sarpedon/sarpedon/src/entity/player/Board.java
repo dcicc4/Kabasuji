@@ -31,10 +31,6 @@ public class Board implements Serializable{
 		}
 		pieces = new HashMap<UUID, Piece>();
 	}
-	public Board(Tile[][] s){
-		shape = s;
-	}
-	
 	/** constructor taking a two dimensional array of Tiles describing the shape */
 	public Board(Tile[][] s){
 		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12
@@ -49,7 +45,7 @@ public class Board implements Serializable{
 	}
 
 	/** looks up the Piece covering a given location, returns null if no piece present */
-	Piece getPiece(Integer row, Integer col){
+	public Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID tUUID = t.getCoveredBy();
 		if (tUUID != null){
@@ -100,7 +96,7 @@ public class Board implements Serializable{
 		return placeable;
 	}
 	
-	boolean addPiece(Integer row, Integer col, Piece p){
+	public boolean addPiece(Integer row, Integer col, Piece p){
 		if (piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
 			while (pieces.get(pUUID) != null){ // ensuring a unique UUID
@@ -122,7 +118,7 @@ public class Board implements Serializable{
 		}
 	}
 	
-	boolean removePiece(Integer row, Integer col){
+	public boolean removePiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID pUUID = t.getCoveredBy();
 		if (pUUID.compareTo(null)!=0){ // check if tile is covered
@@ -141,7 +137,7 @@ public class Board implements Serializable{
 		}
 	}
 	
-	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){
+	public boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){
 		Piece p = getPiece(startRow, startCol);
 		if (p!= null){ // check that there is a piece at the start location
 			if(piecePlaceable(endRow, endCol, p)){ // check that the end location is placeable
@@ -158,7 +154,7 @@ public class Board implements Serializable{
 		}
 	}
 	
-	void removeAll(){
+	public void removeAll(){
 		for (Tile[] tileRow: shape){ // clear coveredBy for all tiles
 			for (Tile aTile: tileRow){
 				aTile.setCoveredBy(null);

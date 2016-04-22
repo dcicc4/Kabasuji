@@ -170,7 +170,17 @@ public class BuilderBoardPanel extends JPanel {
 			g.drawRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
 		}
 	}
-	
+	/**
+	 * Gets a tile at a specific location.
+	 * 
+	 * @param p - the point at which you want the tile
+	 * @return tile
+	 */
+	public Tile getTile(Point p){
+		int x = (p.x-offset)/N;
+		int y = (p.y-offset)/N;
+		return model.getBoard().getTileArray()[x][y];
+	}
 	
 
 }

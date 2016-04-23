@@ -1,14 +1,13 @@
 package entity.player;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
 /**
  * A Board entity object.
  * Contains:
- * shape = a two dimensional array with tiles where the board is playble and null, elsewhere
+ * shape = a two dimensional array with tiles where the board is playable and null, elsewhere
  * pieces = a hash of UUIDs to pieces
  * @Tesia Shizume (ttshiz@wpi.edu)
  */
@@ -70,6 +69,7 @@ public class Board implements Serializable{
 	public void setMovingTile(boolean b){
 		movingTile = b;
 	}
+	/** getter for the tile at a specific row, column location */
 	public Tile getTile(int row, int col){
 		return shape[row][col];
 	}
@@ -82,7 +82,7 @@ public class Board implements Serializable{
 	
 	boolean availableTile(Integer row, Integer col){
 		// check if out of bounds of rectangular representation of the board
-		if ((row > shape[0].length) || (col > shape.length)){
+		if ((row > shape[0].length - 1) || (col > shape.length - 1)){
 			return false;
 		}
 		Tile t = shape[row][col];
@@ -102,8 +102,8 @@ public class Board implements Serializable{
 		boolean placeable = true;
 		//if (availableTile(row, col)){
 			for (Square s : p.dependent){
-				int drow = row + s.xFromAnchor;
-				int dcol = col + s.yFromAnchor;
+				int dcol = col + s.xFromAnchor;
+				int drow = row + s.yFromAnchor;
 				if (!availableTile(drow, dcol)){
 					placeable = false;
 				}
@@ -115,6 +115,7 @@ public class Board implements Serializable{
 		return placeable;
 	}
 	
+	/** adds a Piece to the Board, updates the hash and Tiles */
 	public boolean addPiece(Integer row, Integer col, Piece p){
 		if (piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
@@ -124,8 +125,8 @@ public class Board implements Serializable{
 			Tile t = shape[row][col];
 			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
 			for (Square s : p.dependent){ // mark the rest 
-				int drow = row + s.xFromAnchor;
-				int dcol = col + s.yFromAnchor;
+				int dcol = col + s.xFromAnchor;
+				int drow = row + s.yFromAnchor;
 				t = shape[drow][dcol];
 				t.setCoveredBy(pUUID);
 				}

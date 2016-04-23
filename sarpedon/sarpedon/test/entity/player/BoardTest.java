@@ -18,8 +18,8 @@ public class BoardTest extends TestCase {
 	Tile[][] minShape;
 	
 	/** a piece for use in testing */
-	Piece P1 = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
-
+	Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
+	Piece horizontalBar = new Piece(1,  new Square(1, 0), new Square(2, 0), new Square(3, 0), new Square(4, 0), new Square(5, 0) );
 
 	/** Sets up shape arrays for use in testing */
 	protected void setUp() throws Exception {
@@ -140,8 +140,24 @@ public class BoardTest extends TestCase {
 
 	public void testAddPiece() { //in progress
 		Board b = new Board();
-		assertTrue(b.addPiece(0, 0, P1));
-		assertFalse(b.addPiece(0, 0, P1));
+		assertTrue(b.addPiece(0, 0, verticalBar));
+		assertFalse(b.addPiece(0, 0, verticalBar));
+		
+		Board oddBoard = new Board(shapeOddsEmpty);
+		//vertical pieces should not be playable on this board
+		assertFalse(oddBoard.addPiece(0, 0, verticalBar));
+		assertFalse(oddBoard.addPiece(1, 0, verticalBar));
+		assertFalse(oddBoard.addPiece(0, 1, verticalBar));
+		
+		//testing horizontal pieces
+		assertTrue(oddBoard.addPiece(0, 0, horizontalBar));
+		//there is now a piece in the top corner
+		assertFalse(oddBoard.addPiece(0, 5, horizontalBar));
+		assertTrue(oddBoard.addPiece(0, 6, horizontalBar));
+		//this row should not be playable
+		assertFalse(oddBoard.addPiece(1, 0, horizontalBar));
+		//should overlap edge of board
+		assertFalse(oddBoard.addPiece(2, 7, horizontalBar));
 	}
 
 	public void testRemovePiece() {

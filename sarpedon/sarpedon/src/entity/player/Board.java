@@ -54,7 +54,7 @@ public class Board implements Serializable{
 			Piece p = pieces.get(tUUID);
 			return p;
 		} else {
-			return null; // could instead throw an exception?
+			return null; 
 		}
 	}
 	
@@ -63,26 +63,37 @@ public class Board implements Serializable{
 		return shape;
 	}
 	
+	/** returns whether there is a moving Tile */
 	public boolean getMovingTile(){
 		return movingTile;
 	}
+	
+	/** sets whether there is a moving Tile */
 	public void setMovingTile(boolean b){
 		movingTile = b;
 	}
-	/** getter for the tile at a specific row, column location */
+	/** getter for the tile at a specific row an column location */
 	public Tile getTile(int row, int col){
 		return shape[row][col];
 	}
+	/** sets the value at a given location on the Board to the Tile specified */
 	public void setTile(Tile t){
 		shape[t.getRow()][t.getColumn()] = t;
 	}
+	/** removes a Tile from the board at the given location, making it unplayable */
 	public void removeTile(int row, int column){
 		shape[row][column] = null;
 	}
-	
+	/** 
+	 * Returns whether a Tile is available for a new Piece at a column, row position 
+	 * @return boolean representing whether the move was successful
+	 */
 	boolean availableTile(Integer row, Integer col){
 		// check if out of bounds of rectangular representation of the board
 		if ((row > shape[0].length - 1) || (col > shape.length - 1)){
+			return false;
+		}
+		if ((row < 0) || (col < 0)){
 			return false;
 		}
 		Tile t = shape[row][col];
@@ -97,7 +108,10 @@ public class Board implements Serializable{
 			return true; 
 		}
 	}
-	
+	/** 
+	 * Returns whether a given piece can be placed at a column, row position 
+	 * @return boolean representing whether the move was successful
+	 */
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
 		//if (availableTile(row, col)){
@@ -115,7 +129,10 @@ public class Board implements Serializable{
 		return placeable;
 	}
 	
-	/** adds a Piece to the Board, updates the hash and Tiles */
+	/** 
+	 * adds a Piece to the Board, updates the hash and Tiles 
+	 * @return boolean representing whether the add was successful
+	 */
 	public boolean addPiece(Integer row, Integer col, Piece p){
 		if (piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
@@ -137,9 +154,13 @@ public class Board implements Serializable{
 			return false;
 		}
 	}
-	
+	/**
+	 * If a piece is present at a location on the Board removes it
+	 * @return boolean representing whether the remove was successful or false if there was no piece
+	 */
 	public boolean removePiece(Integer row, Integer col){
 		Tile t = shape[row][col];
+		if (t == null){ return false;}
 		UUID pUUID = t.getCoveredBy();
 		if (pUUID != null){ // check if tile is covered
 			for (Tile[] tileRow: shape){ // update coveredBy for tiles in shape
@@ -158,7 +179,10 @@ public class Board implements Serializable{
 			return false;
 		}
 	}
-	
+	/**
+	 * Moves a piece from one place to another on a board
+	 * @return boolean representing whether the move was successful
+	 */
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){
 		Piece p = getPiece(startRow, startCol);
 		if (p!= null){ // check that there is a piece at the start location
@@ -175,11 +199,15 @@ public class Board implements Serializable{
 			return false; // there was no starting piece
 		}
 	}
-	
+	/**
+	 * Removes all of Pieces from the board.
+	 */
 	void removeAll(){
 		for (Tile[] tileRow: shape){ // clear coveredBy for all tiles
 			for (Tile aTile: tileRow){
-				aTile.setCoveredBy(null);
+				if (aTile != null){
+					aTile.setCoveredBy(null);
+				}
 			}
 		}
 		pieces.clear();	 // removes all mappings from hashmap

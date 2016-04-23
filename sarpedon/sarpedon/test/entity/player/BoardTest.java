@@ -123,25 +123,54 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testGetPiece() {
-		fail("Not yet implemented");
+		Board b = new Board();
+		assertTrue(b.getPiece(0, 0) == null);
+		b.addPiece(0, 0, horizontalBar);
+		assertTrue(b.getPiece(0, 0) instanceof Piece);
+		Piece testPiece = b.getPiece(0, 0);
+		assertTrue(b.pieces.get(b.shape[0][0].getCoveredBy()) == testPiece);
+		
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertTrue(oddBoard.getPiece(1, 0) == null);
+				
 	}
 
 	public void testGetTileArray() {
-		fail("Not yet implemented");
+		Board b = new Board();
+		Tile[][] test = b.getTileArray();
+		assertTrue(test.length == 12);
+		assertTrue(test[0].length == 12);
+		
+		Board oddBoard = new Board(shapeOddsEmpty);
+		Tile[][] test2 = oddBoard.getTileArray();
+		assertTrue(test2.length == 12);
+		assertTrue(test2[0].length == 12);
+		assertTrue(test2[1][0] == null);
+		assertTrue(test2[0][0] instanceof Tile);
 	}
 
 	public void testAvailableTile() {
-		fail("Not yet implemented");
+		Board b = new Board();
+		assertFalse(b.availableTile(-1, 0));
+		assertFalse(b.availableTile(0, -1));
+		assertFalse(b.availableTile(12, 0));
+		assertFalse(b.availableTile(0, 12));
+		
+		assertTrue(b.availableTile(0, 0));
+		assertTrue(b.availableTile(11, 11));
+		assertTrue(b.availableTile(6, 6));
+		
 	}
 
-	public void testPiecePlaceable() {
-		fail("Not yet implemented");
-	}
+//	public void testPiecePlaceable() {
+//		fail("Not yet implemented");
+//	}
 
-	public void testAddPiece() { //in progress
+	public void testAddPiece() {
 		Board b = new Board();
 		assertTrue(b.addPiece(0, 0, verticalBar));
 		assertFalse(b.addPiece(0, 0, verticalBar));
+		assertTrue(b.addPiece(6, 0, verticalBar));
 		
 		Board oddBoard = new Board(shapeOddsEmpty);
 		//vertical pieces should not be playable on this board
@@ -161,15 +190,113 @@ public class BoardTest extends TestCase {
 	}
 
 	public void testRemovePiece() {
-		fail("Not yet implemented");
+		Board b = new Board();
+		assertFalse (b.removePiece(0, 0));
+		assertTrue(b.addPiece(0, 0, verticalBar));
+		assertTrue(b.getPiece(0, 0) != null);
+		
+		assertFalse(b.removePiece(7, 7));
+		assertTrue(b.removePiece(0, 0));
+		assertTrue(b.getPiece(0, 0) == null);
+		
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertFalse(oddBoard.removePiece(1, 0));
+		assertTrue(oddBoard.addPiece(0, 0, horizontalBar));
+		assertTrue(oddBoard.removePiece(0, 0));
 	}
 
 	public void testMovePiece() {
-		fail("Not yet implemented");
+		Board b = new Board();
+		assertTrue(b.addPiece(0, 0, verticalBar));
+		assertTrue(b.getPiece(0, 0) != null);
+		
+		Piece testPiece = b.getPiece(0, 0);
+		assertTrue(b.pieces.get(b.shape[0][0].getCoveredBy()) == testPiece);
+		
+		assertFalse(b.movePiece(7, 7, 6, 6));
+		assertFalse(b.movePiece(0, 0, 7, 7));
+		assertTrue(b.movePiece(0, 0, 6, 6));
+		assertTrue(b.getPiece(0, 0) == null);
+		assertTrue(b.getPiece(6, 6) != null);
+		assertTrue(b.pieces.get(b.shape[6][6].getCoveredBy()) == testPiece);
+	
 	}
 
 	public void testRemoveAll() {
-		fail("Not yet implemented");
+		Board b = new Board();
+		assertTrue(b.addPiece(0, 0, verticalBar));
+		assertTrue(b.addPiece(6, 0, verticalBar));
+		assertTrue(b.getPiece(0, 0) != null);
+		assertTrue(b.getPiece(6, 0) != null);
+		b.removeAll();
+		assertTrue(b.getPiece(0, 0) == null);
+		assertTrue(b.getPiece(6, 0) == null);
+		
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertTrue(oddBoard.addPiece(0, 0, horizontalBar));
+		assertTrue(oddBoard.addPiece(0, 6, horizontalBar));
+		assertTrue(oddBoard.getPiece(0, 0) != null);
+		assertTrue(oddBoard.getPiece(0, 6) != null);
+		oddBoard.removeAll();
+		assertTrue(oddBoard.getPiece(0, 0) == null);
+		assertTrue(oddBoard.getPiece(0, 6) == null);
+		
+	}
+	
+	public void testGetSize(){
+		Board b = new Board();
+		assertTrue(b.getSize() == 144);
+		
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertTrue(oddBoard.getSize() == 72);
+	}
+	
+	public void testRemoveTile(){
+		Board b = new Board();
+		assertTrue(b.shape[0][0] != null);
+		b.removeTile(0, 0);
+		assertTrue(b.shape[0][0] == null);
+	}
+	
+	public void testSetTile(){
+		Board b = new Board();
+		assertTrue(b.shape[0][0] != null);
+		b.removeTile(0, 0);
+		assertTrue(b.shape[0][0] == null);
+		
+		Tile testTile = new Tile(0,0);
+		b.setTile(testTile);
+		assertTrue(b.shape[0][0] == testTile);
+	}
+	
+	public void testGetTile(){
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertTrue(oddBoard.shape[0][0] != null);
+		assertTrue(oddBoard.getTile(0, 0) instanceof Tile);
+		assertTrue(oddBoard.getTile(1, 0) == null);
+	}
+	
+	public void testSetMovingTile(){
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertFalse(oddBoard.movingTile);
+		
+		oddBoard.setMovingTile(true);
+		assertTrue(oddBoard.movingTile);
+		
+		oddBoard.setMovingTile(false);
+		assertFalse(oddBoard.movingTile);
+	}
+	
+	public void testGetMovingTile(){
+		Board oddBoard = new Board(shapeOddsEmpty);
+		assertTrue(oddBoard.movingTile == oddBoard.getMovingTile());
+	
+		oddBoard.setMovingTile(true);	
+		assertTrue(oddBoard.movingTile == oddBoard.getMovingTile());
+		
+		oddBoard.setMovingTile(false);
+		assertTrue(oddBoard.movingTile == oddBoard.getMovingTile());
+		
 	}
 
 }

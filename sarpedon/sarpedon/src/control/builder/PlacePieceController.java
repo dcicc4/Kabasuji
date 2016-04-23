@@ -1,5 +1,6 @@
 package control.builder;
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -42,19 +43,19 @@ public class PlacePieceController implements MouseListener{
 		if(e.getButton() == MouseEvent.BUTTON1 && movePieces.isSelected()){
 			Piece adding = model.getBullpen().getSelectedPiece();
 			Board b = model.getBoard();
-			Tile clicked = boardView.getTile(e.getPoint());
+			Point clicked = boardView.getRowCol(e.getPoint());
 			if(clicked == null){return;}
 			if(adding == null){
 				//this means you are trying to pick up a piece.
-				Piece picked = b.getPiece(clicked.getRow(),clicked.getColumn());
+				Piece picked = b.getPiece(clicked.x,clicked.y);
 				if(picked==null){return;}
-				b.removePiece(clicked.getRow(), clicked.getColumn());
+				b.removePiece(clicked.x, clicked.y);
 				model.getBullpen().setSelected(picked);
 				boardView.redraw();
 				boardView.repaint();
 			} else {
 				//you are trying to place a piece
-				if(b.addPiece(clicked.getRow(), clicked.getColumn(), adding)){
+				if(b.addPiece(clicked.x, clicked.y, adding)){
 					model.getBullpen().removeSelected();
 					boardView.redraw();
 					boardView.repaint();

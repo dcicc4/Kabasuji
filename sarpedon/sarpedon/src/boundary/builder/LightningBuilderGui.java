@@ -7,8 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.BoardSizeController;
 import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
+import control.builder.MoveTilesController;
+import control.builder.PlacePieceController;
 import control.builder.RotateController;
 import control.builder.SelectPieceController;
 import entity.builder.BuildableLightning;
@@ -30,7 +33,11 @@ import javax.swing.JScrollBar;
 import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ButtonGroup;
-
+/**
+ * The interface for the Lighting Level Builder
+ * @author Nathan
+ *
+ */
 public class LightningBuilderGui extends JFrame {
 
 	private JPanel contentPane;
@@ -49,8 +56,8 @@ public class LightningBuilderGui extends JFrame {
 	JRadioButton movePiecesRadio;
 	JRadioButton moveTilesRadio;
 	
-	JComboBox boardSizeCombo;
-	JComboBox levelNumberCombo;
+	JComboBox<Integer> boardSizeCombo;
+	JComboBox<Integer> levelNumberCombo;
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
@@ -157,9 +164,9 @@ public class LightningBuilderGui extends JFrame {
 		boardView.setBounds(752, 222, 600, 600);
 		contentPane.add(boardView);
 		
-		boardSizeCombo = new JComboBox();
-		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
-		boardSizeCombo.setSelectedIndex(13);
+		boardSizeCombo = new JComboBox<Integer>();
+		boardSizeCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}));
+		boardSizeCombo.setSelectedIndex(23);
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		boardSizeCombo.setBounds(211, 138, 72, 45);
 		contentPane.add(boardSizeCombo);
@@ -168,8 +175,8 @@ public class LightningBuilderGui extends JFrame {
 		label_1.setBounds(10, 206, 112, 14);
 		contentPane.add(label_1);
 		
-		levelNumberCombo = new JComboBox();
-		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"none","1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
+		levelNumberCombo = new JComboBox<Integer>();
+		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
 		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		levelNumberCombo.setBounds(211, 194, 72, 39);
 		contentPane.add(levelNumberCombo);
@@ -201,11 +208,20 @@ public class LightningBuilderGui extends JFrame {
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
+
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		PlacePieceController place = new PlacePieceController(model, boardView, movePiecesRadio);
+		boardView.addMouseListener(place);
+		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
+		boardView.addMouseListener(mtc);
+		boardView.addMouseMotionListener(mtc);
+		
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
+		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
+		boardSizeCombo.addActionListener(size);
 	}
 }

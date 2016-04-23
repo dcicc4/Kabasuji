@@ -1,58 +1,58 @@
 package control.player;
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
+import boundary.builder.BuilderBoardPanel;
+import boundary.builder.BuilderBullpenPanel;
 import bounday.player.PlayerBoardPanel;
 import bounday.player.PlayerBullpenPanel;
 import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.Piece;
 
-public class BullpenToBoardController implements MouseListener{
+public class BullpenToBoardController implements MouseMotionListener{
+	
 	Board board;
 	Bullpen bullpen;
-	Piece piece;
+	PlayerBoardPanel boardView;
 	PlayerBullpenPanel bullpenPanel;
-	PlayerBoardPanel boardPanel;
-
-	BullpenToBoardController(Board board, Bullpen bullpen, PlayerBullpenPanel bullpenPanel, PlayerBoardPanel boardPanel) {
-		this.board = board;
-		this.bullpen = bullpen;
-		this.bullpenPanel = bullpenPanel;
-		this.boardPanel = boardPanel;
+	
+	public BullpenToBoardController(Board newboard, Bullpen newbullpen, PlayerBoardPanel newboardPanel, PlayerBullpenPanel newbullpenPanel){
+		board = newboard;
+		bullpen = newbullpen;
+		boardView = newboardPanel;
+		bullpenPanel = newbullpenPanel;
 	}
 	
-	void move(Piece piece, int col, int row) {
+	public void move(Piece piece, int col, int row){
+
+	}
+
+	public void mouseEntered(MouseEvent me) {
+		boardView.setMouse(me.getPoint());
+	}
+	
+	public void mouseMoved (MouseEvent me) {
+		Piece selected = bullpen.getSelectedPiece();
+		if (selected == null) { return; }
+		Point p = new Point(me.getX() - boardView.getN()/2, me.getY() - boardView.getN()/2);
+		boardView.setMouse(p);
+		boardView.redraw();
+		boardView.repaint();
 		
+	}
+	
+	public void mouseExited(MouseEvent me) {
+		boardView.setMouse(null);
+		boardView.redraw();
+		boardView.repaint();
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

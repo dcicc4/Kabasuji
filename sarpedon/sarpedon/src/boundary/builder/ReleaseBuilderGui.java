@@ -25,7 +25,12 @@ import java.awt.Font;
 import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ButtonGroup;
-
+/**
+ * The graphical user interface for the Release Level Builder.
+ * 
+ * @author Nathan
+ *
+ */
 public class ReleaseBuilderGui extends JFrame {
 
 	private JPanel contentPane;
@@ -129,7 +134,7 @@ public class ReleaseBuilderGui extends JFrame {
 		
 		boardSizeCombo = new JComboBox<Integer>();
 		boardSizeCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}));
-		boardSizeCombo.setSelectedIndex(13);
+		boardSizeCombo.setSelectedIndex(23);
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		boardSizeCombo.setBounds(223, 151, 75, 45);
 		contentPane.add(boardSizeCombo);
@@ -200,19 +205,22 @@ public class ReleaseBuilderGui extends JFrame {
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
+		
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
 		PlacePieceController place = new PlacePieceController(model, boardView, movePiecesRadio);
 		boardView.addMouseListener(place);
+		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
+		boardView.addMouseListener(mtc);
+		boardView.addMouseMotionListener(mtc);
+		
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
-		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
-		boardView.addMouseListener(mtc);
-		boardView.addMouseMotionListener(mtc);
+	
 		
 	}
 }

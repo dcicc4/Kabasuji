@@ -15,8 +15,8 @@ import boundary.builder.BuilderBoardPanel;
 import boundary.builder.BuilderBullpenPanel;
 /**
  * This class is responsible for changing the board size.
- * Note that if the board is already configured, the pieces will be removed and a new board
- * will be made with the given number of squares.
+ * Note that the board adds and subtracts pieces based on current and desired sizes.
+ * will not subtract pieces that are covered by a piece.
  * 
  * @author Nathan
  *
@@ -37,7 +37,6 @@ public class BoardSizeController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("size changed");
 		int size = boardSize.getItemAt(boardSize.getSelectedIndex())*6;
 		
 		//remove all pieces that are currently on the board.

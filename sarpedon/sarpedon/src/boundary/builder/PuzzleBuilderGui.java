@@ -8,8 +8,11 @@ import javax.swing.border.EmptyBorder;
 
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.BoardSizeController;
 import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
+import control.builder.MoveTilesController;
+import control.builder.PlacePieceController;
 import control.builder.RotateController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
@@ -44,6 +47,12 @@ import java.awt.FlowLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 
+/**
+ * The Puzzle Level Builder Graphical User Interface.
+ * 
+ * @author Nathan
+ *
+ */
 public class PuzzleBuilderGui extends JFrame {
 
 	private JPanel contentPane;
@@ -61,12 +70,11 @@ public class PuzzleBuilderGui extends JFrame {
 	JButton btnRotateCClockwise;
 	
 	JRadioButton addHintRadio;
-	private JRadioButton addHintRadio_1;
 	JRadioButton movePiecesRadio;
 	JRadioButton moveTilesRadio;
 	
-	JComboBox boardSizeCombo;
-	JComboBox levelNumberCombo;
+	JComboBox<Integer> boardSizeCombo;
+	JComboBox<Integer> levelNumberCombo;
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
@@ -128,11 +136,11 @@ public class PuzzleBuilderGui extends JFrame {
 		JLabel lblBoardsize = new JLabel("Board Size");
 		lblBoardsize.setBounds(16, 143, 138, 41);
 		
-		boardSizeCombo = new JComboBox();
+		boardSizeCombo = new JComboBox<Integer>();
 		boardSizeCombo.setBounds(220, 141, 85, 45);
 		boardSizeCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		boardSizeCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
-		boardSizeCombo.setSelectedIndex(13);
+		boardSizeCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}));
+		boardSizeCombo.setSelectedIndex(23);
 		
 		textField = new JTextField();
 		textField.setBounds(190, 679, 105, 39);
@@ -151,28 +159,28 @@ public class PuzzleBuilderGui extends JFrame {
 		btnUndo.setBackground(Color.LIGHT_GRAY);
 		btnUndo.setBounds(26, 80, 279, 41);
 		
-		addHintRadio_1 = new JRadioButton("Add Hint");
-		addHintRadio_1.setBounds(82, 361, 251, 41);
-		addHintRadio_1.setBackground(Color.WHITE);
-		buttonGroup.add(addHintRadio_1);
-		
-		addHintRadio = new JRadioButton("Move Pieces");
-		addHintRadio.setSelected(true);
-		addHintRadio.setBounds(82, 422, 251, 41);
+		addHintRadio = new JRadioButton("Add Hint");
+		addHintRadio.setBounds(82, 361, 251, 41);
 		addHintRadio.setBackground(Color.WHITE);
 		buttonGroup.add(addHintRadio);
 		
-		movePiecesRadio = new JRadioButton("Move Tiles");
-		movePiecesRadio.setBounds(82, 483, 251, 41);
+		movePiecesRadio = new JRadioButton("Move Pieces");
+		movePiecesRadio.setSelected(true);
+		movePiecesRadio.setBounds(82, 422, 251, 41);
 		movePiecesRadio.setBackground(Color.WHITE);
 		buttonGroup.add(movePiecesRadio);
+		
+		moveTilesRadio = new JRadioButton("Move Tiles");
+		moveTilesRadio.setBounds(82, 483, 251, 41);
+		moveTilesRadio.setBackground(Color.WHITE);
+		buttonGroup.add(moveTilesRadio);
 		
 		JLabel label = new JLabel("Level Number");
 		label.setBounds(10, 241, 105, 14);
 		
-		levelNumberCombo = new JComboBox();
+		levelNumberCombo = new JComboBox<Integer>();
 		levelNumberCombo.setBounds(220, 226, 85, 39);
-		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
+		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
 		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnFlipVert = new JButton("Flip Vertically");
@@ -209,7 +217,7 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(boardSizeCombo);
 		contentPane.add(label);
 		contentPane.add(levelNumberCombo);
-		contentPane.add(addHintRadio_1);
+		contentPane.add(moveTilesRadio);
 		contentPane.add(addHintRadio);
 		contentPane.add(movePiecesRadio);
 		contentPane.add(lblTotalMoves);
@@ -228,11 +236,21 @@ public class PuzzleBuilderGui extends JFrame {
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
+		
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		PlacePieceController place = new PlacePieceController(model, boardView, movePiecesRadio);
+		boardView.addMouseListener(place);
+		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
+		boardView.addMouseListener(mtc);
+		boardView.addMouseMotionListener(mtc);
+		
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
+		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
+		boardSizeCombo.addActionListener(size);
+		
 	}
 }

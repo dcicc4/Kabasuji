@@ -14,7 +14,12 @@ import entity.player.*;
 import javax.swing.*;
 
 import boundary.builder.BuilderBoardPanel;
-
+/**
+ * controls the movement of the board tiles from one location to another.
+ * 
+ * @author Nathan
+ *
+ */
 public class MoveTilesController extends MouseAdapter{
 
 	BuilderBoardPanel boardView;

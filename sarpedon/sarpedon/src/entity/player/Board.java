@@ -49,6 +49,7 @@ public class Board implements Serializable{
 	/** looks up the Piece covering a given location, returns null if no piece present */
 	public Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
+		if(t == null){return null;}
 		UUID tUUID = t.getCoveredBy();
 		if (tUUID != null){
 			Piece p = pieces.get(tUUID);
@@ -99,7 +100,7 @@ public class Board implements Serializable{
 	
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
-		if (availableTile(row, col)){
+		//if (availableTile(row, col)){
 			for (Square s : p.dependent){
 				int drow = row + s.xFromAnchor;
 				int dcol = col + s.yFromAnchor;
@@ -107,10 +108,10 @@ public class Board implements Serializable{
 					placeable = false;
 				}
 			}
-		}
-		else {
-			placeable = false;
-		}
+		//}
+		//else {
+		//	placeable = false;
+		//}
 		return placeable;
 	}
 	

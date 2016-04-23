@@ -19,7 +19,12 @@ import entity.player.Tile;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-
+/**
+ * Handles the drawing of the board entity class.
+ * 
+ * @author Nathan
+ *
+ */
 public class BuilderBoardPanel extends JPanel {
 
 	/** Core model. */

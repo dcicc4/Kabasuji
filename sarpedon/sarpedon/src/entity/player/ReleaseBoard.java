@@ -7,6 +7,7 @@ public class ReleaseBoard extends Board {
 	}
 
 	@Override
+	public
 	boolean removePiece(Integer row, Integer col){
 		return false; // pieces not removable in Release
 	}

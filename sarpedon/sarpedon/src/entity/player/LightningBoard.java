@@ -40,6 +40,7 @@ public class LightningBoard extends Board {
 	}
 	
 	@Override
+	public
 	boolean addPiece(Integer row, Integer col, Piece p){
 		if (piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
@@ -65,6 +66,7 @@ public class LightningBoard extends Board {
 	}
 	
 	@Override
+	public
 	boolean removePiece(Integer row, Integer col){
 		return false; // can't remove a piece in Lighting
 	}

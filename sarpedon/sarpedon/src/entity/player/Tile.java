@@ -32,16 +32,16 @@ public class Tile implements Serializable {
 	}
 	
 	/** Gets the row location of the Tile */
-	Integer getRow(){
+	public Integer getRow(){
 		return this.row;
 	}
 	/** Gets the column location of the Tile */
-	Integer getColumn(){
+	public Integer getColumn(){
 		return this.col;
 	}
 	
 	/** Gets the UUID of the Piece that covers the Tile */
-	UUID getCoveredBy(){
+	public UUID getCoveredBy(){
 		return this.coveredBy;
 	}
 	

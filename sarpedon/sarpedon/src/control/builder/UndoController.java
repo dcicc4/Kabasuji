@@ -11,14 +11,14 @@ import javax.swing.*;
 
 public class UndoController implements ActionListener{
 
-	ArrayList<Move> moves;
+	ArrayList<IMove> moves;
 	JPanel parentPanel;
 	
 	public UndoController(JPanel panel){
 		parentPanel = panel;
 	}
 	
-	public void addMove(Move move){
+	public void addMove(IMove move){
 
 	}
 	

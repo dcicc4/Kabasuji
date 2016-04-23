@@ -31,9 +31,6 @@ public class Board implements Serializable{
 		}
 		pieces = new HashMap<UUID, Piece>();
 	}
-	public Board(Tile[][] s){
-		shape = s;
-	}
 	
 	/** constructor taking a two dimensional array of Tiles describing the shape */
 	public Board(Tile[][] s){
@@ -49,7 +46,7 @@ public class Board implements Serializable{
 	}
 
 	/** looks up the Piece covering a given location, returns null if no piece present */
-	Piece getPiece(Integer row, Integer col){
+	public Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID tUUID = t.getCoveredBy();
 		if (tUUID != null){
@@ -100,7 +97,7 @@ public class Board implements Serializable{
 		return placeable;
 	}
 	
-	boolean addPiece(Integer row, Integer col, Piece p){
+	public boolean addPiece(Integer row, Integer col, Piece p){
 		if (piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
 			while (pieces.get(pUUID) != null){ // ensuring a unique UUID
@@ -122,13 +119,13 @@ public class Board implements Serializable{
 		}
 	}
 	
-	boolean removePiece(Integer row, Integer col){
+	public boolean removePiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		UUID pUUID = t.getCoveredBy();
-		if (pUUID.compareTo(null)!=0){ // check if tile is covered
+		if (pUUID != null){ // check if tile is covered
 			for (Tile[] tileRow: shape){ // update coveredBy for tiles in shape
 				for (Tile aTile: tileRow){
-					if (aTile.getCoveredBy().compareTo(pUUID) == 0){
+					if (aTile.getCoveredBy()== pUUID){
 						aTile.setCoveredBy(null);
 					}
 				}

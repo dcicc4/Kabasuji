@@ -33,7 +33,6 @@ public class PlacePieceController implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		System.out.println("mouse clicke");
 		//only do this if you are left clicking
 		if(e.getButton() == MouseEvent.BUTTON1){
 			Piece adding = model.getBullpen().getSelectedPiece();
@@ -50,7 +49,6 @@ public class PlacePieceController implements MouseListener{
 			} else {
 				//you are trying to place a piece
 				if(b.addPiece(clicked.getRow(), clicked.getColumn(), adding)){
-					System.out.println("pieceadded");
 					model.getBullpen().removeSelected();
 					boardView.redraw();
 					boardView.repaint();

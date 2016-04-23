@@ -112,13 +112,18 @@ public class BuilderBoardPanel extends JPanel {
 		// draw board.
 		g.setColor(Color.white);
 		g.fillRect(0,0,16*N,16*N);
-		g.setColor(Color.black);
 		//draws a 12 by 12 grid, because I hard coded a 12x12 grid
 		Tile[][] tiles = model.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
-				if(tiles[i][j] != null)
-					g.drawRect(offset + i*N, offset + j*N, N, N);				
+				Tile tile = tiles[i][j];
+				if(tile != null)
+					if(model.getBoard().getPiece(i, j)!= null){
+						g.setColor(model.getBoard().getPiece(i, j).getColor());
+						g.fillRect(offset + i*N, offset + j*N, N, N);
+					}
+				g.setColor(Color.black);
+				g.drawRect(offset + i*N, offset + j*N, N, N);				
 			}
 		}
 		//draw the selected piece at the mouse tip

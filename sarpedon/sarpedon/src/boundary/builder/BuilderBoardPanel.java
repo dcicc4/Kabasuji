@@ -110,7 +110,7 @@ public class BuilderBoardPanel extends JPanel {
 		if (model == null) { return; }
 
 		// draw board.
-		g.setColor(Color.white);
+		g.setColor(new Color(240, 240, 240));
 		g.fillRect(0,0,16*N,16*N);
 		//draws a 12 by 12 grid, because I hard coded a 12x12 grid
 		Tile[][] tiles = model.getBoard().getTileArray();
@@ -118,12 +118,14 @@ public class BuilderBoardPanel extends JPanel {
 			for(int j = 0; j<12; j++){
 				Tile tile = tiles[i][j];
 				if(tile != null){
+					g.setColor(Color.white);
+					g.fillRect(offset + i*N, offset + j*N, N, N);
 					if(model.getBoard().getPiece(i, j)!= null){
 						g.setColor(model.getBoard().getPiece(i, j).getColor());
 						g.fillRect(offset + i*N, offset + j*N, N, N);
 					}
 					g.setColor(Color.black);
-					g.drawRect(offset + i*N, offset + j*N, N, N);				
+					g.drawRect(offset + i*N, offset + j*N, N, N);
 				}
 			}
 		}
@@ -137,6 +139,13 @@ public class BuilderBoardPanel extends JPanel {
 				drawPiece(g, selected, new Point(offset + N*6, offset + N*6));
 			}
 
+		}
+		//draw a moving tile at the tip of the mouse
+		if(model.getBoard().getMovingTile() && mouse != null){
+			g.setColor(Color.white);
+			g.fillRect(mouse.x-N/2, mouse.y-N/2, N, N);
+			g.setColor(Color.BLACK);
+			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
 		}
 	}
 	public void redraw() {
@@ -185,7 +194,28 @@ public class BuilderBoardPanel extends JPanel {
 	public Tile getTile(Point p){
 		int x = (p.x-offset)/N;
 		int y = (p.y-offset)/N;
+		if(x < 12 && y < 12 && x >= 0 && y >= 0){
 		return model.getBoard().getTileArray()[x][y];
+		}
+		else{ 
+			return null;
+		}
+	}
+	/**
+	 * Returns row and column in point format corresponding to x,y location.
+	 * 
+	 * @param p -point at which you want the row, column
+	 * @return point where x is the row number and y is the column number
+	 */
+	public Point getRowCol(Point p){
+		int x = (p.x-offset)/N;
+		int y = (p.y-offset)/N;
+		if(x < 12 && y < 12 && x >= 0 && y >= 0){
+		return new Point(x,y);
+		}
+		else{ 
+			return null;
+		}
 	}
 	
 

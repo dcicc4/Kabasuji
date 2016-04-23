@@ -21,6 +21,7 @@ public class Board implements Serializable{
 	/** a mapping of pieces to uuid's stored in tiles */
 	HashMap <UUID, Piece> pieces; 
 	
+	 boolean movingTile = false;
 	/** default constructor, a 12 x 12 board of tiles */
 	public Board(){
 		shape = new Tile[12][12];
@@ -60,6 +61,22 @@ public class Board implements Serializable{
 	/** getter for shape */
 	public Tile[][] getTileArray(){
 		return shape;
+	}
+	
+	public boolean getMovingTile(){
+		return movingTile;
+	}
+	public void setMovingTile(boolean b){
+		movingTile = b;
+	}
+	public Tile getTile(int row, int col){
+		return shape[row][col];
+	}
+	public void setTile(Tile t){
+		shape[t.getRow()][t.getColumn()] = t;
+	}
+	public void removeTile(int row, int column){
+		shape[row][column] = null;
 	}
 	
 	boolean availableTile(Integer row, Integer col){
@@ -164,6 +181,21 @@ public class Board implements Serializable{
 			}
 		}
 		pieces.clear();	 // removes all mappings from hashmap
+	}
+	/**
+	 * Returns the number of tiles in the board.
+	 * @return int representing how many tiles in the board
+	 */
+	public int getSize() {
+		int size = 0;
+		for (Tile[] tileRow: shape){ // clear coveredBy for all tiles
+			for (Tile aTile: tileRow){
+				if (aTile != null){
+					size++;
+				}
+			}
+		}
+		return size;
 	}
 	
 }

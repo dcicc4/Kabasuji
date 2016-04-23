@@ -43,6 +43,7 @@ public class PlacePieceController implements MouseListener{
 			Piece adding = model.getBullpen().getSelectedPiece();
 			Board b = model.getBoard();
 			Tile clicked = boardView.getTile(e.getPoint());
+			if(clicked == null){return;}
 			if(adding == null){
 				//this means you are trying to pick up a piece.
 				Piece picked = b.getPiece(clicked.getRow(),clicked.getColumn());

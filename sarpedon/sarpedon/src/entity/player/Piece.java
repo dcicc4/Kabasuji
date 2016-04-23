@@ -73,13 +73,13 @@ public class Piece implements Serializable{
 	 */
 	public void centerPiece(){
 		int minY = 0;
-	int minX = 0;
+		int minX = 0;
 		int maxX = 0;
 		for(int i = 0; i<6; i++){
-		int x = dependent[i].getX();
+			int x = dependent[i].getX();
 			int y = dependent[i].getY();
 			if(x > maxX){maxX = x;}
-		if(x < minX){minX = x;}
+			if(x < minX){minX = x;}
 			if(y < minY){minY = y;}
 		}
 		if(minY < 0){

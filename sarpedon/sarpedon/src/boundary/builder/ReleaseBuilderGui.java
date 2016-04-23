@@ -210,5 +210,9 @@ public class ReleaseBuilderGui extends JFrame {
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
+		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
+		boardView.addMouseListener(mtc);
+		boardView.addMouseMotionListener(mtc);
+		
 	}
 }

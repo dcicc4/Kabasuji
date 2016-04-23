@@ -21,7 +21,7 @@ import boundary.builder.BuilderBullpenPanel;
  * @author Nathan
  *
  */
-public class BoardSizeController implements ActionListener, ItemListener{
+public class BoardSizeController implements ActionListener{
 
 	BuilderBoardPanel boardView;
 	JComboBox<Integer> boardSize;
@@ -39,26 +39,48 @@ public class BoardSizeController implements ActionListener, ItemListener{
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("size changed");
 		int size = boardSize.getItemAt(boardSize.getSelectedIndex())*6;
-		//handle the case where there are pieces on the board(later)
-		Tile[][] boardShape = new Tile[12][12];
-		int added = 0;
-		for(int i = 0; i<12; i++){
-			for(int j = 0; j<12; j++){
-				if(added < size){
-					boardShape[i][j] = new Tile(i, j);
-					added++;
+		
+		//remove all pieces that are currently on the board.
+		/*for (Tile[] tileRow: model.getBoard().getTileArray()){
+			for (Tile aTile: tileRow){
+				if(aTile.getCoveredBy() != null){
+					Piece p = model.getBoard().getPiece(aTile.getRow(), aTile.getColumn());
+					model.getBullpen().addPiece(p);
+					model.getBoard().removePiece(aTile.getRow(), aTile.getColumn());
+				}
+			}
+		}*/
+		
+		//make a new board of the correct size.
+		Tile[][] boardShape = model.getBoard().getTileArray();
+		int currsize = model.getBoard().getSize();
+		if(currsize < size){//when size requested is larger
+			for(int i = 0; i<12; i++){
+				for(int j = 0; j<12; j++){
+					if(currsize < size && boardShape[i][j] == null){
+						boardShape[i][j] = new Tile(i, j);
+						currsize++;
+					}
+				}
+			}
+		}
+		if(currsize > size){
+			for(int i = 0; i<12; i++){
+				for(int j = 0; j<12; j++){
+					Tile t = boardShape[11-i][11-j];
+					if(t != null){
+					if(currsize > size && t.getCoveredBy() == null){
+						boardShape[11-i][11-j] = null;
+						currsize--;
+					}
+					}
 				}
 			}
 		}
 		
-		model.setBoard(new Board(boardShape));
+		bullpenView.redraw();
+		bullpenView.repaint();
 		boardView.redraw();
 		boardView.repaint();
-	}
-
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		System.out.println("item changed");
-		
 	}
 }

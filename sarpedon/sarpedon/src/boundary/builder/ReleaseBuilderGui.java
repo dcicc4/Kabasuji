@@ -47,9 +47,9 @@ public class ReleaseBuilderGui extends JFrame {
 	JRadioButton rdbtnNumberTile;
 	
 	JComboBox<Integer> boardSizeCombo;
-	JComboBox levelNumberCombo;
-	JComboBox colorCombo;
-	JComboBox numberCombo;
+	JComboBox<Integer> levelNumberCombo;
+	JComboBox<String> colorCombo;
+	JComboBox<Integer> numberCombo;
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
@@ -144,14 +144,14 @@ public class ReleaseBuilderGui extends JFrame {
 		rdbtnNumberTile.setBounds(81, 548, 109, 23);
 		contentPane.add(rdbtnNumberTile);
 		
-		colorCombo = new JComboBox();
-		colorCombo.setModel(new DefaultComboBoxModel(new String[] {"Red", "Green", "Blue"}));
+		colorCombo = new JComboBox<String>();
+		colorCombo.setModel(new DefaultComboBoxModel<String>(new String[] {"Red", "Green", "Blue"}));
 		colorCombo.setSelectedIndex(1);
 		colorCombo.setBounds(155, 578, 64, 20);
 		contentPane.add(colorCombo);
 		
-		numberCombo = new JComboBox();
-		numberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6"}));
+		numberCombo = new JComboBox<Integer>();
+		numberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6}));
 		numberCombo.setBounds(155, 609, 64, 20);
 		contentPane.add(numberCombo);
 		
@@ -167,9 +167,9 @@ public class ReleaseBuilderGui extends JFrame {
 		lblNewLabel.setBounds(25, 247, 105, 14);
 		contentPane.add(lblNewLabel);
 		
-		levelNumberCombo = new JComboBox();
+		levelNumberCombo = new JComboBox<Integer>();
 		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		levelNumberCombo.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"}));
+		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
 		levelNumberCombo.setBounds(223, 235, 75, 39);
 		contentPane.add(levelNumberCombo);
 		
@@ -198,11 +198,11 @@ public class ReleaseBuilderGui extends JFrame {
 		//install controllers
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
-		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView);
+		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		PlacePieceController place = new PlacePieceController(model, boardView);
+		PlacePieceController place = new PlacePieceController(model, boardView, movePiecesRadio);
 		boardView.addMouseListener(place);
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));

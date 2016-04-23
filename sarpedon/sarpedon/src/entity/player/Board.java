@@ -104,7 +104,7 @@ public class Board implements Serializable{
 				pUUID = UUID.randomUUID();
 			}
 			Tile t = shape[row][col];
-			t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
+			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
 			for (Square s : p.dependent){ // mark the rest 
 				int drow = row + s.xFromAnchor;
 				int dcol = col + s.yFromAnchor;
@@ -125,8 +125,10 @@ public class Board implements Serializable{
 		if (pUUID != null){ // check if tile is covered
 			for (Tile[] tileRow: shape){ // update coveredBy for tiles in shape
 				for (Tile aTile: tileRow){
-					if (aTile.getCoveredBy()== pUUID){
-						aTile.setCoveredBy(null);
+					if(aTile != null){
+						if (aTile.getCoveredBy() == pUUID){
+							aTile.setCoveredBy(null);
+						}
 					}
 				}
 			}

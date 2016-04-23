@@ -3,6 +3,8 @@ package control.builder;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JRadioButton;
+
 import boundary.builder.BuilderBoardPanel;
 
 import entity.builder.IBuilderModel;
@@ -12,6 +14,7 @@ import entity.player.Tile;
 /**
  * Places selected piece on the board.
  * Will also pick up a piece if there is no selected piece.
+ * 
  * @author Nathan
  *
  */
@@ -19,10 +22,12 @@ public class PlacePieceController implements MouseListener{
 	
 	IBuilderModel model;
 	BuilderBoardPanel boardView;
+	JRadioButton movePieces;
 	
-	public PlacePieceController(IBuilderModel bm, BuilderBoardPanel bv){
+	public PlacePieceController(IBuilderModel bm, BuilderBoardPanel bv, JRadioButton b){
 		model = bm;
 		boardView = bv;
+		movePieces = b;
 	}
 
 	@Override
@@ -33,8 +38,8 @@ public class PlacePieceController implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		//only do this if you are left clicking
-		if(e.getButton() == MouseEvent.BUTTON1){
+		//only do this if you are left clicking (and the move piece button is selected)
+		if(e.getButton() == MouseEvent.BUTTON1 && movePieces.isSelected()){
 			Piece adding = model.getBullpen().getSelectedPiece();
 			Board b = model.getBoard();
 			Tile clicked = boardView.getTile(e.getPoint());

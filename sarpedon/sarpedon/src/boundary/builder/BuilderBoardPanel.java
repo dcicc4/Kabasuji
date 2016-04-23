@@ -117,13 +117,14 @@ public class BuilderBoardPanel extends JPanel {
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				Tile tile = tiles[i][j];
-				if(tile != null)
+				if(tile != null){
 					if(model.getBoard().getPiece(i, j)!= null){
 						g.setColor(model.getBoard().getPiece(i, j).getColor());
 						g.fillRect(offset + i*N, offset + j*N, N, N);
 					}
-				g.setColor(Color.black);
-				g.drawRect(offset + i*N, offset + j*N, N, N);				
+					g.setColor(Color.black);
+					g.drawRect(offset + i*N, offset + j*N, N, N);				
+				}
 			}
 		}
 		//draw the selected piece at the mouse tip
@@ -135,7 +136,7 @@ public class BuilderBoardPanel extends JPanel {
 			if(mouse == null){
 				drawPiece(g, selected, new Point(offset + N*6, offset + N*6));
 			}
-			
+
 		}
 	}
 	public void redraw() {

@@ -9,7 +9,13 @@ import entity.player.*;
 import boundary.builder.*;
 
 //import javax.swing.*;
-
+/**
+ * Flips the active piece.
+ * true is vertical false is horizontal.
+ * 
+ * @author Nathan
+ *
+ */
 public class FlipController implements ActionListener{
 
 	BuilderBoardPanel boardPanel;

@@ -37,6 +37,10 @@ public class PlacePieceController implements MouseListener {
 	}
 
 	@Override
+	/**
+	 * when the mouse is left clicked, we want to place a piece if it is active or 
+	 * pick up a piece if there is nothing active.
+	 */
 	public void mousePressed(MouseEvent e) {
 		//only do this if you are left clicking (and the move piece button is selected)
 		if(e.getButton() == MouseEvent.BUTTON1 && movePieces.isSelected()){

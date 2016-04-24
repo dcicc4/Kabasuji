@@ -9,7 +9,12 @@ import entity.player.*;
 import boundary.builder.*;
 
 //import javax.swing.*;
-
+/**
+ * Rotates the active Piece.
+ * true is a counter clockwise rotation, false is a clockwise rotation
+ * @author Nathan
+ *
+ */
 public class RotateController implements ActionListener{
 
 	IBuilderModel model;

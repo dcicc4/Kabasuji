@@ -10,10 +10,11 @@ import entity.player.Piece;
  * Handles the flipping of an active piece.
  * true -> Vertical Flipping 
  * false -> Horizontal Flipping
+ * 
  * @author Nathan
  *
  */
-class FlipController implements ActionListener{
+public class FlipController implements ActionListener{
 	
 	PlayerBoardPanel boardPanel;
 	Level model;

@@ -8,8 +8,12 @@ public class LightningLevel extends Level {
 	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
 			boolean cmplted, ArrayList<Hint> hnts, Integer tLeft) {
 		super("Lightning");
+		bullpen= bull;
+		board = lboard;
+		stars = strs;
+		completed = cmplted;
+		hints = hnts;
 		timeLeft = tLeft;
-		// stub
 	}
 	
 	void updateStars(){

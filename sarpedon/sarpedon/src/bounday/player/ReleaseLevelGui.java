@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import control.player.BullpenToBoardController;
+import control.player.FlipController;
+import control.player.RotateController;
+import control.player.SelectPieceController;
 import entity.player.ReleaseLevel;
 
 import java.awt.Color;
@@ -152,6 +156,17 @@ public class ReleaseLevelGui extends JFrame {
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
 		btnFlipHor.setBounds(1350, 721, 125, 125);
 		contentPane.add(btnFlipHor);
+		
+		//attach controllers
+		btnFlipVert.addActionListener(new FlipController(boardView, level, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, level, false));
+		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
+		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
+		
+		SelectPieceController spc = new SelectPieceController(level.getBullpen(), boardView, bullpenView);
+		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
 	}
 
 }

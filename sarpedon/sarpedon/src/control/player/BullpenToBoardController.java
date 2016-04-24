@@ -13,6 +13,13 @@ import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.Piece;
 
+/**
+ * Moves the bullpen's active piece around in the board panel.
+ * Suitable for all Level types.
+ * 
+ * @author Nathan
+ *
+ */
 public class BullpenToBoardController implements MouseMotionListener{
 	
 	Board board;

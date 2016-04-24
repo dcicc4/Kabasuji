@@ -7,12 +7,14 @@ import java.awt.event.MouseListener;
 import javax.swing.JRadioButton;
 
 import boundary.builder.BuilderBoardPanel;
+import bounday.player.PlayerBoardPanel;
 import entity.player.Board;
 import entity.player.Level;
 import entity.player.Piece;
 
 /**
  * Places active piece on board or picks up a piece on the board.
+ * Suitable for Puzzle Levels.
  * (Nearly identical to the builder version)
  * 
  * @author Nathan
@@ -21,13 +23,11 @@ import entity.player.Piece;
 public class PlacePieceController implements MouseListener {
 	
 	Level model;
-	BuilderBoardPanel boardView;
-	JRadioButton movePieces;
+	PlayerBoardPanel boardView;
 	
-	public PlacePieceController(Level l, BuilderBoardPanel bv, JRadioButton b){
+	public PlacePieceController(Level l, PlayerBoardPanel bv){
 		model = l;
 		boardView = bv;
-		movePieces = b;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class PlacePieceController implements MouseListener {
 	 */
 	public void mousePressed(MouseEvent e) {
 		//only do this if you are left clicking (and the move piece button is selected)
-		if(e.getButton() == MouseEvent.BUTTON1 && movePieces.isSelected()){
+		if(e.getButton() == MouseEvent.BUTTON1){
 			Piece adding = model.getBullpen().getSelectedPiece();
 			Board b = model.getBoard();
 			Point clicked = boardView.getRowCol(e.getPoint());

@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import control.player.*;
 import entity.player.PuzzleLevel;
 import entity.player.ReleaseLevel;
 
@@ -134,5 +135,18 @@ public class PuzzleLevelGui extends JFrame {
 		btnrotateCClockwise.setBackground(Color.LIGHT_GRAY);
 		btnrotateCClockwise.setBounds(1349, 297, 125, 125);
 		contentPane.add(btnrotateCClockwise);
+		
+		//attach controllers
+		btnFlipVert.addActionListener(new FlipController(boardView, level, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, level, false));
+		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
+		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
+		
+		SelectPieceController spc = new SelectPieceController(level.getBullpen(), boardView, bullpenView);
+		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
+		PlacePieceController place = new PlacePieceController(level, boardView);
+		boardView.addMouseListener(place);
 	}
 }

@@ -22,7 +22,7 @@ public class PlayerBoardPanel extends JPanel {
 	int offset = 32;
 	
 	/** Base size of puzzle. */
-	public final int N = 60;   // size of the edge of one tile
+	public final int N = 55;   // size of the edge of one tile
 	
 	/** Off-screen image for drawing (and Graphics object). */
 	Image offScreenImage = null;
@@ -166,6 +166,23 @@ public class PlayerBoardPanel extends JPanel {
 			g.fillRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
 			g.setColor(Color.black);
 			g.drawRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
+		}
+	}
+	
+	/**
+	 * Returns row and column in point format corresponding to x,y location.
+	 * 
+	 * @param p -point at which you want the row, column
+	 * @return point where x is the row number and y is the column number
+	 */
+	public Point getRowCol(Point p){
+		int x = (p.x-offset)/N;
+		int y = (p.y-offset)/N;
+		if(x < 12 && y < 12 && x >= 0 && y >= 0){
+		return new Point(x,y);
+		}
+		else{ 
+			return null;
 		}
 	}
 

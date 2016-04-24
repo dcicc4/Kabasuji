@@ -17,7 +17,7 @@ public class BoardTest extends TestCase {
 	/** a 0 x 0 Tile array */
 	Tile[][] minShape;
 	
-	/** a piece for use in testing */
+	/** pieces for use in testing */
 	Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
 	Piece horizontalBar = new Piece(1,  new Square(1, 0), new Square(2, 0), new Square(3, 0), new Square(4, 0), new Square(5, 0) );
 

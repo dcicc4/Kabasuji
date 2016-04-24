@@ -2,11 +2,12 @@ package entity.player;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * The Bullpen is a collection of Pieces, one of which may be selected at a time
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class Bullpen implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -6879604314610676141L;
 	ArrayList <Piece> pieces;
 	Piece selectedPiece;

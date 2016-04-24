@@ -21,7 +21,8 @@ public class Board implements Serializable{
 	HashMap <UUID, Piece> pieces; 
 	
 	 boolean movingTile = false;
-	/** default constructor, a 12 x 12 board of tiles */
+	/** default constructor
+	 *  produces a 12 x 12 board of Tiles, none of which are covered */
 	public Board(){
 		shape = new Tile[12][12];
 		for(int i=0; i< 12; i++){
@@ -32,7 +33,10 @@ public class Board implements Serializable{
 		pieces = new HashMap<UUID, Piece>();
 	}
 	
-	/** constructor taking a two dimensional array of Tiles describing the shape */
+	/** Constructor taking a two dimensional array of Tiles describing the shape
+	 * @param s a two dimensional array of Tiles describing the shape
+	 * nulls at a given array location indicate the location is never playable
+	 */
 	public Board(Tile[][] s){
 		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12
 		if ((s.length <= 12)&&(s.length>=1)){
@@ -45,7 +49,10 @@ public class Board implements Serializable{
 		pieces = new HashMap<UUID, Piece>();
 	}
 
-	/** looks up the Piece covering a given location, returns null if no piece present */
+	/** looks up the Piece covering a given location
+	 * @param row the row in which to look
+	 * @param col the column in which to look
+	 * @return null if no Piece present at that location, otherwise returns the Piece */
 	public Piece getPiece(Integer row, Integer col){
 		Tile t = shape[row][col];
 		if(t == null){return null;}
@@ -58,34 +65,43 @@ public class Board implements Serializable{
 		}
 	}
 	
-	/** getter for shape */
+	/** Getter for shape */
 	public Tile[][] getTileArray(){
 		return shape;
 	}
 	
-	/** returns whether there is a moving Tile */
+	/** Getter for whether there is a moving Tile */
 	public boolean getMovingTile(){
 		return movingTile;
 	}
 	
-	/** sets whether there is a moving Tile */
+	/** Sets whether there is a moving Tile */
 	public void setMovingTile(boolean b){
 		movingTile = b;
 	}
-	/** getter for the tile at a specific row an column location */
+	/** Getter for the tile at a specific row an column location 
+	 * @param row the row in which the tile is located
+	 * @param col the column in which the tile is located
+	 */
 	public Tile getTile(int row, int col){
 		return shape[row][col];
 	}
-	/** sets the value at a given location on the Board to the Tile specified */
+	/** updates the Board with the information of a new Tile
+	 * @param t the new Tile for the Board*/
 	public void setTile(Tile t){
 		shape[t.getRow()][t.getColumn()] = t;
 	}
-	/** removes a Tile from the board at the given location, making it unplayable */
+	/** removes a Tile from the board at the given location, making it unplayable 
+	 * @param row the row in which the Tile is to be removed
+	 * @param column the column in which the Tile is to be removed
+	 */
 	public void removeTile(int row, int column){
 		shape[row][column] = null;
 	}
 	/** 
 	 * Returns whether a Tile is available for a new Piece at a column, row position 
+	 * @param row the row in which the Tile is located
+	 * @param col the column in which the Tile is located
 	 * @return boolean representing whether the move was successful
 	 */
 	boolean availableTile(Integer row, Integer col){
@@ -110,6 +126,9 @@ public class Board implements Serializable{
 	}
 	/** 
 	 * Returns whether a given piece can be placed at a column, row position 
+	 * @param row the row in which the location of interest lies
+	 * @param col the column in which the location of interest lies
+	 * @param p the prospective Piece for that location
 	 * @return boolean representing whether the move was successful
 	 */
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
@@ -131,6 +150,9 @@ public class Board implements Serializable{
 	
 	/** 
 	 * adds a Piece to the Board, updates the hash and Tiles 
+	 * @param row the row in which the Piece is to be placed
+	 * @param col the column in which the Piece is to be placed
+	 * @param p the Piece which is to be placed
 	 * @return boolean representing whether the add was successful
 	 */
 	public boolean addPiece(Integer row, Integer col, Piece p){
@@ -156,6 +178,8 @@ public class Board implements Serializable{
 	}
 	/**
 	 * If a piece is present at a location on the Board removes it
+	 * @param row the row of the intended removal
+	 * @param col the column of the intended removal
 	 * @return boolean representing whether the remove was successful or false if there was no piece
 	 */
 	public boolean removePiece(Integer row, Integer col){
@@ -181,6 +205,10 @@ public class Board implements Serializable{
 	}
 	/**
 	 * Moves a piece from one place to another on a board
+	 * @param startRow the starting row of the intended move
+	 * @param startCol the starting column of the intended move
+	 * @param endRow the destination row of the intended move
+	 * @param endCol the destination column of the intended move
 	 * @return boolean representing whether the move was successful
 	 */
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){

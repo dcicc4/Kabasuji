@@ -51,8 +51,12 @@ public class ReleaseTileTest extends TestCase {
 	public void testGetColorString(){
 		assertTrue("BLUE".compareTo(testTileOrigin.getColorString())==0);
 		assertTrue("RED".compareTo(testTile11n9UUID.getColorString())==0);
+		
 		ReleaseTile testTile = new ReleaseTile(6,6,3,ReleaseTile.Color.GREEN);
 		assertTrue("GREEN".compareTo(testTile.getColorString())==0);
+		
+		ReleaseTile testTile2 = new ReleaseTile(6,6,3,ReleaseTile.Color.NONE);
+		assertTrue("NONE".compareTo(testTile2.getColorString())==0);
 	}
 
 }

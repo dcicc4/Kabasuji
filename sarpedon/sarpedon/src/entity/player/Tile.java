@@ -18,13 +18,20 @@ public class Tile implements Serializable {
 	/** the unique ID of the piece covering it */
 	UUID coveredBy; 
 	
-	/** Constructor with UUID provided */
+	/** Constructor with UUID provided 
+	 * @param rw the row in which the Tile is located
+	 * @param cl the column in which the Tile is located
+	 * @param cvrd the UUID of the piece that covers the Tile, or null if there is no Piece covering the Tile 
+	 */
 	public Tile(Integer rw, Integer cl, UUID cvrd){
 		row = rw;
 		col = cl;
 		coveredBy = cvrd;
 	}
-	/** Constructor without UUID */
+	/** Constructor without UUID 
+	 * @param rw the row in which the Tile is located
+	 * @param cl the column in which the Tile is located
+	 */
 	public Tile(Integer rw, Integer cl){
 		row = rw;
 		col = cl;
@@ -50,7 +57,10 @@ public class Tile implements Serializable {
 		this.coveredBy = i;	
 	}
 	
-	/** Checks if a location is over the tile, returns true if it is */
+	/** Checks if a location is over the tile, returns true if it is 
+	 * @param rw the row in which to check
+	 * @param cl the column in which to check
+	 */
 	boolean overTile(Integer rw, Integer cl){
 		if ((rw <= this.row) && (rw > (this.row - 1)) && (cl <= this.col) && (cl > (this.col -1))){
 			return true;

@@ -3,8 +3,13 @@ package entity.player;
 import junit.framework.TestCase;
 
 public class ReleaseBoardTest extends TestCase {
-	/** a 12 x 12 Tile array */
+	/** a 12 x 12 ReleaseTile array */
 	ReleaseTile[][] shapeFull;
+	/** a 13 x 13 ReleaseTile array */
+	ReleaseTile[][] bigShape;
+	/** a 0 x 0 ReleaseTile array */
+	ReleaseTile[][] minShape;
+	
 	/** a Release Board to do testing on */
 	ReleaseBoard rb;
 	/** a Piece to be used for testing */
@@ -18,6 +23,14 @@ public class ReleaseBoardTest extends TestCase {
 				shapeFull[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
 			}
 		}
+		bigShape = new ReleaseTile[13][13];
+		for(int i=0; i< 12; i++){
+			for(int j =0; j<12;j++){
+				shapeFull[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
+			}
+		}
+		minShape = new ReleaseTile[0][0];
+		
 		rb = new ReleaseBoard(shapeFull);
 		
 	}
@@ -38,6 +51,23 @@ public class ReleaseBoardTest extends TestCase {
 		assertTrue(rb.shape == shapeFull);
 		assertTrue(rb.shape[0][0].rcolor==ReleaseTile.Color.NONE);
 		assertTrue(rb.shape[0][0].rnumber== null);
+		
+		Board bigBoard;
+		Board minBoard;
+		boolean thrown = false;
+		// Too big
+		try {
+			bigBoard = new ReleaseBoard(bigShape);
+		} catch (RuntimeException e) {
+			thrown = true;
+		}
+		// Too small
+		try {
+			minBoard = new ReleaseBoard(minShape);
+		} catch (RuntimeException e) {
+			thrown = true;
+		}
+		  assertTrue(thrown);
 	}
 
 }

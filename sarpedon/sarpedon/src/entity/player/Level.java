@@ -9,7 +9,7 @@ import java.util.ArrayList;
 abstract public class Level implements Serializable {
 	
 	private static final long serialVersionUID = -884584409157199554L;
-	/** A Board which describes what locations are playble and where Pieces are */
+	/** A Board which describes what locations are playable and where Pieces are */
 	protected Board brd;
 	/** A collection of Pieces that can be played on the Board */
 	protected Bullpen bp;
@@ -24,37 +24,7 @@ abstract public class Level implements Serializable {
 	/** a number indicating the Level's position in the ordering for the overarching game */
 	protected Integer number;
 	
-	/**
-	 *  Default constructor, primarily used for testing purposes 
-	 *  since Levels will be made in the level builder
-	 */
-	public Level(){
-		this.brd = new Board();
-		this.bp = new Bullpen();
-		this.stars = 0;
-		this.completed = false;
-		this.hints = null;
-		this.type = "Puzzle";
-		this.number = 1;
-	}
 	
-	/**
-	 * Constructor, primarily for testing purposes
-	 * since Levels will be made in the level builder
-	 * @param b the Board on which Pieces can be played
-	 * @param bllpn the Bullpen from which Pieces can be played
-	 * @param hnts a list of suggested locations for specific Pieces
-	 */
-	public Level(Board b, Bullpen bllpn, ArrayList<Hint> hnts){
-		this.brd = b;
-		this.bp = bllpn;
-		this.hints = hnts;
-		this.stars = 0;
-		this.completed = false;
-		this.type = "Puzzle";
-		this.number = 1;
-		
-	}
 	/**
 	 * Gets the Bullpen of the level
 	 * @return the Bullpen of the Level

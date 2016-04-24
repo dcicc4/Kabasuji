@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
 import control.player.*;
+import entity.player.PieceBuilder;
 import entity.player.PuzzleLevel;
 import entity.player.ReleaseLevel;
 
@@ -48,7 +49,11 @@ public class PuzzleLevelGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					PieceBuilder pb = new PieceBuilder();
 					PuzzleLevel l = new PuzzleLevel();
+					for(int i = 0; i < 6; i++){
+					l.getBullpen().addPiece(pb.getPiece(1));
+					}
 					PuzzleLevelGui frame = new PuzzleLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -146,7 +151,7 @@ public class PuzzleLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		PlacePieceController place = new PlacePieceController(level, boardView);
+		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView);
 		boardView.addMouseListener(place);
 	}
 }

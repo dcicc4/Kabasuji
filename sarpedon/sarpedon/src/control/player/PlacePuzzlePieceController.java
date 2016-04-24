@@ -11,6 +11,7 @@ import bounday.player.PlayerBoardPanel;
 import entity.player.Board;
 import entity.player.Level;
 import entity.player.Piece;
+import entity.player.PuzzleLevel;
 
 /**
  * Places active piece on board or picks up a piece on the board.
@@ -20,12 +21,12 @@ import entity.player.Piece;
  * @author Nathan
  *
  */
-public class PlacePieceController implements MouseListener {
+public class PlacePuzzlePieceController implements MouseListener {
 	
-	Level model;
+	PuzzleLevel model;
 	PlayerBoardPanel boardView;
 	
-	public PlacePieceController(Level l, PlayerBoardPanel bv){
+	public PlacePuzzlePieceController(PuzzleLevel l, PlayerBoardPanel bv){
 		model = l;
 		boardView = bv;
 	}

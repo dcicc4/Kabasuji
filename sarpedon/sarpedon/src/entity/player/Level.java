@@ -72,7 +72,6 @@ abstract public class Level implements Serializable {
 	 * should be overridden by subclasses, calculates stars
 	 */
 	void updateStars(){
-		
 	}
 	/**
 	 * Gets the Board of the Level

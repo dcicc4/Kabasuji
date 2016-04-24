@@ -2,7 +2,7 @@ package entity.player;
 
 import java.util.ArrayList;
 /**
- * Implementation of the abstract superclass Level for Puzzle Level
+ * Implementation of the abstract superclass Level for Puzzle variation
  * @Tesia Shizume (ttshiz@wpi.edu)
  */
 public class PuzzleLevel extends Level {
@@ -31,7 +31,7 @@ public class PuzzleLevel extends Level {
 	 * since Levels will be made in the level builder
 	 * @param b the Board on which Pieces can be played
 	 * @param bllpn the Bullpen from which Pieces can be played
-	 * @param hnts a list of suggested locations for specific Pieces
+	 * @param hnts a list of suggested locations for a selection of specific Pieces
 	 */
 	public PuzzleLevel(Board b, Bullpen bllpn, ArrayList<Hint> hnts){
 		this.brd = b;
@@ -46,7 +46,8 @@ public class PuzzleLevel extends Level {
 	}
 
 	/**
-	 * Calculates the number of stars earned and updates the stored value
+	 * Calculates the number of stars earned based on the number of Pieces left in the Bullpen
+	 * and updates the stored value
 	 */
 	@Override
 	public void updateStars(){
@@ -67,14 +68,6 @@ public class PuzzleLevel extends Level {
 		}
 	}
 	
-//	/**
-//	 * Overrides base method to update before fetching the value
-//	 */
-//	@Override
-//	public Integer getStars(){
-//		updateStars();
-//		return stars;
-//	}
 	/**
 	 * Gets the number of moves left
 	 * @return the number of moves left

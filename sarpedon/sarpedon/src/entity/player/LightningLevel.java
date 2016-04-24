@@ -1,16 +1,36 @@
 package entity.player;
 
 import java.util.ArrayList;
-
+/**
+ * Implementation of the abstract superclass Level for the Lightning variation
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class LightningLevel extends Level {
-	Integer timeLeft;
+	/** the amount of time left */
+	Integer timeAllowed;
 
-	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
-			boolean cmplted, ArrayList<Hint> hnts, Integer tLeft) {
-		super();
-		timeLeft = tLeft;
-		// stub
+	/**
+	 * Constructor, primarily for testing purposes
+	 * since Levels will be made in the level builder
+	 * @param lboard a LigntningBoard on which Pieces can be played
+	 * @param bull a Bullpen from which Pieces can be played
+	 * @param hnts a list of suggested locations for a selection of specific Pieces
+	 * @param tLeft
+	 */
+	public LightningLevel(LightningBoard lboard, Bullpen bull, ArrayList<Hint> hnts, Integer tLeft) {
+		this.brd = lboard;
+		this.bp = bull;
+		this.hints = hnts;
+		this.stars = 0;
+		this.completed = false;
+		this.type = "Lightning";
+		this.number = 2;
+		this.timeAllowed = tLeft;
 	}
+	/**
+	 * Calculates the number of stars earned based on the number of spaces left on the Board
+	 * and updates the stored value
+	 */
 	@Override
 	void updateStars(){
 		int spcLeft = ((LightningBoard) this.brd).spacesLeft();

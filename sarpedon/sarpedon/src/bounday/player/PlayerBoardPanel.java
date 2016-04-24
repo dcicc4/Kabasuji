@@ -16,7 +16,7 @@ import entity.player.*;
 public class PlayerBoardPanel extends JPanel {
 
 	/** Core model. */
-	Level aLevel;
+	Level level;
 	
 	/** around edges. */
 	int offset = 32;
@@ -41,8 +41,8 @@ public class PlayerBoardPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PlayerBoardPanel() {
-		//add Model to constructor parameters and have it set it here
+	public PlayerBoardPanel(Level l) {
+		level = l;
 		setBorder(new LineBorder(Color.DARK_GRAY, 1, true));
 		setBackground(Color.WHITE);
 
@@ -90,21 +90,21 @@ public class PlayerBoardPanel extends JPanel {
 		g.drawImage(offScreenImage, 0, 0, this);
 
 		//double check if no model (for WindowBuilder)
-		if (aLevel == null) { return; }
+		if (level == null) { return; }
 
 		// draw board.
 		g.setColor(new Color(240, 240, 240));
 		g.fillRect(0,0,16*N,16*N);
 		//draws a 12 by 12 grid, because I hard coded a 12x12 grid
-		Tile[][] tiles = aLevel.getBoard().getTileArray();
+		Tile[][] tiles = level.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				Tile tile = tiles[i][j];
 				if(tile != null){
 					g.setColor(Color.white);
 					g.fillRect(offset + i*N, offset + j*N, N, N);
-					if(aLevel.getBoard().getPiece(i, j)!= null){
-						g.setColor(aLevel.getBoard().getPiece(i, j).getColor());
+					if(level.getBoard().getPiece(i, j)!= null){
+						g.setColor(level.getBoard().getPiece(i, j).getColor());
 						g.fillRect(offset + i*N, offset + j*N, N, N);
 					}
 					g.setColor(Color.black);
@@ -113,7 +113,7 @@ public class PlayerBoardPanel extends JPanel {
 			}
 		}
 		//draw the selected piece at the mouse tip
-		Piece selected = aLevel.getBullpen().getSelectedPiece();
+		Piece selected = level.getBullpen().getSelectedPiece();
 		if (selected != null){
 			if(mouse!= null){
 				drawPiece(g, selected, mouse);
@@ -124,7 +124,7 @@ public class PlayerBoardPanel extends JPanel {
 
 		}
 		//draw a moving tile at the tip of the mouse
-		if(aLevel.getBoard().getMovingTile() && mouse != null){
+		if(level.getBoard().getMovingTile() && mouse != null){
 			g.setColor(Color.white);
 			g.fillRect(mouse.x-N/2, mouse.y-N/2, N, N);
 			g.setColor(Color.BLACK);
@@ -136,11 +136,11 @@ public class PlayerBoardPanel extends JPanel {
 		Dimension dim = getPreferredSize();
 		offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
 
-		//Board b = aLevel.getBoard();
+		//Board b = level.getBoard();
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
-		Tile[][] tiles = aLevel.getBoard().getTileArray();
+		Tile[][] tiles = level.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				if(tiles[i][j] != null)

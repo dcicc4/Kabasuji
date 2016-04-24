@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 import control.builder.AddPieceToBullpenController;
 import control.builder.SaveController;
-import entity.builder.BuilderModel;
 import entity.builder.IBuilderModel;
 
 import javax.swing.JTextField;

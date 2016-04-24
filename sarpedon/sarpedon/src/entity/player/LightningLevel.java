@@ -7,13 +7,13 @@ public class LightningLevel extends Level {
 
 	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
 			boolean cmplted, ArrayList<Hint> hnts, Integer tLeft) {
-		super();
+		super("Lightning");
 		timeLeft = tLeft;
 		// stub
 	}
 	
 	void updateStars(){
-		int spcLeft = ((LightningBoard) this.brd).spacesLeft();
+		int spcLeft = ((LightningBoard) this.board).spacesLeft();
 		if (spcLeft > 12){
 			this.stars = 0;
 			return;

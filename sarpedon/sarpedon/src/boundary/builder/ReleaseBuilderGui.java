@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 import control.builder.*;
 import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
-import entity.builder.BuilderModel;
 import entity.builder.IBuilderModel;
 import entity.player.Bullpen;
 
@@ -66,8 +65,8 @@ public class ReleaseBuilderGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseBuilderGui(IBuilderModel bm) {
-		model = new BuildableRelease();
+	public ReleaseBuilderGui(BuildableRelease bm) {
+		model = bm;
 		
 		model.setType("Release");
 		setTitle("Kabasuji Release Level Builder");
@@ -201,6 +200,8 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(btnFlipHor);
 		
 		//install controllers
+		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);

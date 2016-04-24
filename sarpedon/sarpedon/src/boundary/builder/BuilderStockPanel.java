@@ -10,7 +10,7 @@ import java.awt.Rectangle;
 
 import javax.swing.border.LineBorder;
 
-import entity.builder.BuilderModel;
+import entity.builder.IBuilderModel;
 import entity.player.Piece;
 import entity.player.PieceBuilder;
 import entity.player.Square;
@@ -24,7 +24,7 @@ public class BuilderStockPanel extends JPanel {
 	PieceBuilder pieces = new PieceBuilder();
 	
 	/** Core model. */
-	BuilderModel model; 
+	IBuilderModel model; 
 	
 	/** around edges. */
 	int offsetY = 20;

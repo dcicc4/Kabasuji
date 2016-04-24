@@ -36,7 +36,7 @@ JFrame LG;
 		}else
 		if (type.equals("Release"))
 		{
-			LG = new ReleaseLevelGui();
+			LG = new ReleaseLevelGui((ReleaseLevel)level);
 			
 			
 			

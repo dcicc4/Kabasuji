@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import entity.player.ReleaseLevel;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,7 +17,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JScrollBar;
-
+/**
+ * Displays the interface for a release level
+ * 
+ * @author Nathan
+ *
+ */
 public class ReleaseLevelGui extends JFrame {
 
 	private JPanel contentPane;
@@ -33,7 +39,11 @@ public class ReleaseLevelGui extends JFrame {
 	JButton btnFlipVert;
 	JButton btnFlipHor;
 
-	PlayerBullpenPanel bullpen;
+	
+	PlayerBoardPanel boardView;
+	PlayerBullpenPanel bullpenView;
+	
+	ReleaseLevel level;
 	
 	/**
 	 * Launch the application.
@@ -42,7 +52,8 @@ public class ReleaseLevelGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ReleaseLevelGui frame = new ReleaseLevelGui();
+					ReleaseLevel l = new ReleaseLevel();
+					ReleaseLevelGui frame = new ReleaseLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +65,8 @@ public class ReleaseLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseLevelGui() {
+	public ReleaseLevelGui(ReleaseLevel l) {
+		level = l;
 		setTitle("Release Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -64,7 +76,7 @@ public class ReleaseLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		PlayerBoardPanel panel = new PlayerBoardPanel();
+		PlayerBoardPanel panel = new PlayerBoardPanel(level);
 		panel.setBounds(620, 126, 720, 720);
 		contentPane.add(panel);
 		
@@ -72,9 +84,9 @@ public class ReleaseLevelGui extends JFrame {
 		scrollPane.setBounds(10, 544, 600, 300);
 		contentPane.add(scrollPane);
 		
-		bullpen = new PlayerBullpenPanel();
-		bullpen.setPreferredSize(new Dimension(1200, 150));
-		scrollPane.setViewportView(bullpen);
+		bullpenView = new PlayerBullpenPanel(level.getBullpen());
+		bullpenView.setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(bullpenView);
 		
 		JLabel lblNumbersCovered = new JLabel("Numbers Covered:");
 		lblNumbersCovered.setFont(new Font("Tahoma", Font.PLAIN, 40));

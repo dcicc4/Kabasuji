@@ -25,7 +25,7 @@ public class PlayerBullpenPanel extends JPanel {
 	PieceBuilder pb = new PieceBuilder();
 
 	/** Core model. */
-	Level aLevel; //this is currently the player model, change it when we have builder model(check imports)
+	Level aLevel; 
 
 	/** around edges. */
 	int offsetY = 20;
@@ -47,12 +47,6 @@ public class PlayerBullpenPanel extends JPanel {
 	public PlayerBullpenPanel(Bullpen bp) {
 		bullpen = bp;
 
-		setBounds(0, 0, width, height);
-		setBackground(Color.WHITE);
-	}
-
-	public PlayerBullpenPanel() {
-		// TODO Auto-generated constructor stub
 		setBounds(0, 0, width, height);
 		setBackground(Color.WHITE);
 	}

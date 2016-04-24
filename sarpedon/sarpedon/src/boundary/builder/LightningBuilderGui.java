@@ -14,8 +14,8 @@ import control.builder.MoveTilesController;
 import control.builder.PlacePieceController;
 import control.builder.RotateController;
 import control.builder.SelectPieceController;
+import control.builder.SwitchWindowController;
 import entity.builder.BuildableLightning;
-import entity.builder.BuilderModel;
 import entity.builder.IBuilderModel;
 import entity.player.Bullpen;
 
@@ -85,8 +85,8 @@ public class LightningBuilderGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LightningBuilderGui(IBuilderModel bm) {
-		model = new BuildableLightning();
+	public LightningBuilderGui(BuildableLightning bl) {
+		model = bl;
 		
 		model.setType("Lightning");
 		setTitle("Kabasuji Lightning Level Builder");
@@ -204,6 +204,8 @@ public class LightningBuilderGui extends JFrame {
 		contentPane.add(btnFlipHor);
 		
 		//Install controllers
+		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);

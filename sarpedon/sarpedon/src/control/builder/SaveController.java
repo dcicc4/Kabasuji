@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import entity.builder.BuilderModel;
 import entity.builder.IBuilderModel;
 import entity.player.Level;
 
@@ -21,6 +20,7 @@ public class SaveController extends MouseAdapter {
 	JButton aButt;
 	Level aLevel;
 	JTextField aText;
+	
 	public SaveController(JButton aButt, JTextField aText, IBuilderModel model) {
 		this.aText = aText;
 		this.aButt = aButt;

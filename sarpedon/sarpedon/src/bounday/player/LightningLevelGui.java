@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import entity.player.*;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -31,7 +32,10 @@ public class LightningLevelGui extends JFrame {
 	JButton btnFlipVert;
 	JButton btnFlipHor;
 
-	PlayerBullpenPanel bullpen;
+	PlayerBullpenPanel bullpenView;
+	PlayerBoardPanel boardView;
+	
+	LightningLevel level;
 	
 	/**
 	 * Launch the application.
@@ -40,7 +44,12 @@ public class LightningLevelGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LightningLevelGui frame = new LightningLevelGui();
+					PieceBuilder pb = new PieceBuilder();
+					LightningBoard lBoard= new LightningBoard();
+					Bullpen bp = new Bullpen();
+					bp.addPiece(pb.getPiece(1));
+					LightningLevel l = new LightningLevel(lBoard, bp, 0, false, null, 100);
+					LightningLevelGui frame = new LightningLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +61,8 @@ public class LightningLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LightningLevelGui() {
+	public LightningLevelGui(LightningLevel l) {
+		level = l;
 		setTitle("Lightning Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -66,9 +76,9 @@ public class LightningLevelGui extends JFrame {
 		scrollPane.setBounds(10, 503, 600, 300);
 		contentPane.add(scrollPane);
 		
-		bullpen = new PlayerBullpenPanel();
-		bullpen.setPreferredSize(new Dimension(1200, 150));
-		scrollPane.setViewportView(bullpen);
+		bullpenView = new PlayerBullpenPanel(l.getBullpen());
+		bullpenView.setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(bullpenView);
 		
 		JLabel lblTimeLeft = new JLabel("Time Left:");
 		lblTimeLeft.setFont(new Font("Tahoma", Font.PLAIN, 48));
@@ -100,9 +110,9 @@ public class LightningLevelGui extends JFrame {
 		btnReturn.setBounds(300, 167, 171, 41);
 		contentPane.add(btnReturn);
 		
-		PlayerBoardPanel panel = new PlayerBoardPanel();
-		panel.setBounds(620, 83, 720, 720);
-		contentPane.add(panel);
+		boardView = new PlayerBoardPanel(l);
+		boardView.setBounds(620, 83, 720, 720);
+		contentPane.add(boardView);
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));

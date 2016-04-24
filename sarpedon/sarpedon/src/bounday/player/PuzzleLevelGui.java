@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import entity.player.PuzzleLevel;
+import entity.player.ReleaseLevel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -33,8 +35,10 @@ public class PuzzleLevelGui extends JFrame {
 	JButton btnFlipVert;
 	JButton btnFlipHor;
 
-	private PlayerBullpenPanel bullpen;
-	PlayerBoardPanel board;
+	PlayerBullpenPanel bullpenView;
+	PlayerBoardPanel boardView;
+	
+	PuzzleLevel level;
 
 	/**
 	 * Launch the application.
@@ -43,7 +47,8 @@ public class PuzzleLevelGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PuzzleLevelGui frame = new PuzzleLevelGui();
+					PuzzleLevel l = new PuzzleLevel();
+					PuzzleLevelGui frame = new PuzzleLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +60,8 @@ public class PuzzleLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleLevelGui() {
+	public PuzzleLevelGui(PuzzleLevel l) {
+		level = l;
 		setTitle("Puzzle Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -65,17 +71,17 @@ public class PuzzleLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		board = new PlayerBoardPanel();
-		board.setBounds(620, 123, 720, 720);
-		contentPane.add(board);
+		boardView = new PlayerBoardPanel(level);
+		boardView.setBounds(620, 123, 720, 720);
+		contentPane.add(boardView);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 522, 600, 300);
 		contentPane.add(scrollPane);
 		
-		setBullpen(new PlayerBullpenPanel());
-		getBullpen().setPreferredSize(new Dimension(1200, 150));
-		scrollPane.setViewportView(getBullpen());
+		bullpenView = new PlayerBullpenPanel(level.getBullpen());
+		bullpenView.setBounds(0, 0, 1200, 150);
+		scrollPane.setViewportView(bullpenView);
 		
 		JLabel lblNewLabel = new JLabel("Moves Left:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 48));
@@ -128,13 +134,5 @@ public class PuzzleLevelGui extends JFrame {
 		btnrotateCClockwise.setBackground(Color.LIGHT_GRAY);
 		btnrotateCClockwise.setBounds(1349, 297, 125, 125);
 		contentPane.add(btnrotateCClockwise);
-	}
-
-	public PlayerBullpenPanel getBullpen() {
-		return bullpen;
-	}
-
-	public void setBullpen(PlayerBullpenPanel bullpen) {
-		this.bullpen = bullpen;
 	}
 }

@@ -1,0 +1,43 @@
+package entity.player;
+
+import junit.framework.TestCase;
+
+public class ReleaseBoardTest extends TestCase {
+	/** a 12 x 12 Tile array */
+	ReleaseTile[][] shapeFull;
+	/** a Release Board to do testing on */
+	ReleaseBoard rb;
+	/** a Piece to be used for testing */
+	Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
+	
+	protected void setUp() throws Exception {
+		super.setUp();
+		shapeFull = new ReleaseTile[12][12];
+		for(int i=0; i< 12; i++){
+			for(int j =0; j<12;j++){
+				shapeFull[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
+			}
+		}
+		rb = new ReleaseBoard(shapeFull);
+		
+	}
+
+	public void testRemovePiece() {
+		rb.addPiece(0, 0, verticalBar);
+		assertFalse(rb.removePiece(0, 0));
+	}
+
+	public void testMovePiece() {
+		rb.addPiece(0, 0, verticalBar);
+		assertFalse(rb.movePiece(0, 0, 2, 2));
+	}
+
+	public void testReleaseBoard() {
+		assertTrue(rb.movingTile == false);
+		assertTrue(rb.pieces.isEmpty());
+		assertTrue(rb.shape == shapeFull);
+		assertTrue(rb.shape[0][0].rcolor==ReleaseTile.Color.NONE);
+		assertTrue(rb.shape[0][0].rnumber== null);
+	}
+
+}

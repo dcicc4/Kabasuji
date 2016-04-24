@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 public class ReleaseTile extends Tile {
 	private static final long serialVersionUID = 1L;
-	/** the number associated with the instance of the Release Tile */
+	/** the number associated with the instance of the Release Tile, or null if it has no number */
 	Integer rnumber;
 	public enum Color {
 		BLUE, GREEN, RED, NONE

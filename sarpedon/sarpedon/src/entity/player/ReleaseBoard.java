@@ -1,17 +1,41 @@
 package entity.player;
 
+import java.util.HashMap;
+import java.util.UUID;
+/**
+ * The Release variant of a Board
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class ReleaseBoard extends Board {
-
-	public ReleaseBoard() {
-		super();
+	ReleaseTile[][] shape; 
+	/**
+	 * Constructor for the Release Board
+	 * @param s a to dimensional array of ReleaseTiles
+	 */
+	public ReleaseBoard(ReleaseTile[][] s) {
+		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12
+		if ((s.length <= 12)&&(s.length>=1)){
+			if ((s[0].length <= 12)&&(s[0].length >=1)){
+				shape = s;
+			}
+		} else {
+			throw new RuntimeException("entity.player::Board: invalid board array");
+		}
+		pieces = new HashMap<UUID, Piece>();
 	}
-
+	/**
+	 * Overrides base removePiece method to always return false
+	 * Pieces are not removable from ReleaseBoards
+	 */
 	@Override
 	public
 	boolean removePiece(Integer row, Integer col){
 		return false; // pieces not removable in Release
 	}
-	
+	/**
+	 * Overrides base movePiece method to always return false
+	 * Pieces are not movable on ReleaseBoards
+	 */
 	@Override
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRwo, Integer endCol){
 		return false; // pieces not movable after placement in Release

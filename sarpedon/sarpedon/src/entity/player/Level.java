@@ -46,14 +46,33 @@ abstract public class Level implements Serializable {
 	 * @return true if the Level has been completed, otherwise false
 	 */
 	public boolean getCompleted(){
+		updateStars();
+		if (this.stars == 3){
+			completed = true;
+		} else {
+		}
 		return completed;
+	}
+	/**
+	 * Manually sets whether the level has been completed
+	 * @param b true to set the level as completed
+	 */
+	public void setCompleted(boolean b){
+		completed = b;
 	}
 	/**
 	 * Gets how many Stars have been earned on the Level
 	 * @return an integer representing the number of stars earned thus far
 	 */
 	public Integer getStars(){
+		updateStars();
 		return stars;
+	}
+	/**
+	 * should be overridden by subclasses, calculates stars
+	 */
+	void updateStars(){
+		
 	}
 	/**
 	 * Gets the Board of the Level
@@ -81,7 +100,7 @@ abstract public class Level implements Serializable {
 	 * @param num which position in the play order of the game the Level is being assigned
 	 */
 	public void setNumber(Integer num){
-		if (num <= 14){
+		if ((num < 15)&&(num>=0)){
 			number = num;
 		} else {
 			throw new RuntimeException("entity.player::Level::setNumber: number out of range");

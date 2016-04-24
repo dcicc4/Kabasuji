@@ -11,7 +11,7 @@ public class LightningLevel extends Level {
 		timeLeft = tLeft;
 		// stub
 	}
-	
+	@Override
 	void updateStars(){
 		int spcLeft = ((LightningBoard) this.brd).spacesLeft();
 		if (spcLeft > 12){

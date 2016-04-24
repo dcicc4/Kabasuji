@@ -20,7 +20,7 @@ public class PuzzleLevel extends Level {
 		this.bp = new Bullpen();
 		this.stars = 0;
 		this.completed = false;
-		this.hints = null;
+		this.hints = new ArrayList<Hint>();
 		this.type = "Puzzle";
 		this.number = 1;
 		this.movesleft = 10; // arbitrary number to allow some testing
@@ -42,8 +42,13 @@ public class PuzzleLevel extends Level {
 		this.type = "Puzzle";
 		this.number = 1;
 		this.movesleft = 10; // arbitrary number to allow some testing
+		this.updateStars();
 	}
 
+	/**
+	 * Calculates the number of stars earned and updates the stored value
+	 */
+	@Override
 	public void updateStars(){
 		int s = this.bp.piecesLeft();
 		if (s > 2){
@@ -61,7 +66,21 @@ public class PuzzleLevel extends Level {
 			throw new RuntimeException("PuzzleLevel::updateStars: received incompatible bullpen");
 		}
 	}
+	
+//	/**
+//	 * Overrides base method to update before fetching the value
+//	 */
+//	@Override
+//	public Integer getStars(){
+//		updateStars();
+//		return stars;
+//	}
+	/**
+	 * Gets the number of moves left
+	 * @return the number of moves left
+	 */
 	public Integer getMovesLeft(){
 		return movesleft;
 	}
+	
 }

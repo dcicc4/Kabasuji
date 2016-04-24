@@ -32,7 +32,7 @@ public class ReleaseLevel extends Level {
 		}
 		numColor = nC;
 	}
-	
+	@Override
 	void updateStars(){
 		this.calculateColor(blueNumCovered, numBlue);
 		this.calculateColor(greenNumCovered, numGreen);

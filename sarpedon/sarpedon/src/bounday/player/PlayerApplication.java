@@ -18,10 +18,6 @@ public class PlayerApplication {
 	
 	
 	public PlayerApplication(){
-		
-		
-		
-		
 		initializeControllers();
 	}
 	

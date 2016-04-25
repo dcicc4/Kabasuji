@@ -75,6 +75,7 @@ public class PlacePuzzlePieceController implements MouseListener {
 				}
 			}
 		}
+		model.updateStars();
 
 	}
 

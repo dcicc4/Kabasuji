@@ -24,7 +24,7 @@ public class TimeController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(level.getTimeLeft() >= 0){
+		if(level.getTimeLeft() > 0){
 			level.decrementTime();
 			timeLeft.setText(level.getTimeLeft().toString());
 		}

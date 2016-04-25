@@ -5,6 +5,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import bounday.player.LightningLevelGui;
 import bounday.player.PlayerBoardPanel;
 import bounday.player.PlayerBullpenPanel;
 import entity.player.LightningLevel;
@@ -17,14 +18,16 @@ import entity.player.Piece;
  */
 public class PlaceLightningPieceController implements MouseListener{
 
+	LightningLevelGui gui;
 	LightningLevel level;
 	PlayerBoardPanel boardView;
 	PlayerBullpenPanel bullpenView;
 	
-	public PlaceLightningPieceController(LightningLevel l, PlayerBoardPanel pb, PlayerBullpenPanel bv){
+	public PlaceLightningPieceController(LightningLevel l, LightningLevelGui g){
 		level = l;
-		boardView = pb;
-		bullpenView = bv;
+		boardView = g.getBoardView();
+		bullpenView = g.getBullpenView();
+		gui = g;
 	}
 	
 	@Override
@@ -46,15 +49,18 @@ public class PlaceLightningPieceController implements MouseListener{
 			//copy the piece so that we can change its color to green but the original pieces color remains the same.
 			Piece adding = selected.clone();
 			adding.setColor(Color.green);
-			level.getBoard().addPiece(clicked.x, clicked.y, adding);
-			level.getBullpen().addPiece(selected);
-			level.getBullpen().removeSelected();
+			if(level.getBoard().addPiece(clicked.x, clicked.y, adding)){
+				level.getBullpen().addPiece(selected);
+				level.getBullpen().removeSelected();
+			}
 			bullpenView.redraw();
 			bullpenView.repaint();
 			boardView.redraw();
 			boardView.repaint();
 
 		}
+		level.updateStars();
+		gui.setStarsView("Stars: " + level.getStars().toString());
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {

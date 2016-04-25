@@ -46,6 +46,18 @@ public class LightningLevelGui extends JFrame {
 	
 	LightningLevel level;
 	
+	public PlayerBullpenPanel getBullpenView(){
+		return bullpenView;
+	}
+	public PlayerBoardPanel getBoardView(){
+		return boardView;
+	}
+	public JLabel getStarsView(){
+		return lblStars;
+	}
+	public void setStarsView(String s){
+		lblStars.setText(s); 
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -99,9 +111,9 @@ public class LightningLevelGui extends JFrame {
 		lblTime.setBounds(300, 333, 122, 49);
 		contentPane.add(lblTime);
 		
-		lblStars = new JLabel("Stars");
+		lblStars = new JLabel("Stars: 0");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblStars.setBounds(10, 251, 144, 54);
+		lblStars.setBounds(10, 251, 344, 54);
 		contentPane.add(lblStars);
 		
 		btnReset = new JButton("Reset");
@@ -155,7 +167,7 @@ public class LightningLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		boardView.addMouseListener(new PlaceLightningPieceController(level, boardView, bullpenView));
+		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
 		
 		ActionListener updateTime = new TimeController(level, lblTime);
 		Timer timer = new Timer(1000, updateTime);

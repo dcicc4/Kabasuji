@@ -29,7 +29,7 @@ public class LightningLevel extends Level {
 			this.stars = 0;
 			return;
 		} else if (spcLeft > 6){
-			this.stars = 2;
+			this.stars = 1;
 			return;
 		} else if (spcLeft > 0){
 			this.stars = 2;

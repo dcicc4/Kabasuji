@@ -65,5 +65,13 @@ public class LightningLevel extends Level {
 			throw new RuntimeException("LightningLevel::updateStars: Error calculating stars");
 		}
 	}
-
+	
+	public Integer getTimeLeft(){
+		return timeLeft;
+	}
+	
+	public void decrementTime(){
+		timeLeft--;
+	}
+	
 }

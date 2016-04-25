@@ -21,7 +21,8 @@ public class PuzzleLevel extends Level {
 		this.bullpen = new Bullpen();
 		this.stars = 0;
 		this.completed = false;
-		this.hints = null;		this.number = 1;
+		this.hints = new ArrayList<Hint>(); // new empty list
+		this.number = 1;
 		this.movesleft = 10; // arbitrary number to allow some testing
 	}
 	

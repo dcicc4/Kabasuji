@@ -34,7 +34,7 @@ public class PlayerBullpenPanel extends JPanel {
 	/** Size of edge of square */
 	public final int N = 35;
 	//size of panel
-	int width = 1210;
+	int width = 3000;
 	int height = 280;
 
 	/** Off-screen image for drawing (and Graphics object). */

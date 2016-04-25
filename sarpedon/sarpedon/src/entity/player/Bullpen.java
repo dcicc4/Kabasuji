@@ -31,15 +31,11 @@ public class Bullpen implements Serializable{
 		selectedPiece = null;
 	}
 	/**
-	 * sets the value of the selected Piece to the given Piece in the Bullpen otherwise throws and exception
+	 * sets the value of the selected Piece to the given Piece
 	 * @param p the given Piece
 	 */
-	public void setSelected(Piece p ){
-		if (pieces.contains(p)){
+	public void setSelected(Piece p){
 			selectedPiece = p;
-		} else {
-			throw new RuntimeException("entity.player::Bullpen::setSelected: piece not in Bullpen");
-		}
 	}
 	/**
 	 * gets the Bullpen's ArrayList

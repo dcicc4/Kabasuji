@@ -135,8 +135,8 @@ public class Board implements Serializable{
 		boolean placeable = true;
 		//if (availableTile(row, col)){
 			for (Square s : p.dependent){
-				int dcol = col + s.xFromAnchor;
-				int drow = row + s.yFromAnchor;
+				int dcol = col + s.yFromAnchor;
+				int drow = row + s.xFromAnchor;
 				if (!availableTile(drow, dcol)){
 					placeable = false;
 				}
@@ -163,9 +163,10 @@ public class Board implements Serializable{
 			}
 			Tile t = shape[row][col];
 			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
+			//not needed becaause after some rotations the anchor is not necessarily under the mouse.
 			for (Square s : p.dependent){ // mark the rest 
-				int dcol = col + s.xFromAnchor;
-				int drow = row + s.yFromAnchor;
+				int dcol = col + s.yFromAnchor;
+				int drow = row + s.xFromAnchor;
 				t = shape[drow][dcol];
 				t.setCoveredBy(pUUID);
 				}

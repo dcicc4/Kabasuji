@@ -145,6 +145,9 @@ public class PuzzleBuilderGui extends JFrame {
 		boardSizeCombo.setSelectedIndex(23);
 		
 		textField = new JTextField();
+		if(model.getMovesAllotted() != null){
+			textField.setText(model.getMovesAllotted().toString());
+		}
 		textField.setBounds(190, 679, 105, 39);
 		textField.setColumns(10);
 		

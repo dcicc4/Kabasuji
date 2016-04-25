@@ -42,7 +42,7 @@ public class LevelMomento implements Serializable{
 		hints = m.getHints();
 		type = m.getType();
 		if(type == "Lightning"){
-			timeAllotted = ((BuildableLightning)m).getTimeAlotted();
+			timeAllotted = ((BuildableLightning)m).getTimeAllotted();
 		}
 		if(type.equals("Puzzle")){
 			movesAllotted = ((BuildablePuzzle)m).getMovesAllotted();
@@ -52,5 +52,14 @@ public class LevelMomento implements Serializable{
 	public String getType(){
 		return type;
 	}
+	
+	public Integer getTimeAllotted(){
+		return timeAllotted;
+	}
+	
+	public Integer getMovesAllotted(){
+		return movesAllotted;
+	}
+	
 	
 }

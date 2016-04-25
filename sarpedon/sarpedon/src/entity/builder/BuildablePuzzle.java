@@ -35,4 +35,9 @@ Integer movesAllotted;
 	public void setType(String s){
 		type = s;
 	}
+	@Override
+	public void restore(LevelMomento m){
+		super.restore(m);
+		movesAllotted = m.getMovesAllotted();
+	}
 }

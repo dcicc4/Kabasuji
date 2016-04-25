@@ -47,17 +47,6 @@ public class Piece implements Serializable{
 		}
 		return new Piece(dep, this.number, this.color);
 	}
-//	/**
-//	 * shifts all squares to right.
-//	 * 
-//	 * @param i - how far to shift
-//	 */
-//	public void shiftRight(int i){
-//		for(int j=0; j<6; j++){
-//			int shift = dependent[j].getX() + i;
-//			dependent[j].setX(shift);
-//		}
-//	}
 	/**
 	 * shifts all squares down.
 	 * 
@@ -104,6 +93,11 @@ public class Piece implements Serializable{
 	public Color getColor(){
 		return color;
 	}
+	/**
+	 * returns true if the piece was on the board.
+	 * returns false if the piece was not on the board.
+	 * @return
+	 */
 	public boolean getBoardStatus(){
 		return board;
 	}

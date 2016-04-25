@@ -25,7 +25,6 @@ public class UpdateMovesController implements ActionListener{
 		try{
 		Integer totalMoves = Integer.valueOf(moves.getText());
 		model.setMovesAllotted(totalMoves);
-		
 		} catch(NumberFormatException string){
 			error.setText("Please enter a valid number.");
 		}

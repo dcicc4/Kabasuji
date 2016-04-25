@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.BackToStockController;
 import control.builder.BoardSizeController;
 import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
@@ -215,6 +216,9 @@ public class LightningBuilderGui extends JFrame {
 		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
+		BackToStockController bsc = new BackToStockController(model.getBullpen(), stockView, boardView);
+		stockView.addMouseListener(bsc);
+		
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
 

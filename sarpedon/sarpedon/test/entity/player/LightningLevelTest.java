@@ -64,7 +64,7 @@ public class LightningLevelTest extends TestCase {
 		hnts = new ArrayList<Hint>();
 		hnts.add(hint1);
 		// example LightningLevel
-		testLL = new LightningLevel(oddsEmpty, bp, hnts, 50000);
+		testLL = new LightningLevel(oddsEmpty, bp, 0, false, hnts, 50000);
 	}
 
 	public void testUpdateStars() {
@@ -73,27 +73,27 @@ public class LightningLevelTest extends TestCase {
 	}
 
 	public void testLightningLevel() {
-		assertTrue(lL.brd.pieces.isEmpty());
-		assertTrue(lL.brd.shape.length == 12);
-		assertTrue(lL.brd.shape[0].length == 12);
-		assertTrue(lL.bp.piecesLeft() == 0);
+		assertTrue(lL.board.pieces.isEmpty());
+		assertTrue(lL.board.shape.length == 12);
+		assertTrue(lL.board.shape[0].length == 12);
+		assertTrue(lL.bullpen.piecesLeft() == 0);
 		assertTrue(lL.stars == 0);
 		assertFalse(lL.completed);
 		assertTrue(lL.hints.isEmpty());
 		assertTrue(lL.type == "Lightning");
 		assertTrue(lL.number == 2);
-		assertTrue(lL.timeAllowed == 100000);
+		assertTrue(lL.timeLeft == 100000);
 	}
 
 	public void testLightningLevelBoardBullpenArrayListOfHint() {
-		assertTrue(testLL.brd == oddsEmpty);
-		assertTrue(testLL.bp == bp);
+		assertTrue(testLL.board == oddsEmpty);
+		assertTrue(testLL.bullpen == bp);
 		assertTrue(testLL.stars == 0);
 		assertFalse(testLL.completed);
 		assertTrue(testLL.hints == hnts);
 		assertTrue(testLL.type == "Lightning");
 		assertTrue(testLL.number == 2);
-		assertTrue(testLL.timeAllowed == 50000);
+		assertTrue(testLL.timeLeft == 50000);
 	}
 	public void testGetType() {
 		assertTrue(lL.type == lL.getType());

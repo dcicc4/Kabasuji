@@ -27,11 +27,13 @@ public class PlacePuzzlePieceController implements MouseListener {
 	PuzzleLevel model;
 	PlayerBoardPanel boardView;
 	JLabel movesLeft;
+	JLabel stars;
 	
-	public PlacePuzzlePieceController(PuzzleLevel l, PlayerBoardPanel bv, JLabel ml){
+	public PlacePuzzlePieceController(PuzzleLevel l, PlayerBoardPanel bv, JLabel ml, JLabel s){
 		model = l;
 		boardView = bv;
 		movesLeft = ml;
+		stars = s;
 	}
 
 	@Override
@@ -76,6 +78,7 @@ public class PlacePuzzlePieceController implements MouseListener {
 			}
 		}
 		model.updateStars();
+		stars.setText("Stars: "+ model.getStars().toString());
 
 	}
 

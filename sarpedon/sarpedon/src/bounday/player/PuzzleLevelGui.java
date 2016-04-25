@@ -104,9 +104,9 @@ public class PuzzleLevelGui extends JFrame {
 		lblMoves.setBounds(316, 350, 122, 49);
 		contentPane.add(lblMoves);
 		
-		lblStars = new JLabel("Stars");
+		lblStars = new JLabel("Stars: 0");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblStars.setBounds(26, 268, 144, 54);
+		lblStars.setBounds(26, 268, 444, 54);
 		contentPane.add(lblStars);
 		
 		btnReset = new JButton("Reset");
@@ -156,7 +156,7 @@ public class PuzzleLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves);
+		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves, lblStars);
 		boardView.addMouseListener(place);
 	}
 }

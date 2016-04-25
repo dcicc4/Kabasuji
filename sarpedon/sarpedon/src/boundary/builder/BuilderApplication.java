@@ -15,6 +15,7 @@ public class BuilderApplication{
 	
 	BuilderSplashScreen splashScreen = new BuilderSplashScreen();
 	LevelBuilderGui levelBuilder = new LevelBuilderGui();
+	
 	LightningBuilderGui lightningBuilder = new LightningBuilderGui(new BuildableLightning());
 	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(new BuildablePuzzle());
 	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(new BuildableRelease());

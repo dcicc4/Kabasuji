@@ -234,7 +234,7 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnFlipHor);
 		
 		//install controllers
-		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		
 		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
@@ -257,6 +257,6 @@ public class PuzzleBuilderGui extends JFrame {
 		boardSizeCombo.addActionListener(size);
 		
 		textField.addActionListener(new UpdateMovesController(textField, model, warningLabel));
-		
+		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
 	}
 }

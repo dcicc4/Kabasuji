@@ -14,6 +14,7 @@ PieceBuilder PB = new PieceBuilder();
 	
 	public BuildableRelease(){
 		super("Release");
+		this.type = "Release";
 	}
 	public Board getBoard(){
 		return super.getBoard();

@@ -90,4 +90,17 @@ public class LevelBuilderGui extends JFrame {
 		btnEditExisting.setBounds(575, 809, 350, 60);
 		contentPane.add(btnEditExisting);
 	}
+	
+	public JButton getLButton(){
+		return btnLightningBuilder;
+	}
+	public JButton getPButton(){
+		return btnPuzzleBuilder;
+	}
+	public JButton getRButton(){
+		return btnReleaseBuilder;
+	}
+	public JButton getEButton(){
+		return btnEditExisting;
+	}
 }

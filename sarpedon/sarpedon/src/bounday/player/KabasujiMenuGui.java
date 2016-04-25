@@ -76,4 +76,11 @@ public class KabasujiMenuGui extends JFrame {
 		contentPane.add(lblKabasuji);
 	}
 
+	public JButton getBtnLevelSelect() {
+		return btnLevelSelect;
+	}
+
+	public JButton getBtnNewGame() {
+		return btnNewGame;
+	}
 }

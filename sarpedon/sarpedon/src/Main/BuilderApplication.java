@@ -1,10 +1,16 @@
-package boundary.builder;
+package Main;
 
 
 import java.awt.EventQueue;
 
 import javax.swing.*;
 
+import boundary.builder.BuilderSplashScreen;
+import boundary.builder.LevelBuilderGui;
+import boundary.builder.LightningBuilderGui;
+import boundary.builder.LoadGui;
+import boundary.builder.PuzzleBuilderGui;
+import boundary.builder.ReleaseBuilderGui;
 import control.builder.SwitchWindowController;
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
@@ -28,10 +34,10 @@ public class BuilderApplication{
 	
 	void initializeControllers(){
 		//initialize controllers for each type of level builder 
-		levelBuilder.btnLightningBuilder.addActionListener(new SwitchWindowController(levelBuilder, lightningBuilder));
-		levelBuilder.btnPuzzleBuilder.addActionListener(new SwitchWindowController(levelBuilder, puzzleBuilder));
-		levelBuilder.btnReleaseBuilder.addActionListener(new SwitchWindowController(levelBuilder, releaseBuilder));
-		levelBuilder.btnEditExisting.addActionListener(new SwitchWindowController(levelBuilder, loadGui));
+		levelBuilder.getLButton().addActionListener(new SwitchWindowController(levelBuilder, lightningBuilder));
+		levelBuilder.getPButton().addActionListener(new SwitchWindowController(levelBuilder, puzzleBuilder));
+		levelBuilder.getRButton().addActionListener(new SwitchWindowController(levelBuilder, releaseBuilder));
+		levelBuilder.getEButton().addActionListener(new SwitchWindowController(levelBuilder, loadGui));
 	}
 	
 	public static void main(String[] args) {	

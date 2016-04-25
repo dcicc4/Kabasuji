@@ -33,17 +33,10 @@ public class LevelSelectGui extends JFrame {
 	JButton btnLevel14;
 	JButton btnLevel15;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LevelSelectGui frame = new LevelSelectGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+
+	public JButton[] getButtons(){
+		return new JButton[]{btnLevel1, btnLevel2, btnLevel3, btnLevel4, btnLevel5, btnLevel6, btnLevel7, 
+				btnLevel8, btnLevel9, btnLevel10, btnLevel11, btnLevel12, btnLevel13, btnLevel14, btnLevel15, };
 	}
 
 	/**

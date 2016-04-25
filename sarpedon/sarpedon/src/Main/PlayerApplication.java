@@ -1,12 +1,16 @@
-package bounday.player;
+package Main;
 
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
+
+import bounday.player.KabasujiMenuGui;
+import bounday.player.LevelSelectGui;
+import bounday.player.PlayerSplashScreen;
 import control.builder.LevelNumberController;
 import control.player.Loader;
 import control.player.SwitchWindowController;
 import entity.player.Level;
-import entity.player.PuzzleLevel;
 
 
 public class PlayerApplication {
@@ -24,18 +28,19 @@ public class PlayerApplication {
 	
 	void initializeControllers() {
 		//initialize controllers for main menu
-		menu.btnLevelSelect.addActionListener(new SwitchWindowController(menu, levelSelect));
+		menu.getBtnLevelSelect().addActionListener(new SwitchWindowController(menu, levelSelect));
 		
 		
 		
 		//initialize controllers for the individual levels on level select screen (may want to replace with LoadLevelController or something
 		levelNumber = 1;
+		JButton[] buttons = levelSelect.getButtons();
 		Loader l = new Loader();
 		Level currentLevel = l.getLevel(levelNumber);
 		
 		LevelNumberController LC = new LevelNumberController(currentLevel);
-		levelSelect.btnLevel1.addActionListener(new SwitchWindowController(levelSelect, LC.getFrame()));
-		menu.btnNewGame.addActionListener(new SwitchWindowController(menu, LC.getFrame()));
+		buttons[0].addActionListener(new SwitchWindowController(levelSelect, LC.getFrame()));
+		menu.getBtnNewGame().addActionListener(new SwitchWindowController(menu, LC.getFrame()));
 		levelNumber++;
 		
 		/*

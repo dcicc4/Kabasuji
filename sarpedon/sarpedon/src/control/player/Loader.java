@@ -28,16 +28,16 @@ public Level getLevel (int x)
 	Level level = null;
 	String type = obj.getType();
 	if(type.equals("Release")){
-		level = new ReleaseLevel();
-		level.restore(obj);
+		ReleaseLevel rlevel = new ReleaseLevel();
+		rlevel.restore(obj);
 	}
 	if(type.equals("Lightning")){
-		level = new LightningLevel();
-		level.restore(obj);
+		LightningLevel llevel = new LightningLevel();
+		llevel.restore(obj);
 	}
 	if(type.equals("Puzzle")){
-		level = new PuzzleLevel();
-		level.restore(obj);
+		PuzzleLevel plevel = new PuzzleLevel();
+		plevel.restore(obj);
 	}
 	return level;
 	

@@ -16,4 +16,6 @@ PieceBuilder PB = new PieceBuilder();
 	public void setBullpen(Bullpen bp);
 	public void setBoard(Board b);
 	public void setType(String s);
+	
+	public void restore(LevelMomento m);
 }

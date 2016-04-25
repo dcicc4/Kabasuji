@@ -102,6 +102,10 @@ public class LightningBuilderGui extends JFrame {
 		contentPane.setLayout(null);
 		
 		timeTextField = new JTextField();
+		if(model.getTimeAllotted() != null){
+		String text = model.getTimeAllotted().toString();
+		timeTextField.setText(text);
+		}
 		timeTextField.setColumns(10);
 		timeTextField.setBounds(178, 674, 105, 39);
 		contentPane.add(timeTextField);

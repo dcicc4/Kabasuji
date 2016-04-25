@@ -3,6 +3,7 @@ package entity.builder;
 import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.Level;
+import entity.player.LevelMomento;
 import entity.player.PieceBuilder;
 
 public class BuildableLightning extends Level implements IBuilderModel{
@@ -11,7 +12,7 @@ public class BuildableLightning extends Level implements IBuilderModel{
 	 */
 	private static final long serialVersionUID = 1L;
 PieceBuilder PB = new PieceBuilder();
-Integer timeAlotted;
+Integer timeAllotted;
 	
 	public BuildableLightning(){
 		super("Lightning");
@@ -23,10 +24,10 @@ Integer timeAlotted;
 		return super.getBullpen();
 	}
 	public Integer getTimeAllotted(){
-		return timeAlotted;
+		return timeAllotted;
 	}
 	public void setTimeAllotted(Integer t){
-		timeAlotted = t;
+		timeAllotted = t;
 	}
 	public void setBullpen(Bullpen bp){
 		bullpen = bp;
@@ -36,5 +37,10 @@ Integer timeAlotted;
 	}
 	public void setType(String s){
 		type = s;
+	}
+	
+	public void restore(LevelMomento m){
+		super.restore(m);
+		timeAllotted = m.getTimeAllotted();
 	}
 }

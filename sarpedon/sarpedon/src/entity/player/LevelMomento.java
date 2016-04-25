@@ -53,4 +53,13 @@ public class LevelMomento implements Serializable{
 		return type;
 	}
 	
+	public Integer getTimeAllotted(){
+		return timeAllotted;
+	}
+	
+	public Integer getMovesAllotted(){
+		return movesAllotted;
+	}
+	
+	
 }

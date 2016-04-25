@@ -18,6 +18,7 @@ public class BuilderApplication{
 	LightningBuilderGui lightningBuilder = new LightningBuilderGui(new BuildableLightning());
 	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(new BuildablePuzzle());
 	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(new BuildableRelease());
+	LoadGui loadGui = new LoadGui();
 	
 	
 	public BuilderApplication(){
@@ -29,6 +30,7 @@ public class BuilderApplication{
 		levelBuilder.btnLightningBuilder.addActionListener(new SwitchWindowController(levelBuilder, lightningBuilder));
 		levelBuilder.btnPuzzleBuilder.addActionListener(new SwitchWindowController(levelBuilder, puzzleBuilder));
 		levelBuilder.btnReleaseBuilder.addActionListener(new SwitchWindowController(levelBuilder, releaseBuilder));
+		levelBuilder.btnEditExisting.addActionListener(new SwitchWindowController(levelBuilder, loadGui));
 	}
 	
 	public static void main(String[] args) {	

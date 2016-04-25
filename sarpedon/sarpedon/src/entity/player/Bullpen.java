@@ -35,7 +35,11 @@ public class Bullpen implements Serializable{
 	 * @param p the given Piece
 	 */
 	public void setSelected(Piece p){
+		if (pieces.contains(p)){
 			selectedPiece = p;
+		} else {
+			throw new RuntimeException("entity.player::Bullpen attempt to set selected Piece to a Piece not in the Bullpen");
+		}
 	}
 	/**
 	 * gets the Bullpen's ArrayList
@@ -72,7 +76,7 @@ public class Bullpen implements Serializable{
 	public Piece removePiece(Piece p){
 		int i = pieces.indexOf(p);
 		// checks for invalid index then removes piece, otherwise throws error
-		if (i > -1){
+		if (i != -1){
 			Piece ret = pieces.remove(i);
 			return ret;
 		}

@@ -8,7 +8,7 @@ public class BuildablePuzzle extends Level implements IBuilderModel{
 	 */
 	private static final long serialVersionUID = 1L;
 PieceBuilder PB = new PieceBuilder();
-Integer movesAlotted;	
+Integer movesAllotted;	
 
 	public BuildablePuzzle(){
 		super("Puzzle");
@@ -19,11 +19,11 @@ Integer movesAlotted;
 	public Bullpen getBullpen(){
 		return super.getBullpen();
 	}
-	public Integer getMovesAlotted(){
-		return movesAlotted;
+	public Integer getMovesAllotted(){
+		return movesAllotted;
 	}
-	public void setMovesAlotted(Integer m){
-		movesAlotted = m;
+	public void setMovesAllotted(Integer m){
+		movesAllotted = m;
 	}
 	public void setBullpen(Bullpen bp){
 		bullpen = bp;

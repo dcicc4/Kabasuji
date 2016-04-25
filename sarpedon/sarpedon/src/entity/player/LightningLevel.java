@@ -76,7 +76,7 @@ public class LightningLevel extends Level {
 	@Override
 	public void restore(LevelMomento m){
 		super.restore(m);
-		timeLeft = m.timeAlotted;
+		timeLeft = m.timeAllotted;
 	}
 	
 }

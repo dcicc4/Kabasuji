@@ -84,6 +84,6 @@ public class PuzzleLevel extends Level {
 	@Override
 	public void restore(LevelMomento m){
 		super.restore(m);
-		movesleft = m.movesAlotted;
+		movesleft = m.movesAllotted;
 	}
 }

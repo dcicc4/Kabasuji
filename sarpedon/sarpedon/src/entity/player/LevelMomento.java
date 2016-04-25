@@ -29,9 +29,9 @@ public class LevelMomento implements Serializable{
 	/** a number indicating the Level's position in the ordering for the overarching game */
 	Integer number;
 	/**a number indicating total time allowed in a lightning round*/
-	Integer timeAlotted;
-	/**a number indicating moves alotted in a puzzle round*/
-	Integer movesAlotted;
+	Integer timeAllotted;
+	/**a number indicating moves allotted in a puzzle round*/
+	Integer movesAllotted;
 	
 	
 	public LevelMomento(IBuilderModel m){
@@ -41,11 +41,11 @@ public class LevelMomento implements Serializable{
 		completed = false;
 		hints = m.getHints();
 		type = m.getType();
-		if(type.equals("Lightning")){
-			timeAlotted = ((BuildableLightning)m).getTimeAlotted();
+		if(type == "Lightning"){
+			timeAllotted = ((BuildableLightning)m).getTimeAlotted();
 		}
 		if(type.equals("Puzzle")){
-			movesAlotted = ((BuildablePuzzle)m).getMovesAlotted();
+			movesAllotted = ((BuildablePuzzle)m).getMovesAllotted();
 		}
 	}
 	

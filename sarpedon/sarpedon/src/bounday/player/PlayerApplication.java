@@ -6,6 +6,7 @@ import control.builder.LevelNumberController;
 import control.player.Loader;
 import control.player.SwitchWindowController;
 import entity.player.Level;
+import entity.player.PuzzleLevel;
 
 
 public class PlayerApplication {
@@ -18,10 +19,6 @@ public class PlayerApplication {
 	
 	
 	public PlayerApplication(){
-		
-		
-		
-		
 		initializeControllers();
 	}
 	
@@ -35,6 +32,7 @@ public class PlayerApplication {
 		levelNumber = 1;
 		Loader l = new Loader();
 		Level currentLevel = l.getLevel(levelNumber);
+		System.out.print(((PuzzleLevel)currentLevel).getMovesLeft());
 		LevelNumberController LC = new LevelNumberController(currentLevel);
 		levelSelect.btnLevel1.addActionListener(new SwitchWindowController(levelSelect, LC.getFrame()));
 		menu.btnNewGame.addActionListener(new SwitchWindowController(menu, LC.getFrame()));

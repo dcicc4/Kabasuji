@@ -16,6 +16,7 @@ Integer timeAllotted;
 	
 	public BuildableLightning(){
 		super("Lightning");
+		this.type = "Lightning";
 	}
 	public Board getBoard(){
 		return super.getBoard();

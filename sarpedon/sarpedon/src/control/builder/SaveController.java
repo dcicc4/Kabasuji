@@ -20,16 +20,17 @@ public class SaveController implements ActionListener {
 
 	LevelMomento aLevel;
 	JTextField aText;
-
+	IBuilderModel model;
 	public SaveController(JTextField aText, IBuilderModel model) {
 		this.aText = aText;
-		aLevel = new LevelMomento(model);
+		this.model = model;
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
+			aLevel = new LevelMomento(model);
 			File aFile = new File (aText.getText()+".ext");
 
 			FileOutputStream saveFile = new FileOutputStream(aFile);

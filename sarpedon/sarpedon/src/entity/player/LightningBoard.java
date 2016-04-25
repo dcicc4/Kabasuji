@@ -71,9 +71,9 @@ public class LightningBoard extends Board {
 				int drow = row + s.xFromAnchor;
 				int dcol = col + s.yFromAnchor;
 				t = shape[drow][dcol];
-				if (availableTile(drow, dcol)){
+				//if (availableTile(drow, dcol)){
 					t.setCoveredBy(pUUID);
-				}
+				//}
 			}
 			pieces.put(pUUID, p); // put mapping into hashmap
 			return true;
@@ -105,7 +105,7 @@ public class LightningBoard extends Board {
 		//}
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j <12; j++){
-				if(shape[i][j].getCoveredBy() == null){
+				if((availableTile(i, j)&&(shape[i][j].getCoveredBy() == null))){
 					sL++;
 				}
 			}

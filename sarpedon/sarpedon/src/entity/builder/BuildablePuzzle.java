@@ -12,6 +12,7 @@ Integer movesAllotted;
 
 	public BuildablePuzzle(){
 		super("Puzzle");
+		this.type = "Puzzle";
 	}
 	public Board getBoard(){
 		return super.getBoard();

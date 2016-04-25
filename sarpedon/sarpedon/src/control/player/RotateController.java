@@ -30,23 +30,21 @@ public class RotateController implements ActionListener{
 		model = l;
 		direction = newdirection;
 	}
-	
-	public void rotate(boolean direction){
-
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Piece piece = model.getBullpen().getSelectedPiece();
 		if (piece == null){return;}
+		if(!piece.getBoardStatus()){
 		if (direction){
-			piece.rotateCounterClockwise();;
+			piece.rotateCounterClockwise();
 		} else {
 			piece.rotateClockwise();
 		}
 		model.getBullpen().setSelected(piece);
 		boardPanel.redraw();
 		boardPanel.repaint();
+		}
 		
 	}
 

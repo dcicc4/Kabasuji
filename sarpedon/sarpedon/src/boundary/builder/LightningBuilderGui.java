@@ -15,6 +15,7 @@ import control.builder.PlacePieceController;
 import control.builder.RotateController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
+import control.builder.UpdateTimeController;
 import entity.builder.BuildableLightning;
 import entity.builder.IBuilderModel;
 import entity.player.Bullpen;
@@ -41,8 +42,10 @@ import javax.swing.ButtonGroup;
 public class LightningBuilderGui extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField timeTextField;
+	JTextField timeTextField;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
+	JLabel warningLabel;
 	
 	JButton btnSave;
 	JButton btnUndo;
@@ -103,7 +106,7 @@ public class LightningBuilderGui extends JFrame {
 		timeTextField.setBounds(178, 674, 105, 39);
 		contentPane.add(timeTextField);
 		
-		JLabel warningLabel = new JLabel("Possible Warning");
+		warningLabel = new JLabel("Possible Warning");
 		warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		warningLabel.setForeground(Color.RED);
 		warningLabel.setBounds(10, 728, 251, 33);
@@ -225,5 +228,7 @@ public class LightningBuilderGui extends JFrame {
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
+		
+		timeTextField.addActionListener(new UpdateTimeController(timeTextField, model, warningLabel));
 	}
 }

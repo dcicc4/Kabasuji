@@ -22,10 +22,10 @@ Integer timeAlotted;
 	public Bullpen getBullpen(){
 		return super.getBullpen();
 	}
-	public Integer getTimeAlotted(){
+	public Integer getTimeAllotted(){
 		return timeAlotted;
 	}
-	public void setTimeAlotted(Integer t){
+	public void setTimeAllotted(Integer t){
 		timeAlotted = t;
 	}
 	public void setBullpen(Bullpen bp){

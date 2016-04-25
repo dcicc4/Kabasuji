@@ -16,6 +16,7 @@ import control.builder.PlacePieceController;
 import control.builder.RotateController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
+import control.builder.UpdateMovesController;
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
 
@@ -105,6 +106,7 @@ public class PuzzleBuilderGui extends JFrame {
 	public PuzzleBuilderGui(BuildablePuzzle bp) {
 		model = bp;
 		model.setType("Puzzle");
+		
 		setTitle("Kabasuji Puzzle Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -253,6 +255,8 @@ public class PuzzleBuilderGui extends JFrame {
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
+		
+		textField.addActionListener(new UpdateMovesController(textField, model, warningLabel));
 		
 	}
 }

@@ -7,13 +7,13 @@ import boundary.builder.*;
 
 //import javax.swing.*;
 
-public class BoardToStockController implements ActionListener{
+public class BackToStockController implements ActionListener{
 
 	Board board;
 	BuilderBoardPanel boardPanel;
 	Piece piece;
 	
-	public BoardToStockController(BuilderBoardPanel newboardPanel, Board newboard){
+	public BackToStockController(BuilderBoardPanel newboardPanel, Board newboard){
 		boardPanel = newboardPanel;
 		board = newboard;
 	}

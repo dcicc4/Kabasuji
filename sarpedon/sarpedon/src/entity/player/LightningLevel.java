@@ -42,13 +42,19 @@ public class LightningLevel extends Level {
 		this.number = 2;
 		this.timeLeft = 100000;
 	}
+	public Integer getTimeLeft(){
+		return timeLeft;
+	}
+	public void decrementTime(){
+		timeLeft--;
+	}
 	/**
 	 * Calculates the number of stars earned based on the number of spaces left on the Board
 	 * and updates the stored value
 	 */
 	@Override
 	public void updateStars(){
-		int spcLeft = ((LightningBoard) board).spacesLeft();
+		int spcLeft = ((LightningBoard)board).spacesLeft();
 		if (spcLeft > 12){
 			this.stars = 0;
 			return;
@@ -66,12 +72,10 @@ public class LightningLevel extends Level {
 		}
 	}
 	
-	public Integer getTimeLeft(){
-		return timeLeft;
-	}
-	
-	public void decrementTime(){
-		timeLeft--;
+	@Override
+	public void restore(LevelMomento m){
+		super.restore(m);
+		timeLeft = m.timeAlotted;
 	}
 	
 }

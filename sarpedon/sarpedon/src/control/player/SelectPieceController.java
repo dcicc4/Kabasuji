@@ -58,16 +58,16 @@ public class SelectPieceController extends MouseAdapter {
 		Bullpen bullpen = level.getBullpen();
 		Piece selected = bullpen.getSelectedPiece();
 		if(selected != null){
-			bullpen.addPiece(selected);
-			bullpen.removeSelected();
 			if(movesLeft != null){
 				if(selected.getBoardStatus()){
 					Integer moves = ((PuzzleLevel)level).getMovesLeft()- 1;
 					((PuzzleLevel)level).setMovesLeft(moves);
 					movesLeft.setText(moves.toString());
+					selected.offBoard();
 				}
-
 			}
+			bullpen.addPiece(selected);
+			bullpen.removeSelected();
 			bullpenView.redraw();
 			bullpenView.repaint();
 			boardView.redraw();

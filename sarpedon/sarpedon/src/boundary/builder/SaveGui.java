@@ -53,10 +53,6 @@ public class SaveGui extends JFrame {
 		contentPane.add(lblNameYourFile);
 		
 		JButton btnSaveGuiAndQuit = new JButton("SaveGui \n and \n Quit");
-		btnSaveGuiAndQuit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		
 		txtEnterHere = new JTextField();
 		txtEnterHere.setText("Enter Here");
@@ -64,7 +60,7 @@ public class SaveGui extends JFrame {
 		txtEnterHere.setColumns(10);
 		contentPane.add(btnSaveGuiAndQuit);
 	
-	SaveController sVC = new SaveController(btnSaveGuiAndQuit, txtEnterHere, model);
-	btnSaveGuiAndQuit.addMouseListener(sVC);
+	SaveController sVC = new SaveController(txtEnterHere, model);
+	btnSaveGuiAndQuit.addActionListener(sVC);
 	}
 }

@@ -1,6 +1,7 @@
 package control.builder;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -13,37 +14,35 @@ import javax.swing.JTextField;
 
 import entity.builder.IBuilderModel;
 import entity.player.Level;
+import entity.player.LevelMomento;
 
-public class SaveController extends MouseAdapter {
+public class SaveController implements ActionListener {
 
-	String s;
-	JButton aButt;
-	Level aLevel;
+	LevelMomento aLevel;
 	JTextField aText;
-	
-	public SaveController(JButton aButt, JTextField aText, IBuilderModel model) {
+
+	public SaveController(JTextField aText, IBuilderModel model) {
 		this.aText = aText;
-		this.aButt = aButt;
-		aLevel = (Level) model;
-		
+		aLevel = new LevelMomento(model);
+
 	}
 
-	public void mousePressed(MouseEvent a) {
-		{
-			try {
-				File aFile = new File (aText.getText()+".ext");
-				
-				FileOutputStream saveFile = new FileOutputStream(aFile);
-				ObjectOutputStream save = new ObjectOutputStream(saveFile);
-				save.writeObject(aLevel);
-				save.close();
-		System.exit(0);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+			File aFile = new File (aText.getText()+".ext");
 
+			FileOutputStream saveFile = new FileOutputStream(aFile);
+			ObjectOutputStream save = new ObjectOutputStream(saveFile);
+			save.writeObject(aLevel);
+			save.close();
+			System.exit(0);
+		} catch (Exception ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
 		}
+
 	}
 
 }
+

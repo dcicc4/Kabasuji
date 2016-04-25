@@ -23,6 +23,11 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 
+/**
+ * Class for displaying a playable puzzle level.
+ * @author Nathan
+ *
+ */
 public class PuzzleLevelGui extends JFrame {
 
 	private JPanel contentPane;
@@ -94,7 +99,7 @@ public class PuzzleLevelGui extends JFrame {
 		lblNewLabel.setBounds(26, 350, 271, 49);
 		contentPane.add(lblNewLabel);
 		
-		lblMoves = new JLabel("0");
+		lblMoves = new JLabel(level.getMovesLeft().toString());
 		lblMoves.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblMoves.setBounds(316, 350, 122, 49);
 		contentPane.add(lblMoves);
@@ -147,11 +152,11 @@ public class PuzzleLevelGui extends JFrame {
 		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
 		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
 		
-		SelectPieceController spc = new SelectPieceController(level.getBullpen(), boardView, bullpenView);
+		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView, lblMoves);
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView);
+		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves);
 		boardView.addMouseListener(place);
 	}
 }

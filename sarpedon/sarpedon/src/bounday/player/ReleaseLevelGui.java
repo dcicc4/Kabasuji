@@ -163,7 +163,7 @@ public class ReleaseLevelGui extends JFrame {
 		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
 		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
 		
-		SelectPieceController spc = new SelectPieceController(level.getBullpen(), boardView, bullpenView);
+		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView);
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);

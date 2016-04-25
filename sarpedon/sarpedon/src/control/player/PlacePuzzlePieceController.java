@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
 import boundary.builder.BuilderBoardPanel;
@@ -25,10 +26,12 @@ public class PlacePuzzlePieceController implements MouseListener {
 	
 	PuzzleLevel model;
 	PlayerBoardPanel boardView;
+	JLabel movesLeft;
 	
-	public PlacePuzzlePieceController(PuzzleLevel l, PlayerBoardPanel bv){
+	public PlacePuzzlePieceController(PuzzleLevel l, PlayerBoardPanel bv, JLabel ml){
 		model = l;
 		boardView = bv;
+		movesLeft = ml;
 	}
 
 	@Override
@@ -45,28 +48,34 @@ public class PlacePuzzlePieceController implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		//only do this if you are left clicking (and the move piece button is selected)
 		if(e.getButton() == MouseEvent.BUTTON1){
-			Piece adding = model.getBullpen().getSelectedPiece();
-			Board b = model.getBoard();
-			Point clicked = boardView.getRowCol(e.getPoint());
-			if(clicked == null){return;}
-			if(adding == null){
-				//this means you are trying to pick up a piece.
-				Piece picked = b.getPiece(clicked.x,clicked.y);
-				if(picked==null){return;}
-				b.removePiece(clicked.x, clicked.y);
-				model.getBullpen().setSelected(picked);
-				boardView.redraw();
-				boardView.repaint();
-			} else {
-				//you are trying to place a piece
-				if(b.addPiece(clicked.x, clicked.y, adding)){
-					model.getBullpen().removeSelected();
+			if(model.getMovesLeft() > 0){ //only if there are allowed moves left
+				Piece adding = model.getBullpen().getSelectedPiece();
+				Board b = model.getBoard();
+				Point clicked = boardView.getRowCol(e.getPoint());
+				if(clicked == null){return;}
+				if(adding == null){
+					//this means you are trying to pick up a piece.
+					Piece picked = b.getPiece(clicked.x,clicked.y);
+					if(picked==null){return;}
+					b.removePiece(clicked.x, clicked.y);
+					model.getBullpen().setSelected(picked);
 					boardView.redraw();
 					boardView.repaint();
+				} else {
+					//you are trying to place a piece
+					if(b.addPiece(clicked.x, clicked.y, adding)){
+						model.getBullpen().getSelectedPiece().onBoard();
+						model.getBullpen().removeSelected();
+						Integer moves = model.getMovesLeft() - 1;
+						model.setMovesLeft(moves);
+						movesLeft.setText(moves.toString());
+						boardView.redraw();
+						boardView.repaint();
+					}
 				}
 			}
 		}
-		
+
 	}
 
 	@Override

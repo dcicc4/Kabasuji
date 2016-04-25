@@ -65,4 +65,7 @@ public class PuzzleLevel extends Level {
 	public Integer getMovesLeft(){
 		return movesleft;
 	}
+	public void setMovesLeft(int l){
+		movesleft = l;
+	}
 }

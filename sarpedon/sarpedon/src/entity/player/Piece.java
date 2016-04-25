@@ -104,12 +104,15 @@ public class Piece implements Serializable{
 	public Color getColor(){
 		return color;
 	}
-	void onBoard()
+	public boolean getBoardStatus(){
+		return board;
+	}
+	public void onBoard()
 	{
 		board = true;
 	}
 
-	void offBoard()
+	public void offBoard()
 	{
 		board = false;
 	}

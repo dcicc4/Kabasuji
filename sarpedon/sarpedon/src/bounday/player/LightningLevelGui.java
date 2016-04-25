@@ -11,14 +11,22 @@ import control.player.*;
 import entity.player.*;
 
 import javax.swing.JScrollPane;
+import javax.swing.Timer;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JScrollBar;
-
+/**
+ * Displays interface for a playable lightning level
+ * 
+ * @author Nathan
+ *
+ */
 public class LightningLevelGui extends JFrame {
 
 	private JPanel contentPane;
@@ -86,7 +94,7 @@ public class LightningLevelGui extends JFrame {
 		lblTimeLeft.setBounds(10, 333, 271, 49);
 		contentPane.add(lblTimeLeft);
 		
-		lblTime = new JLabel("0");
+		lblTime = new JLabel(level.getTimeLeft().toString());
 		lblTime.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblTime.setBounds(300, 333, 122, 49);
 		contentPane.add(lblTime);
@@ -143,10 +151,15 @@ public class LightningLevelGui extends JFrame {
 		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
 		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
 		
-		SelectPieceController spc = new SelectPieceController(level.getBullpen(), boardView, bullpenView);
+		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView);
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		boardView.addMouseListener(new PlaceLightningPieceController(level, boardView, bullpenView));
+		
+		ActionListener updateTime = new TimeController(level, lblTime);
+		Timer timer = new Timer(1000, updateTime);
+		timer.start();
 	}
 
 }

@@ -16,7 +16,14 @@ public class LightningLevel extends Level {
 		timeLeft = tLeft;
 	}
 	
-	void updateStars(){
+	public Integer getTimeLeft(){
+		return timeLeft;
+	}
+	public void decrementTime(){
+		timeLeft--;
+	}
+	
+	public void updateStars(){
 		int spcLeft = ((LightningBoard) this.board).spacesLeft();
 		if (spcLeft > 12){
 			this.stars = 0;

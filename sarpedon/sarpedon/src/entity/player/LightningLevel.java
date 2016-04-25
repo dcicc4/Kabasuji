@@ -15,6 +15,9 @@ public class LightningLevel extends Level {
 		hints = hnts;
 		timeLeft = tLeft;
 	}
+	public LightningLevel(){
+		super("Lightning");
+	}
 	
 	public Integer getTimeLeft(){
 		return timeLeft;
@@ -40,6 +43,12 @@ public class LightningLevel extends Level {
 		} else {
 			throw new RuntimeException("LightningLevel::updateStars: Error calculating stars");
 		}
+	}
+	
+	@Override
+	public void restore(LevelMomento m){
+		super.restore(m);
+		timeLeft = m.timeAlotted;
 	}
 
 }

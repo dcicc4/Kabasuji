@@ -50,4 +50,8 @@ public class ReleaseLevel extends Level {
 		this.stars = numStars;
 	}
 	
+	public void restore(LevelMomento m){
+		super.restore(m);
+	}
+	
 }

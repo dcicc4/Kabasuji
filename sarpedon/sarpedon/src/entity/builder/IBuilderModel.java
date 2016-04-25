@@ -10,7 +10,9 @@ PieceBuilder PB = new PieceBuilder();
 	
 
 	public Board getBoard();
-	public entity.player.Bullpen getBullpen();
+	public Bullpen getBullpen();
+	public ArrayList<Hint> getHints();
+	public String getType();
 	public void setBullpen(Bullpen bp);
 	public void setBoard(Board b);
 	public void setType(String s);

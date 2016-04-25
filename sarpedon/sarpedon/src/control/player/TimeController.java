@@ -17,12 +17,23 @@ public class TimeController implements ActionListener {
 	LightningLevel level;
 	JLabel timeLeft;
 
+	/**
+	 * Constructor for decrementing the timer.
+	 * Note this is executed by the swing timer.
+	 * 
+	 * @param l - level that you are setting the time in.
+	 * @param time - Label that displays the time.
+	 */
 	public TimeController(LightningLevel l, JLabel time) {
 		level = l;
 		timeLeft = time;
 	}
 
 	@Override
+	/**
+	 * Decrements timer if the time hasn't already run out.
+	 * Also won't decrement time if the level has been completed with three stars.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(level.getTimeLeft() > 0 && level.getStars() != 3){
 			level.decrementTime();

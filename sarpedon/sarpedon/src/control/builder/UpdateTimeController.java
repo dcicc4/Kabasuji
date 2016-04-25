@@ -27,6 +27,9 @@ public class UpdateTimeController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * Get the time that was typed in and set it to the level. 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		try{
 			Integer time = Integer.valueOf(timeAllotted.getText());

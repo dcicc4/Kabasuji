@@ -43,6 +43,7 @@ public class MoveTilesController extends MouseAdapter{
 			Board b = model.getBoard();
 			Tile t = boardView.getTile(e.getPoint());
 			if(t == null){return;}
+			if(t.getCoveredBy() != null){return;}
 			origin = new Point(t.getRow(), t.getColumn());
 			b.removeTile(t.getRow(),t.getColumn());
 			b.setMovingTile(true);
@@ -54,10 +55,16 @@ public class MoveTilesController extends MouseAdapter{
 	public void mouseReleased(MouseEvent e) {
 		if(moveTiles.isSelected() && model.getBoard().getMovingTile()){
 			Point rowCol = boardView.getRowCol(e.getPoint());
-			if(model.getBoard().getTile(rowCol.x, rowCol.y) == null){
-			Tile t = new Tile(rowCol.x, rowCol.y);
-			model.getBoard().setTile(t);
-			} else {
+			if(rowCol != null){
+				if(model.getBoard().getTile(rowCol.x, rowCol.y) == null){
+					//this is a valid place to put a tile
+					Tile t = new Tile(rowCol.x, rowCol.y);
+					model.getBoard().setTile(t);
+				}
+			}
+			else {
+				//trying to place a tile on an already existing tile.
+				//also if you are trying to place a piece outside the range of the board.
 				model.getBoard().setTile(new Tile(origin.x, origin.y));
 			}
 			model.getBoard().setMovingTile(false);
@@ -65,7 +72,7 @@ public class MoveTilesController extends MouseAdapter{
 			boardView.redraw();
 			boardView.repaint();
 		}
-		
+
 	}
 	public void mouseDragged(MouseEvent e){
 		boardView.setMouse(e.getPoint());

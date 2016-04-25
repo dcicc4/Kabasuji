@@ -27,9 +27,10 @@ public class SelectPieceController extends MouseAdapter {
 	
 	/**
 	 * Primary constructor.
-	 * @param l
-	 * @param boardv
-	 * @param bullv
+	 * 
+	 * @param l - level that is being played
+	 * @param boardv - the board view
+	 * @param bullv - the bullpen view
 	 */
 	public SelectPieceController(Level l, PlayerBoardPanel boardv, PlayerBullpenPanel bullv){
 		level = l;
@@ -53,6 +54,10 @@ public class SelectPieceController extends MouseAdapter {
 		movesLeft = ml;
 	}
 
+	/**
+	 * If the mouse is pressed we want to select the piece that is being clicked on.
+	 * Additionally, if we also have a piece currently selected, we want to put it back in the bullpen.
+	 */
 	public void mousePressed (MouseEvent me) {
 		//first check if there is a selected piece in play, if there is you add it to the bullpen.
 		Bullpen bullpen = level.getBullpen();

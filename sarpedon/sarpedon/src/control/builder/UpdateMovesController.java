@@ -7,7 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import entity.builder.BuildablePuzzle;
-
+/**
+ * changes the number of moves the level allows
+ * 
+ * @author Nathan
+ *
+ */
 public class UpdateMovesController implements ActionListener{
 
 	JTextField moves;
@@ -21,6 +26,9 @@ public class UpdateMovesController implements ActionListener{
 	}
 	
 	@Override
+	/**
+	 * Get the number of moves typed in and update the level.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		try{
 		Integer totalMoves = Integer.valueOf(moves.getText());

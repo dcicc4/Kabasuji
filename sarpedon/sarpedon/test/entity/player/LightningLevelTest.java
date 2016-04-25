@@ -64,7 +64,7 @@ public class LightningLevelTest extends TestCase {
 		hnts = new ArrayList<Hint>();
 		hnts.add(hint1);
 		// example LightningLevel
-		testLL = new LightningLevel(oddsEmpty, bp, 0, false, hnts, 50000);
+		testLL = new LightningLevel(oddsEmpty, bp, 0, false, hnts, 2, 50000);
 	}
 
 	public void testUpdateStars() {

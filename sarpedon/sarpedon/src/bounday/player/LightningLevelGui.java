@@ -69,7 +69,7 @@ public class LightningLevelGui extends JFrame {
 					LightningBoard lBoard= new LightningBoard();
 					Bullpen bp = new Bullpen();
 					bp.addPiece(pb.getPiece(1));
-					LightningLevel l = new LightningLevel(lBoard, bp, 0, false, null, 100);
+					LightningLevel l = new LightningLevel(lBoard, bp, 0, false, null, 2, 100);
 					LightningLevelGui frame = new LightningLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {

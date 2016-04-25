@@ -18,13 +18,14 @@ public class LightningLevel extends Level {
 	 * @param tLeft
 	 */
 	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
-			boolean cmplted, ArrayList<Hint> hnts, Integer tLeft) {
+			boolean cmplted, ArrayList<Hint> hnts, Integer num, Integer tLeft) {
 		super("Lightning");
 		bullpen= bull;
 		board = lboard;
 		stars = strs;
 		completed = cmplted;
 		hints = hnts;
+		number = num;
 		timeLeft = tLeft;
 	}
 	/** 

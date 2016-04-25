@@ -217,5 +217,14 @@ public class PuzzleLevelTest extends TestCase {
 		}
 		assertTrue(thrown2);
 	}
+	
+	public void testSetMoves(){
+		assertTrue(pL.movesleft == 10);
+		pL.setMovesLeft(5);
+		assertTrue(pL.movesleft == 5);
+		
+		pL.setMovesLeft(100);
+		assertTrue(pL.movesleft == 100);
+	}
 
 }

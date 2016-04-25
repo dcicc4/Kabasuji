@@ -76,11 +76,16 @@ public class PuzzleLevel extends Level {
 	public Integer getMovesLeft(){
 		return movesleft;
 	}
-	
+	/**
+	 * Sets the number of moves left
+	 * @param l the intended number of moves left
+	 */
 	public void setMovesLeft(int l){
 		movesleft = l;
 	}
-	
+	/**
+	 * restores the Level to it's original state
+	 */
 	@Override
 	public void restore(LevelMomento m){
 		board = m.board;

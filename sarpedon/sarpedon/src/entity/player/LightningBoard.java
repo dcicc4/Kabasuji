@@ -4,8 +4,14 @@ import java.util.UUID;
 
 public class LightningBoard extends Board {
 
+	private static final long serialVersionUID = 8082472858535175855L;
+
 	public LightningBoard() {
 		super();
+	}
+	
+	public LightningBoard(Tile[][] s){
+		super(s);
 	}
 	
 	@Override
@@ -78,12 +84,13 @@ public class LightningBoard extends Board {
 	
 	int spacesLeft(){
 		int sL = 0;
-		for (int i = 0; i > shape[0].length; i++){
-			for (int j = 0; j > shape.length; j++){
-				if (shape[i][j].getCoveredBy() == null){
+		for(int i = 0; i<12; i++){
+			for(int j = 0; j <12; j++){
+				if(shape[i][j].getCoveredBy() == null){
 					sL++;
 				}
 			}
+			
 		}
 		return sL;
 	}

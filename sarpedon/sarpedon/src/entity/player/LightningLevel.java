@@ -24,7 +24,7 @@ public class LightningLevel extends Level {
 	}
 	
 	public void updateStars(){
-		int spcLeft = ((LightningBoard) this.board).spacesLeft();
+		int spcLeft = ((LightningBoard)board).spacesLeft();
 		if (spcLeft > 12){
 			this.stars = 0;
 			return;

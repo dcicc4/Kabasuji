@@ -83,7 +83,13 @@ public class PuzzleLevel extends Level {
 	
 	@Override
 	public void restore(LevelMomento m){
-		super.restore(m);
+		board = m.board;
+		bullpen = m.bullpen;
+		stars = m.stars;
+		hints = m.hints;
+		type = m.type;
+		completed = m.completed;
+		number = m.number;
 		movesleft = m.movesAllotted;
 	}
 }

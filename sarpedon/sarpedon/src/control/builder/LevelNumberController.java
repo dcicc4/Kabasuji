@@ -21,7 +21,7 @@ JFrame LG;
 	public LevelNumberController( Level newlevel){
 		
 		level = newlevel;
-		type = "Puzzle";
+		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
 			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level);

@@ -18,10 +18,6 @@ public class BackToStockController implements ActionListener{
 		board = newboard;
 	}
 	
-	public void move(Piece piece, int col, int row){
-
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

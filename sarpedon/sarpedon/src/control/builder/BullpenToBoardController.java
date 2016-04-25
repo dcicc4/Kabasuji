@@ -10,8 +10,7 @@ import entity.player.*;
 import boundary.builder.*;
 
 /**
- * Gets a piece from the bullpen to the board.
- * 
+ * Moves the selected piece around on the board panel.
  * 
  * @author Nathan
  *
@@ -34,10 +33,17 @@ public class BullpenToBoardController implements MouseMotionListener{
 
 	}
 
+	/**
+	 * let the board panel know the mouse is in it.
+	 * @param me
+	 */
 	public void mouseEntered(MouseEvent me) {
 		boardView.setMouse(me.getPoint());
 	}
 	
+	/**
+	 * let the boar panel know the mouse has moved.
+	 */
 	public void mouseMoved (MouseEvent me) {
 		Piece selected = bullpen.getSelectedPiece();
 		if (selected == null) { return; }
@@ -48,6 +54,10 @@ public class BullpenToBoardController implements MouseMotionListener{
 		
 	}
 	
+	/**
+	 * let the board panel know the mouse left.
+	 * @param me
+	 */
 	public void mouseExited(MouseEvent me) {
 		boardView.setMouse(null);
 		boardView.redraw();

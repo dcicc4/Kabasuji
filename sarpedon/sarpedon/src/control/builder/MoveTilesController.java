@@ -38,6 +38,10 @@ public class MoveTilesController extends MouseAdapter{
 	}
 
 	@Override
+	/**
+	 * Select the tile to move at the clicked point.
+	 * will not select the tile if it's covered by the piece.
+	 */
 	public void mousePressed(MouseEvent e) {
 		if(moveTiles.isSelected()){
 			Board b = model.getBoard();
@@ -52,6 +56,10 @@ public class MoveTilesController extends MouseAdapter{
 	}
 
 	@Override
+	/**
+	 * place the tile on the board somewhere.
+	 * if it is not valid, it will put it back where it came from.
+	 */
 	public void mouseReleased(MouseEvent e) {
 		if(moveTiles.isSelected() && model.getBoard().getMovingTile()){
 			Point rowCol = boardView.getRowCol(e.getPoint());
@@ -74,6 +82,9 @@ public class MoveTilesController extends MouseAdapter{
 		}
 
 	}
+	/**
+	 * Update the location of the tile.
+	 */
 	public void mouseDragged(MouseEvent e){
 		boardView.setMouse(e.getPoint());
 		boardView.redraw();
@@ -82,13 +93,11 @@ public class MoveTilesController extends MouseAdapter{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		return;
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		return;
 	}
 }

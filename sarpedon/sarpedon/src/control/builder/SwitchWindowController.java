@@ -4,7 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
+/**
+ * Switches the frames for navigation in the builder application.
+ * @author Nathan
+ *
+ */
 public class SwitchWindowController implements ActionListener{
 
 	JFrame currentFrame;
@@ -16,6 +20,9 @@ public class SwitchWindowController implements ActionListener{
 	}
 	
 	@Override
+	/**
+	 * makes the next frame visible and the next fram invisible.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		nextFrame.setVisible(true);	
 		currentFrame.setVisible(false);

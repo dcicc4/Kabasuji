@@ -28,6 +28,10 @@ public class FlipController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * flips active piece in the specified direction.
+	 * Note: piece may come from board unlike playable levels.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		Piece piece = model.getBullpen().getSelectedPiece();

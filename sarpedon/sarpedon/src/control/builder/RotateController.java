@@ -31,6 +31,10 @@ public class RotateController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * rotate piece to see how it will fit in the board.
+	 * Unlike the Player version, the piece may come from the board.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Piece piece = model.getBullpen().getSelectedPiece();
 		if (piece == null){return;}

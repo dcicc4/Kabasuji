@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.builder.LoadExistingToEditController;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -13,6 +16,8 @@ public class LoadGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	
+	JButton btnLoad;
 
 	/**
 	 * Launch the application.
@@ -47,8 +52,10 @@ public class LoadGui extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Load");
-		btnNewButton.setBounds(283, 11, 127, 41);
-		contentPane.add(btnNewButton);
+		btnLoad = new JButton("Load");
+		btnLoad.setBounds(283, 11, 127, 41);
+		contentPane.add(btnLoad);
+		
+		btnLoad.addActionListener(new LoadExistingToEditController(textField, this));
 	}
 }

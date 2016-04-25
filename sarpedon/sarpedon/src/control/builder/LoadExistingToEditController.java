@@ -7,14 +7,14 @@ import java.io.ObjectInputStream;
 
 import javax.swing.JTextField;
 
+import boundary.builder.LightningBuilderGui;
 import boundary.builder.LoadGui;
-import bounday.player.LightningLevelGui;
-import bounday.player.PuzzleLevelGui;
-import bounday.player.ReleaseLevelGui;
+import boundary.builder.PuzzleBuilderGui;
+import boundary.builder.ReleaseBuilderGui;
+import entity.builder.BuildableLightning;
+import entity.builder.BuildablePuzzle;
+import entity.builder.BuildableRelease;
 import entity.player.LevelMomento;
-import entity.player.LightningLevel;
-import entity.player.PuzzleLevel;
-import entity.player.ReleaseLevel;
 
 public class LoadExistingToEditController implements ActionListener{
 	JTextField fileNameText;
@@ -29,7 +29,7 @@ public class LoadExistingToEditController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(fileNameText.getText() == null){fileNameText.setText("Please Enter a Valid Level Name");}
 		try{		
-			String fileName = fileNameText.getText();
+			String fileName = fileNameText.getText() + ".ext";
 			ObjectInputStream restore = new ObjectInputStream(new FileInputStream(fileName));
 			LevelMomento obj = (LevelMomento) restore.readObject();
 			restore.close();
@@ -37,23 +37,23 @@ public class LoadExistingToEditController implements ActionListener{
 			String type = obj.getType();
 			
 			if(type.equals("Puzzle")){
-				PuzzleLevel model = new PuzzleLevel();
+				BuildablePuzzle model = new BuildablePuzzle();
 				model.restore(obj);
-				PuzzleLevelGui gui = new PuzzleLevelGui(model);
+				PuzzleBuilderGui gui = new PuzzleBuilderGui(model);
 				gui.setVisible(true);
 				loadGui.setVisible(false);
 			}
 			if(type.equals("Lightning")){
-				LightningLevel model = new LightningLevel();
+				BuildableLightning model = new BuildableLightning();
 				model.restore(obj);
-				LightningLevelGui gui = new LightningLevelGui(model);
+				LightningBuilderGui gui = new LightningBuilderGui(model);
 				gui.setVisible(true);
 				loadGui.setVisible(false);
 			}
 			if(type.equals("Release")){
-				ReleaseLevel model = new ReleaseLevel();
+				BuildableRelease model = new BuildableRelease();
 				model.restore(obj);
-				ReleaseLevelGui gui = new ReleaseLevelGui(model);
+				ReleaseBuilderGui gui = new ReleaseBuilderGui(model);
 				gui.setVisible(true);
 				loadGui.setVisible(false);
 			} else {

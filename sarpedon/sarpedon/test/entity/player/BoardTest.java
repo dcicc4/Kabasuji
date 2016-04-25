@@ -160,11 +160,10 @@ public class BoardTest extends TestCase {
 		assertTrue(b.availableTile(11, 11));
 		assertTrue(b.availableTile(6, 6));
 		
+		Board oddsEmpty = new Board(shapeOddsEmpty);
+		assertFalse(oddsEmpty.availableTile(3, 0));
+		
 	}
-
-//	public void testPiecePlaceable() {
-//		fail("Not yet implemented");
-//	}
 
 	public void testAddPiece() {
 		Board b = new Board();

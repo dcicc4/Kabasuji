@@ -11,7 +11,7 @@ public class LightningLevel extends Level {
 
 	/**
 	 * Constructor, primarily for testing purposes
-	 * since Levels will be made in the level builder
+	 * since LightningLevels will be made in the level builder
 	 * @param lboard a LigntningBoard on which Pieces can be played
 	 * @param bull a Bullpen from which Pieces can be played
 	 * @param hnts a list of suggested locations for a selection of specific Pieces
@@ -26,6 +26,20 @@ public class LightningLevel extends Level {
 		this.type = "Lightning";
 		this.number = 2;
 		this.timeAllowed = tLeft;
+	}
+	/** 
+	 * Default constructor, primarily for testing purposes
+	 * since Lightning Levels will be made in the level builder
+	 */
+	public LightningLevel() {
+		this.brd = new LightningBoard();
+		this.bp = new Bullpen();
+		this.hints = new ArrayList<Hint>();
+		this.stars = 0;
+		this.completed = false;
+		this.type = "Lightning";
+		this.number = 2;
+		this.timeAllowed = 100000;
 	}
 	/**
 	 * Calculates the number of stars earned based on the number of spaces left on the Board

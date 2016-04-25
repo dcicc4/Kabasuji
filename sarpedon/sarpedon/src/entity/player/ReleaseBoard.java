@@ -10,7 +10,7 @@ public class ReleaseBoard extends Board {
 	ReleaseTile[][] shape; 
 	/**
 	 * Constructor for the Release Board
-	 * @param s a to dimensional array of ReleaseTiles
+	 * @param s a two dimensional array of ReleaseTiles
 	 */
 	public ReleaseBoard(ReleaseTile[][] s) {
 		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12

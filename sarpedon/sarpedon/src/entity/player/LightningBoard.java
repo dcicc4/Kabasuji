@@ -1,21 +1,39 @@
 package entity.player;
 
 import java.util.UUID;
-
+/**
+ * the Lightning variant of a Board
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class LightningBoard extends Board {
-
+	/**
+	 * default constructor for the Lightning Board
+	 */
 	public LightningBoard() {
 		super();
 	}
-	
+	/** 
+	 * Contructor for the Lightning Board
+	 * @param s a two dimensional array of Tiles
+	 */
+	public LightningBoard(Tile[][] s){
+		super(s);
+	}
+	/**
+	 * Overrides base availableTile method to remove UUID check
+	 * Pieces can overlap on LightningBoards
+	 */
 	@Override
 	boolean availableTile(Integer row, Integer col){
 		// check if out of bounds of rectangular representation of the board
-		if ((row > shape[0].length) || (col > shape.length)){
+		if ((row > shape[0].length - 1) || (col > shape.length - 1)){
 			return false;
 		}
-		Tile t = shape[row][col];
-		if (t == null){
+		if ((row < 0) || (col < 0)){
+			return false;
+		}
+//		System.out.println(shape[row][col]);
+		if (shape[row][col] == null){
 			return false; // location not a playable tile
 		} else {
 			return true;

@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import control.player.*;
+import entity.player.PieceBuilder;
+import entity.player.PuzzleLevel;
+import entity.player.ReleaseLevel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -19,6 +23,11 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 
+/**
+ * Class for displaying a playable puzzle level.
+ * @author Nathan
+ *
+ */
 public class PuzzleLevelGui extends JFrame {
 
 	private JPanel contentPane;
@@ -33,8 +42,10 @@ public class PuzzleLevelGui extends JFrame {
 	JButton btnFlipVert;
 	JButton btnFlipHor;
 
-	private PlayerBullpenPanel bullpen;
-	PlayerBoardPanel board;
+	PlayerBullpenPanel bullpenView;
+	PlayerBoardPanel boardView;
+	
+	PuzzleLevel level;
 
 	/**
 	 * Launch the application.
@@ -43,7 +54,12 @@ public class PuzzleLevelGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PuzzleLevelGui frame = new PuzzleLevelGui();
+					PieceBuilder pb = new PieceBuilder();
+					PuzzleLevel l = new PuzzleLevel();
+					for(int i = 0; i < 6; i++){
+					l.getBullpen().addPiece(pb.getPiece(1));
+					}
+					PuzzleLevelGui frame = new PuzzleLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +71,8 @@ public class PuzzleLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleLevelGui() {
+	public PuzzleLevelGui(PuzzleLevel l) {
+		level = l;
 		setTitle("Puzzle Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -65,31 +82,31 @@ public class PuzzleLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		board = new PlayerBoardPanel();
-		board.setBounds(620, 123, 720, 720);
-		contentPane.add(board);
+		boardView = new PlayerBoardPanel(level);
+		boardView.setBounds(620, 123, 720, 720);
+		contentPane.add(boardView);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 522, 600, 300);
 		contentPane.add(scrollPane);
 		
-		setBullpen(new PlayerBullpenPanel());
-		getBullpen().setPreferredSize(new Dimension(1200, 150));
-		scrollPane.setViewportView(getBullpen());
+		bullpenView = new PlayerBullpenPanel(level.getBullpen());
+		bullpenView.setBounds(0, 0, 1200, 150);
+		scrollPane.setViewportView(bullpenView);
 		
 		JLabel lblNewLabel = new JLabel("Moves Left:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblNewLabel.setBounds(26, 350, 271, 49);
 		contentPane.add(lblNewLabel);
 		
-		lblMoves = new JLabel("0");
+		lblMoves = new JLabel(level.getMovesLeft().toString());
 		lblMoves.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblMoves.setBounds(316, 350, 122, 49);
 		contentPane.add(lblMoves);
 		
-		lblStars = new JLabel("Stars");
+		lblStars = new JLabel("Stars: 0");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblStars.setBounds(26, 268, 144, 54);
+		lblStars.setBounds(26, 268, 444, 54);
 		contentPane.add(lblStars);
 		
 		btnReset = new JButton("Reset");
@@ -128,13 +145,18 @@ public class PuzzleLevelGui extends JFrame {
 		btnrotateCClockwise.setBackground(Color.LIGHT_GRAY);
 		btnrotateCClockwise.setBounds(1349, 297, 125, 125);
 		contentPane.add(btnrotateCClockwise);
-	}
-
-	public PlayerBullpenPanel getBullpen() {
-		return bullpen;
-	}
-
-	public void setBullpen(PlayerBullpenPanel bullpen) {
-		this.bullpen = bullpen;
+		
+		//attach controllers
+		btnFlipVert.addActionListener(new FlipController(boardView, level, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, level, false));
+		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
+		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
+		
+		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView, lblMoves);
+		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
+		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves, lblStars);
+		boardView.addMouseListener(place);
 	}
 }

@@ -16,13 +16,13 @@ import entity.player.*;
 public class PlayerBoardPanel extends JPanel {
 
 	/** Core model. */
-	Level aLevel;
+	Level level;
 	
 	/** around edges. */
 	int offset = 32;
 	
 	/** Base size of puzzle. */
-	public final int N = 60;   // size of the edge of one tile
+	public final int N = 55;   // size of the edge of one tile
 	
 	/** Off-screen image for drawing (and Graphics object). */
 	Image offScreenImage = null;
@@ -41,8 +41,8 @@ public class PlayerBoardPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PlayerBoardPanel() {
-		//add Model to constructor parameters and have it set it here
+	public PlayerBoardPanel(Level l) {
+		level = l;
 		setBorder(new LineBorder(Color.DARK_GRAY, 1, true));
 		setBackground(Color.WHITE);
 
@@ -90,21 +90,21 @@ public class PlayerBoardPanel extends JPanel {
 		g.drawImage(offScreenImage, 0, 0, this);
 
 		//double check if no model (for WindowBuilder)
-		if (aLevel == null) { return; }
+		if (level == null) { return; }
 
 		// draw board.
 		g.setColor(new Color(240, 240, 240));
 		g.fillRect(0,0,16*N,16*N);
 		//draws a 12 by 12 grid, because I hard coded a 12x12 grid
-		Tile[][] tiles = aLevel.getBoard().getTileArray();
+		Tile[][] tiles = level.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				Tile tile = tiles[i][j];
 				if(tile != null){
 					g.setColor(Color.white);
 					g.fillRect(offset + i*N, offset + j*N, N, N);
-					if(aLevel.getBoard().getPiece(i, j)!= null){
-						g.setColor(aLevel.getBoard().getPiece(i, j).getColor());
+					if(level.getBoard().getPiece(i, j)!= null){
+						g.setColor(level.getBoard().getPiece(i, j).getColor());
 						g.fillRect(offset + i*N, offset + j*N, N, N);
 					}
 					g.setColor(Color.black);
@@ -113,7 +113,7 @@ public class PlayerBoardPanel extends JPanel {
 			}
 		}
 		//draw the selected piece at the mouse tip
-		Piece selected = aLevel.getBullpen().getSelectedPiece();
+		Piece selected = level.getBullpen().getSelectedPiece();
 		if (selected != null){
 			if(mouse!= null){
 				drawPiece(g, selected, mouse);
@@ -124,7 +124,7 @@ public class PlayerBoardPanel extends JPanel {
 
 		}
 		//draw a moving tile at the tip of the mouse
-		if(aLevel.getBoard().getMovingTile() && mouse != null){
+		if(level.getBoard().getMovingTile() && mouse != null){
 			g.setColor(Color.white);
 			g.fillRect(mouse.x-N/2, mouse.y-N/2, N, N);
 			g.setColor(Color.BLACK);
@@ -136,11 +136,11 @@ public class PlayerBoardPanel extends JPanel {
 		Dimension dim = getPreferredSize();
 		offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
 
-		//Board b = aLevel.getBoard();
+		//Board b = level.getBoard();
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
-		Tile[][] tiles = aLevel.getBoard().getTileArray();
+		Tile[][] tiles = level.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				if(tiles[i][j] != null)
@@ -166,6 +166,23 @@ public class PlayerBoardPanel extends JPanel {
 			g.fillRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
 			g.setColor(Color.black);
 			g.drawRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
+		}
+	}
+	
+	/**
+	 * Returns row and column in point format corresponding to x,y location.
+	 * 
+	 * @param p -point at which you want the row, column
+	 * @return point where x is the row number and y is the column number
+	 */
+	public Point getRowCol(Point p){
+		int x = (p.x-offset)/N;
+		int y = (p.y-offset)/N;
+		if(x < 12 && y < 12 && x >= 0 && y >= 0){
+		return new Point(x,y);
+		}
+		else{ 
+			return null;
 		}
 	}
 

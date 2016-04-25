@@ -25,17 +25,17 @@ public class PlayerBullpenPanel extends JPanel {
 	PieceBuilder pb = new PieceBuilder();
 
 	/** Core model. */
-	Level aLevel; //this is currently the player model, change it when we have builder model(check imports)
+	Level aLevel; 
 
 	/** around edges. */
 	int offsetY = 20;
 	int offsetX = 50;
 
 	/** Size of edge of square */
-	public final int N = 16;
+	public final int N = 35;
 	//size of panel
-	int width = 1210;
-	int height = 130;
+	int width = 3000;
+	int height = 280;
 
 	/** Off-screen image for drawing (and Graphics object). */
 	Image offScreenImage = null;
@@ -47,12 +47,6 @@ public class PlayerBullpenPanel extends JPanel {
 	public PlayerBullpenPanel(Bullpen bp) {
 		bullpen = bp;
 
-		setBounds(0, 0, width, height);
-		setBackground(Color.WHITE);
-	}
-
-	public PlayerBullpenPanel() {
-		// TODO Auto-generated constructor stub
 		setBounds(0, 0, width, height);
 		setBackground(Color.WHITE);
 	}

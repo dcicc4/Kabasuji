@@ -102,8 +102,8 @@ public class PuzzleBuilderGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleBuilderGui(IBuilderModel bm) {
-		model = new BuildablePuzzle();
+	public PuzzleBuilderGui(BuildablePuzzle bp) {
+		model = bp;
 		model.setType("Puzzle");
 		setTitle("Kabasuji Puzzle Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -232,6 +232,8 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnFlipHor);
 		
 		//install controllers
+		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);

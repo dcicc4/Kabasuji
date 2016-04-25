@@ -20,7 +20,7 @@ public class ReleaseLevel extends Level {
 
 	
 	public ReleaseLevel() {
-		super();
+		super("Release");
 	}
 	
 	void calculateColor(ArrayList <Boolean> numCovered, Integer numColor){

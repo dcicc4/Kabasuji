@@ -16,13 +16,12 @@ public class PuzzleLevel extends Level {
 	 *  since Levels will be made in the level builder
 	 */
 	public PuzzleLevel(){
-		this.brd = new Board();
-		this.bp = new Bullpen();
+		super("Puzzle");
+		this.board = new Board();
+		this.bullpen = new Bullpen();
 		this.stars = 0;
 		this.completed = false;
-		this.hints = new ArrayList<Hint>();
-		this.type = "Puzzle";
-		this.number = 1;
+		this.hints = null;		this.number = 1;
 		this.movesleft = 10; // arbitrary number to allow some testing
 	}
 	
@@ -34,8 +33,9 @@ public class PuzzleLevel extends Level {
 	 * @param hnts a list of suggested locations for a selection of specific Pieces
 	 */
 	public PuzzleLevel(Board b, Bullpen bllpn, ArrayList<Hint> hnts){
-		this.brd = b;
-		this.bp = bllpn;
+		super("Puzzle");
+		this.board = b;
+		this.bullpen = bllpn;
 		this.hints = hnts;
 		this.stars = 0;
 		this.completed = false;
@@ -51,7 +51,7 @@ public class PuzzleLevel extends Level {
 	 */
 	@Override
 	public void updateStars(){
-		int s = this.bp.piecesLeft();
+		int s = this.bullpen.piecesLeft();
 		if (s > 2){
 			this.stars = 0;
 			return;
@@ -76,4 +76,7 @@ public class PuzzleLevel extends Level {
 		return movesleft;
 	}
 	
+	public void setMovesLeft(int l){
+		movesleft = l;
+	}
 }

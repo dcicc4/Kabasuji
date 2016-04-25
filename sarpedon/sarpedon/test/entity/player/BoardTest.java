@@ -173,19 +173,19 @@ public class BoardTest extends TestCase {
 		
 		Board oddBoard = new Board(shapeOddsEmpty);
 		//vertical pieces should not be playable on this board
-		assertFalse(oddBoard.addPiece(0, 0, verticalBar));
-		assertFalse(oddBoard.addPiece(1, 0, verticalBar));
-		assertFalse(oddBoard.addPiece(0, 1, verticalBar));
+		assertFalse(oddBoard.addPiece(0, 0, horizontalBar));
+		assertFalse(oddBoard.addPiece(1, 0, horizontalBar));
+		assertFalse(oddBoard.addPiece(0, 1, horizontalBar));
 		
 		//testing horizontal pieces
-		assertTrue(oddBoard.addPiece(0, 0, horizontalBar));
+		assertTrue(oddBoard.addPiece(0, 0, verticalBar));
 		//there is now a piece in the top corner
-		assertFalse(oddBoard.addPiece(0, 5, horizontalBar));
-		assertTrue(oddBoard.addPiece(0, 6, horizontalBar));
+		assertFalse(oddBoard.addPiece(0, 5, verticalBar));
+		assertTrue(oddBoard.addPiece(0, 6, verticalBar));
 		//this row should not be playable
-		assertFalse(oddBoard.addPiece(1, 0, horizontalBar));
+		assertFalse(oddBoard.addPiece(1, 0, verticalBar));
 		//should overlap edge of board
-		assertFalse(oddBoard.addPiece(2, 7, horizontalBar));
+		assertFalse(oddBoard.addPiece(2, 7, verticalBar));
 	}
 
 	public void testRemovePiece() {
@@ -200,7 +200,7 @@ public class BoardTest extends TestCase {
 		
 		Board oddBoard = new Board(shapeOddsEmpty);
 		assertFalse(oddBoard.removePiece(1, 0));
-		assertTrue(oddBoard.addPiece(0, 0, horizontalBar));
+		assertTrue(oddBoard.addPiece(0, 0, verticalBar));
 		assertTrue(oddBoard.removePiece(0, 0));
 	}
 
@@ -232,8 +232,8 @@ public class BoardTest extends TestCase {
 		assertTrue(b.getPiece(6, 0) == null);
 		
 		Board oddBoard = new Board(shapeOddsEmpty);
-		assertTrue(oddBoard.addPiece(0, 0, horizontalBar));
-		assertTrue(oddBoard.addPiece(0, 6, horizontalBar));
+		assertTrue(oddBoard.addPiece(0, 0, verticalBar));
+		assertTrue(oddBoard.addPiece(0, 6, verticalBar));
 		assertTrue(oddBoard.getPiece(0, 0) != null);
 		assertTrue(oddBoard.getPiece(0, 6) != null);
 		oddBoard.removeAll();

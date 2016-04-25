@@ -13,22 +13,19 @@ public class BuildableRelease  extends Level implements IBuilderModel{
 PieceBuilder PB = new PieceBuilder();
 	
 	public BuildableRelease(){
-		super();
-		bp = new Bullpen();
-		PB = new PieceBuilder();
-		brd = new Board();
+		super("Release");
 	}
 	public Board getBoard(){
-		return brd;
+		return super.getBoard();
 	}
-	public entity.player.Bullpen getBullpen(){
-		return bp;
+	public Bullpen getBullpen(){
+		return super.getBullpen();
 	}
 	public void setBullpen(Bullpen bp){
-		this.bp = bp;
+		bullpen = bp;
 	}
 	public void setBoard(Board b){
-		brd = b;
+		board = b;
 	}
 	public void setType(String s){
 		type = s;

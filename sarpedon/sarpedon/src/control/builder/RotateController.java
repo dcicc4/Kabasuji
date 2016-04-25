@@ -3,7 +3,6 @@ package control.builder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import entity.builder.BuilderModel;
 import entity.builder.IBuilderModel;
 import entity.player.*;
 import boundary.builder.*;

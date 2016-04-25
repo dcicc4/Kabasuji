@@ -42,18 +42,18 @@ public class LightningBoard extends Board {
 	
 	@Override
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
-		boolean placeable = false;
-		if (availableTile(row, col)){
+		boolean placeable = true;
+		//if (availableTile(row, col)){
 			for (Square s : p.dependent){
 				int drow = row + s.xFromAnchor;
 				int dcol = col + s.yFromAnchor;
-				if (availableTile(drow, dcol)){
-					placeable = true;
+				if (!availableTile(drow, dcol)){
+					placeable = false;
 				}
 			}
-		} else {
-			placeable = false;
-		}
+		//} else {
+		//	placeable = false;
+		//}
 			return placeable;
 	}
 	
@@ -66,7 +66,7 @@ public class LightningBoard extends Board {
 				pUUID = UUID.randomUUID();
 			}
 			Tile t = shape[row][col];
-			t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
+			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
 			for (Square s : p.dependent){ // mark the rest 
 				int drow = row + s.xFromAnchor;
 				int dcol = col + s.yFromAnchor;
@@ -96,9 +96,16 @@ public class LightningBoard extends Board {
 	
 	int spacesLeft(){
 		int sL = 0;
-		for (int i = 0; i > shape[0].length; i++){
-			for (int j = 0; j > shape.length; j++){
-				if (!availableTile(i, j)){
+		//for (int i = 0; i > shape[0].length; i++){
+		//	for (int j = 0; j > shape.length; j++){
+		//		if (!availableTile(i, j)){
+		//			sL++;
+		//		}
+		//	}
+		//}
+		for(int i = 0; i<12; i++){
+			for(int j = 0; j <12; j++){
+				if(shape[i][j].getCoveredBy() == null){
 					sL++;
 				}
 			}

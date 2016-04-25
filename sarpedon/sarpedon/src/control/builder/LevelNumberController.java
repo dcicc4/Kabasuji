@@ -24,19 +24,17 @@ JFrame LG;
 		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
-			PuzzleLevelGui pLG = new PuzzleLevelGui();
-			PlayerBullpenPanel aPanel = new PlayerBullpenPanel(level.getBullpen());
-			pLG.setBullpen(aPanel);
+			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level);
 			LG = pLG;
 			
 		} else
 		if (type.equals("Lightning"))
 		{
-			LG = new LightningLevelGui();
+			LG = new LightningLevelGui((LightningLevel)level);
 		}else
 		if (type.equals("Release"))
 		{
-			LG = new ReleaseLevelGui();
+			LG = new ReleaseLevelGui((ReleaseLevel)level);
 			
 			
 			

@@ -6,20 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.*;
 
 import control.builder.SwitchWindowController;
-import entity.builder.BuilderModel;
+import entity.builder.BuildableLightning;
+import entity.builder.BuildablePuzzle;
+import entity.builder.BuildableRelease;
 import entity.builder.IBuilderModel;
 
 public class BuilderApplication{
-
-	
-	IBuilderModel model;
 	
 	BuilderSplashScreen splashScreen = new BuilderSplashScreen();
 	LevelBuilderGui levelBuilder = new LevelBuilderGui();
-	LightningBuilderGui lightningBuilder = new LightningBuilderGui(model);
-	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(model);
-	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(model);
-	SaveGui aSave = new SaveGui(model);
+	LightningBuilderGui lightningBuilder = new LightningBuilderGui(new BuildableLightning());
+	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(new BuildablePuzzle());
+	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(new BuildableRelease());
 	
 	
 	public BuilderApplication(){
@@ -31,11 +29,6 @@ public class BuilderApplication{
 		levelBuilder.btnLightningBuilder.addActionListener(new SwitchWindowController(levelBuilder, lightningBuilder));
 		levelBuilder.btnPuzzleBuilder.addActionListener(new SwitchWindowController(levelBuilder, puzzleBuilder));
 		levelBuilder.btnReleaseBuilder.addActionListener(new SwitchWindowController(levelBuilder, releaseBuilder));
-		
-		
-		lightningBuilder.btnSave.addActionListener(new SwitchWindowController(lightningBuilder, aSave));
-		puzzleBuilder.btnSave.addActionListener(new SwitchWindowController(puzzleBuilder, aSave));
-		releaseBuilder.btnSave.addActionListener(new SwitchWindowController(releaseBuilder, aSave));
 	}
 	
 	public static void main(String[] args) {	

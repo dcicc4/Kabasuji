@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class LightningLevel extends Level {
 	/** the amount of time left */
-	Integer timeAllowed;
+	Integer timeLeft;
 
 	/**
 	 * Constructor, primarily for testing purposes
@@ -17,42 +17,43 @@ public class LightningLevel extends Level {
 	 * @param hnts a list of suggested locations for a selection of specific Pieces
 	 * @param tLeft
 	 */
-	public LightningLevel(LightningBoard lboard, Bullpen bull, ArrayList<Hint> hnts, Integer tLeft) {
-		this.brd = lboard;
-		this.bp = bull;
-		this.hints = hnts;
-		this.stars = 0;
-		this.completed = false;
-		this.type = "Lightning";
-		this.number = 2;
-		this.timeAllowed = tLeft;
+	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
+			boolean cmplted, ArrayList<Hint> hnts, Integer tLeft) {
+		super("Lightning");
+		bullpen= bull;
+		board = lboard;
+		stars = strs;
+		completed = cmplted;
+		hints = hnts;
+		timeLeft = tLeft;
 	}
 	/** 
 	 * Default constructor, primarily for testing purposes
 	 * since Lightning Levels will be made in the level builder
 	 */
 	public LightningLevel() {
-		this.brd = new LightningBoard();
-		this.bp = new Bullpen();
+		super("Lightning");
+		this.board = new LightningBoard();
+		this.bullpen = new Bullpen();
 		this.hints = new ArrayList<Hint>();
 		this.stars = 0;
 		this.completed = false;
 		this.type = "Lightning";
 		this.number = 2;
-		this.timeAllowed = 100000;
+		this.timeLeft = 100000;
 	}
 	/**
 	 * Calculates the number of stars earned based on the number of spaces left on the Board
 	 * and updates the stored value
 	 */
 	@Override
-	void updateStars(){
-		int spcLeft = ((LightningBoard) this.brd).spacesLeft();
+	public void updateStars(){
+		int spcLeft = ((LightningBoard) board).spacesLeft();
 		if (spcLeft > 12){
 			this.stars = 0;
 			return;
 		} else if (spcLeft > 6){
-			this.stars = 2;
+			this.stars = 1;
 			return;
 		} else if (spcLeft > 0){
 			this.stars = 2;

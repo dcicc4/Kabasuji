@@ -7,16 +7,26 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
+import control.player.*;
+import entity.player.*;
 
 import javax.swing.JScrollPane;
+import javax.swing.Timer;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JScrollBar;
-
+/**
+ * Displays interface for a playable lightning level
+ * 
+ * @author Nathan
+ *
+ */
 public class LightningLevelGui extends JFrame {
 
 	private JPanel contentPane;
@@ -31,8 +41,23 @@ public class LightningLevelGui extends JFrame {
 	JButton btnFlipVert;
 	JButton btnFlipHor;
 
-	PlayerBullpenPanel bullpen;
+	PlayerBullpenPanel bullpenView;
+	PlayerBoardPanel boardView;
 	
+	LightningLevel level;
+	
+	public PlayerBullpenPanel getBullpenView(){
+		return bullpenView;
+	}
+	public PlayerBoardPanel getBoardView(){
+		return boardView;
+	}
+	public JLabel getStarsView(){
+		return lblStars;
+	}
+	public void setStarsView(String s){
+		lblStars.setText(s); 
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -40,7 +65,12 @@ public class LightningLevelGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LightningLevelGui frame = new LightningLevelGui();
+					PieceBuilder pb = new PieceBuilder();
+					LightningBoard lBoard= new LightningBoard();
+					Bullpen bp = new Bullpen();
+					bp.addPiece(pb.getPiece(1));
+					LightningLevel l = new LightningLevel(lBoard, bp, 0, false, null, 100);
+					LightningLevelGui frame = new LightningLevelGui(l);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +82,8 @@ public class LightningLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LightningLevelGui() {
+	public LightningLevelGui(LightningLevel l) {
+		level = l;
 		setTitle("Lightning Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -66,23 +97,23 @@ public class LightningLevelGui extends JFrame {
 		scrollPane.setBounds(10, 503, 600, 300);
 		contentPane.add(scrollPane);
 		
-		bullpen = new PlayerBullpenPanel();
-		bullpen.setPreferredSize(new Dimension(1200, 150));
-		scrollPane.setViewportView(bullpen);
+		bullpenView = new PlayerBullpenPanel(l.getBullpen());
+		bullpenView.setPreferredSize(new Dimension(1200, 150));
+		scrollPane.setViewportView(bullpenView);
 		
 		JLabel lblTimeLeft = new JLabel("Time Left:");
 		lblTimeLeft.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblTimeLeft.setBounds(10, 333, 271, 49);
 		contentPane.add(lblTimeLeft);
 		
-		lblTime = new JLabel("0");
+		lblTime = new JLabel(level.getTimeLeft().toString());
 		lblTime.setFont(new Font("Tahoma", Font.PLAIN, 48));
 		lblTime.setBounds(300, 333, 122, 49);
 		contentPane.add(lblTime);
 		
-		lblStars = new JLabel("Stars");
+		lblStars = new JLabel("Stars: 0");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblStars.setBounds(10, 251, 144, 54);
+		lblStars.setBounds(10, 251, 344, 54);
 		contentPane.add(lblStars);
 		
 		btnReset = new JButton("Reset");
@@ -100,9 +131,9 @@ public class LightningLevelGui extends JFrame {
 		btnReturn.setBounds(300, 167, 171, 41);
 		contentPane.add(btnReturn);
 		
-		PlayerBoardPanel panel = new PlayerBoardPanel();
-		panel.setBounds(620, 83, 720, 720);
-		contentPane.add(panel);
+		boardView = new PlayerBoardPanel(l);
+		boardView.setBounds(620, 83, 720, 720);
+		contentPane.add(boardView);
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));
@@ -125,6 +156,22 @@ public class LightningLevelGui extends JFrame {
 		btnFlipHor.setBackground(Color.LIGHT_GRAY);
 		btnFlipHor.setBounds(1350, 678, 125, 125);
 		contentPane.add(btnFlipHor);
+		
+		//attach controllers
+		btnFlipVert.addActionListener(new FlipController(boardView, level, true));
+		btnFlipHor.addActionListener(new FlipController(boardView, level, false));
+		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
+		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
+		
+		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView);
+		bullpenView.addMouseListener(spc);
+		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
+		boardView.addMouseMotionListener(movePiece);
+		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
+		
+		ActionListener updateTime = new TimeController(level, lblTime);
+		Timer timer = new Timer(1000, updateTime);
+		timer.start();
 	}
 
 }

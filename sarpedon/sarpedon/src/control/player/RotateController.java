@@ -19,7 +19,7 @@ import entity.player.Piece;
  * @author Nathan
  *
  */
-class RotateController implements ActionListener{
+public class RotateController implements ActionListener{
 
 	Level model;
 	PlayerBoardPanel boardPanel;

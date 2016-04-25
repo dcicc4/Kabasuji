@@ -10,9 +10,9 @@ abstract public class Level implements Serializable {
 	
 	private static final long serialVersionUID = -884584409157199554L;
 	/** A Board which describes what locations are playable and where Pieces are */
-	protected Board brd;
+	protected Board board;
 	/** A collection of Pieces that can be played on the Board */
-	protected Bullpen bp;
+	protected Bullpen bullpen;
 	/** An indicator of progress through the level */
 	protected Integer stars;
 	/** whether or not the level is completed */
@@ -24,13 +24,40 @@ abstract public class Level implements Serializable {
 	/** a number indicating the Level's position in the ordering for the overarching game */
 	protected Integer number;
 	
+	/**
+	 * Constructs a level.
+	 * @param b - the board for the level
+	 * @param bp - the bullpen for the level
+	 * @param h - hints
+	 * @param t - type of the level -> one of "Puzzle" "Release" "Lightning"
+	 * @param num - number of the level
+	 */
+	public 	Level(Board b, Bullpen bp, ArrayList<Hint> h, String t, int num){
+		board = b;
+		bullpen = bp;
+		stars = 0;
+		hints = h;
+		type = t;
+		number = num;
+	}
+	/**
+	 * creates a new level (for use in the builder).
+	 * @param t - type of level being created.
+	 */
+	public Level(String t){
+		board = new Board();
+		bullpen = new Bullpen();
+		stars = 0;
+		completed = false;
+		type = t;
+	}
 	
 	/**
 	 * Gets the Bullpen of the level
 	 * @return the Bullpen of the Level
 	 */
 	public Bullpen getBullpen(){
-		return bp;
+		return bullpen;
 	}
 	
 	/**
@@ -78,7 +105,7 @@ abstract public class Level implements Serializable {
 	 * @return the Board of the Level
 	 */
 	public Board getBoard(){
-		return brd;
+		return board;
 	}
 	/**
 	 * Gets the Hints associated with the Level

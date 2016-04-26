@@ -210,6 +210,9 @@ public class ReleaseBuilderGui extends JFrame {
 		boardView.addMouseListener(mtc);
 		boardView.addMouseMotionListener(mtc);
 		
+		HintController aHint = new HintController(model, boardView, addHintRadio, colorCombo, numberCombo);
+		boardView.addMouseListener(mtc);
+		
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, model, true));

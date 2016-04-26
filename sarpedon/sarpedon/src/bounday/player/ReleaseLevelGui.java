@@ -179,7 +179,7 @@ public class ReleaseLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		boardView.addMouseListener(new EndLevelController(game, this, level));
+		boardView.addMouseListener(new EndLevelController(game, this, level, aPA));
 	}
 
 }

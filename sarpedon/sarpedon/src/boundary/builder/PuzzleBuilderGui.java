@@ -217,7 +217,6 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnUndo);
 		contentPane.add(lblBoardsize);
 		contentPane.add(boardSizeCombo);
-		contentPane.add(label);
 
 		contentPane.add(moveTilesRadio);
 		contentPane.add(addHintRadio);

@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
+import Main.PlayerApplication;
 import bounday.player.EndLevelGui;
 import entity.player.Level;
 import entity.player.LightningLevel;
@@ -23,11 +24,13 @@ public class EndLevelController implements MouseListener{
 	SarpedonKabasuji game;
 	JFrame levelGui;
 	Level level;
+	PlayerApplication app;
 	
-	public EndLevelController(SarpedonKabasuji g, JFrame f,  Level l){
+	public EndLevelController(SarpedonKabasuji g, JFrame f,  Level l, PlayerApplication a){
 		game = g;
 		levelGui = f;
 		level = l;
+		app = a;
 	}
 	
 	
@@ -58,7 +61,7 @@ public class EndLevelController implements MouseListener{
 			if(level.getStars() > 0 && level.getNumber() == game.getCurrentLevel()){
 				game.incrementLevel();
 			}
-			new EndLevelGui(game, levelGui).setVisible(true);
+			new EndLevelGui(game, levelGui, app).setVisible(true);
 		}
 		else{
 			return;

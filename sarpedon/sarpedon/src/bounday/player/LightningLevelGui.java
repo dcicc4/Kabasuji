@@ -172,6 +172,7 @@ public class LightningLevelGui extends JFrame {
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
 		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
+		boardView.addMouseListener(new EndLevelController(aGame, this, level, aPA));
 		
 		SwitchWindowController toMenu = new SwitchWindowController (this, aPA.getMenu());
 		btnReturn.addActionListener(toMenu);

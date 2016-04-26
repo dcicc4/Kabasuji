@@ -11,6 +11,7 @@ import control.player.*;
 import entity.player.PieceBuilder;
 import entity.player.PuzzleLevel;
 import entity.player.ReleaseLevel;
+import entity.player.SarpedonKabasuji;
 
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -46,11 +47,12 @@ public class PuzzleLevelGui extends JFrame {
 	PlayerBoardPanel boardView;
 	
 	PuzzleLevel level;
+	SarpedonKabasuji game;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -66,13 +68,14 @@ public class PuzzleLevelGui extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleLevelGui(PuzzleLevel l) {
+	public PuzzleLevelGui(PuzzleLevel l, SarpedonKabasuji g) {
 		level = l;
+		game = g;
 		setTitle("Puzzle Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -158,5 +161,6 @@ public class PuzzleLevelGui extends JFrame {
 		boardView.addMouseMotionListener(movePiece);
 		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves, lblStars);
 		boardView.addMouseListener(place);
+		boardView.addMouseListener(new EndLevelController(game, this, level));
 	}
 }

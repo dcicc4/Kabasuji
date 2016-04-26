@@ -83,6 +83,13 @@ public class PuzzleLevel extends Level {
 	public void setMovesLeft(int l){
 		movesleft = l;
 	}
+	
+	@Override
+	public boolean getCompleted(){
+		return(super.getCompleted() || movesleft == 0);
+	}
+	
+	
 	/**
 	 * restores the Level to it's original state
 	 */

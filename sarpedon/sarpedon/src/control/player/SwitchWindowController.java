@@ -14,6 +14,7 @@ import javax.swing.*;
 public class SwitchWindowController implements ActionListener{
 
 	JFrame currentFrame;
+	JFrame currentFrame2;
 	JFrame nextFrame;
 	
 	/**
@@ -26,13 +27,21 @@ public class SwitchWindowController implements ActionListener{
 		currentFrame = current;
 		nextFrame = next;
 	}
-	
+	public SwitchWindowController(JFrame current, JFrame current2, JFrame next){
+		currentFrame = current;
+		currentFrame2 = current2;
+		nextFrame = next;
+	}
 	@Override
 	/**
 	 * set the current frame to be not visible, and the next frame to be visible.
 	 */
 	public void actionPerformed(ActionEvent e) {
+		if(nextFrame == null){return;}
 		nextFrame.setVisible(true);	
 		currentFrame.setVisible(false);
+		if(currentFrame2 != null){
+			currentFrame2.setVisible(false);
+		}
 	}
 }

@@ -11,14 +11,15 @@ import control.builder.LevelNumberController;
 import control.player.Loader;
 import control.player.SwitchWindowController;
 import entity.player.Level;
+import entity.player.SarpedonKabasuji;
 
 
 public class PlayerApplication {
 
 	PlayerSplashScreen splashScreen = new PlayerSplashScreen();
 	KabasujiMenuGui menu = new KabasujiMenuGui();
-	LevelSelectGui levelSelect = new LevelSelectGui();
-	int levelNumber;
+	SarpedonKabasuji game = new SarpedonKabasuji();
+	LevelSelectGui levelSelect = new LevelSelectGui(game);
 	
 	
 	
@@ -29,19 +30,25 @@ public class PlayerApplication {
 	void initializeControllers() {
 		//initialize controllers for main menu
 		menu.getBtnLevelSelect().addActionListener(new SwitchWindowController(menu, levelSelect));
+		JButton[] buttons = levelSelect.getButtons();
 		
+		LevelNumberController LC = new LevelNumberController(game.getLevel(1), game);
+		menu.getBtnNewGame().addActionListener(new SwitchWindowController(menu, LC.getFrame()));
 		
+		for(int i = 0; i<15; i++){
+			LevelNumberController lC = new LevelNumberController(game.getLevel(i+1), game);
+			buttons[i].addActionListener(new SwitchWindowController(levelSelect, lC.getFrame()));
+		}
 		
 		//initialize controllers for the individual levels on level select screen (may want to replace with LoadLevelController or something
-		levelNumber = 1;
-		JButton[] buttons = levelSelect.getButtons();
-		Loader l = new Loader();
-		Level currentLevel = l.getLevel(levelNumber);
+		//int levelNumber = 1;
 		
-		LevelNumberController LC = new LevelNumberController(currentLevel);
-		buttons[0].addActionListener(new SwitchWindowController(levelSelect, LC.getFrame()));
-		menu.getBtnNewGame().addActionListener(new SwitchWindowController(menu, LC.getFrame()));
-		levelNumber++;
+		//Loader l = new Loader();
+		//Level currentLevel = l.getLevel(levelNumber);
+		
+		//buttons[levelNumber-1].addActionListener(new SwitchWindowController(levelSelect, LC.getFrame()));
+		
+		//levelNumber++;
 		
 		/*
 		currentLevel = l.getLevel(levelNumber);

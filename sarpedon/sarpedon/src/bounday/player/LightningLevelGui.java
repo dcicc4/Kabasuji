@@ -45,6 +45,7 @@ public class LightningLevelGui extends JFrame {
 	PlayerBoardPanel boardView;
 	
 	LightningLevel level;
+	SarpedonKabasuji game;
 	
 	public PlayerBullpenPanel getBullpenView(){
 		return bullpenView;
@@ -61,7 +62,7 @@ public class LightningLevelGui extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -77,13 +78,14 @@ public class LightningLevelGui extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public LightningLevelGui(LightningLevel l) {
+	public LightningLevelGui(LightningLevel l, SarpedonKabasuji g) {
 		level = l;
+		game = g;
 		setTitle("Lightning Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -168,6 +170,7 @@ public class LightningLevelGui extends JFrame {
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
 		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
+		boardView.addMouseListener(new EndLevelController(game,this, level));
 		
 		ActionListener updateTime = new TimeController(level, lblTime);
 		Timer timer = new Timer(1000, updateTime);

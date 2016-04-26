@@ -5,6 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.builder.LevelNumberController;
+import control.player.Loader;
+import control.player.SwitchWindowController;
+import entity.player.SarpedonKabasuji;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -41,8 +47,9 @@ public class LevelSelectGui extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param game 
 	 */
-	public LevelSelectGui() {
+	public LevelSelectGui(SarpedonKabasuji game) {
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -156,5 +163,19 @@ public class LevelSelectGui extends JFrame {
 		lblSelectALevel.setFont(new Font("Tahoma", Font.PLAIN, 60));
 		lblSelectALevel.setBounds(531, 64, 636, 168);
 		contentPane.add(lblSelectALevel);
+		
+		JButton[] buttons = getButtons();
+		Loader loader = new Loader();
+		
+		for(int i = 0; i<15; i++){
+			LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game);
+			buttons[i].addActionListener(new SwitchWindowController(this, lC.getFrame()));
+			if(i < game.getCurrentLevel()){
+				buttons[i].setEnabled(true);
+			}
+			else{
+				buttons[i].setEnabled(false);
+			}
+		}
 	}
 }

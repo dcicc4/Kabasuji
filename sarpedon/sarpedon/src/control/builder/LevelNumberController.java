@@ -17,24 +17,26 @@ public class LevelNumberController implements ActionListener{
 	Level level;
 	String type;	
 JFrame LG;
+SarpedonKabasuji game;
 
-	public LevelNumberController( Level newlevel){
-		
+	public LevelNumberController( Level newlevel, SarpedonKabasuji g){
+		game = g;
 		level = newlevel;
+		if(level == null){return;}
 		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
-			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level);
+			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, game);
 			LG = pLG;
 			
 		} else
 		if (type.equals("Lightning"))
 		{
-			LG = new LightningLevelGui((LightningLevel)level);
+			LG = new LightningLevelGui((LightningLevel)level, game);
 		}else
 		if (type.equals("Release"))
 		{
-			LG = new ReleaseLevelGui((ReleaseLevel)level);
+			LG = new ReleaseLevelGui((ReleaseLevel)level, game);
 			
 			
 			

@@ -30,24 +30,26 @@ public Level getLevel (int x)
 	if(type.equals("Release")){
 		ReleaseLevel rlevel = new ReleaseLevel();
 		 rlevel.restore(obj);
+		 rlevel.setNumber(x);
 		 return rlevel;
 		
 	}
 	if(type.equals("Lightning")){
 		LightningLevel llevel = new LightningLevel();
 		 llevel.restore(obj);
+		 llevel.setNumber(x);
 		 return llevel;
 	}
 	if(type.equals("Puzzle")){
 		PuzzleLevel plevel = new PuzzleLevel();
 		 plevel.restore(obj);
+		 plevel.setNumber(x);
 		 return plevel;
 	}
 	return level;
 	
 	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		System.out.println("There is no Level " + x + " saved." );
 	}
 	return null;
 }

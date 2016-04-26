@@ -8,10 +8,12 @@ import javax.swing.border.EmptyBorder;
 
 import boundary.builder.BuilderBoardPanel;
 import control.player.BullpenToBoardController;
+import control.player.EndLevelController;
 import control.player.FlipController;
 import control.player.RotateController;
 import control.player.SelectPieceController;
 import entity.player.ReleaseLevel;
+import entity.player.SarpedonKabasuji;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -48,11 +50,12 @@ public class ReleaseLevelGui extends JFrame {
 	PlayerBullpenPanel bullpenView;
 	
 	ReleaseLevel level;
+	SarpedonKabasuji game;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -65,12 +68,13 @@ public class ReleaseLevelGui extends JFrame {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseLevelGui(ReleaseLevel l) {
+	public ReleaseLevelGui(ReleaseLevel l, SarpedonKabasuji g) {
 		level = l;
+		game = g;
 		setTitle("Release Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -167,6 +171,7 @@ public class ReleaseLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		boardView.addMouseListener(new EndLevelController(game, this, level));
 	}
 
 }

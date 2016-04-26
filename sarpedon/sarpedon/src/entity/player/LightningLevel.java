@@ -74,6 +74,12 @@ public class LightningLevel extends Level {
 	}
 	
 	@Override
+	public boolean getCompleted(){
+		return (super.getCompleted() || timeLeft == 0);
+	}
+	
+	
+	@Override
 	public void restore(LevelMomento m){
 		board = m.board;
 		bullpen = m.bullpen;
@@ -84,5 +90,7 @@ public class LightningLevel extends Level {
 		number = m.number;
 		timeLeft = m.timeAllotted;
 	}
+	
+	
 	
 }

@@ -144,7 +144,7 @@ public class PlayerBullpenPanel extends JPanel {
 	public Piece getPieceAtCoordinate(Point point) {
 		int i = 0;
 		for(Piece p: bullpen.getPieces()){
-			for(int j = 0; j<5; j++){
+			for(int j = 0; j<6; j++){
 				Square[] drawn = p.getDependant();
 				Rectangle r = new Rectangle(getX(i, j, drawn), getY(i, j, drawn), N, N);
 				if(r.contains(point)){

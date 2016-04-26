@@ -95,6 +95,13 @@ abstract public class Level implements Serializable {
 		return stars;
 	}
 	/**
+	 * Sets the stars to the given integer value.
+	 * @param s - number of stars in the level(must be 0, 1, 2, or 3).
+	 */
+	public void setStars(int s){
+		stars = s;
+	}
+	/**
 	 * should be overridden by subclasses, calculates stars
 	 */
 	void updateStars(){

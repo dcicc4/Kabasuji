@@ -39,9 +39,9 @@ public class SwitchWindowController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(nextFrame == null){return;}
 		nextFrame.setVisible(true);	
-		currentFrame.setVisible(false);
+		currentFrame.dispose();
 		if(currentFrame2 != null){
-			currentFrame2.setVisible(false);
+			currentFrame2.dispose();;
 		}
 	}
 }

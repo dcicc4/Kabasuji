@@ -27,24 +27,24 @@ JFrame LG;
  * 
  * Takes in a level and creates an appropriate Gui
  */
-	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame, PlayerApplication aPA){
+	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame){
 		
 		level = newlevel;
 		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
-			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, aGame, aPA);
+			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, aGame);
 			LG = pLG;
 			
 		} else
 		if (type.equals("Lightning"))
-		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level, aGame, aPA);
+		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level, aGame);
 			LG = lLG;			
 		
 			
 		}else
 		if (type.equals("Release"))
-		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level, aGame,aPA);
+		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level, aGame);
 			LG = rLG;
 			
 			

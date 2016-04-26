@@ -54,7 +54,6 @@ public class ReleaseLevelGui extends JFrame {
 	ReleaseLevel level;
 	SarpedonKabasuji game;
 
-	PlayerApplication aPA;
 	
 	/**
 	 * Launch the application.
@@ -76,8 +75,7 @@ public class ReleaseLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseLevelGui(ReleaseLevel l, SarpedonKabasuji g, PlayerApplication aPA) {
-		this.aPA= aPA;
+	public ReleaseLevelGui(ReleaseLevel l, SarpedonKabasuji g) {
 		level = l;
 		game = g;
 		setTitle("Release Level");
@@ -172,14 +170,14 @@ public class ReleaseLevelGui extends JFrame {
 		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
 		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
 		
-		SwitchWindowController toMenu = new SwitchWindowController (this, aPA.getMenu());
+		MenuController toMenu = new MenuController (this, game);
 		btnReturn.addActionListener(toMenu);
 		
 		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView);
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
-		boardView.addMouseListener(new EndLevelController(game, this, level, aPA));
+		boardView.addMouseListener(new EndLevelController(game, this, level));
 	}
 
 }

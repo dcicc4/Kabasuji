@@ -10,6 +10,7 @@ PieceBuilder PB = new PieceBuilder();
 	
 
 	public Board getBoard();
+	public ReleaseBoard getRBoard();
 	public Bullpen getBullpen();
 	public ArrayList<Hint> getHints();
 	public String getType();

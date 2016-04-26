@@ -1,6 +1,8 @@
 package entity.player;
 
 import java.util.UUID;
+import java.awt.Color;
+import java.awt.color.*;
 
 /**
  *  An extension of the base Tile class that encapsulates the additional data required
@@ -23,12 +25,29 @@ public class ReleaseTile extends Tile {
 	
 
 	/** Gets the number assigned to the Tile */
-	Integer getNumber(){
+	public Integer getNumber(){
 		return this.rnumber;
+	}
+	public void setNumber(int i){
+		rnumber = i;
 	}
 	/** Gets the color assigned to the Tile */
 	Color getColor(){
 		return this.rcolor;
+	}
+	public void setColor(String s){
+		if( s.equals("Red")){
+			rcolor = Color.RED;
+		}
+		if(s.equals("Green")){
+			rcolor = Color.GREEN;
+		}
+		if(s.equals("Blue")){
+			rcolor = Color.BLUE;
+		}
+		else{
+			rcolor = Color.NONE;
+		}
 	}
 	/** Constructor with UUID provided 
 	 * @param rw the row in which the ReleaseTile is located
@@ -64,6 +83,22 @@ public class ReleaseTile extends Tile {
 			return "RED";
 		case NONE:
 			return "NONE";
+		default:
+			throw new RuntimeException("entity.player::ReleaseTile: Unexpected Color");
+		}
+	}
+	
+	/** Provides a awt color for drawing*/
+	public java.awt.Color getAWTColor(){
+		switch(this.rcolor){
+		case BLUE:
+			return new java.awt.Color(0, 0 ,255);
+		case GREEN:
+			return new java.awt.Color(255, 0 ,255);
+		case RED:
+			return new java.awt.Color(255, 0 ,0);
+		case NONE:
+			return null;
 		default:
 			throw new RuntimeException("entity.player::ReleaseTile: Unexpected Color");
 		}

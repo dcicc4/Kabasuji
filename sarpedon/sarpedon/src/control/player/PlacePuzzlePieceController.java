@@ -61,6 +61,7 @@ public class PlacePuzzlePieceController implements MouseListener {
 					if(picked==null){return;}
 					b.removePiece(clicked.x, clicked.y);
 					model.getBullpen().setSelected(picked);
+					model.updateStars();
 					boardView.redraw();
 					boardView.repaint();
 				} else {

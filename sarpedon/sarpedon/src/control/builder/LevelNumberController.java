@@ -6,6 +6,7 @@ import entity.player.*;
 
 import javax.swing.*;
 
+import Main.PlayerApplication;
 import bounday.player.LightningLevelGui;
 import bounday.player.PlayerBullpenPanel;
 import bounday.player.PuzzleLevelGui;
@@ -26,24 +27,24 @@ JFrame LG;
  * 
  * Takes in a level and creates an appropriate Gui
  */
-	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame){
+	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame, PlayerApplication aPA){
 		
 		level = newlevel;
 		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
-			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, aGame);
+			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, aGame, aPA);
 			LG = pLG;
 			
 		} else
 		if (type.equals("Lightning"))
-		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level, aGame);
+		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level, aGame, aPA);
 			LG = lLG;			
 		
 			
 		}else
 		if (type.equals("Release"))
-		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level, aGame);
+		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level, aGame,aPA);
 			LG = rLG;
 			
 			

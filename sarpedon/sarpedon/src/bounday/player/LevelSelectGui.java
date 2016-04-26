@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Main.PlayerApplication;
 import control.builder.LevelNumberController;
 import control.player.Loader;
 import control.player.SwitchWindowController;
@@ -74,7 +75,7 @@ public class LevelSelectGui extends JFrame {
 	 * Create the frame.
 	 * @param game 
 	 */
-	public LevelSelectGui(SarpedonKabasuji game) {
+	public LevelSelectGui(SarpedonKabasuji game, PlayerApplication aPA) {
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -273,7 +274,7 @@ public class LevelSelectGui extends JFrame {
 			if(i < game.getCurrentLevel()){
 				labels[i].setText(game.getLevel(i+1).getStars().toString());
 				buttons[i].setEnabled(true);
-				LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game);
+				LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game, aPA);
 				buttons[i].addActionListener(new SwitchWindowController(this, lC.getFrame()));
 			}
 			else{

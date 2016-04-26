@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Main.PlayerApplication;
 import boundary.builder.BuilderBoardPanel;
 import control.player.*;
 import entity.player.PieceBuilder;
@@ -49,6 +50,8 @@ public class PuzzleLevelGui extends JFrame {
 	PuzzleLevel level;
 	SarpedonKabasuji game;
 
+	private PlayerApplication aPA;
+
 	/**
 	 * Launch the application.
 	 */
@@ -73,7 +76,8 @@ public class PuzzleLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleLevelGui(PuzzleLevel l, SarpedonKabasuji g) {
+	public PuzzleLevelGui(PuzzleLevel l, SarpedonKabasuji g, PlayerApplication aPA) {
+		this.aPA = aPA;
 		level = l;
 		game = g;
 		setTitle("Puzzle Level");
@@ -159,6 +163,10 @@ public class PuzzleLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		
+		SwitchWindowController toMenu = new SwitchWindowController (this, aPA.getMenu());
+		btnReturn.addActionListener(toMenu);
+		
 		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves, lblStars);
 		boardView.addMouseListener(place);
 		boardView.addMouseListener(new EndLevelController(game, this, level));

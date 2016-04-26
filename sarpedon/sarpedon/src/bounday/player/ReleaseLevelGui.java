@@ -6,12 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Main.PlayerApplication;
 import boundary.builder.BuilderBoardPanel;
 import control.player.BullpenToBoardController;
 import control.player.EndLevelController;
 import control.player.FlipController;
 import control.player.RotateController;
 import control.player.SelectPieceController;
+import control.player.SwitchWindowController;
 import entity.player.ReleaseLevel;
 import entity.player.SarpedonKabasuji;
 
@@ -51,6 +53,8 @@ public class ReleaseLevelGui extends JFrame {
 	
 	ReleaseLevel level;
 	SarpedonKabasuji game;
+
+	PlayerApplication aPA;
 	
 	/**
 	 * Launch the application.
@@ -72,7 +76,8 @@ public class ReleaseLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ReleaseLevelGui(ReleaseLevel l, SarpedonKabasuji g) {
+	public ReleaseLevelGui(ReleaseLevel l, SarpedonKabasuji g, PlayerApplication aPA) {
+		this.aPA= aPA;
 		level = l;
 		game = g;
 		setTitle("Release Level");
@@ -166,6 +171,9 @@ public class ReleaseLevelGui extends JFrame {
 		btnFlipHor.addActionListener(new FlipController(boardView, level, false));
 		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
 		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
+		
+		SwitchWindowController toMenu = new SwitchWindowController (this, aPA.getMenu());
+		btnReturn.addActionListener(toMenu);
 		
 		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView);
 		bullpenView.addMouseListener(spc);

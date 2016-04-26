@@ -17,9 +17,9 @@ import entity.player.SarpedonKabasuji;
 public class PlayerApplication {
 
 	PlayerSplashScreen splashScreen = new PlayerSplashScreen();
-	KabasujiMenuGui menu = new KabasujiMenuGui();
+	private KabasujiMenuGui menu = new KabasujiMenuGui();
 	SarpedonKabasuji game = new SarpedonKabasuji();
-	LevelSelectGui levelSelect = new LevelSelectGui(game);
+	LevelSelectGui levelSelect = new LevelSelectGui(game, this);
 	
 	
 	
@@ -29,7 +29,7 @@ public class PlayerApplication {
 	
 	void initializeControllers() {
 		//initialize controllers for main menu
-		menu.getBtnLevelSelect().addActionListener(new SwitchWindowController(menu, levelSelect));
+		getMenu().getBtnLevelSelect().addActionListener(new SwitchWindowController(getMenu(), levelSelect));
 		JButton[] buttons = levelSelect.getButtons();
 		
 		
@@ -57,6 +57,14 @@ public class PlayerApplication {
 		//show main menu
 		app.splashScreen.setVisible(false);
 		app.splashScreen.dispose();
-		app.menu.setVisible(true);
+		app.getMenu().setVisible(true);
+	}
+
+	public KabasujiMenuGui getMenu() {
+		return menu;
+	}
+
+	public void setMenu(KabasujiMenuGui menu) {
+		this.menu = menu;
 	}
 }

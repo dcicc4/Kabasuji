@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Main.PlayerApplication;
 import boundary.builder.BuilderBoardPanel;
 import control.player.*;
 import entity.player.*;
@@ -45,7 +46,7 @@ public class LightningLevelGui extends JFrame {
 	PlayerBoardPanel boardView;
 	
 	LightningLevel level;
-	
+	PlayerApplication aPA;
 	public PlayerBullpenPanel getBullpenView(){
 		return bullpenView;
 	}
@@ -84,8 +85,9 @@ public class LightningLevelGui extends JFrame {
 	 * Create the frame.
 	 * @param aGame 
 	 */
-	public LightningLevelGui(LightningLevel l, SarpedonKabasuji aGame) {
+	public LightningLevelGui(LightningLevel l, SarpedonKabasuji aGame, PlayerApplication aPA) {
 		level = l;
+		this.aPA =aPA;
 		setTitle("Lightning Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -170,6 +172,9 @@ public class LightningLevelGui extends JFrame {
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
 		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
+		
+		SwitchWindowController toMenu = new SwitchWindowController (this, aPA.getMenu());
+		btnReturn.addActionListener(toMenu);
 		
 		ActionListener updateTime = new TimeController(level, lblTime);
 		Timer timer = new Timer(1000, updateTime);

@@ -264,6 +264,7 @@ public class LevelSelectGui extends JFrame {
 		Loader loader = new Loader();
 		
 		for(int i = 0; i<15; i++){
+			if(game.getLevel(i+1)==null){return;}
 			if(i < game.getCurrentLevel()){
 				labels[i].setText(game.getLevel(i+1).getStars().toString());
 				buttons[i].setEnabled(true);

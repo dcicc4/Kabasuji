@@ -49,6 +49,8 @@ public class EndLevelController implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		String type = level.getType();
 		boolean completed = false;
+		
+				
 		if(type.equals("Puzzle")){
 			completed = ((PuzzleLevel)level).getCompleted();
 		}
@@ -62,6 +64,12 @@ public class EndLevelController implements MouseListener{
 			if(level.getStars() > 0 && level.getNumber() == game.getCurrentLevel()){
 				game.incrementLevel();
 			}
+			int currStars = level.getStars();
+			int prevStars = game.getLevel(level.getNumber()).getStars();
+			if(currStars >= prevStars){
+				game.getLevel(level.getNumber()).setStars(currStars);
+			}
+			new EndLevelGui(game, levelGui, app).setVisible(true);
 		}
 		else{
 			return;

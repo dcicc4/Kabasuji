@@ -49,7 +49,7 @@ public Level getLevel (int x)
 	return level;
 	
 	} catch (Exception e) {
-		System.out.println("There is no Level " + x + " saved." );
+		System.err.println("There is no Level " + x + " saved." );
 	}
 	return null;
 }

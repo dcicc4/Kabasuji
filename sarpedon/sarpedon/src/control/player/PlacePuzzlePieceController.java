@@ -66,10 +66,12 @@ public class PlacePuzzlePieceController implements MouseListener {
 				} else {
 					//you are trying to place a piece
 					if(b.addPiece(clicked.x, clicked.y, adding)){
+						//you are successfully placing a piece.
 						model.getBullpen().getSelectedPiece().onBoard();
 						model.getBullpen().removeSelected();
 						Integer moves = model.getMovesLeft() - 1;
 						model.setMovesLeft(moves);
+						model.updateStars();
 						movesLeft.setText(moves.toString());
 						boardView.redraw();
 						boardView.repaint();
@@ -77,7 +79,6 @@ public class PlacePuzzlePieceController implements MouseListener {
 				}
 			}
 		}
-		model.updateStars();
 		stars.setText("Stars: "+ model.getStars().toString());
 
 	}

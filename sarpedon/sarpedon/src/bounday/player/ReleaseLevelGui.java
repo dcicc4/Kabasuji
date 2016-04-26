@@ -156,6 +156,10 @@ public class ReleaseLevelGui extends JFrame {
 		btnrotateCClockwise.setBounds(1350, 300, 125, 125);
 		contentPane.add(btnrotateCClockwise);
 		
+		boardView = new PlayerBoardPanel(level);
+		boardView.setBounds(620, 123, 720, 720);
+		contentPane.add(boardView);
+		
 		btnFlipVert = new JButton("Flip Vertically");
 		btnFlipVert.setBackground(Color.LIGHT_GRAY);
 		btnFlipVert.setBounds(1350, 546, 125, 125);

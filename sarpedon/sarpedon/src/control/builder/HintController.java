@@ -2,6 +2,7 @@ package control.builder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import entity.builder.BuildableRelease;
@@ -15,7 +16,7 @@ import boundary.builder.BuilderBoardPanel;
  * @author Drew
  *
  */
-public class HintController implements ActionListener{
+public class HintController extends MouseAdapter{
 
 	BuildableRelease amodel;
 	JRadioButton addHint;

@@ -8,7 +8,11 @@ import java.util.UUID;
  * @Tesia Shizume (ttshiz@wpi.edu)
  */
 public class ReleaseTile extends Tile {
-	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Serial number
+	 */
+	private static final long serialVersionUID = 3044815580057386645L;
 	/** the number associated with the instance of the Release Tile, or null if it has no number */
 	Integer rnumber;
 	public enum Color {

@@ -24,14 +24,15 @@ public class ReleaseLevel extends Level {
 	}
 	
 	void calculateColor(ArrayList <Boolean> numCovered, Integer numColor){
-		int nC = 0;
+		int nC = 0; 
 		for (Boolean b: numCovered){
 			if (b == true){
 				nC += 1;
 			}
 		}
 		numColor = nC;
-	}
+		
+}
 	@Override
 	void updateStars(){
 		this.calculateColor(blueNumCovered, numBlue);

@@ -5,8 +5,11 @@ import java.awt.Color;
 
 public class PieceTest extends TestCase {
 
+	Piece P3;
 	protected void setUp() throws Exception {
 		super.setUp();
+		P3 = new Piece(3,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(-1, 3) );
+		
 	}
 
 
@@ -46,35 +49,64 @@ public class PieceTest extends TestCase {
 	}
 
 	public void testSetColor() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.color == null);
+		P3.setColor(new Color(0,0,255));
+		assertTrue(P3.color.equals(new Color(0,0,255)));
 	}
 
 	public void testGetColor() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.getColor() == null);
+		
+		P3.setColor(new Color(0,0,255));
+		assertTrue(P3.color.equals(P3.getColor()));
 	}
 
 	public void testGetBoardStatus() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(P3.board);
+		assertTrue(P3.board == P3.getBoardStatus());
+		P3.onBoard();
+		assertTrue(P3.board);
+		assertTrue(P3.board == P3.getBoardStatus());
 	}
 
 	public void testOnBoard() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(P3.board);
+		P3.onBoard();
+		assertTrue(P3.board);
+		P3.onBoard();
+		assertTrue(P3.board);
 	}
 
 	public void testOffBoard() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(P3.board);
+		P3.onBoard();
+		assertTrue(P3.board);
+		P3.offBoard();
+		assertFalse(P3.board);
+		P3.offBoard();
+		assertFalse(P3.board);
 	}
 
 	public void testInBullpen() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(P3.bullpen);
+		P3.inBullpen();
+		assertTrue(P3.bullpen);
+		P3.inBullpen();
+		assertTrue(P3.bullpen);
 	}
 
 	public void testOutBullpen() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(P3.bullpen);
+		P3.inBullpen();
+		assertTrue(P3.bullpen);
+		P3.outBullpen();
+		assertFalse(P3.bullpen);
+		P3.outBullpen();
+		assertFalse(P3.bullpen);
 	}
 
 	public void testRotateClockwise() {
-		fail("Not yet implemented"); // TODO
+		//assertTrue(P3.dependent[])
 	}
 
 	public void testRotateCounterClockwise() {

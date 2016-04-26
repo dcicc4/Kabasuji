@@ -168,10 +168,10 @@ public class LevelSelectGui extends JFrame {
 		Loader loader = new Loader();
 		
 		for(int i = 0; i<15; i++){
-			LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game);
-			buttons[i].addActionListener(new SwitchWindowController(this, lC.getFrame()));
 			if(i < game.getCurrentLevel()){
 				buttons[i].setEnabled(true);
+				LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game);
+				buttons[i].addActionListener(new SwitchWindowController(this, lC.getFrame()));
 			}
 			else{
 				buttons[i].setEnabled(false);

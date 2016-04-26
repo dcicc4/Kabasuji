@@ -22,8 +22,9 @@ import javax.swing.GroupLayout.Alignment;
 /**
  * Handles the drawing of the board entity class.
  * 
+* Used some code from the Tangram Project in paint and redraw methods
  * @author Nathan
- *
+ * @author Heineman
  */
 public class BuilderBoardPanel extends JPanel {
 
@@ -192,6 +193,7 @@ public class BuilderBoardPanel extends JPanel {
 	}
 	/**
 	 * Gets a tile at a specific location.
+	 * Note: Returns null if you try to get a tile outside the array bounds.
 	 * 
 	 * @param p - the point at which you want the tile
 	 * @return tile
@@ -208,6 +210,7 @@ public class BuilderBoardPanel extends JPanel {
 	}
 	/**
 	 * Returns row and column in point format corresponding to x,y location.
+	 * Note: will return null if the point is not within the 12 by 12 array of tiles.
 	 * 
 	 * @param p -point at which you want the row, column
 	 * @return point where x is the row number and y is the column number

@@ -12,7 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
-
+/**
+ * 
+ * The opening menu for the player
+ * 
+ * @author Drew 
+ *
+ */
 public class LevelBuilderGui extends JFrame {
 
 	private JPanel contentPane;
@@ -89,5 +95,18 @@ public class LevelBuilderGui extends JFrame {
 		btnEditExisting.setBackground(Color.LIGHT_GRAY);
 		btnEditExisting.setBounds(575, 809, 350, 60);
 		contentPane.add(btnEditExisting);
+	}
+	
+	public JButton getLButton(){
+		return btnLightningBuilder;
+	}
+	public JButton getPButton(){
+		return btnPuzzleBuilder;
+	}
+	public JButton getRButton(){
+		return btnReleaseBuilder;
+	}
+	public JButton getEButton(){
+		return btnEditExisting;
 	}
 }

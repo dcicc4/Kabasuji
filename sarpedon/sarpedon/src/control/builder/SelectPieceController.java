@@ -30,6 +30,9 @@ public class SelectPieceController extends MouseAdapter {
 		movePieces = b;
 	}
 
+	/**
+	 * selects the piece in the bullpen for moving on the board.
+	 */
 	public void mousePressed (MouseEvent me) {
 		if(movePieces.isSelected()){//only want to do this if we are moving pieces
 			Piece p = bullpenView.getPieceAtCoordinate(me.getPoint());

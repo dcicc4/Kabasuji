@@ -20,6 +20,13 @@ public class FlipController implements ActionListener{
 	Level model;
 	Boolean direction;
 	
+	/**
+	 * Constructor for Flip Controller.
+	 * 
+	 * @param newBoardPanel - the board panel the piece is being flipped in.
+	 * @param l - the level being played.
+	 * @param newdirection - the direction for the flip. True is vertical, false is horizontal.
+	 */
 	public FlipController(PlayerBoardPanel newBoardPanel, Level l, Boolean newdirection){
 		boardPanel = newBoardPanel;
 		model = l;
@@ -27,6 +34,10 @@ public class FlipController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * We want to flip a piece if it did not come from the board.
+	 * i.e. if it was picked up off the board, it must be returned to the bullpen first.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		Piece piece = model.getBullpen().getSelectedPiece();

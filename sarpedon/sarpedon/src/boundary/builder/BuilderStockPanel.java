@@ -18,6 +18,13 @@ import entity.player.Square;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
+/**
+ * draws the stock panel which consists of all possible Kabasuji Pieces.
+ * 
+ * Used some code from the Tangram Project in paint and redraw methods
+ * @author Nathan
+ * @author Heineman
+ */
 public class BuilderStockPanel extends JPanel {
 	
 	/**All possible Pieces*/

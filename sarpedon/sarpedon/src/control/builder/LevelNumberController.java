@@ -6,35 +6,46 @@ import entity.player.*;
 
 import javax.swing.*;
 
+import Main.PlayerApplication;
 import bounday.player.LightningLevelGui;
 import bounday.player.PlayerBullpenPanel;
 import bounday.player.PuzzleLevelGui;
 import bounday.player.ReleaseLevelGui;
-
-public class LevelNumberController implements ActionListener{
+/**
+ * Class that creates new Jframes for loaded levels in the player
+ * ex. creates a puzzle player gui for a puzzle level
+ * @author Drew 
+ *
+ */
+public class LevelNumberController {
 
 
 	Level level;
 	String type;	
 JFrame LG;
-
-	public LevelNumberController( Level newlevel){
+/**
+ * 
+ * Takes in a level and creates an appropriate Gui
+ */
+	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame){
 		
 		level = newlevel;
 		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
-			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level);
+			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, aGame);
 			LG = pLG;
 			
 		} else
 		if (type.equals("Lightning"))
-		{
-			LG = new LightningLevelGui((LightningLevel)level);
+		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level, aGame);
+			LG = lLG;			
+		
+			
 		}else
 		if (type.equals("Release"))
-		{
-			LG = new ReleaseLevelGui((ReleaseLevel)level);
+		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level, aGame);
+			LG = rLG;
 			
 			
 			
@@ -52,9 +63,5 @@ return LG;
 		level.setNumber(number);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

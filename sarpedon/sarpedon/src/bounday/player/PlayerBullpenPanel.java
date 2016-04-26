@@ -18,6 +18,13 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+/**
+ * Draws the pieces that are in the bullpen when playing a level.
+ * 
+ * Used some code from the Tangram Project in paint and redraw methods
+ * @author Nathan
+ * @author Heineman
+ */
 public class PlayerBullpenPanel extends JPanel {
 
 	/**All Pieces in bullpen*/
@@ -29,7 +36,7 @@ public class PlayerBullpenPanel extends JPanel {
 
 	/** around edges. */
 	int offsetY = 20;
-	int offsetX = 50;
+	int offsetX = 80;
 
 	/** Size of edge of square */
 	public final int N = 35;
@@ -92,7 +99,7 @@ public class PlayerBullpenPanel extends JPanel {
 		//double check if no model (for WindowBuilder)
 		if (aLevel == null) { return; }
 
-		// draw active polygon.
+		//draw background of the panel
 		g.setColor(Color.white);
 		g.fillRect(0,0,width,height);
 
@@ -129,7 +136,7 @@ public class PlayerBullpenPanel extends JPanel {
 	}
 
 	/** 
-	 * returns piece that is at given point.
+	 * Returns piece that is at given point.
 	 * note: will also return null if there is no piece at the given point.
 	 * 
 	 *  @param point - the point at which we are checking for a piece
@@ -137,34 +144,38 @@ public class PlayerBullpenPanel extends JPanel {
 	public Piece getPieceAtCoordinate(Point point) {
 		int i = 0;
 		for(Piece p: bullpen.getPieces()){
-			for(int j = 0; j<5; j++){
+			for(int j = 0; j<6; j++){
 				Square[] drawn = p.getDependant();
 				Rectangle r = new Rectangle(getX(i, j, drawn), getY(i, j, drawn), N, N);
 				if(r.contains(point)){
 					return p;
 				}
 			}
-			Rectangle r = new Rectangle(getXAnchor(i), getYAnchor(i), N, N);
-			if(r.contains(point)){
-				return p;
-			}
 			i++;
 		}
 		return null;
 	}
 
-	private int getYAnchor(int idx) {
-		return offsetY;
-	}
-
+	/**
+	 * Gets the y position of the squares of the jth square of the idxth shape.
+	 * 
+	 * @param idx - what number the piece is in the bullpen arraylist of pieces
+	 * @param j - the jth square you are drawing
+	 * @param drawn - the list of squares that make up the piece.
+	 * @return
+	 */
 	private int getY(int idx, int j, Square[] drawn) {
 		return offsetY + drawn[j].getY()*N;
 	}
 
-	private int getXAnchor(int idx) {
-		return offsetX + idx*7*N;
-	}
-
+	/**
+	 * gets the x position of the squares of the jth square of the idxth shape.
+	 * 
+	 * @param idx - what number the piece is in the bullpen arraylist of pieces
+	 * @param j - the jth square you are drawing
+	 * @param drawn - the list of squares that make up the piece.
+	 * @return
+	 */
 	private int getX(int idx, int j, Square[] drawn) {
 		return offsetX + idx*7*N + drawn[j].getX()*N;
 	}
@@ -177,17 +188,13 @@ public class PlayerBullpenPanel extends JPanel {
 	 * @param i - the number piece it is.
 	 */
 	private void drawPiece(Graphics g, Piece p, int i) {
-		for(int j = 0; j<5; j++){
+		for(int j = 0; j<6; j++){
 			Square[] drawn = p.getDependant(); 
 			g.setColor(p.getColor());
 			g.fillRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 			g.setColor(Color.black);
 			g.drawRect(getX(i, j, drawn), getY(i, j, drawn), N, N);
 		}
-		g.setColor(p.getColor());
-		g.fillRect(getXAnchor(i), getYAnchor(i), N, N);
-		g.setColor(Color.black);
-		g.drawRect(getXAnchor(i), getYAnchor(i), N, N);
 	}
 
 }

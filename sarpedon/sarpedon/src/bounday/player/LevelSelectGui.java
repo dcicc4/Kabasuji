@@ -5,11 +5,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Main.PlayerApplication;
+import control.builder.LevelNumberController;
+import control.player.Loader;
+import control.player.SwitchWindowController;
+import entity.player.SarpedonKabasuji;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
-
+import javax.swing.SwingConstants;
+/**
+ * Allows the selection of various levels and shows which are unlocked
+ *  and how many stars the player has earned on each level.
+ * @author Drew 
+ *
+ */
 public class LevelSelectGui extends JFrame {
 
 	private JPanel contentPane;
@@ -18,7 +31,7 @@ public class LevelSelectGui extends JFrame {
 	 * Launch the application.
 	 */
 	JButton btnLevel1;
-	JButton btnLevel2;
+	 JButton btnLevel2;
 	JButton btnLevel3;
 	JButton btnLevel4;
 	JButton btnLevel5;
@@ -32,24 +45,37 @@ public class LevelSelectGui extends JFrame {
 	JButton btnLevel13;
 	JButton btnLevel14;
 	JButton btnLevel15;
+	private JLabel lbl1;
+	private JLabel lbl2;
+	private JLabel lbl3;
+	private JLabel lbl4;
+	private JLabel lbl5;
+	private JLabel lbl6;
+	private JLabel lbl7;
+	private JLabel lbl8;
+	private JLabel lbl9;
+	private JLabel lbl10;
+	private JLabel lbl11;
+	private JLabel lbl12;
+	private JLabel lbl13;
+	private JLabel lbl14;
+	private JLabel lbl15;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LevelSelectGui frame = new LevelSelectGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+
+	public JButton[] getButtons(){
+		return new JButton[]{btnLevel1, btnLevel2, btnLevel3, btnLevel4, btnLevel5, btnLevel6, btnLevel7, 
+				btnLevel8, btnLevel9, btnLevel10, btnLevel11, btnLevel12, btnLevel13, btnLevel14, btnLevel15, };
+	}
+	public JLabel[] getLabels(){
+		return new JLabel[]{lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9, lbl10, lbl11, lbl12, lbl13, 
+				lbl14, lbl15};
 	}
 
 	/**
 	 * Create the frame.
+	 * @param game 
 	 */
-	public LevelSelectGui() {
+	public LevelSelectGui(SarpedonKabasuji game) {
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -65,7 +91,7 @@ public class LevelSelectGui extends JFrame {
 		contentPane.add(btnLevel1);
 		
 		btnLevel2 = new JButton("Level 2");
-		btnLevel2.setEnabled(false);
+		btnLevel2.setEnabled(true);
 		btnLevel2.setBackground(Color.LIGHT_GRAY);
 		btnLevel2.setBounds(26, 541, 250, 120);
 		contentPane.add(btnLevel2);
@@ -86,14 +112,14 @@ public class LevelSelectGui extends JFrame {
 		btnLevel5.setEnabled(false);
 		btnLevel5.setBackground(Color.LIGHT_GRAY);
 		btnLevel5.setForeground(Color.BLACK);
-		btnLevel5.setBounds(333, 541, 250, 120);
+		btnLevel5.setBounds(327, 541, 250, 120);
 		contentPane.add(btnLevel5);
 		
 		btnLevel6 = new JButton("Level 6");
 		btnLevel6.setEnabled(false);
 		btnLevel6.setBackground(Color.LIGHT_GRAY);
 		btnLevel6.setForeground(Color.BLACK);
-		btnLevel6.setBounds(333, 722, 250, 120);
+		btnLevel6.setBounds(327, 722, 250, 120);
 		contentPane.add(btnLevel6);
 		
 		btnLevel7 = new JButton("Level 7");
@@ -163,5 +189,97 @@ public class LevelSelectGui extends JFrame {
 		lblSelectALevel.setFont(new Font("Tahoma", Font.PLAIN, 60));
 		lblSelectALevel.setBounds(531, 64, 636, 168);
 		contentPane.add(lblSelectALevel);
+		
+		lbl1 = new JLabel("");
+		lbl1.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl1.setBounds(26, 490, 250, 40);
+		contentPane.add(lbl1);
+		
+		lbl2 = new JLabel("");
+		lbl2.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl2.setBounds(26, 672, 250, 40);
+		contentPane.add(lbl2);
+		
+		lbl3 = new JLabel("");
+		lbl3.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl3.setBounds(26, 853, 250, 40);
+		contentPane.add(lbl3);
+		
+		lbl4 = new JLabel("");
+		lbl4.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl4.setBounds(327, 490, 250, 40);
+		contentPane.add(lbl4);
+		
+		lbl5 = new JLabel("");
+		lbl5.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl5.setBounds(327, 671, 250, 40);
+		contentPane.add(lbl5);
+		
+		lbl6 = new JLabel("");
+		lbl6.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl6.setBounds(327, 853, 250, 40);
+		contentPane.add(lbl6);
+		
+		lbl7 = new JLabel("");
+		lbl7.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl7.setBounds(637, 490, 250, 40);
+		contentPane.add(lbl7);
+		
+		lbl8 = new JLabel("");
+		lbl8.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl8.setBounds(637, 671, 250, 40);
+		contentPane.add(lbl8);
+		
+		lbl9 = new JLabel("");
+		lbl9.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl9.setBounds(637, 853, 250, 40);
+		contentPane.add(lbl9);
+		
+		lbl10 = new JLabel("");
+		lbl10.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl10.setBounds(923, 490, 250, 40);
+		contentPane.add(lbl10);
+		
+		lbl11 = new JLabel("");
+		lbl11.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl11.setBounds(923, 672, 250, 40);
+		contentPane.add(lbl11);
+		
+		lbl12 = new JLabel("");
+		lbl12.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl12.setBounds(923, 853, 250, 40);
+		contentPane.add(lbl12);
+		
+		lbl13 = new JLabel("");
+		lbl13.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl13.setBounds(1210, 490, 250, 40);
+		contentPane.add(lbl13);
+		
+		lbl14 = new JLabel("");
+		lbl14.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl14.setBounds(1210, 671, 250, 40);
+		contentPane.add(lbl14);
+		
+		lbl15 = new JLabel("");
+		lbl15.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl15.setBounds(1210, 853, 250, 40);
+		contentPane.add(lbl15);
+		
+		JButton[] buttons = getButtons();
+		JLabel[] labels = getLabels();
+		Loader loader = new Loader();
+		
+		for(int i = 0; i<15; i++){
+			if(game.getLevel(i+1)==null){return;}
+			if(i < game.getCurrentLevel()){
+				labels[i].setText(game.getLevel(i+1).getStars().toString());
+				buttons[i].setEnabled(true);
+				LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game);
+				buttons[i].addActionListener(new SwitchWindowController(this, lC.getFrame()));
+			}
+			else{
+				buttons[i].setEnabled(false);
+			}
+		}
 	}
 }

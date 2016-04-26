@@ -38,11 +38,16 @@ public class MoveTilesController extends MouseAdapter{
 	}
 
 	@Override
+	/**
+	 * Select the tile to move at the clicked point.
+	 * will not select the tile if it's covered by the piece.
+	 */
 	public void mousePressed(MouseEvent e) {
 		if(moveTiles.isSelected()){
 			Board b = model.getBoard();
 			Tile t = boardView.getTile(e.getPoint());
 			if(t == null){return;}
+			if(t.getCoveredBy() != null){return;}
 			origin = new Point(t.getRow(), t.getColumn());
 			b.removeTile(t.getRow(),t.getColumn());
 			b.setMovingTile(true);
@@ -51,13 +56,31 @@ public class MoveTilesController extends MouseAdapter{
 	}
 
 	@Override
+	/**
+	 * place the tile on the board somewhere.
+	 * if it is not valid, it will put it back where it came from.
+	 */
 	public void mouseReleased(MouseEvent e) {
 		if(moveTiles.isSelected() && model.getBoard().getMovingTile()){
 			Point rowCol = boardView.getRowCol(e.getPoint());
-			if(model.getBoard().getTile(rowCol.x, rowCol.y) == null){
-			Tile t = new Tile(rowCol.x, rowCol.y);
-			model.getBoard().setTile(t);
-			} else {
+			if(rowCol != null){
+				Tile aT = model.getBoard().getTile(rowCol.x, rowCol.y);
+				
+				if(aT == null){
+					//this is a valid place to put a tile
+					Tile t = new Tile(rowCol.x, rowCol.y);
+					model.getBoard().setTile(t);
+				}
+				else {
+					//trying to place a tile on an already existing tile.
+					//also if you are trying to place a piece outside the range of the board.
+					model.getBoard().setTile(new Tile(origin.x, origin.y));
+				}
+				
+			}
+			else {
+				//trying to place a tile on an already existing tile.
+				//also if you are trying to place a piece outside the range of the board.
 				model.getBoard().setTile(new Tile(origin.x, origin.y));
 			}
 			model.getBoard().setMovingTile(false);
@@ -65,8 +88,11 @@ public class MoveTilesController extends MouseAdapter{
 			boardView.redraw();
 			boardView.repaint();
 		}
-		
+
 	}
+	/**
+	 * Update the location of the tile.
+	 */
 	public void mouseDragged(MouseEvent e){
 		boardView.setMouse(e.getPoint());
 		boardView.redraw();
@@ -75,13 +101,11 @@ public class MoveTilesController extends MouseAdapter{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		return;
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		return;
 	}
 }

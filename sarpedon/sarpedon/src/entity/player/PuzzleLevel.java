@@ -53,6 +53,10 @@ public class PuzzleLevel extends Level {
 	@Override
 	public void updateStars(){
 		int s = this.bullpen.piecesLeft();
+		//add the selected piece to the count too, since it's not technically out of the bullpen.
+		if(bullpen.getSelectedPiece() != null){
+			s++;
+		}
 		if (s > 2){
 			this.stars = 0;
 			return;
@@ -83,6 +87,13 @@ public class PuzzleLevel extends Level {
 	public void setMovesLeft(int l){
 		movesleft = l;
 	}
+	
+	@Override
+	public boolean getCompleted(){
+		return(super.getCompleted() || movesleft == 0);
+	}
+	
+	
 	/**
 	 * restores the Level to it's original state
 	 */

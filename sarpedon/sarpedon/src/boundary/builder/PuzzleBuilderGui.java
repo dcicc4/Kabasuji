@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 
 import control.builder.AddPieceToBullpenController;
+import control.builder.BackToStockController;
 import control.builder.BoardSizeController;
 import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
@@ -51,7 +52,7 @@ import javax.swing.ImageIcon;
 /**
  * The Puzzle Level Builder Graphical User Interface.
  * 
- * @author Nathan
+ * @author Nathan 
  *
  */
 public class PuzzleBuilderGui extends JFrame {
@@ -75,7 +76,7 @@ public class PuzzleBuilderGui extends JFrame {
 	JRadioButton moveTilesRadio;
 	
 	JComboBox<Integer> boardSizeCombo;
-	JComboBox<Integer> levelNumberCombo;
+	
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
@@ -180,13 +181,9 @@ public class PuzzleBuilderGui extends JFrame {
 		moveTilesRadio.setBackground(Color.WHITE);
 		buttonGroup.add(moveTilesRadio);
 		
-		JLabel label = new JLabel("Level Number");
-		label.setBounds(10, 241, 105, 14);
+	
 		
-		levelNumberCombo = new JComboBox<Integer>();
-		levelNumberCombo.setBounds(220, 226, 85, 39);
-		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
-		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 		
 		JButton btnFlipVert = new JButton("Flip Vertically");
 		btnFlipVert.setBounds(1059, 813, 125, 125);
@@ -220,8 +217,7 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnUndo);
 		contentPane.add(lblBoardsize);
 		contentPane.add(boardSizeCombo);
-		contentPane.add(label);
-		contentPane.add(levelNumberCombo);
+
 		contentPane.add(moveTilesRadio);
 		contentPane.add(addHintRadio);
 		contentPane.add(movePiecesRadio);
@@ -241,6 +237,9 @@ public class PuzzleBuilderGui extends JFrame {
 		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);
+		BackToStockController bsc = new BackToStockController(model.getBullpen(), stockView, boardView);
+		stockView.addMouseListener(bsc);
+		
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
 		

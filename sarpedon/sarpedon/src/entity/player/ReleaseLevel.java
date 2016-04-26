@@ -50,6 +50,11 @@ public class ReleaseLevel extends Level {
 		this.stars = numStars;
 	}
 	
+	
+	@Override
+	public boolean getCompleted(){
+		return super.getCompleted() || bullpen.getPieces().isEmpty();
+	}
 	public void restore(LevelMomento m){
 		board = m.board;
 		bullpen = m.bullpen;

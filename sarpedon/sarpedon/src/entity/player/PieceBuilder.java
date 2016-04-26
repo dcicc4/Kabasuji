@@ -10,7 +10,7 @@ public class PieceBuilder implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	HashMap<Integer, Piece> pieces = new HashMap<Integer, Piece>();
-	Color[] palette = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE};
+	Color[] palette = new Color[] {Color.BLUE, Color.RED, Color.MAGENTA, Color.YELLOW, Color.ORANGE};
 
 	//Square R = new Square(1, 0);
 	//Square D = new Square(0, 1);

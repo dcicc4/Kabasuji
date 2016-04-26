@@ -12,7 +12,13 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
 import entity.player.*;
-
+/**
+ * Draws the Board when playing a level.
+ * 
+ * Used some code from the Tangram Project in paint and redraw methods
+ * @author Nathan
+ * @author Heineman
+ */
 public class PlayerBoardPanel extends JPanel {
 
 	/** Core model. */

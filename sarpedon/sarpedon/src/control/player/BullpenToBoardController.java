@@ -38,10 +38,19 @@ public class BullpenToBoardController implements MouseMotionListener{
 
 	}
 
+	/**
+	 * if the mouse entered the board, let the board know.
+	 * 
+	 * @param me
+	 */
 	public void mouseEntered(MouseEvent me) {
 		boardView.setMouse(me.getPoint());
 	}
 	
+	/**
+	 * if the mouse is moved on the board, let the board know.
+	 * The board needs to redraw the active piece.
+	 */
 	public void mouseMoved (MouseEvent me) {
 		Piece selected = bullpen.getSelectedPiece();
 		if (selected == null) { return; }
@@ -51,7 +60,10 @@ public class BullpenToBoardController implements MouseMotionListener{
 		boardView.repaint();
 		
 	}
-	
+	/**
+	 * tell the board that you left the component.
+	 * @param me
+	 */
 	public void mouseExited(MouseEvent me) {
 		boardView.setMouse(null);
 		boardView.redraw();
@@ -60,7 +72,7 @@ public class BullpenToBoardController implements MouseMotionListener{
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
+		return;
 		
 	}
 	

@@ -38,6 +38,9 @@ public class PlacePieceController implements MouseListener{
 	}
 
 	@Override
+	/**
+	 * Place a piece at the given location on the board.
+	 */
 	public void mousePressed(MouseEvent e) {
 		//only do this if you are left clicking (and the move piece button is selected)
 		if(e.getButton() == MouseEvent.BUTTON1 && movePieces.isSelected()){

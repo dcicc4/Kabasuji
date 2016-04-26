@@ -5,13 +5,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.player.SwitchWindowController;
+import entity.player.SarpedonKabasuji;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-
+/**
+ * Gui for the opening menu for the Kabasuji player 
+ * (includes option to immediatly start first level)
+ * 
+ * @author Drew 
+ *
+ */
 public class KabasujiMenuGui extends JFrame {
 
 	private JPanel contentPane;
@@ -19,26 +29,13 @@ public class KabasujiMenuGui extends JFrame {
 	JButton btnNewGame;
 	JButton btnLevelSelect;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					KabasujiMenuGui frame = new KabasujiMenuGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	SarpedonKabasuji game;
 
 	/**
 	 * Create the frame.
 	 */
-	public KabasujiMenuGui() {
+	public KabasujiMenuGui(SarpedonKabasuji game) {
+		this.game = game;
 		setTitle("Kabasuji");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 10, 1500, 1000);
@@ -74,6 +71,15 @@ public class KabasujiMenuGui extends JFrame {
 		lblKabasuji.setFont(new Font("Tahoma", Font.PLAIN, 72));
 		lblKabasuji.setBounds(575, 28, 492, 159);
 		contentPane.add(lblKabasuji);
+		
+		btnLevelSelect.addActionListener(new SwitchWindowController(this, new LevelSelectGui(game)));
 	}
 
+	public JButton getBtnLevelSelect() {
+		return btnLevelSelect;
+	}
+
+	public JButton getBtnNewGame() {
+		return btnNewGame;
+	}
 }

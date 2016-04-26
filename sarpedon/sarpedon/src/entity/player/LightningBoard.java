@@ -94,22 +94,5 @@ public class LightningBoard extends Board {
 		return false; // can't move a piece on a board in Lightning
 	}
 	
-	int spacesLeft(){
-		int sL = 0;
-		//for (int i = 0; i > shape[0].length; i++){
-		//	for (int j = 0; j > shape.length; j++){
-		//		if (!availableTile(i, j)){
-		//			sL++;
-		//		}
-		//	}
-		//}
-		for(int i = 0; i<12; i++){
-			for(int j = 0; j <12; j++){
-				if((availableTile(i, j)&&(shape[i][j].getCoveredBy() == null))){
-					sL++;
-				}
-			}
-		}
-		return sL;
-	}
+
 }

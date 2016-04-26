@@ -21,7 +21,13 @@ import entity.player.Square;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-
+/**
+ * Draws the bullpen and contents when building a level.
+ * 
+ * Used some code from the Tangram Project in paint and redraw methods
+ * @author Nathan
+ * @author Heineman
+ */
 public class BuilderBullpenPanel extends JPanel {
 
 
@@ -97,10 +103,10 @@ public class BuilderBullpenPanel extends JPanel {
 		//double check if no model (for WindowBuilder)
 		if (model == null) { return; }
 
-		// draw active polygon.
+		// draw the background.
 		g.setColor(Color.white);
 		g.fillRect(0,0,width,height);
-
+		//draw all the pieces
 		int idx = 0;
 		for(Piece p : bullpen.getPieces()){
 			drawPiece(g, p, idx);

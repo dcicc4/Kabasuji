@@ -35,21 +35,13 @@ public class BoardSizeController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * add or subtract tiles to make the correct size.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		int size = boardSize.getItemAt(boardSize.getSelectedIndex())*6;
-		
-		//remove all pieces that are currently on the board.
-		/*for (Tile[] tileRow: model.getBoard().getTileArray()){
-			for (Tile aTile: tileRow){
-				if(aTile.getCoveredBy() != null){
-					Piece p = model.getBoard().getPiece(aTile.getRow(), aTile.getColumn());
-					model.getBullpen().addPiece(p);
-					model.getBoard().removePiece(aTile.getRow(), aTile.getColumn());
-				}
-			}
-		}*/
-		
-		//make a new board of the correct size.
+
+		//get the current tile array of the board
 		Tile[][] boardShape = model.getBoard().getTileArray();
 		int currsize = model.getBoard().getSize();
 		if(currsize < size){//when size requested is larger

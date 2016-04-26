@@ -15,7 +15,12 @@ import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
 import entity.player.LevelMomento;
-
+/**
+ * Loads the existing file for editing in the Builder application.
+ * 
+ * @author Nathan
+ *
+ */
 public class LoadExistingToEditController implements ActionListener{
 	JTextField fileNameText;
 	LoadGui loadGui;
@@ -26,6 +31,9 @@ public class LoadExistingToEditController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * loads the level specified in the textfield, and determines which builder it should use.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(fileNameText.getText() == null){fileNameText.setText("Please Enter a Valid Level Name");}
 		try{		

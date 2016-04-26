@@ -16,7 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ *Gui that appears when save level is selected
+ * @author Drew
+ *
+ */
 public class SaveGui extends JFrame {
 
 	private JPanel contentPane;

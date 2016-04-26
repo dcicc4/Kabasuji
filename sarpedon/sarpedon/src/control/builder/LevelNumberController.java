@@ -10,14 +10,22 @@ import bounday.player.LightningLevelGui;
 import bounday.player.PlayerBullpenPanel;
 import bounday.player.PuzzleLevelGui;
 import bounday.player.ReleaseLevelGui;
-
+/**
+ * Class that creates new Jframes for loaded levels in the player
+ * ex. creates a puzzle player gui for a puzzle level
+ * @author Drew 
+ *
+ */
 public class LevelNumberController {
 
 
 	Level level;
 	String type;	
 JFrame LG;
-
+/**
+ * 
+ * Takes in a level and creates an appropriate Gui
+ */
 	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame){
 		
 		level = newlevel;

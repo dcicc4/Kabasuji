@@ -16,7 +16,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-
+/**
+ * Allows the selection of various levels and shows which are unlocked
+ *  and how many stars the player has earned on each level.
+ * @author Drew 
+ *
+ */
 public class LevelSelectGui extends JFrame {
 
 	private JPanel contentPane;

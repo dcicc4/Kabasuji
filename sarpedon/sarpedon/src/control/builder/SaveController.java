@@ -15,7 +15,11 @@ import javax.swing.JTextField;
 import entity.builder.IBuilderModel;
 import entity.player.Level;
 import entity.player.LevelMomento;
-
+/**
+ * Allows the saving of a Level as a level momento
+ * @author Drew 
+ *
+ */
 public class SaveController implements ActionListener {
 
 	LevelMomento aLevel;

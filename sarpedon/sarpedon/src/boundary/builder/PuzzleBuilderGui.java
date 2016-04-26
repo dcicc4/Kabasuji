@@ -52,7 +52,7 @@ import javax.swing.ImageIcon;
 /**
  * The Puzzle Level Builder Graphical User Interface.
  * 
- * @author Nathan
+ * @author Nathan 
  *
  */
 public class PuzzleBuilderGui extends JFrame {

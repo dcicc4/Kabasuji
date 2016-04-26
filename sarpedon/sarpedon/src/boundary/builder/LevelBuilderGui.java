@@ -12,7 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
-
+/**
+ * 
+ * The opening menu for the player
+ * 
+ * @author Drew 
+ *
+ */
 public class LevelBuilderGui extends JFrame {
 
 	private JPanel contentPane;

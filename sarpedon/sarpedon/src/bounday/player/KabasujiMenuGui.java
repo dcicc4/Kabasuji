@@ -11,7 +11,13 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-
+/**
+ * Gui for the opening menu for the Kabasuji player 
+ * (includes option to immediatly start first level)
+ * 
+ * @author Drew 
+ *
+ */
 public class KabasujiMenuGui extends JFrame {
 
 	private JPanel contentPane;

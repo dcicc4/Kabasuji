@@ -10,12 +10,20 @@ import entity.player.LevelMomento;
 import entity.player.LightningLevel;
 import entity.player.PuzzleLevel;
 import entity.player.ReleaseLevel;
-
+/**
+ * Allows the loading of a level into the player 
+ * @author Drew
+ *
+ */
 public class Loader {
 public Loader()
 {
 	
 }
+/**
+ * 
+ *Takes in a level number and returns the correct level
+ */
 public Level getLevel (int x) 
 {
 	FileInputStream saveFile;

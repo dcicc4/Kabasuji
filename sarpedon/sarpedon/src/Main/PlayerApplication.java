@@ -11,14 +11,15 @@ import control.builder.LevelNumberController;
 import control.player.Loader;
 import control.player.SwitchWindowController;
 import entity.player.Level;
+import entity.player.SarpedonKabasuji;
 
 
 public class PlayerApplication {
 
 	PlayerSplashScreen splashScreen = new PlayerSplashScreen();
 	KabasujiMenuGui menu = new KabasujiMenuGui();
-	LevelSelectGui levelSelect = new LevelSelectGui();
-	int levelNumber;
+	SarpedonKabasuji game = new SarpedonKabasuji();
+	LevelSelectGui levelSelect = new LevelSelectGui(game);
 	
 	
 	
@@ -29,18 +30,11 @@ public class PlayerApplication {
 	void initializeControllers() {
 		//initialize controllers for main menu
 		menu.getBtnLevelSelect().addActionListener(new SwitchWindowController(menu, levelSelect));
-		
-		
-		
-		//initialize controllers for the individual levels on level select screen (may want to replace with LoadLevelController or something
-		levelNumber = 1;
 		JButton[] buttons = levelSelect.getButtons();
-		Loader l = new Loader();
-		Level currentLevel = l.getLevel(levelNumber);
 		
-		LevelNumberController LC = new LevelNumberController(currentLevel);
-		buttons[0].addActionListener(new SwitchWindowController(levelSelect, LC.getFrame()));
+		LevelNumberController LC = new LevelNumberController(game.getLevel(1), game);
 		menu.getBtnNewGame().addActionListener(new SwitchWindowController(menu, LC.getFrame()));
+<<<<<<< HEAD
 		levelNumber++;
 		
 	
@@ -115,6 +109,8 @@ public class PlayerApplication {
 		levelNumber++;
 		//initialize return to menu buttons in the Level Guis
 		*/
+=======
+>>>>>>> branch 'master' of https://dciccarelli@fusion.wpi.edu/git/sarpedon/sarpedon.git
 	}
 
 	public static void main(String[] args) {

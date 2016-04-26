@@ -43,8 +43,14 @@ public class LevelMomento implements Serializable{
 		hints = m.getHints();
 		type = m.getType();
 		if(type == "Lightning"){
+<<<<<<< HEAD
 			timeAllotted = ((BuildableLightning)m).getTimeAllotted();
 			board = (LightningBoard) m.getBoard();
+=======
+			BuildableLightning l = (BuildableLightning)m;
+			board = new LightningBoard(l.getBoard().getTileArray());
+			timeAllotted = l.getTimeAllotted();
+>>>>>>> branch 'master' of https://dciccarelli@fusion.wpi.edu/git/sarpedon/sarpedon.git
 		}
 		if(type.equals("Puzzle")){
 			movesAllotted = ((BuildablePuzzle)m).getMovesAllotted();

@@ -31,6 +31,8 @@ JFrame LG;
 		if (type.equals("Lightning"))
 		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level);
 			LG = lLG;			
+		}
+			
 		}else
 		if (type.equals("Release"))
 		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level);

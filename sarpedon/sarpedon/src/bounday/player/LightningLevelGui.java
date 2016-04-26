@@ -62,6 +62,24 @@ public class LightningLevelGui extends JFrame {
 	 * Launch the application.
 	 */
 	
+/*	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PieceBuilder pb = new PieceBuilder();
+					LightningBoard lBoard= new LightningBoard();
+					Bullpen bp = new Bullpen();
+					bp.addPiece(pb.getPiece(1));
+					LightningLevel l = new LightningLevel(lBoard, bp, 0, false, null, 2, 100);
+					LightningLevelGui frame = new LightningLevelGui(l);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}*/
+
 	/**
 	 * Create the frame.
 	 */

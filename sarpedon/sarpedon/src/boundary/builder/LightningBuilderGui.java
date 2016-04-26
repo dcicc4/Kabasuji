@@ -61,7 +61,7 @@ public class LightningBuilderGui extends JFrame {
 	JRadioButton moveTilesRadio;
 	
 	JComboBox<Integer> boardSizeCombo;
-	JComboBox<Integer> levelNumberCombo;
+	
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
@@ -183,11 +183,7 @@ public class LightningBuilderGui extends JFrame {
 		label_1.setBounds(10, 206, 112, 14);
 		contentPane.add(label_1);
 		
-		levelNumberCombo = new JComboBox<Integer>();
-		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
-		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		levelNumberCombo.setBounds(211, 194, 72, 39);
-		contentPane.add(levelNumberCombo);
+	
 		
 		btnFlipVert = new JButton("Flip Vertically");
 		btnFlipVert.setBackground(Color.LIGHT_GRAY);

@@ -11,7 +11,7 @@ import bounday.player.PlayerBullpenPanel;
 import bounday.player.PuzzleLevelGui;
 import bounday.player.ReleaseLevelGui;
 
-public class LevelNumberController implements ActionListener{
+public class LevelNumberController {
 
 
 	Level level;
@@ -29,12 +29,12 @@ JFrame LG;
 			
 		} else
 		if (type.equals("Lightning"))
-		{
-			LG = new LightningLevelGui((LightningLevel)level);
+		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level);
+			LG = lLG;			
 		}else
 		if (type.equals("Release"))
-		{
-			LG = new ReleaseLevelGui((ReleaseLevel)level);
+		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level);
+			LG = rLG;
 			
 			
 			
@@ -52,9 +52,5 @@ return LG;
 		level.setNumber(number);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

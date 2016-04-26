@@ -43,12 +43,12 @@ public class PlayerApplication {
 		menu.getBtnNewGame().addActionListener(new SwitchWindowController(menu, LC.getFrame()));
 		levelNumber++;
 		
-		/*
+	
 		currentLevel = l.getLevel(levelNumber);
 		LevelNumberController LC2 = new LevelNumberController(currentLevel);
-		levelSelect.btnLevel2.addActionListener(new SwitchWindowController(levelSelect, LC2.getFrame()));
+		buttons[1].addActionListener(new SwitchWindowController(levelSelect, LC2.getFrame()));
 		levelNumber++;
-	
+		/*
 		currentLevel = l.getLevel(levelNumber);
 		LevelNumberController LC3 = new LevelNumberController(currentLevel);
 		levelSelect.btnLevel3.addActionListener(new SwitchWindowController(levelSelect, LC3.getFrame()));

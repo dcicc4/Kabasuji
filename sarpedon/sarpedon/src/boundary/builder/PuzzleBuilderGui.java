@@ -76,7 +76,7 @@ public class PuzzleBuilderGui extends JFrame {
 	JRadioButton moveTilesRadio;
 	
 	JComboBox<Integer> boardSizeCombo;
-	JComboBox<Integer> levelNumberCombo;
+	
 	
 	BuilderBullpenPanel bullpenView;
 	BuilderStockPanel stockView;
@@ -184,10 +184,7 @@ public class PuzzleBuilderGui extends JFrame {
 		JLabel label = new JLabel("Level Number");
 		label.setBounds(10, 241, 105, 14);
 		
-		levelNumberCombo = new JComboBox<Integer>();
-		levelNumberCombo.setBounds(220, 226, 85, 39);
-		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
-		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 		
 		JButton btnFlipVert = new JButton("Flip Vertically");
 		btnFlipVert.setBounds(1059, 813, 125, 125);
@@ -222,7 +219,7 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(lblBoardsize);
 		contentPane.add(boardSizeCombo);
 		contentPane.add(label);
-		contentPane.add(levelNumberCombo);
+
 		contentPane.add(moveTilesRadio);
 		contentPane.add(addHintRadio);
 		contentPane.add(movePiecesRadio);

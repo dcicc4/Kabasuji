@@ -32,7 +32,8 @@ public class LevelMomento implements Serializable{
 	Integer timeAllotted;
 	/**a number indicating moves allotted in a puzzle round*/
 	Integer movesAllotted;
-	
+	/** Alternate Board for Lightning*/
+	LightningBoard lBoard;
 	
 	public LevelMomento(IBuilderModel m){
 		board = m.getBoard();
@@ -43,6 +44,7 @@ public class LevelMomento implements Serializable{
 		type = m.getType();
 		if(type == "Lightning"){
 			timeAllotted = ((BuildableLightning)m).getTimeAllotted();
+			board = (LightningBoard) m.getBoard();
 		}
 		if(type.equals("Puzzle")){
 			movesAllotted = ((BuildablePuzzle)m).getMovesAllotted();

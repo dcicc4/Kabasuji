@@ -51,7 +51,7 @@ public class ReleaseBuilderGui extends JFrame {
 	JRadioButton rdbtnNumberTile;
 	
 	JComboBox<Integer> boardSizeCombo;
-	JComboBox<Integer> levelNumberCombo;
+	
 	JComboBox<String> colorCombo;
 	JComboBox<Integer> numberCombo;
 	
@@ -171,11 +171,7 @@ public class ReleaseBuilderGui extends JFrame {
 		lblNewLabel.setBounds(25, 247, 105, 14);
 		contentPane.add(lblNewLabel);
 		
-		levelNumberCombo = new JComboBox<Integer>();
-		levelNumberCombo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		levelNumberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}));
-		levelNumberCombo.setBounds(223, 235, 75, 39);
-		contentPane.add(levelNumberCombo);
+	
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");
 		btnRotateClockwise.setFont(new Font("Tahoma", Font.PLAIN, 10));

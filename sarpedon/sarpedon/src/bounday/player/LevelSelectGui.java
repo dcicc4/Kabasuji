@@ -18,7 +18,7 @@ public class LevelSelectGui extends JFrame {
 	 * Launch the application.
 	 */
 	JButton btnLevel1;
-	JButton btnLevel2;
+	 JButton btnLevel2;
 	JButton btnLevel3;
 	JButton btnLevel4;
 	JButton btnLevel5;
@@ -58,7 +58,7 @@ public class LevelSelectGui extends JFrame {
 		contentPane.add(btnLevel1);
 		
 		btnLevel2 = new JButton("Level 2");
-		btnLevel2.setEnabled(false);
+		btnLevel2.setEnabled(true);
 		btnLevel2.setBackground(Color.LIGHT_GRAY);
 		btnLevel2.setBounds(26, 541, 250, 120);
 		contentPane.add(btnLevel2);

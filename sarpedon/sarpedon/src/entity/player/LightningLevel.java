@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class LightningLevel extends Level {
 	/** the amount of time left */
 	Integer timeLeft;
-
+	
 	/**
 	 * Constructor, primarily for testing purposes
 	 * since LightningLevels will be made in the level builder
@@ -17,11 +17,13 @@ public class LightningLevel extends Level {
 	 * @param hnts a list of suggested locations for a selection of specific Pieces
 	 * @param tLeft
 	 */
+	
 	public LightningLevel(LightningBoard lboard, Bullpen bull, Integer strs,
 			boolean cmplted, ArrayList<Hint> hnts, Integer num, Integer tLeft) {
 		super("Lightning");
 		bullpen= bull;
 		board = lboard;
+		
 		stars = strs;
 		completed = cmplted;
 		hints = hnts;
@@ -55,7 +57,7 @@ public class LightningLevel extends Level {
 	 */
 	@Override
 	public void updateStars(){
-		int spcLeft = ((LightningBoard)board).spacesLeft();
+		int spcLeft =  board.spacesLeft();
 		if (spcLeft > 12){
 			this.stars = 0;
 			return;
@@ -75,11 +77,12 @@ public class LightningLevel extends Level {
 	
 	@Override
 	public void restore(LevelMomento m){
-		board = m.board;
+	
+		board = new LightningBoard(m.board.getTileArray());
 		bullpen = m.bullpen;
 		stars = m.stars;
 		hints = m.hints;
-		type = m.type;
+		type = "Lightning";
 		completed = m.completed;
 		number = m.number;
 		timeLeft = m.timeAllotted;

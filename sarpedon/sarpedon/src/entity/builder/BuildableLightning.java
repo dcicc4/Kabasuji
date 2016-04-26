@@ -5,6 +5,7 @@ import entity.player.Bullpen;
 import entity.player.Level;
 import entity.player.LevelMomento;
 import entity.player.PieceBuilder;
+import entity.player.ReleaseBoard;
 
 public class BuildableLightning extends Level implements IBuilderModel{
 /**
@@ -43,5 +44,10 @@ Integer timeAllotted;
 	public void restore(LevelMomento m){
 		super.restore(m);
 		timeAllotted = m.getTimeAllotted();
+	}
+	@Override
+	public ReleaseBoard getRBoard() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

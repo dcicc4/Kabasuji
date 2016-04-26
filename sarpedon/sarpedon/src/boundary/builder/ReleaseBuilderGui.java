@@ -155,7 +155,7 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(colorCombo);
 		
 		numberCombo = new JComboBox<Integer>();
-		numberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1,2,3,4,5,6}));
+		numberCombo.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {0,1,2,3,4,5,6}));
 		numberCombo.setBounds(155, 609, 64, 20);
 		contentPane.add(numberCombo);
 		
@@ -209,6 +209,8 @@ public class ReleaseBuilderGui extends JFrame {
 		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
 		boardView.addMouseListener(mtc);
 		boardView.addMouseMotionListener(mtc);
+		NumberTileController numTiles = new NumberTileController(numberCombo, colorCombo, model, boardView, rdbtnNumberTile);
+		boardView.addMouseListener(numTiles);
 		
 		HintController aHint = new HintController(model, boardView, addHintRadio, colorCombo, numberCombo);
 		boardView.addMouseListener(mtc);

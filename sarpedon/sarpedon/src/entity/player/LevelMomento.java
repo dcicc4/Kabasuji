@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
+import entity.builder.BuildableRelease;
 import entity.builder.IBuilderModel;
 
 public class LevelMomento implements Serializable{
@@ -42,7 +43,7 @@ public class LevelMomento implements Serializable{
 		completed = false;
 		hints = m.getHints();
 		type = m.getType();
-		if(type == "Lightning"){
+		if(type.equals("Lightning")){
 
 			timeAllotted = ((BuildableLightning)m).getTimeAllotted();
 			board = (LightningBoard) m.getBoard();
@@ -54,6 +55,11 @@ public class LevelMomento implements Serializable{
 		}
 		if(type.equals("Puzzle")){
 			movesAllotted = ((BuildablePuzzle)m).getMovesAllotted();
+		}
+		if(type.equals("Release")){
+			BuildableRelease r = (BuildableRelease)m;
+			board = new ReleaseBoard(r.getBoard().getTileArray());
+			
 		}
 	}
 	

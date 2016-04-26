@@ -3,6 +3,7 @@ package boundary.builder;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MouseInfo;
@@ -14,6 +15,8 @@ import javax.swing.border.LineBorder;
 import entity.builder.IBuilderModel;
 import entity.player.Board;
 import entity.player.Piece;
+import entity.player.ReleaseBoard;
+import entity.player.ReleaseTile;
 import entity.player.Square;
 import entity.player.Tile;
 
@@ -118,18 +121,30 @@ public class BuilderBoardPanel extends JPanel {
 		// draw board.
 		g.setColor(new Color(240, 240, 240));
 		g.fillRect(0,0,16*N,16*N);
-		//draws a 12 by 12 grid, because I hard coded a 12x12 grid
+		//draws the board's tiles
 		Tile[][] tiles = model.getBoard().getTileArray();
+		
+		ReleaseTile[][]rTiles = null;
+		if(model.getRBoard() != null){
+			rTiles = model.getRBoard().getTileArray();
+			drawReleaseBoard(rTiles, g);
+			System.out.println("I drew the release board :)");
+			return;
+		}
+		
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				Tile tile = tiles[i][j];
 				if(tile != null){
+					int x = offset + i*N;
+					int y = offset + j*N;
 					g.setColor(Color.white);
-					g.fillRect(offset + i*N, offset + j*N, N, N);
+					g.fillRect(x, y, N, N);
 					if(model.getBoard().getPiece(i, j)!= null){
 						g.setColor(model.getBoard().getPiece(i, j).getColor());
-						g.fillRect(offset + i*N, offset + j*N, N, N);
+						g.fillRect(x, y, N, N);		
 					}
+					//draw the outline of the tile if it exists
 					g.setColor(Color.black);
 					g.drawRect(offset + i*N, offset + j*N, N, N);
 				}
@@ -223,6 +238,52 @@ public class BuilderBoardPanel extends JPanel {
 		}
 		else{ 
 			return null;
+		}
+	}
+	
+	public void drawReleaseBoard(ReleaseTile[][] rTiles, Graphics g){
+		for(int i = 0; i<12; i++){
+			for(int j = 0; j<12; j++){
+				ReleaseTile tile = rTiles[i][j];
+				if(tile != null){
+					int x = offset + i*N;
+					int y = offset + j*N;
+					g.setColor(Color.white);
+					g.fillRect(x, y, N, N);
+					if(!tile.getColorString().equals("NONE")){
+						g.setColor(tile.getAWTColor());
+						if(tile.getNumber() == null || tile.getNumber() == 0){return;}
+						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
+						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
+					}
+					if(model.getBoard().getPiece(i, j)!= null){
+						g.setColor(model.getBoard().getPiece(i, j).getColor());
+						g.fillRect(x, y, N, N);		
+					}
+					//draw the outline of the tile if it exists
+					g.setColor(Color.black);
+					g.drawRect(offset + i*N, offset + j*N, N, N);
+				}
+			}
+		}
+		//draw the selected piece at the mouse tip
+		Piece selected = model.getBullpen().getSelectedPiece();
+		if (selected != null){
+			if(mouse!= null){
+				drawPiece(g, selected, mouse);
+			}
+			if(mouse == null){
+				drawPiece(g, selected, new Point(offset + N*6, offset + N*6));
+			}
+
+		}
+		//draw a moving tile at the tip of the mouse
+		if(model.getBoard().getMovingTile() && mouse != null){
+			g.setColor(Color.white);
+			g.fillRect(mouse.x-N/2, mouse.y-N/2, N, N);
+			g.setColor(Color.BLACK);
+			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
+
 		}
 	}
 	

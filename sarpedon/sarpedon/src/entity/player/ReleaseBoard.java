@@ -23,6 +23,24 @@ public class ReleaseBoard extends Board {
 		}
 		pieces = new HashMap<UUID, Piece>();
 	}
+	
+	public ReleaseBoard(){
+		shape = new ReleaseTile[12][12];
+		for(int i=0; i< 12; i++){
+			for(int j =0; j<12;j++){
+				shape[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
+			}
+		}
+		pieces = new HashMap<UUID, Piece>();
+	}
+	
+	/**
+	 * Returns the release tile array, since this is a release board.
+	 */
+	@Override
+	public ReleaseTile[][] getTileArray(){
+		return shape;
+	}
 	/**
 	 * Overrides base removePiece method to always return false
 	 * Pieces are not removable from ReleaseBoards

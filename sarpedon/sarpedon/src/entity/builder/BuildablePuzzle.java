@@ -40,4 +40,8 @@ Integer movesAllotted;
 		super.restore(m);
 		movesAllotted = m.getMovesAllotted();
 	}
+	@Override
+	public ReleaseBoard getRBoard() {
+		return null;
+	}
 }

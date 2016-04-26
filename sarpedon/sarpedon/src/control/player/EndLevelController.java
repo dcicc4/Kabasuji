@@ -24,22 +24,14 @@ public class EndLevelController implements MouseListener{
 	SarpedonKabasuji game;
 	JFrame levelGui;
 	Level level;
-<<<<<<< HEAD
 	PlayerApplication app;
 	
 	public EndLevelController(SarpedonKabasuji g, JFrame f,  Level l, PlayerApplication a){
-=======
-	PlayerApplication aPA;
-	public EndLevelController(SarpedonKabasuji g, JFrame f,  Level l, PlayerApplication aPA){
->>>>>>> branch 'master' of https://nsdennler@fusion.wpi.edu/git/sarpedon/sarpedon.git
 		game = g;
 		levelGui = f;
 		level = l;
-<<<<<<< HEAD
 		app = a;
-=======
-		this.aPA = aPA;
->>>>>>> branch 'master' of https://nsdennler@fusion.wpi.edu/git/sarpedon/sarpedon.git
+
 	}
 	
 	
@@ -70,11 +62,6 @@ public class EndLevelController implements MouseListener{
 			if(level.getStars() > 0 && level.getNumber() == game.getCurrentLevel()){
 				game.incrementLevel();
 			}
-<<<<<<< HEAD
-			new EndLevelGui(game, levelGui, app).setVisible(true);
-=======
-			new EndLevelGui(game, levelGui, aPA).setVisible(true);
->>>>>>> branch 'master' of https://nsdennler@fusion.wpi.edu/git/sarpedon/sarpedon.git
 		}
 		else{
 			return;

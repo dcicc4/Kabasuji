@@ -231,6 +231,8 @@ public class LightningBuilderGui extends JFrame {
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
 		
+		
+		
 		timeTextField.addActionListener(new UpdateTimeController(timeTextField, model, warningLabel));
 	}
 }

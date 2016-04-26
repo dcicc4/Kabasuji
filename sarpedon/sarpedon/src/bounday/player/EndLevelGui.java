@@ -24,7 +24,7 @@ public class EndLevelGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EndLevelGui(SarpedonKabasuji game, JFrame parentLevel, PlayerApplication app) {
+	public EndLevelGui(SarpedonKabasuji game, JFrame levelGui, PlayerApplication app) {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -50,6 +50,6 @@ public class EndLevelGui extends JFrame {
 		btnNewButton.setBounds(134, 208, 161, 42);
 		contentPane.add(btnNewButton);
 		
-		btnNewButton.addActionListener(new SwitchWindowController(this,parentLevel, new LevelSelectGui(game, app)));
+		btnNewButton.addActionListener(new SwitchWindowController(this, levelGui, new LevelSelectGui(game, app)));
 	}
 }

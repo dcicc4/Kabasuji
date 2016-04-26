@@ -217,6 +217,10 @@ public class PuzzleBuilderGui extends JFrame {
 		contentPane.add(btnUndo);
 		contentPane.add(lblBoardsize);
 		contentPane.add(boardSizeCombo);
+<<<<<<< HEAD
+=======
+		
+>>>>>>> branch 'master' of https://nsdennler@fusion.wpi.edu/git/sarpedon/sarpedon.git
 
 		contentPane.add(moveTilesRadio);
 		contentPane.add(addHintRadio);

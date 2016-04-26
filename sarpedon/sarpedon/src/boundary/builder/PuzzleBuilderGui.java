@@ -181,8 +181,7 @@ public class PuzzleBuilderGui extends JFrame {
 		moveTilesRadio.setBackground(Color.WHITE);
 		buttonGroup.add(moveTilesRadio);
 		
-		JLabel label = new JLabel("Level Number");
-		label.setBounds(10, 241, 105, 14);
+	
 		
 		
 		

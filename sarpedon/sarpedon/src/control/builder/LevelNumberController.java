@@ -18,24 +18,24 @@ public class LevelNumberController {
 	String type;	
 JFrame LG;
 
-	public LevelNumberController( Level newlevel){
+	public LevelNumberController( Level newlevel, SarpedonKabasuji aGame){
 		
 		level = newlevel;
 		type = level.getType();
 		if (type.equals("Puzzle"))
 		{
-			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level);
+			PuzzleLevelGui pLG = new PuzzleLevelGui((PuzzleLevel)level, aGame);
 			LG = pLG;
 			
 		} else
 		if (type.equals("Lightning"))
-		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level);
+		{		LightningLevelGui lLG = new LightningLevelGui((LightningLevel)level, aGame);
 			LG = lLG;			
-		}
+		
 			
 		}else
 		if (type.equals("Release"))
-		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level);
+		{	ReleaseLevelGui rLG = new ReleaseLevelGui((ReleaseLevel)level, aGame);
 			LG = rLG;
 			
 			

@@ -179,9 +179,7 @@ public class LightningBuilderGui extends JFrame {
 		boardSizeCombo.setBounds(211, 138, 72, 45);
 		contentPane.add(boardSizeCombo);
 		
-		JLabel label_1 = new JLabel("Level Number");
-		label_1.setBounds(10, 206, 112, 14);
-		contentPane.add(label_1);
+		
 		
 	
 		

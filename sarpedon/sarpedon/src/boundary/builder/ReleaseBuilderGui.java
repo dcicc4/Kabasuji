@@ -167,10 +167,6 @@ public class ReleaseBuilderGui extends JFrame {
 		lblNumber.setBounds(108, 612, 53, 14);
 		contentPane.add(lblNumber);
 		
-		JLabel lblNewLabel = new JLabel("Level Number");
-		lblNewLabel.setBounds(25, 247, 105, 14);
-		contentPane.add(lblNewLabel);
-		
 	
 		
 		btnRotateClockwise = new JButton("Rotate Clockwise");

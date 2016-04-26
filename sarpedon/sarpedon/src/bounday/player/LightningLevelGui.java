@@ -82,8 +82,9 @@ public class LightningLevelGui extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param aGame 
 	 */
-	public LightningLevelGui(LightningLevel l) {
+	public LightningLevelGui(LightningLevel l, SarpedonKabasuji aGame) {
 		level = l;
 		setTitle("Lightning Level");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

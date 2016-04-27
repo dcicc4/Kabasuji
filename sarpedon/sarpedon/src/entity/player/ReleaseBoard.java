@@ -81,11 +81,4 @@ public class ReleaseBoard extends Board {
 	public void removeTile(int row, int column){
 		shape[row][column] = null;
 	}
-	
-<<<<<<< HEAD
-=======
-	public void setTile(ReleaseTile t){
-		shape[t.getRow()][t.getColumn()] = t;
-	}
->>>>>>> branch 'master' of https://nsdennler@fusion.wpi.edu/git/sarpedon/sarpedon.git
 }

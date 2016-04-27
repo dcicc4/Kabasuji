@@ -15,6 +15,7 @@ import control.builder.FlipController;
 import control.builder.MoveTilesController;
 import control.builder.PlacePieceController;
 import control.builder.RotateController;
+import control.builder.SaveLevelController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
 import control.builder.UpdateMovesController;
@@ -153,7 +154,7 @@ public class PuzzleBuilderGui extends JFrame {
 		textField.setColumns(10);
 		
 		warningLabel = new JLabel("Possible Warning");
-		warningLabel.setBounds(26, 745, 251, 33);
+		warningLabel.setBounds(26, 745, 451, 33);
 		warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		warningLabel.setForeground(Color.RED);
 		
@@ -259,6 +260,6 @@ public class PuzzleBuilderGui extends JFrame {
 		boardSizeCombo.addActionListener(size);
 		
 		textField.addActionListener(new UpdateMovesController(textField, model, warningLabel));
-		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		btnSave.addActionListener(new SaveLevelController(warningLabel, model, this));
 	}
 }

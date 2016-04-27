@@ -65,7 +65,7 @@ public class EndLevelController implements MouseListener{
 			int currStars = level.getStars();
 			int prevStars = game.getLevel(level.getNumber()).getStars();
 			if(currStars >= prevStars){
-				game.getLevel(level.getNumber()).setStars(currStars);
+				game.setLevel(level);
 			}
 			new EndLevelGui(game, levelGui).setVisible(true);
 		}

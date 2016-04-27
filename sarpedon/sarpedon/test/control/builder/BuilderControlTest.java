@@ -1,5 +1,6 @@
 package control.builder;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
@@ -73,10 +74,12 @@ public class BuilderControlTest extends TestCase {
 	BuildablePuzzle bup;
 	BuildableLightning bl;
 	JLabel jl;
+	JComboBox<String> jcbs;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
 		jl = new JLabel();
+		jcbs = new JComboBox<String>();
 		bp = new Bullpen();
 		bsp = new BuilderStockPanel();
 		bbp = new BuilderBullpenPanel(bp);
@@ -105,9 +108,9 @@ public class BuilderControlTest extends TestCase {
 		s5 = new Square(0, 4);
 		p = new Piece(0, s1, s2, s3, s4, s5);
 		jrb = new JRadioButton();
-		hc = new HintController(br, bbop, jrb, null, null);
+		hc = new HintController(br, bbop, jrb, jcbs, jcb);
 		mtc = new MoveTilesController(br, bbop, jrb);
-		ntc = new NumberTileController(jcb, null, br, bbop, jrb);
+		ntc = new NumberTileController(jcb, jcbs, br, bbop, jrb);
 		ppc = new PlacePieceController(br, bbop, jrb);
 		rc = new RotateController(bbop, br, true);
 		sc = new SaveController(jtf, br);
@@ -191,6 +194,12 @@ public class BuilderControlTest extends TestCase {
 		ntc.mouseExited(null);
 		ntc.mousePressed(null);
 		ntc.mouseReleased(null);
+		jrb.setSelected(true);
+		jcb.addItem(5);
+		jcbs.addItem("kek");
+		jcb.setSelectedIndex(0);
+		jcbs.setSelectedIndex(0);
+		//ntc.mousePressed(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
 	}
 	public void testPlacePieceController() {
 		ppc.mouseClicked(null);
@@ -198,6 +207,8 @@ public class BuilderControlTest extends TestCase {
 		ppc.mouseExited(null);
 		ppc.mousePressed(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
 		ppc.mouseReleased(null);
+		jrb.setSelected(true);
+		ppc.mousePressed(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, true, 1));
 	}
 	public void testRotateController() {
 		rc.actionPerformed(null);

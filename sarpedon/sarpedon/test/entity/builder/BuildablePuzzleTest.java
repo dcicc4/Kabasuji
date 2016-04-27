@@ -9,7 +9,10 @@ import entity.player.Piece;
 import entity.player.Square;
 import entity.player.Tile;
 import junit.framework.TestCase;
-
+/**
+ * Testing for BuildablePuzzle
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class BuildablePuzzleTest extends TestCase {
 	BuildablePuzzle bP;
 	protected void setUp() throws Exception {

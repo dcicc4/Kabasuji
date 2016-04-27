@@ -11,7 +11,10 @@ import entity.player.ReleaseTile;
 import entity.player.Square;
 import entity.player.Tile;
 import junit.framework.TestCase;
-
+/**
+ * Testing for BuildableRelease
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class BuildableReleaseTest extends TestCase {
 	BuildableRelease bR;
 	protected void setUp() throws Exception {

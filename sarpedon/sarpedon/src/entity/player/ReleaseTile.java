@@ -17,6 +17,11 @@ public class ReleaseTile extends Tile {
 	private static final long serialVersionUID = 3044815580057386645L;
 	/** the number associated with the instance of the Release Tile, or null if it has no number */
 	Integer rnumber;
+	
+	public UUID getCoveredBy(){
+		return this.coveredBy;
+	}
+	
 	/** the color of the instance of the ReleaseTile */
 	Color rcolor; 
 	
@@ -28,16 +33,18 @@ public class ReleaseTile extends Tile {
 	public void setNumber(int i){
 		rnumber = i;
 	}
+	
+	
 	/** Gets the color assigned to the Tile */
 	public Color getColor(){
 		return this.rcolor;
 	}
+	/** Sets the color of the tile based on the string it takes in. */
 	public void setColor(String s){
-		if( s.equals("Red")){
+		if(s.equals("Red")){
 			rcolor = Color.RED;
 		}
 		if(s.equals("Green")){
-			System.out.println("IM setting color to green");
 			rcolor = Color.GREEN;
 		}
 		if(s.equals("Blue")){
@@ -69,7 +76,6 @@ public class ReleaseTile extends Tile {
 		rnumber = rnum;
 		rcolor = rcolr;
 	}
-
 //	/** Provides a string representation of the Color */
 //	public String getColorString(){
 //		switch(this.rcolor){

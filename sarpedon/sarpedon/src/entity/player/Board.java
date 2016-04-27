@@ -104,7 +104,7 @@ public class Board implements Serializable{
 	 * @param col the column in which the Tile is located
 	 * @return boolean representing whether the move was successful
 	 */
-	boolean availableTile(Integer row, Integer col){
+	public boolean availableTile(Integer row, Integer col){
 		// check if out of bounds of rectangular representation of the board
 		if ((row > shape[0].length - 1) || (col > shape.length - 1)){
 			return false;

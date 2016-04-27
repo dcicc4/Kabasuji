@@ -58,7 +58,7 @@ public class LevelMomento implements Serializable{
 		}
 		if(type.equals("Release")){
 			
-			board = (ReleaseBoard)m;
+			board = (ReleaseBoard)m.getBoard();
 			
 		}
 	}

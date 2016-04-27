@@ -45,7 +45,13 @@ abstract public class Level implements Serializable {
 	 * @param t - type of level being created.
 	 */
 	public Level(String t){
-		board = new Board();
+		if (t.equals("Lightning")){
+			board = new LightningBoard();
+		} else if (t.equals("Release")){
+			board = new ReleaseBoard();
+		} else {
+			board = new Board();
+		}
 		bullpen = new Bullpen();
 		stars = 0;
 		completed = false;

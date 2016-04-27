@@ -2,6 +2,7 @@ package entity.player;
 
 import java.util.ArrayList;
 
+import entity.builder.BuildablePuzzle;
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity PuzzleLevel class
@@ -176,6 +177,7 @@ public class PuzzleLevelTest extends TestCase {
 	}
 	
 	public void testGetStars() {
+		System.out.println(pL.getStars());
 		assertTrue(pL.getStars()==3);
 		assertTrue(testPL.getStars() == 0);
 	}
@@ -230,4 +232,27 @@ public class PuzzleLevelTest extends TestCase {
 		assertTrue(pL.movesleft == 100);
 	}
 
+	public void testRestore(){
+		BuildablePuzzle bP = new BuildablePuzzle();
+		LevelMomento lM = new LevelMomento(bP);
+		assertTrue(testPL.board == oddsEmpty);
+		assertTrue(testPL.bullpen == bp);
+		assertTrue(testPL.stars == 0);
+		assertFalse(testPL.completed);
+		assertTrue(testPL.hints == hnts);
+		assertTrue(testPL.type == "Puzzle");
+		assertTrue(testPL.number == 1);
+		assertTrue(testPL.movesleft == 10);
+		
+		testPL.restore(lM);
+		//check original state
+		assertFalse(testPL.board == oddsEmpty);
+		assertFalse(testPL.bullpen == bp);
+		assertTrue(testPL.stars == 0);
+		assertFalse(testPL.completed);
+		assertFalse(testPL.hints == hnts);
+		assertTrue(testPL.type == "Puzzle");
+		//assertFalse(testPL.number == 1);
+		//assertFalse(testPL.movesleft == 10);
+	}
 }

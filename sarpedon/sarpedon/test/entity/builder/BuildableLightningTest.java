@@ -127,8 +127,8 @@ public class BuildableLightningTest extends TestCase {
 	}
 
 
-	public void testGetRBoard() {
-		fail("Not yet implemented"); // TODO
-	}
+//	public void testGetRBoard() {
+//		fail("Not yet implemented"); // TODO
+//	}
 
 }

@@ -98,6 +98,7 @@ abstract public class Level implements Serializable {
 	 * @return an integer representing the number of stars earned thus far
 	 */
 	public Integer getStars(){
+		updateStars();
 		return stars;
 	}
 	/**

@@ -3,7 +3,10 @@ package entity.player;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-
+/**
+ * Testing for the player.entity LightningLevel class
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class LightningLevelTest extends TestCase {
 	/** Lightning Levels for Testing */
 	LightningLevel lL; // default

@@ -3,7 +3,10 @@ package entity.player;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-
+/**
+ * Testing for the player.entity PuzzleLevel class
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class PuzzleLevelTest extends TestCase {
 	/** Puzzle Levels for Testing */
 	PuzzleLevel pL; // default

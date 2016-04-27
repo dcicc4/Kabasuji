@@ -97,7 +97,7 @@ public class LevelSelectGui extends JFrame {
 		contentPane.add(btnLevel2);
 		
 		btnLevel3 = new JButton("Level 3");
-		btnLevel3.setEnabled(false);
+		btnLevel3.setEnabled(true);
 		btnLevel3.setBackground(Color.LIGHT_GRAY);
 		btnLevel3.setBounds(26, 722, 250, 120);
 		contentPane.add(btnLevel3);
@@ -268,6 +268,7 @@ public class LevelSelectGui extends JFrame {
 		JButton[] buttons = getButtons();
 		JLabel[] labels = getLabels();
 		Loader loader = new Loader();
+		
 		
 		for(int i = 0; i<15; i++){
 			if(game.getLevel(i+1)==null){return;}

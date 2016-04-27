@@ -57,8 +57,8 @@ public class LevelMomento implements Serializable{
 			movesAllotted = ((BuildablePuzzle)m).getMovesAllotted();
 		}
 		if(type.equals("Release")){
-			BuildableRelease r = (BuildableRelease)m;
-			board = new ReleaseBoard(r.getBoard().getTileArray());
+			
+			board = (ReleaseBoard)m.getBoard();
 			
 		}
 	}

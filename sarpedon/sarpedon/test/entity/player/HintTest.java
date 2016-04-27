@@ -1,7 +1,10 @@
 package entity.player;
 
 import junit.framework.TestCase;
-
+/**
+ * Testing for the player.entity Hint class
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class HintTest extends TestCase {
 	/**Pieces for used in testing */
 	Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );

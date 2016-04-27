@@ -1,7 +1,10 @@
 package entity.player;
 
 import junit.framework.TestCase;
-
+/**
+ * Tests for the Square class
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class SquareTest extends TestCase {
 
 	protected void setUp() throws Exception {

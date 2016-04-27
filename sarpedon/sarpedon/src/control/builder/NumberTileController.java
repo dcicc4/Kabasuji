@@ -43,7 +43,7 @@ public class NumberTileController implements MouseListener{
 
 			if(t == null){return;}
 			if(num == 0){t.setColor("None"); t.setNumber(0);}
-
+			System.out.println("Color is" + c +"Number is" + num);
 			t.setColor(c);
 			t.setNumber(num);
 			boardView.redraw();

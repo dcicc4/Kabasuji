@@ -128,7 +128,6 @@ public class BuilderBoardPanel extends JPanel {
 		if(model.getRBoard() != null){
 			rTiles = model.getRBoard().getTileArray();
 			drawReleaseBoard(rTiles, g);
-			System.out.println("I drew the release board :)");
 			return;
 		}
 		
@@ -250,7 +249,7 @@ public class BuilderBoardPanel extends JPanel {
 					int y = offset + j*N;
 					g.setColor(Color.white);
 					g.fillRect(x, y, N, N);
-					if(!tile.getColorString().equals("NONE")){
+					if(tile.getAWTColor() != null){
 						g.setColor(tile.getAWTColor());
 						if(tile.getNumber() == null || tile.getNumber() == 0){return;}
 						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));

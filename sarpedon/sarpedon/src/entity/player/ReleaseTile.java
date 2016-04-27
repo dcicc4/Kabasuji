@@ -1,8 +1,7 @@
 package entity.player;
 
 import java.util.UUID;
-import java.awt.Color;
-import java.awt.color.*;
+
 
 /**
  *  An extension of the base Tile class that encapsulates the additional data required
@@ -36,6 +35,7 @@ public class ReleaseTile extends Tile {
 			rcolor = Color.RED;
 		}
 		if(s.equals("Green")){
+			System.out.println("IM setting color to green");
 			rcolor = Color.GREEN;
 		}
 		if(s.equals("Blue")){
@@ -72,11 +72,11 @@ public class ReleaseTile extends Tile {
 	public String getColorString(){
 		switch(this.rcolor){
 		case BLUE:
-			return "BLUE";
+			return "BLUE"; 
 		case GREEN:
-			return "GREEN";
+			return "GREEN"; 
 		case RED:
-			return "RED";
+			return "RED"; 
 		case NONE:
 			return "NONE";
 		default:
@@ -84,19 +84,20 @@ public class ReleaseTile extends Tile {
 		}
 	}
 	
-	/** Provides a awt color for drawing*/
+	/** Provides a AWT color for drawing*/
 	public java.awt.Color getAWTColor(){
-		switch(this.rcolor){
-		case BLUE:
-			return new java.awt.Color(0, 0 ,255);
-		case GREEN:
-			return new java.awt.Color(255, 0 ,255);
-		case RED:
-			return new java.awt.Color(255, 0 ,0);
-		case NONE:
+		String color = getColorString();
+		if(color.equals("RED")){
+			return new java.awt.Color(255,0,0);
+		}
+		if(color.equals("BLUE")){
+			return new java.awt.Color(0,0,255);
+		}
+		if(color.equals("GREEN")){
+			return new java.awt.Color(255,0,255);
+		}
+		else{
 			return null;
-		default:
-			throw new RuntimeException("entity.player::ReleaseTile: Unexpected Color");
 		}
 	}
 }

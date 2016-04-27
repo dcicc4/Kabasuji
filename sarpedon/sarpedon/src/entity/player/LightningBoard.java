@@ -24,6 +24,7 @@ public class LightningBoard extends Board {
 	 * Pieces can overlap on LightningBoards
 	 */
 	@Override
+	public
 	boolean availableTile(Integer row, Integer col){
 		// check if out of bounds of rectangular representation of the board
 		if ((row > shape[0].length - 1) || (col > shape.length - 1)){
@@ -41,6 +42,7 @@ public class LightningBoard extends Board {
 	}
 	
 	@Override
+	protected
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
 		//if (availableTile(row, col)){

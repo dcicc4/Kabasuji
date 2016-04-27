@@ -19,6 +19,11 @@ public class ReleaseTile extends Tile {
 	public enum Color {
 		BLUE, GREEN, RED, NONE
 	}
+	
+	public UUID getCoveredBy(){
+		return this.coveredBy;
+	}
+	
 	/** the color of the instance of the ReleaseTile */
 	Color rcolor; 
 	
@@ -30,16 +35,18 @@ public class ReleaseTile extends Tile {
 	public void setNumber(int i){
 		rnumber = i;
 	}
+	
+	
 	/** Gets the color assigned to the Tile */
-	Color getColor(){
+	public Color getColor(){
 		return this.rcolor;
 	}
+	/** Sets the color of the tile based on the string it takes in. */
 	public void setColor(String s){
-		if( s.equals("Red")){
+		if(s.equals("Red")){
 			rcolor = Color.RED;
 		}
 		if(s.equals("Green")){
-			System.out.println("IM setting color to green");
 			rcolor = Color.GREEN;
 		}
 		if(s.equals("Blue")){
@@ -90,7 +97,7 @@ public class ReleaseTile extends Tile {
 	
 	/** Provides a AWT color for drawing*/
 	public java.awt.Color getAWTColor(){
-		String color = getColorString();
+		String color = this.getColorString();
 		if(color.equals("RED")){
 			return new java.awt.Color(255,0,0);
 		}

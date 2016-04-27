@@ -12,6 +12,8 @@ public class ReleaseBoard extends Board {
 	 */
 	private static final long serialVersionUID = 9055398407614672409L;
 	protected ReleaseTile[][] shape; 
+	ReleaseTile movingTile = null;
+	
 	/**
 	 * Constructor for the Release Board
 	 * @param s a two dimensional array of ReleaseTiles
@@ -45,6 +47,17 @@ public class ReleaseBoard extends Board {
 	public ReleaseTile[][] getTileArray(){
 		return shape;
 	}
+	
+	public ReleaseTile getMoving(){
+		return movingTile;
+	}
+	
+	public void setMoving(ReleaseTile r){
+		movingTile = r;
+	}
+	public void removeMoving(){
+		movingTile = null;
+	}
 	/**
 	 * Overrides base removePiece method to always return false
 	 * Pieces are not removable from ReleaseBoards
@@ -61,5 +74,14 @@ public class ReleaseBoard extends Board {
 	@Override
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRwo, Integer endCol){
 		return false; // pieces not movable after placement in Release
+	}
+	
+	@Override
+	public void removeTile(int row, int column){
+		shape[row][column] = null;
+	}
+	
+	public void setRTile(ReleaseTile t){
+		shape[t.getRow()][t.getColumn()] = t;
 	}
 }

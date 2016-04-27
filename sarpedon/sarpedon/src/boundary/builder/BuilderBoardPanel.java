@@ -177,6 +177,11 @@ public class BuilderBoardPanel extends JPanel {
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
+		if(model.getRBoard()!= null){
+			drawReleaseBoard(model.getRBoard().getTileArray(), offScreenGraphics);
+			return;
+		}
+		
 		Tile[][] tiles = model.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
@@ -251,9 +256,10 @@ public class BuilderBoardPanel extends JPanel {
 					g.fillRect(x, y, N, N);
 					if(tile.getAWTColor() != null){
 						g.setColor(tile.getAWTColor());
-						if(tile.getNumber() == null || tile.getNumber() == 0){return;}
+						if(tile.getNumber() != null && tile.getNumber() != 0){
 						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
 						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
+						}
 					}
 					if(model.getBoard().getPiece(i, j)!= null){
 						g.setColor(model.getBoard().getPiece(i, j).getColor());

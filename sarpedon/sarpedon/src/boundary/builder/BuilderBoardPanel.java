@@ -179,8 +179,8 @@ public class BuilderBoardPanel extends JPanel {
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
-		if(model.getRBoard()!= null){
-			drawReleaseBoard(model.getRBoard().getTileArray(), offScreenGraphics);
+		if(model.getBoard()instanceof ReleaseBoard){
+			drawReleaseBoard((ReleaseTile[][]) model.getBoard().getTileArray(), offScreenGraphics);
 			return;
 		}
 		
@@ -256,15 +256,15 @@ public class BuilderBoardPanel extends JPanel {
 					int y = offset + j*N;
 					g.setColor(Color.white);
 					g.fillRect(x, y, N, N);
-<<<<<<< HEAD
+
 					if(tile.getColor() != null){
 						g.setColor(tile.getColor());
 						if(tile.getNumber() == null || tile.getNumber() == 0){return;}
-=======
-					if(tile.getAWTColor() != null){
-						g.setColor(tile.getAWTColor());
+
+					if(tile.getColor() != null){
+						g.setColor(tile.getColor());
 						if(tile.getNumber() != null && tile.getNumber() != 0){
->>>>>>> branch 'master' of https://dciccarelli@fusion.wpi.edu/git/sarpedon/sarpedon.git
+ 
 						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
 						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
 						}
@@ -278,6 +278,7 @@ public class BuilderBoardPanel extends JPanel {
 					g.drawRect(offset + i*N, offset + j*N, N, N);
 				}
 			}
+		}
 		}
 		//draw the selected piece at the mouse tip
 		Piece selected = model.getBullpen().getSelectedPiece();
@@ -298,7 +299,6 @@ public class BuilderBoardPanel extends JPanel {
 			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
 
 		}
-	}
+		}}
 	
 
-}

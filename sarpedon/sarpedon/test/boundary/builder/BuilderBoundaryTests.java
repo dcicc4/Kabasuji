@@ -2,6 +2,11 @@ package boundary.builder;
 
 import junit.framework.TestCase;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+
 //import java.awt.Color;
 //import java.awt.Font;
 //import java.awt.event.MouseEvent;
@@ -15,6 +20,8 @@ import boundary.builder.*;
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
+import entity.player.ReleaseTile;
+import entity.player.Tile;
 
 
 public class BuilderBoundaryTests extends TestCase {
@@ -37,6 +44,15 @@ public class BuilderBoundaryTests extends TestCase {
 		ReleaseBuilderGui rbg = new ReleaseBuilderGui(model3);
 		rbg.setVisible(true);
 		
-		assertEquals(null,null);
+		/*ReleaseTile t = new ReleaseTile(1, 5, 3, Color.white);
+		Tile tt[][] = {{t},{t,t}};
+		BuilderBoardPanel bbp = new BuilderBoardPanel(null);
+		Graphics offScreenGraphics = null;
+		Graphics g = offScreenGraphics.getGraphics();
+		bbp.drawReleaseBoard(tt, g);*/
+		
+		assertEquals(model.getType(),"Lightning");
+		assertEquals(model2.getType(),"Puzzle");
+		assertEquals(model3.getType(),"Release");
 	}
 }

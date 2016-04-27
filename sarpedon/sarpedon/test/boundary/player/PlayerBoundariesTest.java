@@ -35,6 +35,6 @@ public class PlayerBoundariesTest extends TestCase {
 		LightningLevelGui llg = new LightningLevelGui(ll, g);
 		llg.setVisible(true);
 		
-		assertEquals(null,null);
+		assertEquals(bp.piecesLeft(),0);
 	}
 }

@@ -2,7 +2,10 @@ package entity.player;
 
 import junit.framework.TestCase;
 import java.awt.Color;
-
+/**
+ * Testing for the Piece class
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class PieceTest extends TestCase {
 
 	Piece P3;

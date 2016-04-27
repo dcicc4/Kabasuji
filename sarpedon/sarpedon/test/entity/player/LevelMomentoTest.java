@@ -4,7 +4,10 @@ import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
 import junit.framework.TestCase;
-
+/**
+ * Testing for LevelMomento
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class LevelMomentoTest extends TestCase {
 	BuildableRelease bR = new BuildableRelease();
 	BuildableLightning bL = new BuildableLightning();
@@ -20,8 +23,6 @@ public class LevelMomentoTest extends TestCase {
 		pM = new LevelMomento(bP);
 		
 	}
-
-	
 
 	public void testGetType() {
 		assertTrue(rM.getType().equals("Release"));

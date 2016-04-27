@@ -10,7 +10,10 @@ import entity.player.Piece;
 import entity.player.Square;
 import entity.player.Tile;
 import junit.framework.TestCase;
-
+/**
+ * Testing for BuildableLightning
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class BuildableLightningTest extends TestCase {
 	BuildableLightning bL;
 	protected void setUp() throws Exception {

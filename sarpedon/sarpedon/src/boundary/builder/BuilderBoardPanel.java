@@ -124,10 +124,9 @@ public class BuilderBoardPanel extends JPanel {
 		//draws the board's tiles
 		
 		
-		ReleaseTile[][]rTiles = null;
+		
 		if(model.getBoard() instanceof ReleaseBoard){
-			rTiles = (ReleaseTile[][]) model.getBoard().getTileArray();
-			drawReleaseBoard(rTiles, g);
+			drawReleaseBoard(model.getBoard().getTileArray(), g);
 			return;
 		}
 		else {
@@ -179,8 +178,8 @@ public class BuilderBoardPanel extends JPanel {
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
-		if(b instanceof ReleaseBoard){
-			drawReleaseBoard(((ReleaseBoard)b).getTileArray(), offScreenGraphics);
+		if(model.getBoard() instanceof ReleaseBoard){
+			drawReleaseBoard(model.getBoard().getTileArray(), offScreenGraphics);
 			return;
 		}
 		
@@ -247,10 +246,10 @@ public class BuilderBoardPanel extends JPanel {
 		}
 	}
 	
-	public void drawReleaseBoard(ReleaseTile[][] rTiles, Graphics g){
+	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
-				ReleaseTile tile = rTiles[i][j];
+				ReleaseTile tile = (ReleaseTile)rTiles[i][j];
 				if(tile != null){
 					int x = offset + i*N;
 					int y = offset + j*N;

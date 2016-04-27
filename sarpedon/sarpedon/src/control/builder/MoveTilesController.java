@@ -69,6 +69,9 @@ public class MoveTilesController extends MouseAdapter{
 				if(aT == null){
 					//this is a valid place to put a tile
 					Tile t = new Tile(rowCol.x, rowCol.y);
+					if(model.getBoard() instanceof ReleaseBoard){
+						t = new ReleaseTile(rowCol.x, rowCol.y, null, null);
+					}
 					model.getBoard().setTile(t);
 				}
 				else {

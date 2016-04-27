@@ -32,7 +32,7 @@ public class ReleaseBoard extends Board {
 	}
 	
 	public ReleaseBoard(){
-		this.shape = new ReleaseTile[12][12];
+		this.shape = new Tile[12][12];
 		for(int i=0; i< 12; i++){
 			for(int j =0; j<12;j++){
 				shape[i][j]	= new ReleaseTile(i,j, null, null);
@@ -45,8 +45,8 @@ public class ReleaseBoard extends Board {
 	 * Returns the release tile array, since this is a release board.
 	 */
 	@Override
-	public ReleaseTile[][] getTileArray(){
-		return (ReleaseTile[][]) shape;
+	public Tile[][] getTileArray(){
+		return  shape;
 	}
 	
 	public ReleaseTile getMoving(){
@@ -82,7 +82,4 @@ public class ReleaseBoard extends Board {
 		shape[row][column] = null;
 	}
 	
-	public void setRTile(ReleaseTile t){
-		shape[t.getRow()][t.getColumn()] = t;
-	}
 }

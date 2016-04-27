@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import Main.BuilderApplication;
@@ -13,6 +14,8 @@ import boundary.builder.BuilderBullpenPanel;
 import boundary.builder.BuilderStockPanel;
 import boundary.builder.LevelBuilderGui;
 import boundary.builder.LoadGui;
+import entity.builder.BuildableLightning;
+import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
 import entity.player.Board;
 import entity.player.Bullpen;
@@ -22,6 +25,7 @@ import entity.player.ReleaseLevel;
 import entity.player.SarpedonKabasuji;
 import entity.player.Square;
 import junit.framework.TestCase;
+import control.builder.*;
 
 public class BuilderControlTest extends TestCase {
 	Bullpen bp;
@@ -51,6 +55,22 @@ public class BuilderControlTest extends TestCase {
 	Square s4;
 	Square s5;
 	Square s6;
+	HintController hc;
+	JRadioButton jrb;
+	MoveTilesController mtc;
+	NumberTileController ntc;
+	PlacePieceController ppc;
+	RotateController rc;
+	SaveController sc;
+	SaveLevelController slc;
+	SelectPieceController spc;
+	SplashScreenController scc;
+	SwitchWindowController swc;
+	UndoController uc;
+	UpdateMovesController umc;
+	UpdateTimeController utc;
+	BuildablePuzzle bup;
+	BuildableLightning bl;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
@@ -81,6 +101,22 @@ public class BuilderControlTest extends TestCase {
 		s4 = new Square(0, 3);
 		s5 = new Square(0, 4);
 		p = new Piece(0, s1, s2, s3, s4, s5);
+		jrb = new JRadioButton();
+		hc = new HintController(br, bbop, jrb, null, null);
+		mtc = new MoveTilesController(br, bbop, jrb);
+		ntc = new NumberTileController(jcb, null, br, bbop, jrb);
+		ppc = new PlacePieceController(br, bbop, jrb);
+		rc = new RotateController(bbop, br, true);
+		sc = new SaveController(jtf, br);
+		slc = new SaveLevelController(null, br, lbg);
+		spc = new SelectPieceController(bp, bbop, bbp, jrb);
+		scc = new SplashScreenController(null);
+		swc = new SwitchWindowController(lbg, lg);
+		uc = new UndoController(bbop);
+		bup = new BuildablePuzzle();
+		umc = new UpdateMovesController(jtf, bup, null);
+		bl = new BuildableLightning();
+		utc = new UpdateTimeController(jtf, bl, null);
 	}
 	
 	
@@ -101,9 +137,6 @@ public class BuilderControlTest extends TestCase {
 		bbp.repaint();
 		//bsc.actionPerformed(null);
 	}
-	//public void testSomething() {
-	//	game.main(null);
-	//}
 	public void testBullpenToBoardController() {
 		bbop.repaint();
 		btbp.mouseDragged(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
@@ -115,6 +148,11 @@ public class BuilderControlTest extends TestCase {
 	public void testFlipController() {
 		fc.actionPerformed(new ActionEvent(bbp, 0, null));
 	}
+	public void testHintController() {
+		hc.mousePressed(null);
+		jrb.setSelected(true);
+		hc.mousePressed(null);
+	}
 	public void testLevelNumberController() {
 		lnc.changeLevelNumber(5);
 	}
@@ -122,4 +160,61 @@ public class BuilderControlTest extends TestCase {
 		letec.actionPerformed(null);
 		jtf.setText("Level1");
 	}
+	public void testMoveTilesController() {
+		mtc.mouseClicked(null);
+		mtc.mousePressed(null);
+		mtc.mouseReleased(null);
+		//mtc.mouseDragged(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		mtc.mouseEntered(null);
+		mtc.mouseExited(null);
+	}
+	public void testNumberTileController(){
+		ntc.mouseClicked(null);
+		ntc.mouseEntered(null);
+		ntc.mouseExited(null);
+		ntc.mousePressed(null);
+		ntc.mouseReleased(null);
+	}
+	public void testPlacePieceController() {
+		ppc.mouseClicked(null);
+		ppc.mouseEntered(null);
+		ppc.mouseExited(null);
+		ppc.mousePressed(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		ppc.mouseReleased(null);
+	}
+	public void testRotateController() {
+		rc.actionPerformed(null);
+		rc.rotate(false);
+	}
+	public void testSaveController() {
+		sc.actionPerformed(null);
+	}
+	public void testSaveLevelController() {
+		slc.actionPerformed(null);
+	}
+	public void testSelectPieceController() {
+		spc.mouseClicked(null);
+		spc.mouseDragged(null);
+		spc.mouseEntered(null);
+		spc.mouseExited(null);
+		spc.mouseMoved(null);
+		spc.mousePressed(null);
+		spc.mouseReleased(null);
+	}
+	public void testSplashScreenController() {
+		
+	}
+	public void testSwitchWindowController() {
+		
+	}
+	public void testUndoController() {
+		
+	}
+	public void testUpdateMovesController() {
+		
+	}
+	public void testUpdateTimeController() {
+		
+	}
+	
 }

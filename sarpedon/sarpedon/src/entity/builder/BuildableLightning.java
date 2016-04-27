@@ -45,9 +45,4 @@ Integer timeAllotted;
 		super.restore(m);
 		timeAllotted = m.getTimeAllotted();
 	}
-	@Override
-	public ReleaseBoard getRBoard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

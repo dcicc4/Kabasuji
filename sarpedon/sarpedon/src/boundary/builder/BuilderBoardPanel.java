@@ -124,10 +124,9 @@ public class BuilderBoardPanel extends JPanel {
 		//draws the board's tiles
 		
 		
-		ReleaseTile[][]rTiles = null;
+		
 		if(model.getBoard() instanceof ReleaseBoard){
-			rTiles = (ReleaseTile[][]) model.getBoard().getTileArray();
-			drawReleaseBoard(rTiles, g);
+			drawReleaseBoard(model.getBoard().getTileArray(), g);
 			return;
 		}
 		else {
@@ -175,7 +174,7 @@ public class BuilderBoardPanel extends JPanel {
 		Dimension dim = getPreferredSize();
 		offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
 
-		//Board b = model.getBoard();
+		Board b = model.getBoard();
 		offScreenGraphics.setColor(Color.WHITE);
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
@@ -247,10 +246,10 @@ public class BuilderBoardPanel extends JPanel {
 		}
 	}
 	
-	public void drawReleaseBoard(ReleaseTile[][] rTiles, Graphics g){
+	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
-				ReleaseTile tile = rTiles[i][j];
+				ReleaseTile tile = (ReleaseTile)rTiles[i][j];
 				if(tile != null){
 					int x = offset + i*N;
 					int y = offset + j*N;
@@ -261,14 +260,9 @@ public class BuilderBoardPanel extends JPanel {
 						g.setColor(tile.getColor());
 						if(tile.getNumber() == null || tile.getNumber() == 0){return;}
 
-					if(tile.getColor() != null){
-						g.setColor(tile.getColor());
-						if(tile.getNumber() != null && tile.getNumber() != 0){
- 
 						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
 						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
 						}
-					}
 					if(model.getBoard().getPiece(i, j)!= null){
 						g.setColor(model.getBoard().getPiece(i, j).getColor());
 						g.fillRect(x, y, N, N);		
@@ -279,7 +273,7 @@ public class BuilderBoardPanel extends JPanel {
 				}
 			}
 		}
-		}
+		
 		//draw the selected piece at the mouse tip
 		Piece selected = model.getBullpen().getSelectedPiece();
 		if (selected != null){
@@ -299,6 +293,7 @@ public class BuilderBoardPanel extends JPanel {
 			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
 
 		}
-		}}
+	}
 	
 
+}

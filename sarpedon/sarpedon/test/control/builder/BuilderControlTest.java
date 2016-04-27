@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -64,16 +65,18 @@ public class BuilderControlTest extends TestCase {
 	SaveController sc;
 	SaveLevelController slc;
 	SelectPieceController spc;
-	SplashScreenController scc;
+	SplashScreenController ssc;
 	SwitchWindowController swc;
 	UndoController uc;
 	UpdateMovesController umc;
 	UpdateTimeController utc;
 	BuildablePuzzle bup;
 	BuildableLightning bl;
+	JLabel jl;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
+		jl = new JLabel();
 		bp = new Bullpen();
 		bsp = new BuilderStockPanel();
 		bbp = new BuilderBullpenPanel(bp);
@@ -108,15 +111,16 @@ public class BuilderControlTest extends TestCase {
 		ppc = new PlacePieceController(br, bbop, jrb);
 		rc = new RotateController(bbop, br, true);
 		sc = new SaveController(jtf, br);
-		slc = new SaveLevelController(null, br, lbg);
+		slc = new SaveLevelController(jl, br, lbg);
 		spc = new SelectPieceController(bp, bbop, bbp, jrb);
-		scc = new SplashScreenController(null);
+		ssc = new SplashScreenController(null);
 		swc = new SwitchWindowController(lbg, lg);
 		uc = new UndoController(bbop);
 		bup = new BuildablePuzzle();
-		umc = new UpdateMovesController(jtf, bup, null);
+		umc = new UpdateMovesController(jtf, bup, jl);
 		bl = new BuildableLightning();
-		utc = new UpdateTimeController(jtf, bl, null);
+		utc = new UpdateTimeController(jtf, bl, jl);
+		
 	}
 	
 	
@@ -167,6 +171,19 @@ public class BuilderControlTest extends TestCase {
 		//mtc.mouseDragged(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
 		mtc.mouseEntered(null);
 		mtc.mouseExited(null);
+		mtc.mousePressed(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		jrb.setSelected(false);
+		b.setMovingTile(false);
+		mtc.mouseReleased(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		jrb.setSelected(true);
+		mtc.mouseReleased(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		b.setMovingTile(true);
+		jrb.setSelected(false);
+		mtc.mouseReleased(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		jrb.setSelected(true);
+		mtc.mouseReleased(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		mtc.mousePressed(new MouseEvent(bbop, 0, 0, 0, 0, 0, 0, false));
+		
 	}
 	public void testNumberTileController(){
 		ntc.mouseClicked(null);
@@ -187,7 +204,7 @@ public class BuilderControlTest extends TestCase {
 		rc.rotate(false);
 	}
 	public void testSaveController() {
-		sc.actionPerformed(null);
+		//sc.actionPerformed(null);
 	}
 	public void testSaveLevelController() {
 		slc.actionPerformed(null);
@@ -202,19 +219,33 @@ public class BuilderControlTest extends TestCase {
 		spc.mouseReleased(null);
 	}
 	public void testSplashScreenController() {
-		
+		ssc.actionPerformed(null);
+		ssc.newLightningLevel();
+		ssc.newPuzzleLevel();
+		ssc.newReleaseLevel();
+		ssc.editExistingLevel();
 	}
 	public void testSwitchWindowController() {
-		
+		swc.actionPerformed(null);
 	}
 	public void testUndoController() {
-		
+		uc.actionPerformed(null);
+		uc.addMove(null);
+		uc.undoMove();
 	}
 	public void testUpdateMovesController() {
-		
+		jtf.setText("1");
+		umc.actionPerformed(null);
+		jtf.setText("kek");
+		umc.actionPerformed(null);
 	}
 	public void testUpdateTimeController() {
-		
+		jtf.setText("2");
+		utc.actionPerformed(null);
+		jtf.setText("0");
+		utc.actionPerformed(null);
+		jtf.setText("kek");
+		utc.actionPerformed(null);
 	}
 	
 }

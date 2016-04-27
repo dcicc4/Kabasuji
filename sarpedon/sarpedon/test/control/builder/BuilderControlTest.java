@@ -5,11 +5,13 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 import Main.BuilderApplication;
 import boundary.builder.BuilderBoardPanel;
 import boundary.builder.BuilderBullpenPanel;
 import boundary.builder.BuilderStockPanel;
+import boundary.builder.LoadGui;
 import entity.builder.BuildableRelease;
 import entity.player.Board;
 import entity.player.Bullpen;
@@ -32,6 +34,9 @@ public class BuilderControlTest extends TestCase {
 	FlipController fc = new FlipController(bbop, br, false);
 	BuilderApplication ba = new BuilderApplication();
 	SarpedonKabasuji sk = new SarpedonKabasuji();
+	JTextField jtf = new JTextField();
+	LoadGui lg = new LoadGui();
+	LoadExistingToEditController letec = new LoadExistingToEditController(jtf, lg);
 	
 	//LevelNumberController lnc = new LevelNumberController(br, sk);
 	
@@ -68,4 +73,8 @@ public class BuilderControlTest extends TestCase {
 	//public void testLevelNumberController() {
 	//	lnc.changeLevelNumber(5);
 	//}
+	public void testLoadExistingToEditController() {
+		letec.actionPerformed(null);
+		jtf.setText("Level1");
+	}
 }

@@ -179,7 +179,7 @@ public class BuilderBoardPanel extends JPanel {
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
 		if(model.getBoard()instanceof ReleaseBoard){
-			drawReleaseBoard((ReleaseTile[][]) model.getBoard().getTileArray(), offScreenGraphics);
+			drawReleaseBoard(model.getBoard().getTileArray(), offScreenGraphics);
 			return;
 		}
 		

@@ -1,8 +1,38 @@
-Run in the main package BuilderApplication for the Builder or PlayerApplication for the game itself
+in the main package, run BuilderApplication for the Builder or PlayerApplication for the game itself
 
+-------------------------
 BUILDER CONCRETE SCENARIO:
 
 Note: levels must be named "LevelX" where X is the number level it will be saved as.
 
 To verify there are no existing levels, try to Load a level named "Level1" or "Level2".
+If there are, you will be editing them, if there aren't, the TextField will update.
+
+If you verified there aren't any levels, click the return to menu button and select "Puzzle Builder" button and begin building.
+
+To get a 6 by 6 square, set board size to 6 (board size is in max number of pieces that will fit on the board).
+Then select the move tile radio button.
+one by one, move tiles so that a six by six board is present.
+to set the number of moves to ten, enter the digits "10" into the number of moves text box, being sure to press enter.
+to add 6 copies of the 6x1 piece, click on the 6x1 pieces picture in the stock panel six times.
+to select the piece and add it to the board, click the move piece radio button, then select the piece you want to move.
+click in the board panel to place it.
+put the piece back in the bullpen by selecting the piece on the board then clicking in the bullpen.
+Save the level as "Level1".
+
+Rerun application and select "Edit Existing Level" Button.
+Type "Level1" as the level you want to load.
+the gui will show up, and enter "8" into the number of moves box. Press enter. Save again as "Level1".
+
+Rerun Application and select "Lightning Builder" button to build a lightning level.
+Select the pieces that you want in the bullpen by clicking on them in the stock panel.
+set the time to 30 by typing "30" into the text box, being sure to press enter.
+Save the level as "Level2"
+-------------------------
+PLAYER CONCRETE SCENARIO:
+
+Run PlayerApplication. If there are levels that are not saved, the console will tell you which ones.
+Select Level Select(or New Game which will start you at the Beginning, which is only notable if you had made some progress.)
+Level 1 is available for play. Click the button to play it.
+
 

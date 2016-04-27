@@ -206,7 +206,7 @@ public class ReleaseBuilderGui extends JFrame {
 		boardView.addMouseMotionListener(movePiece);
 		PlacePieceController place = new PlacePieceController(model, boardView, movePiecesRadio);
 		boardView.addMouseListener(place);
-		MoveReleaseTileController mtc = new MoveReleaseTileController(model, boardView, moveTilesRadio);
+		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
 		boardView.addMouseListener(mtc);
 		boardView.addMouseMotionListener(mtc);
 		NumberTileController numTiles = new NumberTileController(numberCombo, colorCombo, model, boardView, rdbtnNumberTile);

@@ -18,7 +18,7 @@ public class Board implements Serializable{
 	 * non playable locations on the board are marked with null */
 	Tile[][] shape; 
 	/** a mapping of pieces to uuid's stored in tiles */
-	HashMap <UUID, Piece> pieces; 
+	protected HashMap <UUID, Piece> pieces; 
 	
 	 boolean movingTile = false;
 	/** default constructor
@@ -131,12 +131,12 @@ public class Board implements Serializable{
 	 * @param p the prospective Piece for that location
 	 * @return boolean representing whether the move was successful
 	 */
-	boolean piecePlaceable(Integer row, Integer col, Piece p){
+	protected boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
 		//if (availableTile(row, col)){
-			for (Square s : p.dependent){
-				int dcol = col + s.yFromAnchor;
-				int drow = row + s.xFromAnchor;
+			for (Square s : p.getDependent()){
+				int dcol = col + s.getyFromAnchor();
+				int drow = row + s.getxFromAnchor();
 				if (!availableTile(drow, dcol)){
 					placeable = false;
 				}
@@ -164,9 +164,9 @@ public class Board implements Serializable{
 			Tile t = shape[row][col];
 			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
 			//not needed becaause after some rotations the anchor is not necessarily under the mouse.
-			for (Square s : p.dependent){ // mark the rest 
-				int dcol = col + s.yFromAnchor;
-				int drow = row + s.xFromAnchor;
+			for (Square s : p.getDependent()){ // mark the rest 
+				int dcol = col + s.getyFromAnchor();
+				int drow = row + s.getxFromAnchor();
 				t = shape[drow][dcol];
 				t.setCoveredBy(pUUID);
 				}

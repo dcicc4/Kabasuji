@@ -11,7 +11,7 @@ public class ReleaseBoard extends Board {
 	 * 
 	 */
 	private static final long serialVersionUID = 9055398407614672409L;
-	ReleaseTile[][] shape; 
+	protected ReleaseTile[][] shape; 
 	/**
 	 * Constructor for the Release Board
 	 * @param s a two dimensional array of ReleaseTiles

@@ -57,7 +57,7 @@ public class ReleaseLevel extends Level {
 		return super.getCompleted() || bullpen.getPieces().isEmpty();
 	}
 	public void restore(LevelMomento m){
-		board = m.board;
+		board = (ReleaseBoard)m.board;
 		bullpen = m.bullpen;
 		stars = m.stars;
 		hints = m.hints;

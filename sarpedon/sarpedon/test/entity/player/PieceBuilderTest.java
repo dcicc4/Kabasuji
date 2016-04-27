@@ -61,8 +61,8 @@ public class PieceBuilderTest extends TestCase {
 		
 		Piece testPiece = pB.getPiece(17);
 		for(int i= 0; i<=5; i++){
-			assertTrue(pB.P17.dependent[i].xFromAnchor == testPiece.dependent[i].xFromAnchor);
-			assertTrue(pB.P17.dependent[i].yFromAnchor == testPiece.dependent[i].yFromAnchor);
+			assertTrue(pB.P17.getDependent()[i].getxFromAnchor() == testPiece.getDependent()[i].getxFromAnchor());
+			assertTrue(pB.P17.getDependent()[i].getyFromAnchor() == testPiece.getDependent()[i].getyFromAnchor());
 		}
 	}
 

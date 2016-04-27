@@ -122,15 +122,16 @@ public class BuilderBoardPanel extends JPanel {
 		g.setColor(new Color(240, 240, 240));
 		g.fillRect(0,0,16*N,16*N);
 		//draws the board's tiles
-		Tile[][] tiles = model.getBoard().getTileArray();
+		
 		
 		ReleaseTile[][]rTiles = null;
-		if(model.getRBoard() != null){
-			rTiles = model.getRBoard().getTileArray();
+		if(model.getBoard() instanceof ReleaseBoard){
+			rTiles = (ReleaseTile[][]) model.getBoard().getTileArray();
 			drawReleaseBoard(rTiles, g);
 			return;
 		}
-		
+		else {
+		Tile[][] tiles = model.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				Tile tile = tiles[i][j];
@@ -167,6 +168,7 @@ public class BuilderBoardPanel extends JPanel {
 			g.setColor(Color.BLACK);
 			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
 		}
+	}
 	}
 	public void redraw() {
 

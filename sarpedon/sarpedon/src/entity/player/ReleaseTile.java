@@ -1,5 +1,6 @@
 package entity.player;
 
+import java.awt.Color;
 import java.util.UUID;
 
 
@@ -16,9 +17,6 @@ public class ReleaseTile extends Tile {
 	private static final long serialVersionUID = 3044815580057386645L;
 	/** the number associated with the instance of the Release Tile, or null if it has no number */
 	Integer rnumber;
-	public enum Color {
-		BLUE, GREEN, RED, NONE
-	}
 	
 	public UUID getCoveredBy(){
 		return this.coveredBy;
@@ -53,7 +51,7 @@ public class ReleaseTile extends Tile {
 			rcolor = Color.BLUE;
 		}
 		else{
-			rcolor = Color.NONE;
+			rcolor = null;
 		}
 	}
 	/** Constructor with UUID provided 
@@ -78,37 +76,36 @@ public class ReleaseTile extends Tile {
 		rnumber = rnum;
 		rcolor = rcolr;
 	}
-
-	/** Provides a string representation of the Color */
-	public String getColorString(){
-		switch(this.rcolor){
-		case BLUE:
-			return "BLUE"; 
-		case GREEN:
-			return "GREEN"; 
-		case RED:
-			return "RED"; 
-		case NONE:
-			return "NONE";
-		default:
-			throw new RuntimeException("entity.player::ReleaseTile: Unexpected Color");
-		}
-	}
-	
-	/** Provides a AWT color for drawing*/
-	public java.awt.Color getAWTColor(){
-		String color = this.getColorString();
-		if(color.equals("RED")){
-			return new java.awt.Color(255,0,0);
-		}
-		if(color.equals("BLUE")){
-			return new java.awt.Color(0,0,255);
-		}
-		if(color.equals("GREEN")){
-			return new java.awt.Color(255,0,255);
-		}
-		else{
-			return null;
-		}
-	}
+//	/** Provides a string representation of the Color */
+//	public String getColorString(){
+//		switch(this.rcolor){
+//		case BLUE:
+//			return "BLUE"; 
+//		case GREEN:
+//			return "GREEN"; 
+//		case RED:
+//			return "RED"; 
+//		case NONE:
+//			return "NONE";
+//		default:
+//			throw new RuntimeException("entity.player::ReleaseTile: Unexpected Color");
+//		}
+//	}
+//	
+//	/** Provides a AWT color for drawing*/
+//	public java.awt.Color getAWTColor(){
+//		String color = getColorString();
+//		if(color.equals("RED")){
+//			return new java.awt.Color(255,0,0);
+//		}
+//		if(color.equals("BLUE")){
+//			return new java.awt.Color(0,0,255);
+//		}
+//		if(color.equals("GREEN")){
+//			return new java.awt.Color(255,0,255);
+//		}
+//		else{
+//			return null;
+//		}
+//	}
 }

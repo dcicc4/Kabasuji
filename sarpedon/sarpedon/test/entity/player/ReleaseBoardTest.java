@@ -23,13 +23,13 @@ public class ReleaseBoardTest extends TestCase {
 		shapeFull = new ReleaseTile[12][12];
 		for(int i=0; i< 12; i++){
 			for(int j =0; j<12;j++){
-				shapeFull[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
+				shapeFull[i][j]	= new ReleaseTile(i,j, null, null);
 			}
 		}
 		bigShape = new ReleaseTile[13][13];
 		for(int i=0; i< 12; i++){
 			for(int j =0; j<12;j++){
-				shapeFull[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
+				shapeFull[i][j]	= new ReleaseTile(i,j, null, null);
 			}
 		}
 		minShape = new ReleaseTile[0][0];
@@ -52,7 +52,7 @@ public class ReleaseBoardTest extends TestCase {
 		assertTrue(rb.movingTile == false);
 		assertTrue(rb.pieces.isEmpty());
 		assertTrue(rb.shape == shapeFull);
-		assertTrue(rb.shape[0][0].rcolor==ReleaseTile.Color.NONE);
+		assertTrue(rb.shape[0][0].rcolor==null);
 		assertTrue(rb.shape[0][0].rnumber== null);
 		
 		Board bigBoard;

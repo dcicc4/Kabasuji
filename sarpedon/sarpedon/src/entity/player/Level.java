@@ -2,6 +2,8 @@ package entity.player;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import entity.builder.BuildableReleaseBoard;
 /**
  *  A Level contains the objects necessary to play a round in the game
  * @Tesia Shizume (ttshiz@wpi.edu)
@@ -48,7 +50,7 @@ abstract public class Level implements Serializable {
 		if (t.equals("Lightning")){
 			board = new LightningBoard();
 		} else if (t.equals("Release")){
-			board = new ReleaseBoard();
+			board = new BuildableReleaseBoard();
 		} else {
 			board = new Board();
 		}

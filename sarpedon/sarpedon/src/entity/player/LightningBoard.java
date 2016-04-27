@@ -42,8 +42,7 @@ public class LightningBoard extends Board {
 	}
 	
 	@Override
-	protected
-	boolean piecePlaceable(Integer row, Integer col, Piece p){
+	protected boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
 		//if (availableTile(row, col)){
 			for (Square s : p.getDependent()){

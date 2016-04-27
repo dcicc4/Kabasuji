@@ -36,11 +36,91 @@ public class PieceTest extends TestCase {
 	}
 
 	public void testShiftDown() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.shiftDown(5);
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == -4);
+		assertTrue(P3.dependent[1].yFromAnchor == -3);
+		assertTrue(P3.dependent[2].yFromAnchor == -2);
+		assertTrue(P3.dependent[3].yFromAnchor == -1);
+		assertTrue(P3.dependent[4].yFromAnchor == -2);
+		assertTrue(P3.dependent[5].yFromAnchor == -5);
 	}
 
 	public void testCenterPiece() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.centerPiece();
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.shiftDown(5);
+		P3.centerPiece();
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		Piece T3 = new Piece(3,  new Square(4, 1), new Square(4, 2), new Square(4, 3), new Square(4, 4), new Square(3, 3) );
+		T3.centerPiece();
+		assertTrue(T3.dependent[0].xFromAnchor == 2);
+		assertTrue(T3.dependent[1].xFromAnchor == 2);
+		assertTrue(T3.dependent[2].xFromAnchor == 2);
+		assertTrue(T3.dependent[3].xFromAnchor == 2);
+		assertTrue(T3.dependent[4].xFromAnchor == 1);
+		assertTrue(T3.dependent[5].xFromAnchor == -2);
+		assertTrue(T3.dependent[0].yFromAnchor == 1);
+		assertTrue(T3.dependent[1].yFromAnchor == 2);
+		assertTrue(T3.dependent[2].yFromAnchor == 3);
+		assertTrue(T3.dependent[3].yFromAnchor == 4);
+		assertTrue(T3.dependent[4].yFromAnchor == 3);
+		assertTrue(T3.dependent[5].yFromAnchor == 0);
 	}
 
 	public void testGetDependant() {
@@ -106,27 +186,144 @@ public class PieceTest extends TestCase {
 	}
 
 	public void testRotateClockwise() {
-		//assertTrue(P3.dependent[])
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.rotateClockwise();
+		assertTrue(P3.dependent[0].xFromAnchor == -1);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 1);
+		
+		assertTrue(P3.dependent[3].xFromAnchor == 2);
+		assertTrue(P3.dependent[4].xFromAnchor == 1);
+		assertTrue(P3.dependent[5].xFromAnchor == -2);
+		assertTrue(P3.dependent[0].yFromAnchor == 0);
+		assertTrue(P3.dependent[1].yFromAnchor == 0);
+		assertTrue(P3.dependent[2].yFromAnchor == 0);
+		assertTrue(P3.dependent[3].yFromAnchor == 0);
+		assertTrue(P3.dependent[4].yFromAnchor == 1);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
 	}
 
 	public void testRotateCounterClockwise() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.rotateCounterClockwise();
+		assertTrue(P3.dependent[0].xFromAnchor == 1);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == -1);
+		
+		assertTrue(P3.dependent[3].xFromAnchor == -2);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 2);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 1);
+		assertTrue(P3.dependent[2].yFromAnchor == 1);
+		assertTrue(P3.dependent[3].yFromAnchor == 1);
+		assertTrue(P3.dependent[4].yFromAnchor == 0);
+		assertTrue(P3.dependent[5].yFromAnchor == 1);
 	}
 
 	public void testFlipHorizontal() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.flipHorizontal();
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == 1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
 	}
 
 	public void testFlipVertical() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 1);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 3);
+		assertTrue(P3.dependent[3].yFromAnchor == 4);
+		assertTrue(P3.dependent[4].yFromAnchor == 3);
+		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		
+		P3.flipVertical();
+		assertTrue(P3.dependent[0].xFromAnchor == 0);
+		assertTrue(P3.dependent[1].xFromAnchor == 0);
+		assertTrue(P3.dependent[2].xFromAnchor == 0);
+		assertTrue(P3.dependent[3].xFromAnchor == 0);
+		assertTrue(P3.dependent[4].xFromAnchor == -1);
+		assertTrue(P3.dependent[5].xFromAnchor == 0);
+		assertTrue(P3.dependent[0].yFromAnchor == 3);
+		assertTrue(P3.dependent[1].yFromAnchor == 2);
+		assertTrue(P3.dependent[2].yFromAnchor == 1);
+		assertTrue(P3.dependent[3].yFromAnchor == 0);
+		assertTrue(P3.dependent[4].yFromAnchor == 1);
+		assertTrue(P3.dependent[5].yFromAnchor == 4);
 	}
 
-	public void testFits() {
-		fail("Not yet implemented"); // TODO
-	}
+//	public void testFits() {
+//		Tile t1 = new Tile(0,1);
+//		Tile t2 = new Tile(0,2);
+//		Tile t3 = new Tile(0,3);
+//		Tile t4 = new Tile(0,4);
+//		Tile t5 = new Tile(-1,3);
+//		Tile t6 = new Tile(0,0);
+//		Tile[] testTiles = {t1,t2,t3,t4,t5,t6};
+//		assertTrue(P3.fits(testTiles));
+//	}
 
 	public void testTileFit() {
-		fail("Not yet implemented"); // TODO
+		Tile t1 = new Tile(0,0);
+		Tile t2 = new Tile(3,4);
+		
+		Square s1 = new Square(0,0);
+		Square s2 = new Square(0,4);
+		
+		assertTrue(P3.tileFit(t1,s1));
+		assertFalse(P3.tileFit(t2, s1));
+		assertFalse(P3.tileFit(t1, s2));
 	}
 
 }

@@ -1,6 +1,8 @@
 package entity.player;
 
+import java.util.ArrayList;
 import java.util.UUID;
+import java.awt.Color;
 
 import junit.framework.TestCase;
 /**
@@ -18,8 +20,8 @@ public class ReleaseTileTest extends TestCase {
 	/** creates Tiles for testing */
 	protected void setUp() throws Exception {
 		testUUIDa = UUID.randomUUID();
-		testTileOrigin = new ReleaseTile(0,0,1, ReleaseTile.Color.BLUE);
-    	testTile11n9UUID = new ReleaseTile(11,9,testUUIDa, 3, ReleaseTile.Color.RED);
+		testTileOrigin = new ReleaseTile(0,0,1, Color.BLUE);
+    	testTile11n9UUID = new ReleaseTile(11,9,testUUIDa, 3, Color.RED);
     }
 	
 	public void testGetNumber() {
@@ -33,11 +35,15 @@ public class ReleaseTileTest extends TestCase {
 	}
 
 	public void testReleaseTile() {
+		ArrayList<Color> colorArray = new ArrayList<Color>();
+		colorArray.add(Color.BLUE);
+		colorArray.add(Color.RED);
+		colorArray.add(Color.GREEN);
 		UUID testUUID;
 		for (int i = 0; i <= 11; i++){
 			for (int j = 0; j <= 11; j++){
 				for (int k = 1; k <=6; k++){
-					for(ReleaseTile.Color c: ReleaseTile.Color.values()){
+					for(Color c: colorArray){
 						testUUID = UUID.randomUUID();
 						ReleaseTile testTile = new ReleaseTile(i,j, testUUID, k, c);
 						assertTrue(testTile.col == j);
@@ -51,15 +57,15 @@ public class ReleaseTileTest extends TestCase {
 		}
 	}
 	
-	public void testGetColorString(){
-		assertTrue("BLUE".compareTo(testTileOrigin.getColorString())==0);
-		assertTrue("RED".compareTo(testTile11n9UUID.getColorString())==0);
-		
-		ReleaseTile testTile = new ReleaseTile(6,6,3,ReleaseTile.Color.GREEN);
-		assertTrue("GREEN".compareTo(testTile.getColorString())==0);
-		
-		ReleaseTile testTile2 = new ReleaseTile(6,6,3,ReleaseTile.Color.NONE);
-		assertTrue("NONE".compareTo(testTile2.getColorString())==0);
-	}
+//	public void testGetColorString(){
+//		assertTrue("BLUE".compareTo(testTileOrigin.getColorString())==0);
+//		assertTrue("RED".compareTo(testTile11n9UUID.getColorString())==0);
+//		
+//		ReleaseTile testTile = new ReleaseTile(6,6,3,ReleaseTile.Color.GREEN);
+//		assertTrue("GREEN".compareTo(testTile.getColorString())==0);
+//		
+//		ReleaseTile testTile2 = new ReleaseTile(6,6,3,ReleaseTile.Color.NONE);
+//		assertTrue("NONE".compareTo(testTile2.getColorString())==0);
+//	}
 
 }

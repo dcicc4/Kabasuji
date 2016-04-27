@@ -32,7 +32,7 @@ public class ReleaseBoard extends Board {
 		shape = new ReleaseTile[12][12];
 		for(int i=0; i< 12; i++){
 			for(int j =0; j<12;j++){
-				shape[i][j]	= new ReleaseTile(i,j, null, ReleaseTile.Color.NONE);
+				shape[i][j]	= new ReleaseTile(i,j, null, null);
 			}
 		}
 		pieces = new HashMap<UUID, Piece>();

@@ -177,7 +177,6 @@ public class PuzzleLevelTest extends TestCase {
 	}
 	
 	public void testGetStars() {
-		System.out.println(pL.getStars());
 		assertTrue(pL.getStars()==3);
 		assertTrue(testPL.getStars() == 0);
 	}

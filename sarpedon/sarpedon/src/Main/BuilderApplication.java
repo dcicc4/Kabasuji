@@ -29,7 +29,7 @@ public class BuilderApplication{
 	
 	
 	public BuilderApplication(){
-		initializeControllers();
+		//initializeControllers();
 	}
 	
 	void initializeControllers(){

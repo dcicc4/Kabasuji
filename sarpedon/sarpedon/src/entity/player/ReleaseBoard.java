@@ -11,11 +11,9 @@ public class ReleaseBoard extends Board {
 	 * 
 	 */
 	private static final long serialVersionUID = 9055398407614672409L;
-<<<<<<< HEAD
-=======
+
 	protected ReleaseTile[][] shape; 
 	ReleaseTile movingTile = null;
->>>>>>> branch 'master' of https://dciccarelli@fusion.wpi.edu/git/sarpedon/sarpedon.git
 	
 	/**
 	 * Constructor for the Release Board

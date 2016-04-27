@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.builder.LoadExistingToEditController;
+import control.builder.SwitchWindowController;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -18,29 +19,15 @@ public class LoadGui extends JFrame {
 	private JTextField textField;
 	
 	JButton btnLoad;
+	private JButton btnNewButton;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoadGui frame = new LoadGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public LoadGui() {
+	public LoadGui(LevelBuilderGui l) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 100);
+		setBounds(100, 100, 450, 150);
 		setTitle("Enter the Name of the Level You Want to Load");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,6 +43,13 @@ public class LoadGui extends JFrame {
 		btnLoad.setBounds(283, 11, 127, 41);
 		contentPane.add(btnLoad);
 		
+
+		
+		btnNewButton = new JButton("Return to Menu");
+		btnNewButton.setBounds(126, 63, 137, 37);
+		contentPane.add(btnNewButton);
+		
 		btnLoad.addActionListener(new LoadExistingToEditController(textField, this));
+		btnNewButton.addActionListener(new SwitchWindowController(this, l));
 	}
 }

@@ -5,6 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.builder.SwitchWindowController;
+import entity.builder.BuildableLightning;
+import entity.builder.BuildablePuzzle;
+import entity.builder.BuildableRelease;
+
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -95,6 +101,12 @@ public class LevelBuilderGui extends JFrame {
 		btnEditExisting.setBackground(Color.LIGHT_GRAY);
 		btnEditExisting.setBounds(575, 809, 350, 60);
 		contentPane.add(btnEditExisting);
+		
+		getLButton().addActionListener(new SwitchWindowController(this, new LightningBuilderGui(new BuildableLightning())));
+		getPButton().addActionListener(new SwitchWindowController(this, new PuzzleBuilderGui(new BuildablePuzzle())));
+		getRButton().addActionListener(new SwitchWindowController(this, new ReleaseBuilderGui(new BuildableRelease())));
+		getEButton().addActionListener(new SwitchWindowController(this, new LoadGui(this)));
+		
 	}
 	
 	public JButton getLButton(){

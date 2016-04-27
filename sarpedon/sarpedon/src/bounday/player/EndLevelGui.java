@@ -33,13 +33,13 @@ public class EndLevelGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Congratulations! ");
+		JLabel lblNewLabel = new JLabel("Congratulations!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 53));
 		lblNewLabel.setBounds(10, 11, 414, 111);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("You Won!");
+		JLabel lblNewLabel_1 = new JLabel("Level Completed!");
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 19));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(10, 133, 414, 42);

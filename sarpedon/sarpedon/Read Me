@@ -1,2 +1,8 @@
 Run in the main package BuilderApplication for the Builder or PlayerApplication for the game itself
-Click the radio buttons to determine which actions you wish to take in the builder.
+
+BUILDER CONCRETE SCENARIO:
+
+Note: levels must be named "LevelX" where X is the number level it will be saved as.
+
+To verify there are no existing levels, try to Load a level named "Level1" or "Level2".
+

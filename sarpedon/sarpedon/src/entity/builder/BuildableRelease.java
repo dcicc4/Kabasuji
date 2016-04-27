@@ -1,5 +1,7 @@
 package entity.builder;
 
+import java.util.ArrayList;
+
 import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.Level;
@@ -12,18 +14,26 @@ public class BuildableRelease  extends Level implements IBuilderModel{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
+
 PieceBuilder PB = new PieceBuilder();
 	BuildableReleaseBoard rBoard;
 
 
-		public BuildableRelease(){
+	public BuildableRelease(){
 		super("Release");
-		this.type = "Release";
-		rBoard = new BuildableReleaseBoard();
+		board = new BuildableReleaseBoard();
+		bullpen = new Bullpen();
+		stars = 0;
+		
+		type = "Release";
+		number = null;
+		
+		
 	
 		}
 	public Board getBoard(){
-		return rBoard;
+		return board;
 	}
 
 	public Bullpen getBullpen(){
@@ -34,7 +44,7 @@ PieceBuilder PB = new PieceBuilder();
 	}
 
 	public void setBoard(Board b){
-		rBoard = (BuildableReleaseBoard) b;
+		board = (BuildableReleaseBoard) b;
 
 
 	}
@@ -44,8 +54,5 @@ PieceBuilder PB = new PieceBuilder();
 
 		
 	
-	@Override
-	public ReleaseBoard getRBoard() {
-		return rBoard;
-	}
+	
 }

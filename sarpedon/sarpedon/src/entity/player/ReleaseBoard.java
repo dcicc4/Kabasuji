@@ -13,7 +13,6 @@ public class ReleaseBoard extends Board {
 	private static final long serialVersionUID = 9055398407614672409L;
 
 
-	ReleaseTile movingTile = null;
 	
 	/**
 	 * Constructor for the Release Board
@@ -49,16 +48,6 @@ public class ReleaseBoard extends Board {
 		return  shape;
 	}
 	
-	public ReleaseTile getMoving(){
-		return movingTile;
-	}
-	
-	public void setMoving(ReleaseTile r){
-		movingTile = r;
-	}
-	public void removeMoving(){
-		movingTile = null;
-	}
 	/**
 	 * Overrides base removePiece method to always return false
 	 * Pieces are not removable from ReleaseBoards

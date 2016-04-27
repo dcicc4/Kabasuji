@@ -16,13 +16,16 @@ import boundary.builder.BuilderBullpenPanel;
 import boundary.builder.BuilderStockPanel;
 import boundary.builder.LevelBuilderGui;
 import boundary.builder.LoadGui;
+import bounday.player.ReleaseLevelGui;
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
 import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.Level;
+import entity.player.LightningLevel;
 import entity.player.Piece;
+import entity.player.PuzzleLevel;
 import entity.player.ReleaseLevel;
 import entity.player.SarpedonKabasuji;
 import entity.player.Square;
@@ -48,7 +51,9 @@ public class BuilderControlTest extends TestCase {
 	LevelBuilderGui lbg;
 	LoadGui lg;
 	LoadExistingToEditController letec;
-	LevelNumberController lnc;
+	LevelNumberController lnc1;
+	LevelNumberController lnc2;
+	LevelNumberController lnc3;
 	ReleaseLevel rl;
 	Piece p;
 	Square s1;
@@ -75,6 +80,8 @@ public class BuilderControlTest extends TestCase {
 	BuildableLightning bl;
 	JLabel jl;
 	JComboBox<String> jcbs;
+	LightningLevel ll;
+	PuzzleLevel pl;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
@@ -84,6 +91,7 @@ public class BuilderControlTest extends TestCase {
 		bsp = new BuilderStockPanel();
 		bbp = new BuilderBullpenPanel(bp);
 		br = new BuildableRelease();
+		br.setBullpen(bp);
 		aptbc = new AddPieceToBullpenController(bp, bsp, bbp);
 		bbop = new BuilderBoardPanel(br);
 		btsc = new BackToStockController(bp, bsp, bbop);
@@ -92,7 +100,6 @@ public class BuilderControlTest extends TestCase {
 		b = new Board();
 		btbp = new BullpenToBoardController(b, bp, bbop, bbp);
 		fc = new FlipController(bbop, br, false);
-		fc = new FlipController(bbop, br, false);
 		ba = new BuilderApplication();
 		sk = new SarpedonKabasuji();
 		jtf = new JTextField();
@@ -100,7 +107,11 @@ public class BuilderControlTest extends TestCase {
 		lg = new LoadGui(lbg);
 		letec = new LoadExistingToEditController(jtf, lg);
 		rl = new ReleaseLevel();
-		lnc = new LevelNumberController(rl, sk);
+		pl = new PuzzleLevel();
+		ll = new LightningLevel();
+		lnc1 = new LevelNumberController(rl, sk);
+		lnc2 = new LevelNumberController(ll, sk);
+		lnc3 = new LevelNumberController(pl, sk);
 		s1 = new Square(0, 0);
 		s2 = new Square(0, 1);
 		s3 = new Square(0, 2);
@@ -154,6 +165,9 @@ public class BuilderControlTest extends TestCase {
 	}
 	public void testFlipController() {
 		fc.actionPerformed(new ActionEvent(bbp, 0, null));
+		bp.addPiece(p);
+		bp.setSelected(p);
+		//fc.actionPerformed(null);
 	}
 	public void testHintController() {
 		hc.mousePressed(null);
@@ -161,11 +175,19 @@ public class BuilderControlTest extends TestCase {
 		hc.mousePressed(null);
 	}
 	public void testLevelNumberController() {
-		lnc.changeLevelNumber(5);
+		lnc1.changeLevelNumber(5);
+		lnc2.changeLevelNumber(5);
+		lnc3.changeLevelNumber(5);
+		//assertEquals(lnc1.getFrame(), new ReleaseLevelGui((ReleaseLevel)rl, sk));
 	}
 	public void testLoadExistingToEditController() {
 		letec.actionPerformed(null);
 		jtf.setText("Level1");
+		letec.actionPerformed(null);
+		jtf.setText("Level2");
+		letec.actionPerformed(null);
+		jtf.setText("Level3");
+		letec.actionPerformed(null);
 	}
 	public void testMoveTilesController() {
 		mtc.mouseClicked(null);
@@ -213,9 +235,13 @@ public class BuilderControlTest extends TestCase {
 	public void testRotateController() {
 		rc.actionPerformed(null);
 		rc.rotate(false);
+		bp.addPiece(p);
+		bp.setSelected(p);
+		//rc.actionPerformed(null);
+		rc.rotate(true);
 	}
 	public void testSaveController() {
-		//sc.actionPerformed(null);
+		sc.actionPerformed(null);
 	}
 	public void testSaveLevelController() {
 		slc.actionPerformed(null);

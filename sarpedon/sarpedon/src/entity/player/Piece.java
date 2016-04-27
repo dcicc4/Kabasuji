@@ -27,7 +27,7 @@ public class Piece implements Serializable{
 	/** An array of all the squares that make up a piece
 	 * 
 	 */
-	Square[] dependent = new Square[6];
+	 private Square[] dependent = new Square[6];
 	/**
 	 * tells if the pieces is on the board
 	 */
@@ -55,7 +55,7 @@ public class Piece implements Serializable{
 		
 		for (int x = 0; x< sqs.length ; x++)
 		{
-			this.dependent[x] = sqs[x];
+			this.getDependent()[x] = sqs[x];
 		}
 	}
 	/**
@@ -65,7 +65,7 @@ public class Piece implements Serializable{
 	 * @param c
 	 */
 	public Piece(Square[] dep, int num ,Color c){
-		dependent = dep;
+		setDependent(dep);
 		number = num;
 		color = c;
 	}
@@ -76,7 +76,7 @@ public class Piece implements Serializable{
 	public Piece clone(){
 		Square[] dep = new Square[6];
 		for(int i =0; i<6 ;i++){
-			dep[i] = new Square(dependent[i].getX(), dependent[i].getY());
+			dep[i] = new Square(getDependent()[i].getX(), getDependent()[i].getY());
 		}
 		return new Piece(dep, this.number, this.color);
 	}
@@ -87,7 +87,7 @@ public class Piece implements Serializable{
 	 */
 	public void shiftDown(int i){
 		for(int j=0;j<6;j++){
-			dependent[j].setY(dependent[j].getY()-i);
+			getDependent()[j].setY(getDependent()[j].getY()-i);
 		}
 	}
 	/**
@@ -98,8 +98,8 @@ public class Piece implements Serializable{
 		int minX = 0;
 		int maxX = 0;
 		for(int i = 0; i<6; i++){
-			int x = dependent[i].getX();
-			int y = dependent[i].getY();
+			int x = getDependent()[i].getX();
+			int y = getDependent()[i].getY();
 			if(x > maxX){maxX = x;}
 			if(x < minX){minX = x;}
 			if(y < minY){minY = y;}
@@ -112,7 +112,7 @@ public class Piece implements Serializable{
 	
 	private void shiftRight(int i) {
 		for(int j=0;j<6;j++){
-			dependent[j].setX(dependent[j].getX()+i);
+			getDependent()[j].setX(getDependent()[j].getX()+i);
 		}
 		
 	}
@@ -121,7 +121,7 @@ public class Piece implements Serializable{
 	 * @return the squares in the piece
 	 */
 	public Square[] getDependant(){
-		return dependent;
+		return getDependent();
 	}
 	/**
 	 * 
@@ -178,9 +178,9 @@ public class Piece implements Serializable{
  */
 	public void rotateClockwise ()
 	{
-		for(int x = 0; x< dependent.length; x++)
+		for(int x = 0; x< getDependent().length; x++)
 		{
-			dependent[x].rotateClockwise();
+			getDependent()[x].rotateClockwise();
 		 
 		}
 		centerPiece();
@@ -190,9 +190,9 @@ public class Piece implements Serializable{
  */
 	public void rotateCounterClockwise ()
 	{
-		for(int x = 0; x< dependent.length; x++)
+		for(int x = 0; x< getDependent().length; x++)
 		{
-			dependent[x].rotateCounter();
+			getDependent()[x].rotateCounter();
 		 
 		}
 		centerPiece();
@@ -202,9 +202,9 @@ public class Piece implements Serializable{
  */
 	public void flipHorizontal()
 	{
-		for(int x = 0; x< dependent.length; x++)
+		for(int x = 0; x< getDependent().length; x++)
 		{
-			dependent[x].flipHorizontal();
+			getDependent()[x].flipHorizontal();
 		}
 		centerPiece();
 	}
@@ -213,9 +213,9 @@ public class Piece implements Serializable{
  */
 	public void flipVertical()
 	{
-		for(int x = 0; x< dependent.length; x++)
+		for(int x = 0; x< getDependent().length; x++)
 		{
-			dependent[x].flipVertical();
+			getDependent()[x].flipVertical();
 		 
 		}
 		centerPiece();
@@ -227,11 +227,11 @@ public class Piece implements Serializable{
  */
 	boolean fits(Tile[] aTile)
 	{ int match = 0;
-	for (int x = 0; x<  dependent.length; x++)
+	for (int x = 0; x<  getDependent().length; x++)
 	{
 		for(int y = 0; y < aTile.length; y++)
 		{
-			if (tileFit(aTile[y], dependent [x]))
+			if (tileFit(aTile[y], getDependent() [x]))
 			{match ++;
 			y = aTile.length;
 			}
@@ -248,5 +248,11 @@ public class Piece implements Serializable{
 		if (aTile.getColumn() == aSquare.getX()+column && aTile.getRow() == aSquare.getY() + row)
 			return true;
 		return false;
+	}
+	public Square[] getDependent() {
+		return dependent;
+	}
+	public void setDependent(Square[] dependent) {
+		this.dependent = dependent;
 	}
 }

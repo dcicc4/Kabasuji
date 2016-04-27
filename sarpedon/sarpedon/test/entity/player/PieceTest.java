@@ -32,103 +32,103 @@ public class PieceTest extends TestCase {
 		Piece P3 = new Piece(3,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(-1, 3) );
 		Piece P3Clone = P3.clone();
 		for(int i= 0; i<=5; i++){
-			assertTrue(P3.dependent[i].xFromAnchor == P3Clone.dependent[i].xFromAnchor);
-			assertTrue(P3.dependent[i].yFromAnchor == P3Clone.dependent[i].yFromAnchor);
+			assertTrue(P3.getDependent()[i].getxFromAnchor() == P3Clone.getDependent()[i].getxFromAnchor());
+			assertTrue(P3.getDependent()[i].getyFromAnchor() == P3Clone.getDependent()[i].getyFromAnchor());
 		}
 		assertFalse(P3 == P3Clone);
 	}
 
 	public void testShiftDown() {
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.shiftDown(5);
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == -4);
-		assertTrue(P3.dependent[1].yFromAnchor == -3);
-		assertTrue(P3.dependent[2].yFromAnchor == -2);
-		assertTrue(P3.dependent[3].yFromAnchor == -1);
-		assertTrue(P3.dependent[4].yFromAnchor == -2);
-		assertTrue(P3.dependent[5].yFromAnchor == -5);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == -4);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == -3);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == -2);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == -1);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == -2);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == -5);
 	}
 
 	public void testCenterPiece() {
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.centerPiece();
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.shiftDown(5);
 		P3.centerPiece();
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		Piece T3 = new Piece(3,  new Square(4, 1), new Square(4, 2), new Square(4, 3), new Square(4, 4), new Square(3, 3) );
 		T3.centerPiece();
-		assertTrue(T3.dependent[0].xFromAnchor == 2);
-		assertTrue(T3.dependent[1].xFromAnchor == 2);
-		assertTrue(T3.dependent[2].xFromAnchor == 2);
-		assertTrue(T3.dependent[3].xFromAnchor == 2);
-		assertTrue(T3.dependent[4].xFromAnchor == 1);
-		assertTrue(T3.dependent[5].xFromAnchor == -2);
-		assertTrue(T3.dependent[0].yFromAnchor == 1);
-		assertTrue(T3.dependent[1].yFromAnchor == 2);
-		assertTrue(T3.dependent[2].yFromAnchor == 3);
-		assertTrue(T3.dependent[3].yFromAnchor == 4);
-		assertTrue(T3.dependent[4].yFromAnchor == 3);
-		assertTrue(T3.dependent[5].yFromAnchor == 0);
+		assertTrue(T3.getDependent()[0].getxFromAnchor() == 2);
+		assertTrue(T3.getDependent()[1].getxFromAnchor() == 2);
+		assertTrue(T3.getDependent()[2].getxFromAnchor() == 2);
+		assertTrue(T3.getDependent()[3].getxFromAnchor() == 2);
+		assertTrue(T3.getDependent()[4].getxFromAnchor() == 1);
+		assertTrue(T3.getDependent()[5].getxFromAnchor() == -2);
+		assertTrue(T3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(T3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(T3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(T3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(T3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(T3.getDependent()[5].getyFromAnchor() == 0);
 	}
 
 	public void testGetDependant() {
 		Piece P3 = new Piece(3,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(-1, 3) );
-		assertTrue(P3.dependent == P3.getDependant());
+		assertTrue(P3.getDependent() == P3.getDependant());
 	}
 
 	public void testSetColor() {
@@ -189,121 +189,121 @@ public class PieceTest extends TestCase {
 	}
 
 	public void testRotateClockwise() {
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.rotateClockwise();
-		assertTrue(P3.dependent[0].xFromAnchor == -1);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 1);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 1);
 		
-		assertTrue(P3.dependent[3].xFromAnchor == 2);
-		assertTrue(P3.dependent[4].xFromAnchor == 1);
-		assertTrue(P3.dependent[5].xFromAnchor == -2);
-		assertTrue(P3.dependent[0].yFromAnchor == 0);
-		assertTrue(P3.dependent[1].yFromAnchor == 0);
-		assertTrue(P3.dependent[2].yFromAnchor == 0);
-		assertTrue(P3.dependent[3].yFromAnchor == 0);
-		assertTrue(P3.dependent[4].yFromAnchor == 1);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 2);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == 1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == -2);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 	}
 
 	public void testRotateCounterClockwise() {
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.rotateCounterClockwise();
-		assertTrue(P3.dependent[0].xFromAnchor == 1);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == -1);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == -1);
 		
-		assertTrue(P3.dependent[3].xFromAnchor == -2);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 2);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 1);
-		assertTrue(P3.dependent[2].yFromAnchor == 1);
-		assertTrue(P3.dependent[3].yFromAnchor == 1);
-		assertTrue(P3.dependent[4].yFromAnchor == 0);
-		assertTrue(P3.dependent[5].yFromAnchor == 1);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == -2);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 2);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 0);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 1);
 	}
 
 	public void testFlipHorizontal() {
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.flipHorizontal();
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == 1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == 1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 	}
 
 	public void testFlipVertical() {
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 1);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 3);
-		assertTrue(P3.dependent[3].yFromAnchor == 4);
-		assertTrue(P3.dependent[4].yFromAnchor == 3);
-		assertTrue(P3.dependent[5].yFromAnchor == 0);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 4);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 0);
 		
 		P3.flipVertical();
-		assertTrue(P3.dependent[0].xFromAnchor == 0);
-		assertTrue(P3.dependent[1].xFromAnchor == 0);
-		assertTrue(P3.dependent[2].xFromAnchor == 0);
-		assertTrue(P3.dependent[3].xFromAnchor == 0);
-		assertTrue(P3.dependent[4].xFromAnchor == -1);
-		assertTrue(P3.dependent[5].xFromAnchor == 0);
-		assertTrue(P3.dependent[0].yFromAnchor == 3);
-		assertTrue(P3.dependent[1].yFromAnchor == 2);
-		assertTrue(P3.dependent[2].yFromAnchor == 1);
-		assertTrue(P3.dependent[3].yFromAnchor == 0);
-		assertTrue(P3.dependent[4].yFromAnchor == 1);
-		assertTrue(P3.dependent[5].yFromAnchor == 4);
+		assertTrue(P3.getDependent()[0].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[1].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[2].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[3].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getxFromAnchor() == -1);
+		assertTrue(P3.getDependent()[5].getxFromAnchor() == 0);
+		assertTrue(P3.getDependent()[0].getyFromAnchor() == 3);
+		assertTrue(P3.getDependent()[1].getyFromAnchor() == 2);
+		assertTrue(P3.getDependent()[2].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[3].getyFromAnchor() == 0);
+		assertTrue(P3.getDependent()[4].getyFromAnchor() == 1);
+		assertTrue(P3.getDependent()[5].getyFromAnchor() == 4);
 	}
 
 //	public void testFits() {

@@ -13,13 +13,13 @@ public class BuildableRelease  extends Level implements IBuilderModel{
 	private static final long serialVersionUID = 1L;
 
 PieceBuilder PB = new PieceBuilder();
-	ReleaseBoard rBoard;
+	BuildableReleaseBoard rBoard;
 
 
 		public BuildableRelease(){
 		super("Release");
 		this.type = "Release";
-
+		rBoard = new BuildableReleaseBoard();
 	
 		}
 	public Board getBoard(){
@@ -34,7 +34,7 @@ PieceBuilder PB = new PieceBuilder();
 	}
 
 	public void setBoard(Board b){
-		rBoard = (ReleaseBoard) b;
+		rBoard = (BuildableReleaseBoard) b;
 
 
 	}

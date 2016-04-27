@@ -53,7 +53,7 @@ public class Tile implements Serializable {
 	}
 	
 	/** Sets the UUID of the Piece that covers the Tile */
-	void setCoveredBy(UUID i){
+	public void setCoveredBy(UUID i){
 		this.coveredBy = i;	
 	}
 	

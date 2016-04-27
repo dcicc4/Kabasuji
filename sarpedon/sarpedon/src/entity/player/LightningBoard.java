@@ -44,9 +44,9 @@ public class LightningBoard extends Board {
 	boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
 		//if (availableTile(row, col)){
-			for (Square s : p.dependent){
-				int drow = row + s.xFromAnchor;
-				int dcol = col + s.yFromAnchor;
+			for (Square s : p.getDependent()){
+				int drow = row + s.getxFromAnchor();
+				int dcol = col + s.getyFromAnchor();
 				if (!availableTile(drow, dcol)){
 					placeable = false;
 				}
@@ -67,9 +67,9 @@ public class LightningBoard extends Board {
 			}
 			Tile t = shape[row][col];
 			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
-			for (Square s : p.dependent){ // mark the rest 
-				int drow = row + s.xFromAnchor;
-				int dcol = col + s.yFromAnchor;
+			for (Square s : p.getDependent()){ // mark the rest 
+				int drow = row + s.getxFromAnchor();
+				int dcol = col + s.getyFromAnchor();
 				t = shape[drow][dcol];
 				//if (availableTile(drow, dcol)){
 					t.setCoveredBy(pUUID);

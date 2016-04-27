@@ -52,8 +52,8 @@ public class ReleaseBoardTest extends TestCase {
 		assertTrue(rb.movingTile == false);
 		assertTrue(rb.pieces.isEmpty());
 		assertTrue(rb.shape == shapeFull);
-		assertTrue(rb.shape[0][0].rcolor==null);
-		assertTrue(rb.shape[0][0].rnumber== null);
+		assertTrue(((ReleaseTile)rb.shape[0][0]).rcolor==null);
+		assertTrue(((ReleaseTile)rb.shape[0][0]).rnumber== null);
 		
 		Board bigBoard;
 		Board minBoard;

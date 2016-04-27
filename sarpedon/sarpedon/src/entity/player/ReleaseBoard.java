@@ -11,7 +11,7 @@ public class ReleaseBoard extends Board {
 	 * 
 	 */
 	private static final long serialVersionUID = 9055398407614672409L;
-	protected ReleaseTile[][] shape; 
+	
 	/**
 	 * Constructor for the Release Board
 	 * @param s a two dimensional array of ReleaseTiles
@@ -20,7 +20,7 @@ public class ReleaseBoard extends Board {
 		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12
 		if ((s.length <= 12)&&(s.length>=1)){
 			if ((s[0].length <= 12)&&(s[0].length >=1)){
-				shape = s;
+				this.shape = s;
 			}
 		} else {
 			throw new RuntimeException("entity.player::Board: invalid board array");
@@ -29,7 +29,7 @@ public class ReleaseBoard extends Board {
 	}
 	
 	public ReleaseBoard(){
-		shape = new ReleaseTile[12][12];
+		this.shape = new ReleaseTile[12][12];
 		for(int i=0; i< 12; i++){
 			for(int j =0; j<12;j++){
 				shape[i][j]	= new ReleaseTile(i,j, null, null);
@@ -43,7 +43,7 @@ public class ReleaseBoard extends Board {
 	 */
 	@Override
 	public ReleaseTile[][] getTileArray(){
-		return shape;
+		return (ReleaseTile[][]) shape;
 	}
 	/**
 	 * Overrides base removePiece method to always return false

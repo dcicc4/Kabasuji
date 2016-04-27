@@ -29,7 +29,7 @@ public class ReleaseTile extends Tile {
 		rnumber = i;
 	}
 	/** Gets the color assigned to the Tile */
-	Color getColor(){
+	public Color getColor(){
 		return this.rcolor;
 	}
 	public void setColor(String s){

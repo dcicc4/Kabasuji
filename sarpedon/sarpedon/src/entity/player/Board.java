@@ -16,7 +16,7 @@ public class Board implements Serializable{
 	/** an array of tiles or null describing the shape of the board 
 	 * playable locations on the board are represented by a tile 
 	 * non playable locations on the board are marked with null */
-	Tile[][] shape; 
+	protected Tile[][] shape; 
 	/** a mapping of pieces to uuid's stored in tiles */
 	protected HashMap <UUID, Piece> pieces; 
 	
@@ -156,19 +156,20 @@ public class Board implements Serializable{
 	 * @return boolean representing whether the add was successful
 	 */
 	public boolean addPiece(Integer row, Integer col, Piece p){
-		if (piecePlaceable(row, col, p)){
+		if (this.piecePlaceable(row, col, p)){
 			UUID pUUID = UUID.randomUUID(); // generating UUID for hash
-			while (pieces.get(pUUID) != null){ // ensuring a unique UUID
+			while (this.pieces.get(pUUID) != null){ // ensuring a unique UUID
 				pUUID = UUID.randomUUID();
 			}
-			Tile t = shape[row][col];
+			Tile t = this.shape[row][col];
 			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
-			//not needed becaause after some rotations the anchor is not necessarily under the mouse.
+			//not needed because after some rotations the anchor is not necessarily under the mouse.
 			for (Square s : p.getDependent()){ // mark the rest 
 				int dcol = col + s.getyFromAnchor();
 				int drow = row + s.getxFromAnchor();
-				t = shape[drow][dcol];
+				t = this.shape[drow][dcol];
 				t.setCoveredBy(pUUID);
+				Tile dummy = t;
 				}
 			pieces.put(pUUID, p); // put mapping into hashmap
 			return true;

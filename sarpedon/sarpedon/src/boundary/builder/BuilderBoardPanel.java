@@ -251,8 +251,8 @@ public class BuilderBoardPanel extends JPanel {
 					int y = offset + j*N;
 					g.setColor(Color.white);
 					g.fillRect(x, y, N, N);
-					if(tile.getAWTColor() != null){
-						g.setColor(tile.getAWTColor());
+					if(tile.getColor() != null){
+						g.setColor(tile.getColor());
 						if(tile.getNumber() == null || tile.getNumber() == 0){return;}
 						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
 						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);

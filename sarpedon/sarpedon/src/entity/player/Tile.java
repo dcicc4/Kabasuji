@@ -16,7 +16,7 @@ public class Tile implements Serializable {
 	/** the column in where the lower right corner of the tile is */
 	Integer col;
 	/** the unique ID of the piece covering it */
-	UUID coveredBy; 
+	protected UUID coveredBy; 
 	
 	/** Constructor with UUID provided 
 	 * @param rw the row in which the Tile is located

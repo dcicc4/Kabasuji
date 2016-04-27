@@ -1,3 +1,5 @@
+SARPEDON KABASUJI
+
 in the main package, run BuilderApplication for the Builder or PlayerApplication for the game itself
 
 -------------------------
@@ -34,5 +36,13 @@ PLAYER CONCRETE SCENARIO:
 Run PlayerApplication. If there are levels that are not saved, the console will tell you which ones.
 Select Level Select(or New Game which will start you at the Beginning, which is only notable if you had made some progress.)
 Level 1 is available for play. Click the button to play it.
+to move a piece, click on its image in the bullpen, and move mouse over the board panel. Click to place.
+You can also pick up a piece already in the board in a puzzle level by clicking on the piece on the board.
+the level is over if you run out of moves or there are three stars.
+A menu will pop up asking you to go back to the level select screen.
+The stars will be displayed, and the next level will be unlocked if you got any stars on the latest level.
 
-
+Select level two to play.
+Timer will start counting immediately. Placing the pieces on the board is the same, but you can't pick them up.
+If timer runs out, level is over.
+-------------------------

@@ -82,7 +82,7 @@ public class ReleaseBoard extends Board {
 		shape[row][column] = null;
 	}
 	
-	public void setRTile(ReleaseTile t){
+	public void setTile(ReleaseTile t){
 		shape[t.getRow()][t.getColumn()] = t;
 	}
 }

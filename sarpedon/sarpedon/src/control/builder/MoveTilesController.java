@@ -19,7 +19,7 @@ import boundary.builder.BuilderBoardPanel;
  * @author Nathan
  *
  */
-public class MoveTilesController extends MouseAdapter{
+public class MoveTilesController extends MouseAdapter {
 
 	BuilderBoardPanel boardView;
 	IBuilderModel model;
@@ -117,4 +117,7 @@ public class MoveTilesController extends MouseAdapter{
 	public void mouseExited(MouseEvent e) {
 		return;
 	}
+
+
+	
 }

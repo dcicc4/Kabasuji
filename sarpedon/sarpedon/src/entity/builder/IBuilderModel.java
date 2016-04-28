@@ -2,15 +2,15 @@ package entity.builder;
 
 import java.util.ArrayList;
 
+import control.builder.IMove;
 import entity.player.*;
 
 public interface IBuilderModel{
 
 PieceBuilder PB = new PieceBuilder();
 	
-
+public IMove getLastMove();
 	public Board getBoard();
-	
 	public Bullpen getBullpen();
 	public ArrayList<Hint> getHints();
 	public String getType();

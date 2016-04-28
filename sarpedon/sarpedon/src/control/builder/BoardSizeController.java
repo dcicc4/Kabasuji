@@ -10,6 +10,7 @@ import entity.player.*;
 
 import javax.swing.*;
 
+import Moves.SizeMove;
 import boundary.builder.BuilderBoardPanel;
 import boundary.builder.BuilderBullpenPanel;
 /**
@@ -40,7 +41,8 @@ public class BoardSizeController implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent e) {
 		int size = boardSize.getItemAt(boardSize.getSelectedIndex())*6;
-
+		IMove aMove = new SizeMove(model.getBoard().getSize(), model, boardSize);
+		model.addMove(aMove);
 		//get the current tile array of the board
 		Tile[][] boardShape = model.getBoard().getTileArray();
 		int currsize = model.getBoard().getSize();
@@ -67,7 +69,7 @@ public class BoardSizeController implements ActionListener{
 				}
 			}
 		}
-		
+	
 		bullpenView.redraw();
 		bullpenView.repaint();
 		boardView.redraw();

@@ -52,8 +52,8 @@ Integer movesAllotted;
 		{
 			return null;
 		}
-		IMove aMove= MoveList.get(MoveList.size());
-		MoveList.remove(MoveList.size());
+		IMove aMove= MoveList.get(MoveList.size()-1);
+		MoveList.remove(MoveList.size()-1);
 		return aMove;
 	}
 	/**

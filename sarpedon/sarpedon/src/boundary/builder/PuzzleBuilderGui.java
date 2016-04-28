@@ -19,6 +19,7 @@ import control.builder.RotateController;
 import control.builder.SaveLevelController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
+import control.builder.UndoController;
 import control.builder.UpdateMovesController;
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
@@ -263,6 +264,9 @@ public class PuzzleBuilderGui extends JFrame {
 		btnRotateCClockwise.addActionListener(new RotateController(boardView, model, false));
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
+		
+		UndoController uC = new UndoController(this.model, boardView, bullpenView);
+		btnUndo.addActionListener(uC);
 		
 		textField.addActionListener(new UpdateMovesController(textField, model, warningLabel));
 		btnSave.addActionListener(new SaveLevelController(warningLabel, model, this));

@@ -12,6 +12,7 @@ import entity.player.*;
 
 import javax.swing.*;
 
+import Moves.TileMove;
 import boundary.builder.BuilderBoardPanel;
 /**
  * controls the movement of the board tiles from one location to another.
@@ -25,7 +26,7 @@ public class MoveTilesController extends MouseAdapter {
 	IBuilderModel model;
 	JRadioButton moveTiles;
 	Point origin;
-	
+	Tile startTile;
 	public MoveTilesController(IBuilderModel m, BuilderBoardPanel newboard, JRadioButton movingTiles){
 		boardView = newboard;
 		model = m;
@@ -51,6 +52,7 @@ public class MoveTilesController extends MouseAdapter {
 			origin = new Point(t.getRow(), t.getColumn());
 			b.removeTile(t.getRow(),t.getColumn());
 			b.setMovingTile(true);
+			 startTile = t;
 		}
 		
 	}
@@ -79,6 +81,8 @@ public class MoveTilesController extends MouseAdapter {
 				if(aT == null){
 					//this is a valid place to put a tile
 					model.getBoard().setTile(aT);
+					TileMove T = new TileMove(startTile,t,model.getBoard());
+					model.addMove(T);
 				}
 				else {
 					//trying to place a tile on an already existing tile.

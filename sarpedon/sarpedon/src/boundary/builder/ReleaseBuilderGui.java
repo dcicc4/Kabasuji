@@ -201,6 +201,8 @@ public class ReleaseBuilderGui extends JFrame {
 		
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
+		SelectPieceController selectHint = new SelectPieceController(model.getBullpen(), boardView, bullpenView, addHintRadio);
+		bullpenView.addMouseListener(selectHint);
 		
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
@@ -212,8 +214,8 @@ public class ReleaseBuilderGui extends JFrame {
 		NumberTileController numTiles = new NumberTileController(numberCombo, colorCombo, model, boardView, rdbtnNumberTile);
 		boardView.addMouseListener(numTiles);
 		
-		HintController aHint = new HintController(model, boardView, addHintRadio, colorCombo, numberCombo);
-		boardView.addMouseListener(mtc);
+		HintController aHint = new HintController(model, boardView, addHintRadio);
+		boardView.addMouseListener(aHint);
 		
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));

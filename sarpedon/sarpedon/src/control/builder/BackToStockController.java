@@ -33,6 +33,7 @@ public class BackToStockController implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		Piece removing = bullpen.getSelectedPiece();
 		if(removing == null){return;}
+		if(stockPanel.getPieceAtCoordinate(e.getPoint()) != null){return;}
 		bullpen.removeSelected();
 		boardView.redraw();
 		boardView.repaint();

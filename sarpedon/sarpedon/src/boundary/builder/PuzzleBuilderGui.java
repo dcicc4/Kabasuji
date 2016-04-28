@@ -12,6 +12,7 @@ import control.builder.BackToStockController;
 import control.builder.BoardSizeController;
 import control.builder.BullpenToBoardController;
 import control.builder.FlipController;
+import control.builder.HintController;
 import control.builder.MoveTilesController;
 import control.builder.PlacePieceController;
 import control.builder.RotateController;
@@ -243,6 +244,8 @@ public class PuzzleBuilderGui extends JFrame {
 		
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);
 		bullpenView.addMouseListener(spc);
+		SelectPieceController selectHint = new SelectPieceController(model.getBullpen(), boardView, bullpenView, addHintRadio);
+		bullpenView.addMouseListener(selectHint);
 		
 		BullpenToBoardController movePiece = new BullpenToBoardController(model.getBoard(), model.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
@@ -251,6 +254,8 @@ public class PuzzleBuilderGui extends JFrame {
 		MoveTilesController mtc = new MoveTilesController(model, boardView, moveTilesRadio);
 		boardView.addMouseListener(mtc);
 		boardView.addMouseMotionListener(mtc);
+		HintController aHint = new HintController(model, boardView, addHintRadio);
+		boardView.addMouseListener(aHint);
 		
 		btnFlipVert.addActionListener(new FlipController(boardView, model, true));
 		btnFlipHor.addActionListener(new FlipController(boardView, model, false));

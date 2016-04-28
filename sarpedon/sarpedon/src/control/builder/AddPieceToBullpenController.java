@@ -35,7 +35,6 @@ public class AddPieceToBullpenController extends MouseAdapter {
 		}
 		// if this is the selected piece, add it to the bullpen
 		bullpen.addPiece(p);
-		bullpenView.setPieces(bullpen);
 		bullpenView.redraw();
 		bullpenView.repaint();
 	}

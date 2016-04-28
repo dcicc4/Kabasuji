@@ -124,6 +124,11 @@ public class PlayerBoardPanel extends JPanel {
 				}
 			}
 		}
+		//draw the hints
+		for(Hint h: level.getHints()){
+			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+		}
+
 		//draw the selected piece at the mouse tip
 		Piece selected = level.getBullpen().getSelectedPiece();
 		if (selected != null){
@@ -153,12 +158,12 @@ public class PlayerBoardPanel extends JPanel {
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
 		Tile[][] tiles = level.getBoard().getTileArray();
-		
+
 		if(level.getBoard()instanceof ReleaseBoard){
 			drawReleaseBoard(level.getBoard().getTileArray(), offScreenGraphics);
 			return;
 		}
-		
+
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				if(tiles[i][j] != null)
@@ -166,7 +171,7 @@ public class PlayerBoardPanel extends JPanel {
 			}
 		}
 	}
-	
+
 	/**
 	 * Helper method to draw a piece.
 	 * 
@@ -186,7 +191,7 @@ public class PlayerBoardPanel extends JPanel {
 			g.drawRect(point.x+sq.getX()*N, point.y+sq.getY()*N, N, N);
 		}
 	}
-	
+
 	/**
 	 * Returns row and column in point format corresponding to x,y location.
 	 * 
@@ -197,13 +202,13 @@ public class PlayerBoardPanel extends JPanel {
 		int x = (p.x-offset)/N;
 		int y = (p.y-offset)/N;
 		if(x < 12 && y < 12 && x >= 0 && y >= 0){
-		return new Point(x,y);
+			return new Point(x,y);
 		}
 		else{ 
 			return null;
 		}
 	}
-	
+
 	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
@@ -215,11 +220,14 @@ public class PlayerBoardPanel extends JPanel {
 					g.fillRect(x, y, N, N);
 
 					if(tile.getColor() != null){
-						g.setColor(tile.getColor());
+						
 						if(tile.getNumber() != null && tile.getNumber() != 0){
-
-						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
-						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
+							g.setColor(Color.black);
+							g.setFont(new Font("TimesRoman", Font.BOLD, 18));
+							g.drawString(tile.getNumber().toString(), x + N/2-1, y + N/2-1);
+							g.setColor(tile.getColor());
+							g.setFont(new Font("TimesRoman", Font.BOLD, 16));
+							g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
 						}
 					}
 					if(level.getBoard().getPiece(i, j)!= null){
@@ -232,7 +240,10 @@ public class PlayerBoardPanel extends JPanel {
 				}
 			}
 		}
-		
+		//draw the hints
+		for(Hint h: level.getHints()){
+			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+		}
 		//draw the selected piece at the mouse tip
 		Piece selected = level.getBullpen().getSelectedPiece();
 		if (selected != null){

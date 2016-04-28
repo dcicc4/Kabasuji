@@ -57,7 +57,7 @@ public class LightningBuilderGui extends JFrame {
 	JButton btnRotateClockwise;
 	JButton btnRotateCClockwise;
 	
-	JRadioButton addHintRadio;
+	//JRadioButton addHintRadio; no hints in lightning
 	JRadioButton movePiecesRadio;
 	JRadioButton moveTilesRadio;
 	
@@ -126,11 +126,11 @@ public class LightningBuilderGui extends JFrame {
 		btnUndo.setBounds(10, 67, 279, 41);
 		contentPane.add(btnUndo);
 		
-		addHintRadio = new JRadioButton("Add Hint");
-		buttonGroup.add(addHintRadio);
-		addHintRadio.setBackground(Color.WHITE);
-		addHintRadio.setBounds(66, 344, 251, 41);
-		contentPane.add(addHintRadio);
+		//addHintRadio = new JRadioButton("Add Hint");
+		//buttonGroup.add(addHintRadio);
+		//addHintRadio.setBackground(Color.WHITE);
+		//addHintRadio.setBounds(66, 344, 251, 41);
+		//contentPane.add(addHintRadio);
 		
 		movePiecesRadio = new JRadioButton("Move Pieces");
 		movePiecesRadio.setSelected(true);

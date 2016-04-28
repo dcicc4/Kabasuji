@@ -1,7 +1,12 @@
 package entity.player;
+
+import java.awt.Graphics;
+import java.awt.Point;
+
 /**
  * A Hint is a suggested location for a specific Piece
  * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Nathan
  */
 public class Hint {
 	/** The piece who's location is being suggested */
@@ -16,7 +21,7 @@ public class Hint {
 	 * @param rw the row in which the origin of the piece is suggested to be placed
 	 * @param clmn the column in which the origin of the piece is suggested to be placed
 	 */
-	Hint(Piece pc, Integer rw, Integer clmn){
+	public Hint(Piece pc, Integer rw, Integer clmn){
 		piece = pc;
 		row = rw;
 		column = clmn;
@@ -32,6 +37,33 @@ public class Hint {
 	/** Getter for the column location of the hint */
 	public Integer getColumn(){
 		return column;
+	}
+	
+	/** Draws the hint to the given graphics object. */
+	public void drawHint(Graphics g, int tileSize, Point p){
+		for(Square s: piece.getDependant()){
+			g.setColor(piece.getColor());
+			int i = 0;
+			while(p.y + i < p.y + tileSize){
+				g.drawLine(p.x*tileSize + s.getX()*tileSize +tileSize/2 -2, p.y*tileSize + i + s.getY()*tileSize +tileSize/2, 
+						p.x*tileSize + tileSize + s.getX()*tileSize +tileSize/2-2, p.y*tileSize + i + s.getY()*tileSize+tileSize/2);
+				i += 4;
+			}
+		}
+	}
+	/**
+	 * Tells if a this hint covers the tile at the given row, column. 
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	public boolean covers(int row, int column) {
+		for(Square s: piece.getDependant()){
+			if (s.getX() == row || s.getY() == column){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

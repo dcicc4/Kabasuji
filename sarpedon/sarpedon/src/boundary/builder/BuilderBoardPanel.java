@@ -14,6 +14,7 @@ import javax.swing.border.LineBorder;
 
 import entity.builder.IBuilderModel;
 import entity.player.Board;
+import entity.player.Hint;
 import entity.player.Piece;
 import entity.player.ReleaseBoard;
 import entity.player.ReleaseTile;
@@ -149,6 +150,10 @@ public class BuilderBoardPanel extends JPanel {
 				}
 			}
 		}
+		//draw the hints
+				for(Hint h: model.getHints()){
+					h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+				}
 		//draw the selected piece at the mouse tip
 		Piece selected = model.getBullpen().getSelectedPiece();
 		if (selected != null){
@@ -263,8 +268,9 @@ public class BuilderBoardPanel extends JPanel {
 
 					if(tile.getColor() != null){
 						if(tile.getNumber() != null && tile.getNumber() != 0){
-							g.setColor(tile.getColor());
-							g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
+
+							g.setColor(tile.getColor().darker());
+							g.setFont(new Font("Default", Font.BOLD, 22));
 							g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
 						}}
 					if(model.getBoard().getPiece(i, j)!= null){
@@ -276,6 +282,10 @@ public class BuilderBoardPanel extends JPanel {
 					g.drawRect(offset + i*N, offset + j*N, N, N);
 				}
 			}
+		}
+		//draw the hints
+		for(Hint h: model.getHints()){
+			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
 		}
 		
 		//draw the selected piece at the mouse tip

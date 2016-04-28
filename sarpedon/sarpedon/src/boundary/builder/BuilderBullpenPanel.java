@@ -62,9 +62,6 @@ public class BuilderBullpenPanel extends JPanel {
 		setBackground(Color.WHITE);
 	}
 
-	public void setPieces(Bullpen b){
-		bullpen = b;
-	}
 	@Override
 	public Dimension getMinimumSize() {
 		return new Dimension (width, height);

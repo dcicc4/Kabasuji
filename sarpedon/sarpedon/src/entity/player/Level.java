@@ -58,6 +58,7 @@ abstract public class Level implements Serializable {
 		stars = 0;
 		completed = false;
 		type = t;
+		hints = new ArrayList<Hint>();
 	}
 	
 	/**

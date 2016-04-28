@@ -44,10 +44,10 @@ public class ReleaseTile extends Tile {
 		if(s.equals("Red")){
 			rcolor = Color.RED;
 		}
-		if(s.equals("Green")){
+		else if(s.equals("Green")){
 			rcolor = Color.GREEN;
 		}
-		if(s.equals("Blue")){
+		else if(s.equals("Blue")){
 			rcolor = Color.BLUE;
 		}
 		else{

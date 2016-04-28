@@ -150,17 +150,26 @@ public class PuzzleLevelTest extends TestCase {
 		assertFalse(testPL.getCompleted());
 		
 		testPL.bullpen.removePiece(h2);
+		testPL.updateStars();
 		assertTrue(testPL.getStars() == 1);
 		assertFalse(testPL.getCompleted());
 		
 		testPL.bullpen.removePiece(verticalBar);
+		testPL.updateStars();
 		assertTrue(testPL.getStars() == 2);
 		assertFalse(testPL.getCompleted());
 		
 		testPL.bullpen.removePiece(horizontalBar);
+		testPL.updateStars();
 		assertTrue(testPL.getStars() == 3);
 		assertTrue(testPL.getCompleted());
+		
+		testPL = new PuzzleLevel(oddsEmpty, bp, hnts);
+		testPL.setMovesLeft(0);
+		testPL.setStars(3);
+		assertTrue(testPL.getCompleted());
 	}
+
 
 	public void setCompleted(){
 		pL.setCompleted(true);
@@ -177,8 +186,22 @@ public class PuzzleLevelTest extends TestCase {
 	}
 	
 	public void testGetStars() {
-		assertTrue(pL.getStars()==3);
+		assertTrue(pL.getStars()==0);
 		assertTrue(testPL.getStars() == 0);
+	}
+	
+	public void testSetStars(){
+		assertTrue(pL.getStars()==0);
+		pL.setStars(2);
+		assertTrue(pL.getStars()==2);
+		pL.setStars(0);
+		assertTrue(pL.getStars()==0);
+		
+		assertTrue(testPL.getStars() == 0);
+		testPL.setStars(3);
+		assertTrue(testPL.getStars()==3);
+		testPL.setStars(0);
+		assertTrue(testPL.getStars()==0);
 	}
 
 	public void testGetBoard() {

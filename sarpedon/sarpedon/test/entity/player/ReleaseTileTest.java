@@ -28,10 +28,32 @@ public class ReleaseTileTest extends TestCase {
 		assertTrue(testTileOrigin.rnumber == testTileOrigin.getNumber());
 		assertTrue(testTile11n9UUID.rnumber == testTile11n9UUID.getNumber());
 	}
+	
+	public void testSetNumber(){
+		assertTrue(testTileOrigin.rnumber == 1);
+		testTileOrigin.setNumber(5);
+		assertTrue(testTileOrigin.rnumber == 5);
+		testTileOrigin.setNumber(1);
+		assertTrue(testTileOrigin.rnumber == 1);
+	}
 
 	public void testGetColor() {
 		assertTrue(testTileOrigin.rcolor == testTileOrigin.getColor());
 		assertTrue(testTile11n9UUID.rcolor == testTile11n9UUID.getColor());
+	}
+
+	public void testSetColor(){
+		assertTrue(testTileOrigin.rcolor.equals(Color.BLUE));
+		testTileOrigin.setColor("Blue");
+		assertTrue(testTileOrigin.rcolor.equals(Color.BLUE));
+		System.out.println(testTileOrigin.rcolor.toString());
+		testTileOrigin.setColor("Red");
+		System.out.println(testTileOrigin.rcolor.toString());
+		assertTrue(testTileOrigin.rcolor.equals(Color.RED));
+		testTileOrigin.setColor("Green");
+		assertTrue(testTileOrigin.rcolor.equals(Color.GREEN));
+		testTileOrigin.setColor("Aqua");
+		assertTrue(testTileOrigin.rcolor == null);
 	}
 
 	public void testReleaseTile() {
@@ -56,16 +78,5 @@ public class ReleaseTileTest extends TestCase {
 			}
 		}
 	}
-	
-//	public void testGetColorString(){
-//		assertTrue("BLUE".compareTo(testTileOrigin.getColorString())==0);
-//		assertTrue("RED".compareTo(testTile11n9UUID.getColorString())==0);
-//		
-//		ReleaseTile testTile = new ReleaseTile(6,6,3,ReleaseTile.Color.GREEN);
-//		assertTrue("GREEN".compareTo(testTile.getColorString())==0);
-//		
-//		ReleaseTile testTile2 = new ReleaseTile(6,6,3,ReleaseTile.Color.NONE);
-//		assertTrue("NONE".compareTo(testTile2.getColorString())==0);
-//	}
 
 }

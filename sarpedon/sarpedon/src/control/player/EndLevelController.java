@@ -1,5 +1,7 @@
 package control.player;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -65,7 +67,7 @@ public class EndLevelController implements MouseListener{
 			int currStars = level.getStars();
 			int prevStars = game.getLevel(level.getNumber()).getStars();
 			if(currStars >= prevStars){
-				game.getLevel(level.getNumber()).setStars(currStars);
+				game.setLevel(level);
 			}
 			new EndLevelGui(game, levelGui).setVisible(true);
 		}
@@ -84,5 +86,8 @@ public class EndLevelController implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		return;
 	}
+
+
+
 
 }

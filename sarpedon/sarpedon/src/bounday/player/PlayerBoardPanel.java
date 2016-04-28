@@ -3,6 +3,7 @@ package bounday.player;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -97,6 +98,11 @@ public class PlayerBoardPanel extends JPanel {
 
 		//double check if no model (for WindowBuilder)
 		if (level == null) { return; }
+		
+		if(level.getBoard()instanceof ReleaseBoard){
+			drawReleaseBoard(level.getBoard().getTileArray(), g);
+			return;
+		}
 
 		// draw board.
 		g.setColor(new Color(240, 240, 240));
@@ -147,6 +153,12 @@ public class PlayerBoardPanel extends JPanel {
 		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
 		offScreenGraphics.setColor(Color.black);
 		Tile[][] tiles = level.getBoard().getTileArray();
+		
+		if(level.getBoard()instanceof ReleaseBoard){
+			drawReleaseBoard(level.getBoard().getTileArray(), offScreenGraphics);
+			return;
+		}
+		
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
 				if(tiles[i][j] != null)
@@ -189,6 +201,56 @@ public class PlayerBoardPanel extends JPanel {
 		}
 		else{ 
 			return null;
+		}
+	}
+	
+	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
+		for(int i = 0; i<12; i++){
+			for(int j = 0; j<12; j++){
+				ReleaseTile tile = (ReleaseTile)rTiles[i][j];
+				if(tile != null){
+					int x = offset + i*N;
+					int y = offset + j*N;
+					g.setColor(Color.white);
+					g.fillRect(x, y, N, N);
+
+					if(tile.getColor() != null){
+						g.setColor(tile.getColor());
+						if(tile.getNumber() != null && tile.getNumber() != 0){
+
+						g.setFont(new Font("TimesRoman", Font.PLAIN, 16));
+						g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
+						}
+					}
+					if(level.getBoard().getPiece(i, j)!= null){
+						g.setColor(level.getBoard().getPiece(i, j).getColor());
+						g.fillRect(x, y, N, N);		
+					}
+					//draw the outline of the tile if it exists
+					g.setColor(Color.black);
+					g.drawRect(offset + i*N, offset + j*N, N, N);
+				}
+			}
+		}
+		
+		//draw the selected piece at the mouse tip
+		Piece selected = level.getBullpen().getSelectedPiece();
+		if (selected != null){
+			if(mouse!= null){
+				drawPiece(g, selected, mouse);
+			}
+			if(mouse == null){
+				drawPiece(g, selected, new Point(offset + N*6, offset + N*6));
+			}
+
+		}
+		//draw a moving tile at the tip of the mouse
+		if(level.getBoard().getMovingTile() && mouse != null){
+			g.setColor(Color.white);
+			g.fillRect(mouse.x-N/2, mouse.y-N/2, N, N);
+			g.setColor(Color.BLACK);
+			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
+
 		}
 	}
 

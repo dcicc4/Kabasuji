@@ -48,9 +48,6 @@ public class LevelMomento implements Serializable{
 			timeAllotted = ((BuildableLightning)m).getTimeAllotted();
 			board = (LightningBoard) m.getBoard();
 
-			BuildableLightning l = (BuildableLightning)m;
-			board = new LightningBoard(l.getBoard().getTileArray());
-			timeAllotted = l.getTimeAllotted();
 
 		}
 		if(type.equals("Puzzle")){

@@ -13,7 +13,7 @@ public class Piece implements Serializable{
 	
 	private static final long serialVersionUID = -6485170791118171377L;
 	/**
-	 * the number a piece is (it's key for the stock hashtable)
+	 * the number a piece is (its key for the stock hashtable)
 	 */
 	int number;
 	/**

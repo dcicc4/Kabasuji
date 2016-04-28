@@ -81,7 +81,7 @@ public class ReleaseBuilderGui extends JFrame {
 		warningLabel = new JLabel("Possible Warning");
 		warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		warningLabel.setForeground(Color.RED);
-		warningLabel.setBounds(25, 741, 251, 33);
+		warningLabel.setBounds(25, 741, 451, 33);
 		contentPane.add(warningLabel);
 		
 		btnSave = new JButton("Save");
@@ -192,7 +192,7 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(btnFlipHor);
 		
 		//install controllers
-		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		btnSave.addActionListener(new SaveLevelController(warningLabel, model, this));
 		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);

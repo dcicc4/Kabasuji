@@ -36,8 +36,12 @@ public class SarpedonKabasuji {
 	 * @param i
 	 * @return
 	 */
-	public Level getLevel(int i){
+	public Level getLevel(Integer i){
 		return levels[i-1];
+	}
+	
+	public void setLevel(Level l){
+		levels[l.getNumber()-1] = l;
 	}
 	/**
 	 * increment the number of unlocked levels

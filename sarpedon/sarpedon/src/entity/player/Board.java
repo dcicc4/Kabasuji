@@ -258,14 +258,17 @@ public class Board implements Serializable{
 		return size;
 	}
 
-		int spacesLeft(){
+	/** returns number of spaces left uncovered. */
+	public int spacesLeft(){
 		int sL = 0;
-		
-	
+
+
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j <12; j++){
-				if((availableTile(i, j)&&(shape[i][j].getCoveredBy() == null))){
-					sL++;
+				if(availableTile(i, j)){
+					if(shape[i][j].coveredBy == null){
+						sL++;
+					}
 				}
 			}
 		}

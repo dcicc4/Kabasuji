@@ -84,11 +84,11 @@ public class LightningBoard extends Board {
 		}
 	}
 	
-	@Override
-	public
-	boolean removePiece(Integer row, Integer col){
-		return false; // can't remove a piece in Lighting
-	}
+	//@Override
+	//public
+	//boolean removePiece(Integer row, Integer col){
+	//	return false; // can't remove a piece in Lighting
+	//}
 
 	@Override
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){

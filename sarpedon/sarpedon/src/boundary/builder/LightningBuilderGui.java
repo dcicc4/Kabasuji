@@ -14,6 +14,7 @@ import control.builder.FlipController;
 import control.builder.MoveTilesController;
 import control.builder.PlacePieceController;
 import control.builder.RotateController;
+import control.builder.SaveLevelController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
 import control.builder.UpdateTimeController;
@@ -114,7 +115,7 @@ public class LightningBuilderGui extends JFrame {
 		warningLabel = new JLabel("Possible Warning");
 		warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		warningLabel.setForeground(Color.RED);
-		warningLabel.setBounds(10, 728, 251, 33);
+		warningLabel.setBounds(10, 728, 451, 33);
 		contentPane.add(warningLabel);
 		
 		btnSave = new JButton("Save");
@@ -206,7 +207,7 @@ public class LightningBuilderGui extends JFrame {
 		contentPane.add(btnFlipHor);
 		
 		//Install controllers
-		btnSave.addActionListener(new SwitchWindowController(this, new SaveGui(model)));
+		btnSave.addActionListener(new SaveLevelController(warningLabel, model, this));
 		
 		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
 		stockView.addMouseListener(apb);

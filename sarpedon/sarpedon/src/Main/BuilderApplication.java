@@ -25,11 +25,11 @@ public class BuilderApplication{
 	LightningBuilderGui lightningBuilder = new LightningBuilderGui(new BuildableLightning());
 	PuzzleBuilderGui puzzleBuilder = new PuzzleBuilderGui(new BuildablePuzzle());
 	ReleaseBuilderGui releaseBuilder = new ReleaseBuilderGui(new BuildableRelease());
-	LoadGui loadGui = new LoadGui();
+	LoadGui loadGui = new LoadGui(levelBuilder);
 	
 	
 	public BuilderApplication(){
-		initializeControllers();
+		//initializeControllers();
 	}
 	
 	void initializeControllers(){

@@ -9,13 +9,20 @@ import entity.builder.*;
 
 import javax.swing.*;
 
+import boundary.builder.BuilderBoardPanel;
+import boundary.builder.BuilderBullpenPanel;
+
 public class UndoController implements ActionListener{
 
 	
 	IBuilderModel aLevel;
+	BuilderBoardPanel boardView;
+	BuilderBullpenPanel bpView;
 	
-	public UndoController(IBuilderModel aLevel){
+	public UndoController(IBuilderModel aLevel, BuilderBoardPanel boardView,BuilderBullpenPanel bpView ){
 		this.aLevel = aLevel;
+		this.boardView = boardView;
+		this.bpView = bpView;
 	}
 	
 	
@@ -29,5 +36,10 @@ public class UndoController implements ActionListener{
 		  if(aMove ==null)
 		  {return;}
 		aMove.undo();
+		boardView.redraw();
+		boardView.repaint();
+		bpView.redraw();
+		bpView.repaint();
+		
 	}
 }

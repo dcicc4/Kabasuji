@@ -17,6 +17,7 @@ import control.builder.RotateController;
 import control.builder.SaveLevelController;
 import control.builder.SelectPieceController;
 import control.builder.SwitchWindowController;
+import control.builder.UndoController;
 import control.builder.UpdateTimeController;
 import entity.builder.BuildableLightning;
 import entity.builder.IBuilderModel;
@@ -232,6 +233,8 @@ public class LightningBuilderGui extends JFrame {
 		BoardSizeController size = new BoardSizeController(boardSizeCombo, boardView, bullpenView, model);
 		boardSizeCombo.addActionListener(size);
 		
+		UndoController uC = new UndoController(this.model, boardView, bullpenView);
+		btnUndo.addActionListener(uC);
 		
 		
 		timeTextField.addActionListener(new UpdateTimeController(timeTextField, model, warningLabel));

@@ -1,13 +1,16 @@
 package entity.builder;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
+import control.builder.IMove;
 import entity.player.Piece;
 import entity.player.ReleaseBoard;
 import entity.player.Square;
 import entity.player.Tile;
 
 public class BuildableReleaseBoard extends ReleaseBoard {
+	
 	public BuildableReleaseBoard() {
 		super();
 	}

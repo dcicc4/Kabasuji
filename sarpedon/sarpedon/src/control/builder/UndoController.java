@@ -11,24 +11,23 @@ import javax.swing.*;
 
 public class UndoController implements ActionListener{
 
-	ArrayList<IMove> moves;
-	JPanel parentPanel;
 	
-	public UndoController(JPanel panel){
-		parentPanel = panel;
+	IBuilderModel aLevel;
+	
+	public UndoController(IBuilderModel aLevel){
+		this.aLevel = aLevel;
 	}
 	
-	public void addMove(IMove move){
-
-	}
 	
-	public void undoMove(){
-
-	}
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		  IMove aMove = aLevel.getLastMove();
+		  if(aMove ==null)
+		  {return;}
+		aMove.undo();
 	}
 }

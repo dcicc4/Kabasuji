@@ -46,9 +46,7 @@ public class ReleaseTileTest extends TestCase {
 		assertTrue(testTileOrigin.rcolor.equals(Color.BLUE));
 		testTileOrigin.setColor("Blue");
 		assertTrue(testTileOrigin.rcolor.equals(Color.BLUE));
-		System.out.println(testTileOrigin.rcolor.toString());
 		testTileOrigin.setColor("Red");
-		System.out.println(testTileOrigin.rcolor.toString());
 		assertTrue(testTileOrigin.rcolor.equals(Color.RED));
 		testTileOrigin.setColor("Green");
 		assertTrue(testTileOrigin.rcolor.equals(Color.GREEN));

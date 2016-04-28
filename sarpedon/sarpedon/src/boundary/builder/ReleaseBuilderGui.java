@@ -149,7 +149,7 @@ public class ReleaseBuilderGui extends JFrame {
 		contentPane.add(rdbtnNumberTile);
 		
 		colorCombo = new JComboBox<String>();
-		colorCombo.setModel(new DefaultComboBoxModel<String>(new String[] {"Red", "Green", "Blue"}));
+		colorCombo.setModel(new DefaultComboBoxModel<String>(new String[] {"Blue", "Green", "Red"}));
 		colorCombo.setSelectedIndex(1);
 		colorCombo.setBounds(155, 578, 64, 20);
 		contentPane.add(colorCombo);

@@ -117,9 +117,16 @@ public class PuzzleLevelTest extends TestCase {
 		testPL.updateStars();
 		assertTrue(testPL.stars == 2);
 		
+		testPL.bullpen.setSelected(horizontalBar);
+		assertTrue(testPL.bullpen.piecesLeft() == 1);
+		assertTrue(testPL.stars == 2);
+		testPL.updateStars();
+		assertTrue(testPL.stars == 1);
+		
+		testPL.bullpen.removeSelected();
 		testPL.bullpen.removePiece(horizontalBar);
 		assertTrue(testPL.bullpen.piecesLeft() == 0);
-		assertTrue(testPL.stars == 2);
+		assertTrue(testPL.stars == 1);
 		testPL.updateStars();
 		assertTrue(testPL.stars == 3);
 	}
@@ -166,7 +173,6 @@ public class PuzzleLevelTest extends TestCase {
 		
 		testPL = new PuzzleLevel(oddsEmpty, bp, hnts);
 		testPL.setMovesLeft(0);
-		testPL.setStars(3);
 		assertTrue(testPL.getCompleted());
 	}
 

@@ -73,6 +73,7 @@ public class LightningLevelTest extends TestCase {
 	public void testUpdateStars() {
 		lL.updateStars();
 		assertTrue(lL.stars == 0);
+		assertTrue(lL.board.addPiece(0, 0, verticalBar));
 	}
 
 	public void testLightningLevel() {

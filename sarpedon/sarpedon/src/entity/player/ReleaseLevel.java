@@ -10,7 +10,7 @@ public class ReleaseLevel extends Level {
 
 	public static final int MAX_NUM = 6;
 	
-	ArrayList <Boolean> blueNumCovered;
+	ArrayList <Boolean> blueNumCovered = new ArrayList<Boolean>();
 	ArrayList <Boolean> greenNumCovered;
 	ArrayList <Boolean> redNumCovered;
 	Integer numBlue;

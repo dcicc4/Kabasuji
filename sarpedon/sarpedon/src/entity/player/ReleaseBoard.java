@@ -18,11 +18,11 @@ public class ReleaseBoard extends Board {
 	 * Constructor for the Release Board
 	 * @param s a two dimensional array of ReleaseTiles
 	 */
-	public ReleaseBoard(ReleaseTile[][] s) {
+	public ReleaseBoard(Tile[][] s) {
 		// enforce size restriction, array must be at least 1 x 1 and less than 12 x 12
 		if ((s.length <= 12)&&(s.length>=1)){
 			if ((s[0].length <= 12)&&(s[0].length >=1)){
-				this.shape = s;
+				this.shape =  s;
 			}
 		} else {
 			throw new RuntimeException("entity.player::Board: invalid board array");

@@ -72,5 +72,11 @@ public class ReleaseBoardTest extends TestCase {
 		}
 		  assertTrue(thrown);
 	}
+	
+	public void testRemoveTile(){
+		assertTrue(rb.shape[0][0] instanceof Tile);
+		rb.removeTile(0, 0);
+		assertTrue(rb.shape[0][0] == null);
+	}
 
 }

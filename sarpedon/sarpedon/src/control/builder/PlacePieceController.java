@@ -6,6 +6,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JRadioButton;
 
+import Moves.PieceMoveToBP;
+import Moves.PieceMoveToBoard;
 import boundary.builder.BuilderBoardPanel;
 
 import entity.builder.IBuilderModel;
@@ -24,7 +26,8 @@ public class PlacePieceController implements MouseListener{
 	IBuilderModel model;
 	BuilderBoardPanel boardView;
 	JRadioButton movePieces;
-	
+	Integer startX;
+	Integer startY;
 	public PlacePieceController(IBuilderModel bm, BuilderBoardPanel bv, JRadioButton b){
 		model = bm;
 		boardView = bv;
@@ -52,6 +55,9 @@ public class PlacePieceController implements MouseListener{
 				//this means you are trying to pick up a piece.
 				Piece picked = b.getPiece(clicked.x,clicked.y);
 				if(picked==null){return;}
+				
+				IMove aMove = new PieceMoveToBP(clicked.x, clicked.y, model.getBoard(), model.getBullpen(), picked);
+				model.addMove(aMove);
 				b.removePiece(clicked.x, clicked.y);
 				model.getBullpen().setSelected(picked);
 				boardView.redraw();
@@ -60,7 +66,10 @@ public class PlacePieceController implements MouseListener{
 				//you are trying to place a piece
 				if(b.addPiece(clicked.x, clicked.y, adding)){
 					model.getBullpen().removeSelected();
-				Board testdummy = b;
+			IMove aMove = new PieceMoveToBoard(clicked.x, clicked.y, model.getBoard(), model.getBullpen(), adding);
+			model.addMove(aMove);
+			startX =  null;
+			startY =  null;
 					boardView.redraw();
 					boardView.repaint();
 				}

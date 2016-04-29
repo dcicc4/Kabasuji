@@ -5,6 +5,9 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
+
+import Main.PlayerApplication;
 import bounday.player.LightningLevelGui;
 import bounday.player.PlayerBoardPanel;
 import bounday.player.PlayerBullpenPanel;
@@ -60,7 +63,18 @@ public class PlaceLightningPieceController implements MouseListener{
 
 		}
 		level.updateStars();
-		gui.setStarsView("Stars: " + level.getStars().toString());
+		if(level.getStars() == 0){
+			gui.getStarsView().setIcon(null);
+		}
+		if(level.getStars() == 1){
+			gui.getStarsView().setIcon(new ImageIcon(PlayerApplication.class.getResource("/images/OneStar.png")));
+		}
+		if(level.getStars() == 2){
+			gui.getStarsView().setIcon(new ImageIcon(PlayerApplication.class.getResource("/images/TwoStars.png")));
+		}
+		if(level.getStars() == 3){
+			gui.getStarsView().setIcon(new ImageIcon(PlayerApplication.class.getResource("/images/ThreeStars.png")));
+		}
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {

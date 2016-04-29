@@ -12,6 +12,7 @@ import control.player.Loader;
 import control.player.SwitchWindowController;
 import entity.player.SarpedonKabasuji;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -274,7 +275,20 @@ public class LevelSelectGui extends JFrame {
 			buttons[i].setEnabled(false);
 			if(game.getLevel(i+1) != null){
 			if(i < game.getCurrentLevel()){
-				labels[i].setText(game.getLevel(i+1).getStars().toString());
+				int stars = game.getLevel(i+1).getStars();
+				if(stars == 3){
+					labels[i].setIcon(new ImageIcon(PlayerApplication.class.getResource("/images/ThreeSmallStars.png")));
+				}
+				if(stars == 2){
+					labels[i].setIcon(new ImageIcon(PlayerApplication.class.getResource("/images/TwoSmallStars.png")));
+				}
+				if(stars == 1){
+					labels[i].setIcon(new ImageIcon(PlayerApplication.class.getResource("/images/OneSmallStar.png")));
+				}
+				if(stars == 0){
+					labels[i].setIcon(null);
+				}
+				
 				buttons[i].setEnabled(true);
 				LevelNumberController lC = new LevelNumberController(loader.getLevel(i+1), game);
 				buttons[i].addActionListener(new SwitchWindowController(this, lC.getFrame()));

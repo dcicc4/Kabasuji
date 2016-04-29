@@ -114,17 +114,22 @@ public class LightningLevelGui extends JFrame {
 		lblTime.setBounds(300, 333, 122, 49);
 		contentPane.add(lblTime);
 		
-		lblStars = new JLabel("Stars: 0");
+		lblStars = new JLabel("");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblStars.setBounds(10, 251, 344, 54);
+		lblStars.setBounds(200, 251, 344, 54);
 		contentPane.add(lblStars);
+		
+		JLabel lblStars1 = new JLabel("Stars:");
+		lblStars1.setFont(new Font("Tahoma", Font.PLAIN, 48));
+		lblStars1.setBounds(26, 268, 444, 54);
+		contentPane.add(lblStars1);
 		
 		btnReset = new JButton("Reset");
 		btnReset.setBackground(Color.LIGHT_GRAY);
 		btnReset.setBounds(45, 167, 171, 41);
 		contentPane.add(btnReset);
 		
-		JLabel lblLevel = new JLabel("Level 2");
+		JLabel lblLevel = new JLabel("Level " + l.getNumber());
 		lblLevel.setFont(new Font("Tahoma", Font.PLAIN, 60));
 		lblLevel.setBounds(174, 11, 327, 82);
 		contentPane.add(lblLevel);

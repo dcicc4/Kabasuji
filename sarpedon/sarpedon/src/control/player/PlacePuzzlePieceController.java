@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
@@ -80,7 +81,18 @@ public class PlacePuzzlePieceController implements MouseListener {
 				}
 			}
 		}
-		stars.setText("Stars: "+ model.getStars().toString());
+		if(model.getStars() == 0){
+			stars.setIcon(null);
+		}
+		if(model.getStars() == 1){
+			stars.setIcon(new ImageIcon(PlacePuzzlePieceController.class.getResource("/images/OneStar.png")));
+		}
+		if(model.getStars() == 2){
+			stars.setIcon(new ImageIcon(PlacePuzzlePieceController.class.getResource("/images/TwoStars.png")));
+		}
+		if(model.getStars() == 3){
+			stars.setIcon(new ImageIcon(PlacePuzzlePieceController.class.getResource("/images/ThreeStars.png")));
+		}
 
 	}
 

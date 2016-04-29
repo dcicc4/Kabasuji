@@ -104,17 +104,22 @@ public class ReleaseLevelGui extends JFrame {
 		lblNumbersCovered.setBounds(31, 334, 420, 49);
 		contentPane.add(lblNumbersCovered);
 		
-		lblStars = new JLabel("Stars");
+		lblStars = new JLabel("");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblStars.setBounds(31, 269, 144, 54);
+		lblStars.setBounds(200, 269, 144, 54);
 		contentPane.add(lblStars);
+		
+		JLabel lblStars1 = new JLabel("Stars:");
+		lblStars1.setFont(new Font("Tahoma", Font.PLAIN, 48));
+		lblStars1.setBounds(26, 268, 444, 54);
+		contentPane.add(lblStars1);
 		
 		btnReset = new JButton("Reset");
 		btnReset.setBackground(Color.LIGHT_GRAY);
 		btnReset.setBounds(66, 185, 171, 41);
 		contentPane.add(btnReset);
 		
-		JLabel lblLevel = new JLabel("Level 3");
+		JLabel lblLevel = new JLabel("Level " + l.getNumber());
 		lblLevel.setFont(new Font("Tahoma", Font.PLAIN, 60));
 		lblLevel.setBounds(195, 29, 327, 82);
 		contentPane.add(lblLevel);

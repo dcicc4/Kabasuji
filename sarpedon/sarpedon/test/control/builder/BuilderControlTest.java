@@ -119,7 +119,7 @@ public class BuilderControlTest extends TestCase {
 		s5 = new Square(0, 4);
 		p = new Piece(0, s1, s2, s3, s4, s5);
 		jrb = new JRadioButton();
-		hc = new HintController(br, bbop, jrb, jcbs, jcb);
+		//hc = new HintController(br, bbop, jrb, jcbs, jcb);
 		mtc = new MoveTilesController(br, bbop, jrb);
 		ntc = new NumberTileController(jcb, jcbs, br, bbop, jrb);
 		ppc = new PlacePieceController(br, bbop, jrb);
@@ -129,7 +129,7 @@ public class BuilderControlTest extends TestCase {
 		spc = new SelectPieceController(bp, bbop, bbp, jrb);
 		ssc = new SplashScreenController(null);
 		swc = new SwitchWindowController(lbg, lg);
-		uc = new UndoController(bbop);
+		//uc = new UndoController(bbop);
 		bup = new BuildablePuzzle();
 		umc = new UpdateMovesController(jtf, bup, jl);
 		bl = new BuildableLightning();
@@ -267,8 +267,6 @@ public class BuilderControlTest extends TestCase {
 	}
 	public void testUndoController() {
 		uc.actionPerformed(null);
-		uc.addMove(null);
-		uc.undoMove();
 	}
 	public void testUpdateMovesController() {
 		jtf.setText("1");

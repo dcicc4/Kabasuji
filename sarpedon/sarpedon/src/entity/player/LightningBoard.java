@@ -44,7 +44,6 @@ public class LightningBoard extends Board {
 	@Override
 	protected boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
-		//if (availableTile(row, col)){
 			for (Square s : p.getDependent()){
 				int drow = row + s.getxFromAnchor();
 				int dcol = col + s.getyFromAnchor();
@@ -52,9 +51,6 @@ public class LightningBoard extends Board {
 					placeable = false;
 				}
 			}
-		//} else {
-		//	placeable = false;
-		//}
 			return placeable;
 	}
 	
@@ -67,14 +63,11 @@ public class LightningBoard extends Board {
 				pUUID = UUID.randomUUID();
 			}
 			Tile t = shape[row][col];
-			//t.setCoveredBy(pUUID); // mark the tile under the anchor as covered by the tile with this UUID
 			for (Square s : p.getDependent()){ // mark the rest 
 				int drow = row + s.getxFromAnchor();
 				int dcol = col + s.getyFromAnchor();
 				t = shape[drow][dcol];
-				//if (availableTile(drow, dcol)){
-					t.setCoveredBy(pUUID);
-				//}
+				t.setCoveredBy(pUUID);
 			}
 			pieces.put(pUUID, p); // put mapping into hashmap
 			return true;
@@ -83,12 +76,6 @@ public class LightningBoard extends Board {
 			return false;
 		}
 	}
-	
-	//@Override
-	//public
-	//boolean removePiece(Integer row, Integer col){
-	//	return false; // can't remove a piece in Lighting
-	//}
 
 	@Override
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){

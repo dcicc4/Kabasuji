@@ -2,6 +2,8 @@ package entity.player;
 
 import java.util.ArrayList;
 
+import entity.builder.BuildableLightning;
+import entity.builder.BuildablePuzzle;
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity LightningLevel class
@@ -70,12 +72,98 @@ public class LightningLevelTest extends TestCase {
 		testLL = new LightningLevel(oddsEmpty, bp, 0, false, hnts, 2, 50000);
 	}
 
+	public void testGetTimeLeft(){
+		assertTrue(lL.timeLeft == lL.getTimeLeft());
+		assertTrue(testLL.timeLeft == testLL.getTimeLeft());
+	}
+	
+	public void testDecrementTime(){
+		assertTrue(lL.timeLeft == 100000);
+		lL.decrementTime();
+		assertTrue(lL.timeLeft == 99999);
+	}
+	
 	public void testUpdateStars() {
 		lL.updateStars();
 		assertTrue(lL.stars == 0);
-		assertTrue(lL.board.addPiece(0, 0, verticalBar));
+		for (int i = 0; i <= lL.board.shape.length - 1; i++){
+			assertTrue(lL.board.addPiece(i, 0, verticalBar));
+		}
+		lL.updateStars();
+		assertTrue(lL.stars == 0);
+		
+		for (int i = 0; i <= lL.board.shape.length - 3; i++){
+			assertTrue(lL.board.addPiece(i, 6, verticalBar));
+		}
+		lL.updateStars();
+		assertTrue(lL.stars == 1);
+		
+		assertTrue(lL.board.addPiece(10, 6, verticalBar));
+		lL.updateStars();
+		assertTrue(lL.stars == 2);
+		
+		assertTrue(lL.board.addPiece(11, 6, verticalBar));
+		lL.updateStars();
+		assertTrue(lL.stars == 3);
 	}
 
+	public void testGetCompleted(){
+		lL.updateStars();
+		assertTrue(lL.stars == 0);
+		lL.timeLeft = 0;
+		assertTrue(lL.getCompleted());
+		
+		lL.timeLeft = 20;
+		lL.completed = false;
+		for (int i = 0; i <= lL.board.shape.length - 1; i++){
+			assertTrue(lL.board.addPiece(i, 0, verticalBar));
+		}
+		lL.updateStars();
+		assertFalse(lL.getCompleted());
+		assertTrue(lL.getCompleted() == lL.completed);
+		
+		for (int i = 0; i <= lL.board.shape.length - 3; i++){
+			assertTrue(lL.board.addPiece(i, 6, verticalBar));
+		}
+		lL.updateStars();
+		assertFalse(lL.getCompleted());
+		assertTrue(lL.getCompleted() == lL.completed);
+		
+		assertTrue(lL.board.addPiece(10, 6, verticalBar));
+		lL.updateStars();
+		assertFalse(lL.getCompleted());
+		assertTrue(lL.getCompleted() == lL.completed);
+		
+		assertTrue(lL.board.addPiece(11, 6, verticalBar));
+		lL.updateStars();
+		assertTrue(lL.getCompleted());
+		assertTrue(lL.getCompleted() == lL.completed);
+	}
+	
+	public void testRestore(){
+		BuildableLightning bL = new BuildableLightning();
+		LevelMomento lM = new LevelMomento(bL);
+		assertTrue(testLL.board == oddsEmpty);
+		assertTrue(testLL.bullpen == bp);
+		assertTrue(testLL.stars == 0);
+		assertFalse(testLL.completed);
+		assertTrue(testLL.hints == hnts);
+		assertTrue(testLL.type == "Lightning");
+		assertTrue(testLL.number == 2);
+		assertTrue(testLL.timeLeft == 50000);
+		
+		testLL.restore(lM);
+		//check original state
+		assertFalse(testLL.board == oddsEmpty);
+		assertFalse(testLL.bullpen == bp);
+		assertTrue(testLL.stars == 0);
+		assertFalse(testLL.completed);
+		assertFalse(testLL.hints == hnts);
+		assertTrue(testLL.type == "Lightning");
+		assertTrue(testLL.number == null);
+		assertTrue(testLL.timeLeft == null);
+	}
+	
 	public void testLightningLevel() {
 		assertTrue(lL.board.pieces.isEmpty());
 		assertTrue(lL.board.shape.length == 12);

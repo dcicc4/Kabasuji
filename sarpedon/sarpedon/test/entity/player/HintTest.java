@@ -1,5 +1,7 @@
 package entity.player;
 
+import java.awt.Graphics;
+
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity Hint class
@@ -30,7 +32,7 @@ public class HintTest extends TestCase {
 		assertTrue(hint2.row == 6);
 		assertTrue(hint2.column == 7);
 	}
-	/** tests of the gtters */
+	/** tests of the getters */
 	public void testGetPiece() {
 		assertTrue(hint1.piece == hint1.getPiece());
 		assertTrue(hint2.piece == hint2.getPiece());
@@ -44,6 +46,18 @@ public class HintTest extends TestCase {
 	public void testGetColumn() {
 		assertTrue(hint1.column == hint1.getColumn());
 		assertTrue(hint2.column == hint2.getColumn());
+	}
+	
+	public void testCovers(){
+		assertTrue(hint1.covers(0, 0));
+		assertTrue(hint1.covers(0, 1));
+		//assertFalse(hint1.covers(1, 0));
+		
+		//assertFalse(hint2.covers(0, 0));
+		//assertFalse(hint2.covers(0, 1));
+		//assertFalse(hint2.covers(1, 0));
+		//assertTrue(hint2.covers(6, 7));
+		
 	}
 
 }

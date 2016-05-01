@@ -280,7 +280,7 @@ public class PuzzleLevelTest extends TestCase {
 		assertFalse(testPL.completed);
 		assertFalse(testPL.hints == hnts);
 		assertTrue(testPL.type == "Puzzle");
-		//assertFalse(testPL.number == 1);
-		//assertFalse(testPL.movesleft == 10);
+		assertTrue(testPL.number == null);
+		assertTrue(testPL.movesleft == null);
 	}
 }

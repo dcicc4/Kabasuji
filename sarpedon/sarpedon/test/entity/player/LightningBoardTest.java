@@ -92,13 +92,13 @@ public class LightningBoardTest extends TestCase {
 		assertTrue(lB.getPiece(0, 0) != null);
 		
 		assertFalse(lB.removePiece(7, 7));
-		assertFalse(lB.removePiece(0, 0));
-		assertFalse(lB.getPiece(0, 0) == null);
+		assertTrue(lB.removePiece(0, 0));
+		assertTrue(lB.getPiece(0, 0) == null);
 		
 		LightningBoard oddBoard = new LightningBoard(shapeOddsEmpty);
 		assertFalse(oddBoard.removePiece(1, 0));
 		assertTrue(oddBoard.addPiece(0, 0, verticalBar));
-		assertFalse(oddBoard.removePiece(0, 0));
+		assertTrue(oddBoard.removePiece(0, 0));
 	}
 
 	public void testMovePiece() {

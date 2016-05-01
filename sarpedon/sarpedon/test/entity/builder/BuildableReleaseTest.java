@@ -6,6 +6,7 @@ import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.LevelMomento;
 import entity.player.Piece;
+import Moves.PieceMoveToBoard;
 import entity.player.ReleaseBoard;
 import entity.player.ReleaseTile;
 import entity.player.Square;
@@ -98,6 +99,18 @@ public class BuildableReleaseTest extends TestCase {
 		assertTrue(bR.getType().equals("Lightning"));
 		bR.setType("Release");
 		assertTrue(bR.getType().equals("Release"));
+	}
+	
+	public void testGetLastMove(){
+		Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
+		assertTrue(bR.MoveList.isEmpty());
+		assertTrue(bR.getLastMove() == null);
+		
+		PieceMoveToBoard pM2B = new PieceMoveToBoard(0,0, bR.rBoard, bR.getBullpen(), verticalBar);
+		bR.addMove(pM2B);
+		assertTrue(bR.MoveList.contains(pM2B));
+		assertTrue(bR.getLastMove() == pM2B);
+		assertTrue(bR.MoveList.isEmpty());
 	}
 
 }

@@ -2,6 +2,7 @@ package entity.builder;
 
 import java.util.ArrayList;
 
+import Moves.PieceMoveToBoard;
 import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.LevelMomento;
@@ -127,8 +128,16 @@ public class BuildableLightningTest extends TestCase {
 	}
 
 
-//	public void testGetRBoard() {
-//		fail("Not yet implemented"); // TODO
-//	}
+	public void testGetLastMove(){
+		Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
+		assertTrue(bL.MoveList.isEmpty());
+		assertTrue(bL.getLastMove() == null);
+		
+		PieceMoveToBoard pM2B = new PieceMoveToBoard(0,0, bL.getBoard(), bL.getBullpen(), verticalBar);
+		bL.addMove(pM2B);
+		assertTrue(bL.MoveList.contains(pM2B));
+		assertTrue(bL.getLastMove() == pM2B);
+		assertTrue(bL.MoveList.isEmpty());
+	}
 
 }

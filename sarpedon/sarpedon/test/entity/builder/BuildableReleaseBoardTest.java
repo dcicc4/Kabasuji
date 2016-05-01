@@ -5,7 +5,10 @@ import entity.player.ReleaseBoard;
 import entity.player.ReleaseTile;
 import entity.player.Square;
 import junit.framework.TestCase;
-
+/**
+ * Testing for the BuildableReleaseBoard
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class BuildableReleaseBoardTest extends TestCase {
 	BuildableReleaseBoard brb;
 	Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );

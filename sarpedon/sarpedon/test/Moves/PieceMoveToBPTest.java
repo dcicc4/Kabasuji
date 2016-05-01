@@ -5,7 +5,10 @@ import entity.player.Bullpen;
 import entity.player.Piece;
 import entity.player.Square;
 import junit.framework.TestCase;
-
+/**
+ * Testing for the PieceMoveToBP class
+ * @Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class PieceMoveToBPTest extends TestCase {
 	Piece verticalBar = new Piece(1,  new Square(0, 1), new Square(0, 2), new Square(0, 3), new Square(0, 4), new Square(0, 5) );
 	Piece horizontalBar = new Piece(1,  new Square(1, 0), new Square(2, 0), new Square(3, 0), new Square(4, 0), new Square(5, 0) );

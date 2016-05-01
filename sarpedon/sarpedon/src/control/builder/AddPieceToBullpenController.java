@@ -3,8 +3,10 @@ package control.builder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import Moves.FromStockMove;
 import boundary.builder.BuilderBullpenPanel;
 import boundary.builder.BuilderStockPanel;
+import entity.builder.IBuilderModel;
 import entity.player.Bullpen;
 import entity.player.Piece;
 /**
@@ -18,11 +20,12 @@ public class AddPieceToBullpenController extends MouseAdapter {
 	BuilderStockPanel stock;
 	BuilderBullpenPanel bullpenView;
 	Bullpen bullpen;
-
-	public AddPieceToBullpenController(Bullpen bp, BuilderStockPanel s, BuilderBullpenPanel bv){
+IBuilderModel aModel;
+	public AddPieceToBullpenController(Bullpen bp, BuilderStockPanel s, BuilderBullpenPanel bv, IBuilderModel aModel){
 		stock = s;
 		bullpen = bp;
 		bullpenView = bv;
+		this.aModel = aModel;
 	}
 	
 	/**
@@ -33,6 +36,8 @@ public class AddPieceToBullpenController extends MouseAdapter {
 		if(p == null){
 			return;
 		}
+		IMove aMove = new FromStockMove(bullpen,p);
+		aModel.addMove(aMove);
 		// if this is the selected piece, add it to the bullpen
 		bullpen.addPiece(p);
 		bullpenView.redraw();

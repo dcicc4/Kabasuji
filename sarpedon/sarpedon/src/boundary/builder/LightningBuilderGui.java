@@ -210,9 +210,9 @@ public class LightningBuilderGui extends JFrame {
 		//Install controllers
 		btnSave.addActionListener(new SaveLevelController(warningLabel, model, this));
 		
-		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView);
+		AddPieceToBullpenController apb = new AddPieceToBullpenController(model.getBullpen(), stockView, bullpenView, model);
 		stockView.addMouseListener(apb);
-		BackToStockController bsc = new BackToStockController(model.getBullpen(), stockView, boardView);
+		BackToStockController bsc = new BackToStockController(model.getBullpen(), stockView, boardView,model);
 		stockView.addMouseListener(bsc);
 		
 		SelectPieceController spc = new SelectPieceController(model.getBullpen(), boardView, bullpenView, movePiecesRadio);

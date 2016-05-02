@@ -11,6 +11,7 @@ import boundary.builder.BuilderBoardPanel;
 import control.player.BullpenToBoardController;
 import control.player.EndLevelController;
 import control.player.FlipController;
+import control.player.MenuController;
 import control.player.PlaceReleasePieceController;
 import control.player.ResetLevelController;
 import control.player.RotateController;

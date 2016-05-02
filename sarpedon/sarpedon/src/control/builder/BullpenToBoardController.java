@@ -47,7 +47,7 @@ public class BullpenToBoardController implements MouseMotionListener{
 	public void mouseMoved (MouseEvent me) {
 		Piece selected = bullpen.getSelectedPiece();
 		if (selected == null) { return; }
-		Point p = new Point(me.getX() - boardView.getN()/2, me.getY() - boardView.getN()/2);
+		Point p = new Point(me.getX() - boardView.N/2, me.getY() - boardView.N/2);
 		boardView.setMouse(p);
 		boardView.redraw();
 		boardView.repaint();
@@ -66,7 +66,6 @@ public class BullpenToBoardController implements MouseMotionListener{
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 }

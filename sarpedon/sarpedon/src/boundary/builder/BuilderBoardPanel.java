@@ -46,12 +46,15 @@ public class BuilderBoardPanel extends JPanel {
 	
 	Point mouse = null;
 	
-	public int getN(){
-		return N;
-	}
+	/**
+	 * sets the point of the mouse so the panel can know where to draw the piece or tile.
+	 * @param p
+	 */
 	public void setMouse(Point p){
 		mouse = p;
 	}
+	
+	
 	/**
 	 * Create the panel.
 	 */
@@ -72,9 +75,15 @@ public class BuilderBoardPanel extends JPanel {
 		setLayout(groupLayout);
 
 	}
+	
+	/**
+	 * returns the offScreenGraphics so it can be drawn to elsewhere
+	 * @return
+	 */
 	public Graphics getOffscreenGraphics(){
 		return offScreenGraphics;
 	}
+	
 	@Override
 	public Dimension getMinimumSize() {
 		int width = 12*N + 2*offset;
@@ -174,6 +183,9 @@ public class BuilderBoardPanel extends JPanel {
 		}
 	}
 	}
+	/**
+	 * redraws the offscreenGraphics for double buffering.
+	 */
 	public void redraw() {
 
 		Dimension dim = getPreferredSize();
@@ -255,6 +267,11 @@ public class BuilderBoardPanel extends JPanel {
 		}
 	}
 	
+	/**
+	 * draws the numbers when a release board is the board being drawn.
+	 * @param rTiles
+	 * @param g
+	 */
 	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){

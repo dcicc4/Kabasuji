@@ -13,6 +13,11 @@ import control.builder.SwitchWindowController;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+/**
+ * Small screen that allows you to type in the level you want to load.
+ * @author Nathan
+ *
+ */
 public class LoadGui extends JFrame {
 
 	private JPanel contentPane;

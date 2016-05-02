@@ -17,6 +17,11 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JButton;
 
+/**
+ * Gui that pops up when a level has been completed, allowing you to navigate back to the level select menu.
+ * @author Nathan
+ *
+ */
 public class EndLevelGui extends JFrame {
 
 	private JPanel contentPane;

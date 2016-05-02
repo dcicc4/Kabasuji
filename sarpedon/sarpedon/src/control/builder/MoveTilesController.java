@@ -36,6 +36,7 @@ public class MoveTilesController extends MouseAdapter {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {	
+		return;
 	}
 
 	@Override

@@ -26,7 +26,12 @@ public class EndLevelController implements MouseListener{
 	SarpedonKabasuji game;
 	JFrame levelGui;
 	Level level;
-	
+	/**
+	 * Constructor for EndLevelContoller
+	 * @param g - Current game
+	 * @param f - Current level frame
+	 * @param l - Current level
+	 */
 	public EndLevelController(SarpedonKabasuji g, JFrame f,  Level l){
 		game = g;
 		levelGui = f;
@@ -44,7 +49,9 @@ public class EndLevelController implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		return;
 	}
-
+	/**
+	 * When mouse is release the game checks wether the player has won yet and sets stars end end level if the player has won
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		String type = level.getType();

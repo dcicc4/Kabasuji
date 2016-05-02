@@ -65,7 +65,7 @@ public class Hint implements Serializable{
 	 */
 	public boolean covers(int row, int column) {
 		for(Square s: piece.getDependant()){
-			if (s.getX() == row || s.getY() == column){
+			if (s.getX()+this.row == row || s.getY()+this.column == column){
 				return true;
 			}
 		}

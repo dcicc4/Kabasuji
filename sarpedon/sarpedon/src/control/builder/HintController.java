@@ -52,7 +52,7 @@ public class HintController extends MouseAdapter{
 				}
 			} else {
 				//you are trying to place a piece
-					model.getHints().add(new Hint(adding, clicked.x, clicked.y));
+					model.getHints().add(new Hint(adding.clone(), clicked.x, clicked.y));
 					boardView.redraw();
 					boardView.repaint();
 				

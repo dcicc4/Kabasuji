@@ -109,13 +109,13 @@ public class ReleaseLevel extends Level {
 	
 	public void setCovered(int num, Color c){
 		if(c.equals(Color.red)){
-			redNumCovered.set(num-1, false);
+			redNumCovered.set(num-1, true);
 		}
 		if(c.equals(Color.blue)){
-			blueNumCovered.set(num-1, false);
+			blueNumCovered.set(num-1, true);
 		}
 		if(c.equals(Color.green)){
-			greenNumCovered.set(num-1, false);
+			greenNumCovered.set(num-1, true);
 		}
 	}
 	
@@ -125,7 +125,7 @@ public class ReleaseLevel extends Level {
 			s = "Red: ";
 			for(int i = 0; i < redNumCovered.size(); i++){
 				if(redNumCovered.get(i)){
-					s = s + i;
+					s = s + (i+1);
 					if(i < 5){
 						s = s + ", ";
 					}
@@ -136,7 +136,7 @@ public class ReleaseLevel extends Level {
 			s = "Green: ";
 			for(int i = 0; i < greenNumCovered.size(); i++){
 				if(greenNumCovered.get(i)){
-					s = s + i;
+					s = s + (i+1);
 					if(i < 5){
 						s = s + ", ";
 					}
@@ -147,7 +147,7 @@ public class ReleaseLevel extends Level {
 			s = "Blue: ";
 			for(int i = 0; i < blueNumCovered.size(); i++){
 				if(blueNumCovered.get(i)){
-					s = s + i;
+					s = s + (i+1);
 					if(i < 5){
 						s = s + ", ";
 					}

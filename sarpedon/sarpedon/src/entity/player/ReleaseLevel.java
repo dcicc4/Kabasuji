@@ -30,6 +30,7 @@ public class ReleaseLevel extends Level {
 		blueNumCovered.add(false);
 		blueNumCovered.add(false);
 		blueNumCovered.add(false);
+		blueNumCovered.add(false);
 		redNumCovered.add(false);
 		redNumCovered.add(false);
 		redNumCovered.add(false);
@@ -48,10 +49,10 @@ public class ReleaseLevel extends Level {
 	 * calculates and updates the current counts per color of 
 	 * distinct number-color combinations 
 	 */
-	void calculateColor(ArrayList <Boolean> numCovered, Integer numColor){
+	void calculateColor(ArrayList <Boolean> numCovered, Color c){
 		int nC = 0; 
 		for (Boolean b: numCovered){
-			if (b == true){
+			if (b){
 				nC += 1;
 			}
 		}
@@ -60,7 +61,15 @@ public class ReleaseLevel extends Level {
 //			if (b == true){
 //				nC += 1;
 //			}
-		numColor = nC;
+		if(c.equals(Color.red)){
+			numRed = nC;
+		} 
+		else if(c.equals(Color.blue)){
+			numBlue = nC;
+		}
+		else if(c.equals(Color.green)){
+			numGreen = nC;
+		}
 	}
 	
 	/** 
@@ -69,9 +78,9 @@ public class ReleaseLevel extends Level {
 	@Override
 	public
 	void updateStars(){
-		this.calculateColor(blueNumCovered, numBlue);
-		this.calculateColor(greenNumCovered, numGreen);
-		this.calculateColor(redNumCovered, numRed);
+		this.calculateColor(blueNumCovered, Color.blue);
+		this.calculateColor(greenNumCovered, Color.green);
+		this.calculateColor(redNumCovered, Color.red);
 		int numStars = 0;
 		if (numGreen == MAX_NUM){
 			numStars += 1;

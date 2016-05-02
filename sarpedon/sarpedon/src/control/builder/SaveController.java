@@ -25,6 +25,7 @@ public class SaveController implements ActionListener {
 	LevelMomento aLevel;
 	JTextField aText;
 	IBuilderModel model;
+	
 	public SaveController(JTextField aText, IBuilderModel model) {
 		this.aText = aText;
 		this.model = model;

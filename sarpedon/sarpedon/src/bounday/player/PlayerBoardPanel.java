@@ -107,7 +107,7 @@ public class PlayerBoardPanel extends JPanel {
 		// draw board.
 		g.setColor(new Color(240, 240, 240));
 		g.fillRect(0,0,16*N,16*N);
-		//draws a 12 by 12 grid, because I hard coded a 12x12 grid
+		//draws the board
 		Tile[][] tiles = level.getBoard().getTileArray();
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){
@@ -222,11 +222,8 @@ public class PlayerBoardPanel extends JPanel {
 					if(tile.getColor() != null){
 						
 						if(tile.getNumber() != null && tile.getNumber() != 0){
-							g.setColor(Color.black);
-							g.setFont(new Font("TimesRoman", Font.BOLD, 18));
-							g.drawString(tile.getNumber().toString(), x + N/2-1, y + N/2-1);
-							g.setColor(tile.getColor());
-							g.setFont(new Font("TimesRoman", Font.BOLD, 16));
+							g.setColor(tile.getColor().darker());
+							g.setFont(new Font("Default", Font.BOLD, 22));
 							g.drawString(tile.getNumber().toString(), x + N/2, y + N/2);
 						}
 					}

@@ -1,5 +1,6 @@
 package entity.player;
 
+import java.awt.Color;
 import java.util.ArrayList;
 /**
  * Implementation of the abstract superclass Level for the Release variation
@@ -24,6 +25,23 @@ public class ReleaseLevel extends Level {
 	 */
 	public ReleaseLevel() {
 		super("Release");
+		blueNumCovered.add(false);
+		blueNumCovered.add(false);
+		blueNumCovered.add(false);
+		blueNumCovered.add(false);
+		blueNumCovered.add(false);
+		redNumCovered.add(false);
+		redNumCovered.add(false);
+		redNumCovered.add(false);
+		redNumCovered.add(false);
+		redNumCovered.add(false);
+		redNumCovered.add(false);
+		greenNumCovered.add(false);
+		greenNumCovered.add(false);
+		greenNumCovered.add(false);
+		greenNumCovered.add(false);
+		greenNumCovered.add(false);
+		greenNumCovered.add(false);
 	}
 	
 	/** 
@@ -49,6 +67,7 @@ public class ReleaseLevel extends Level {
 	 * Updates the stars earned for a given play-through 
 	 */
 	@Override
+	public
 	void updateStars(){
 		this.calculateColor(blueNumCovered, numBlue);
 		this.calculateColor(greenNumCovered, numGreen);
@@ -86,6 +105,56 @@ public class ReleaseLevel extends Level {
 		type = m.type;
 		completed = m.completed;
 		number = m.number;
+	}
+	
+	public void setCovered(int num, Color c){
+		if(c.equals(Color.red)){
+			redNumCovered.set(num-1, false);
+		}
+		if(c.equals(Color.blue)){
+			blueNumCovered.set(num-1, false);
+		}
+		if(c.equals(Color.green)){
+			greenNumCovered.set(num-1, false);
+		}
+	}
+	
+	public String getText(Color c){
+		String s = "";
+		if(c.equals(Color.red)){
+			s = "Red: ";
+			for(int i = 0; i < redNumCovered.size(); i++){
+				if(redNumCovered.get(i)){
+					s = s + i;
+					if(i < 5){
+						s = s + ", ";
+					}
+				}
+			}
+		}
+		if(c.equals(Color.green)){
+			s = "Green: ";
+			for(int i = 0; i < greenNumCovered.size(); i++){
+				if(greenNumCovered.get(i)){
+					s = s + i;
+					if(i < 5){
+						s = s + ", ";
+					}
+				}
+			}
+		}
+		if(c.equals(Color.blue)){
+			s = "Blue: ";
+			for(int i = 0; i < blueNumCovered.size(); i++){
+				if(blueNumCovered.get(i)){
+					s = s + i;
+					if(i < 5){
+						s = s + ", ";
+					}
+				}
+			}
+		}
+		return s;
 	}
 	
 }

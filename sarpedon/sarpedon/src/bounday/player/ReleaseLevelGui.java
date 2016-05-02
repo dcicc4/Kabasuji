@@ -11,6 +11,7 @@ import boundary.builder.BuilderBoardPanel;
 import control.player.BullpenToBoardController;
 import control.player.EndLevelController;
 import control.player.FlipController;
+import control.player.PlaceReleasePieceController;
 import control.player.RotateController;
 import control.player.SelectPieceController;
 import control.player.SwitchWindowController;
@@ -129,19 +130,19 @@ public class ReleaseLevelGui extends JFrame {
 		btnReturn.setBounds(321, 185, 171, 41);
 		contentPane.add(btnReturn);
 		
-		lblRedNums = new JLabel("RED: ");
+		lblRedNums = new JLabel(level.getText(Color.red));
 		lblRedNums.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblRedNums.setForeground(Color.RED);
 		lblRedNums.setBounds(66, 394, 285, 23);
 		contentPane.add(lblRedNums);
 		
-		lblBlueNums = new JLabel("BLUE: 1, 4, 6");
+		lblBlueNums = new JLabel(level.getText(Color.blue));
 		lblBlueNums.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblBlueNums.setForeground(Color.BLUE);
 		lblBlueNums.setBounds(66, 419, 285, 23);
 		contentPane.add(lblBlueNums);
 		
-		lblGreenNums = new JLabel("GREEN: 1, 2, 3, 4,  5, 6");
+		lblGreenNums = new JLabel(level.getText(Color.green));
 		lblGreenNums.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblGreenNums.setForeground(Color.GREEN);
 		lblGreenNums.setBounds(66, 444, 285, 23);
@@ -186,6 +187,9 @@ public class ReleaseLevelGui extends JFrame {
 		bullpenView.addMouseListener(spc);
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
+		JLabel[] rgbCovered= new JLabel[]{lblRedNums, lblGreenNums, lblBlueNums};
+		PlaceReleasePieceController prpc = new PlaceReleasePieceController(l, boardView, rgbCovered, lblStars);
+		boardView.addMouseListener(prpc);
 		boardView.addMouseListener(new EndLevelController(game, this, level));
 	}
 

@@ -2,13 +2,19 @@ package entity.player;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.io.Serializable;
 
 /**
  * A Hint is a suggested location for a specific Piece
  * @Tesia Shizume (ttshiz@wpi.edu)
  * @author Nathan
  */
-public class Hint {
+public class Hint implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -420200215792336927L;
+	
 	/** The piece who's location is being suggested */
 	Piece piece;
 	/** The row in which the origin of the piece is suggested to be placed */

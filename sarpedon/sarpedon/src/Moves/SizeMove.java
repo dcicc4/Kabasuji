@@ -5,7 +5,11 @@ import javax.swing.JComboBox;
 import control.builder.IMove;
 import entity.builder.IBuilderModel;
 import entity.player.Tile;
-
+/**
+ * 
+ * @author Drew
+ *captures a change in the size of the board
+ */
 public class SizeMove implements IMove {
 	int size;
 	JComboBox<Integer> boardSize;
@@ -17,7 +21,9 @@ public class SizeMove implements IMove {
 		this.size = start;
 		this.boardSize = boardSize;
 	}
-
+/**
+ * undoes a change in the size of the board
+ */
 	public boolean undo() {
 		//get the current tile array of the board
 		Tile[][] boardShape = model.getBoard().getTileArray();

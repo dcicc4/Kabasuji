@@ -92,9 +92,9 @@ public class BuilderControlTest extends TestCase {
 		bbp = new BuilderBullpenPanel(bp);
 		br = new BuildableRelease();
 		br.setBullpen(bp);
-		aptbc = new AddPieceToBullpenController(bp, bsp, bbp);
+		aptbc = new AddPieceToBullpenController(bp, bsp, bbp, bl);
 		bbop = new BuilderBoardPanel(br);
-		btsc = new BackToStockController(bp, bsp, bbop);
+		btsc = new BackToStockController(bp, bsp, bbop, bl);
 		jcb = new JComboBox<Integer>();
 		bsc = new BoardSizeController(jcb, bbop, bbp, br);
 		b = new Board();

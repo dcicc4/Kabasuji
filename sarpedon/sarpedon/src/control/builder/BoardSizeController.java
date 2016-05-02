@@ -50,7 +50,12 @@ public class BoardSizeController implements ActionListener{
 			for(int i = 0; i<12; i++){
 				for(int j = 0; j<12; j++){
 					if(currsize < size && boardShape[i][j] == null){
+						
 						boardShape[i][j] = new Tile(i, j);
+						if(model.getBoard() instanceof ReleaseBoard)
+						{
+							boardShape[i][j] = new ReleaseTile(i, j, null, null);
+						}
 						currsize++;
 					}
 				}

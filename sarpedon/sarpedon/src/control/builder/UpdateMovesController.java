@@ -36,7 +36,9 @@ public class UpdateMovesController implements ActionListener{
 		} catch(NumberFormatException string){
 			error.setText("Please enter a valid number.");
 		}
+		
 	}
+	
 
 	
 }

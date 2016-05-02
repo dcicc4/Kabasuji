@@ -74,7 +74,9 @@ public class BoardSizeController implements ActionListener{
 				}
 			}
 		}
-	
+		if(currsize != size){
+			boardSize.setSelectedItem(currsize/6);
+		}
 		bullpenView.redraw();
 		bullpenView.repaint();
 		boardView.redraw();

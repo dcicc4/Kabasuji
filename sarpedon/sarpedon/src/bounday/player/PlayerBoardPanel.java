@@ -126,7 +126,7 @@ public class PlayerBoardPanel extends JPanel {
 		}
 		//draw the hints
 		for(Hint h: level.getHints()){
-			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+			h.drawHint(g, N, new Point(h.getRow(), h.getColumn()), offset);
 		}
 
 		//draw the selected piece at the mouse tip
@@ -239,7 +239,7 @@ public class PlayerBoardPanel extends JPanel {
 		}
 		//draw the hints
 		for(Hint h: level.getHints()){
-			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()), offset);
 		}
 		//draw the selected piece at the mouse tip
 		Piece selected = level.getBullpen().getSelectedPiece();

@@ -138,7 +138,7 @@ public class BuilderBoardPanel extends JPanel {
 				if(tile != null){
 					int x = offset + i*N;
 					int y = offset + j*N;
-					g.setColor(Color.white);
+					g.setColor(Color.white); 
 					g.fillRect(x, y, N, N);
 					if(model.getBoard().getPiece(i, j)!= null){
 						g.setColor(model.getBoard().getPiece(i, j).getColor());
@@ -152,7 +152,7 @@ public class BuilderBoardPanel extends JPanel {
 		}
 		//draw the hints
 				for(Hint h: model.getHints()){
-					h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+					h.drawHint(g, N, new Point(h.getRow(),h.getColumn()),offset);
 				}
 		//draw the selected piece at the mouse tip
 		Piece selected = model.getBullpen().getSelectedPiece();
@@ -285,7 +285,7 @@ public class BuilderBoardPanel extends JPanel {
 		}
 		//draw the hints
 		for(Hint h: model.getHints()){
-			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()));
+			h.drawHint(g, N, new Point(h.getRow(),h.getColumn()), offset);
 		}
 		
 		//draw the selected piece at the mouse tip

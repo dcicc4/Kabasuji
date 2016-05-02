@@ -46,13 +46,13 @@ public class Hint implements Serializable{
 	}
 	
 	/** Draws the hint to the given graphics object. */
-	public void drawHint(Graphics g, int tileSize, Point p){
+	public void drawHint(Graphics g, int tileSize, Point p, int offset){
 		for(Square s: piece.getDependant()){
 			g.setColor(piece.getColor());
 			int i = 0;
 			while(p.y + i < p.y + tileSize){
-				g.drawLine(p.x*tileSize + s.getX()*tileSize +tileSize/2 -2, p.y*tileSize + i + s.getY()*tileSize +tileSize/2, 
-						p.x*tileSize + tileSize + s.getX()*tileSize +tileSize/2-2, p.y*tileSize + i + s.getY()*tileSize+tileSize/2);
+				g.drawLine(offset + p.x*tileSize + s.getX()*tileSize, offset + p.y*tileSize + i + s.getY()*tileSize, 
+						offset+ p.x*tileSize + tileSize + s.getX()*tileSize, offset + p.y*tileSize + i + s.getY()*tileSize);
 				i += 4;
 			}
 		}

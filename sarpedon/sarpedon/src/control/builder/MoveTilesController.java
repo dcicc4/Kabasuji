@@ -67,7 +67,9 @@ public class MoveTilesController extends MouseAdapter {
 			Point rowCol = boardView.getRowCol(e.getPoint());
 			
 			Tile t = new Tile(origin.x, origin.y);
-			
+			if(model.getBoard() instanceof ReleaseBoard){
+				t = new ReleaseTile(origin.x, origin.y, null, null);
+			}
 			
 			if(rowCol != null){
 				

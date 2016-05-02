@@ -13,32 +13,58 @@ public class BuildablePuzzle extends Level implements IBuilderModel{
 	ArrayList<IMove> MoveList = new ArrayList<IMove>();
 PieceBuilder PB = new PieceBuilder();
 Integer movesAllotted;	
-
+	/**
+	 * BuildablePuzzle Constructor
+	 */
 	public BuildablePuzzle(){
 		super("Puzzle");
 		this.type = "Puzzle";
 	}
+	/**
+	 * gets the board
+	 */
 	public Board getBoard(){
 		return super.getBoard();
 	}
+	/**
+	 * gets the bullpen
+	 */
 	public Bullpen getBullpen(){
 		return super.getBullpen();
 	}
+	/**
+	 * gets the amound of moves alloted
+	 */
 	public Integer getMovesAllotted(){
 		return movesAllotted;
 	}
+	/**
+	 * sets the amount of moves alloted
+	 */
 	public void setMovesAllotted(Integer m){
 		movesAllotted = m;
 	}
+	/**
+	 * sets the bullpen
+	 */
 	public void setBullpen(Bullpen bp){
 		bullpen = bp;
 	}
+	/**
+	 * sets the board
+	 */
 	public void setBoard(Board b){
 		board = b;
 	}
+	/**
+	 * sets the level type
+	 */
 	public void setType(String s){
 		type = s;
 	}
+	/**
+	 * Restores level state to another given momento
+	 */
 	@Override
 	public void restore(LevelMomento m){
 		super.restore(m);

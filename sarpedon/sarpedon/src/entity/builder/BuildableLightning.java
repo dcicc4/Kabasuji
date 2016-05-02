@@ -18,33 +18,60 @@ public class BuildableLightning extends Level implements IBuilderModel{
 	ArrayList<IMove> MoveList = new ArrayList<IMove>();
 PieceBuilder PB = new PieceBuilder();
 Integer timeAllotted;
-	
+	/**
+	 * Constructor for BuildableLightning
+	 */
 	public BuildableLightning(){
 		super("Lightning");
 		this.type = "Lightning";
 	}
+	/**
+	 * gets the board
+	 */
 	public Board getBoard(){
 		return super.getBoard();
 	}
+	/**
+	 * gets the bullpen
+	 */
 	public Bullpen getBullpen(){
 		return super.getBullpen();
 	}
+	/**
+	 * gets the time allotted
+	 * @return
+	 */
 	public Integer getTimeAllotted(){
 		return timeAllotted;
 	}
+	/**
+	 * sets the time allotted
+	 * @param t
+	 */
 	public void setTimeAllotted(Integer t){
 		timeAllotted = t;
 	}
+	/**
+	 * sets the bullpen
+	 */
 	public void setBullpen(Bullpen bp){
 		bullpen = bp;
 	}
+	/**
+	 * sets the board
+	 */
 	public void setBoard(Board b){
 		board = b;
 	}
+	/**
+	 * sets the level type
+	 */
 	public void setType(String s){
 		type = s;
 	}
-	
+	/**
+	 * Restores level state to another given momento
+	 */
 	public void restore(LevelMomento m){
 		super.restore(m);
 		timeAllotted = m.getTimeAllotted();

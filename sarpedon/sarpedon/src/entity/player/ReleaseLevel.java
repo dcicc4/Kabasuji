@@ -106,7 +106,11 @@ public class ReleaseLevel extends Level {
 		completed = m.completed;
 		number = m.number;
 	}
-	
+	/**
+	 * Sets the number and color of a tile if it is covered
+	 * @param num
+	 * @param c
+	 */
 	public void setCovered(int num, Color c){
 		if(c.equals(Color.red)){
 			redNumCovered.set(num-1, true);
@@ -118,7 +122,11 @@ public class ReleaseLevel extends Level {
 			greenNumCovered.set(num-1, true);
 		}
 	}
-	
+	/**
+	 * Gets the tile's text and color based on given color
+	 * @param c
+	 * @return
+	 */
 	public String getText(Color c){
 		String s = "";
 		if(c.equals(Color.red)){

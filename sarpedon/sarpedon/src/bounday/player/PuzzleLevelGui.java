@@ -173,5 +173,6 @@ public class PuzzleLevelGui extends JFrame {
 		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves, lblStars);
 		boardView.addMouseListener(place);
 		boardView.addMouseListener(new EndLevelController(game, this, level));
+		btnReset.addActionListener(new ResetLevelController(level, game, this));
 	}
 }

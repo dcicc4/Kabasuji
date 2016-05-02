@@ -185,6 +185,7 @@ public class LightningLevelGui extends JFrame {
 		ActionListener updateTime = new TimeController(level, lblTime, this, game);
 		Timer timer = new Timer(1000, updateTime);
 		timer.start();
+		btnReset.addActionListener(new ResetLevelController(level, game, this));
 	}
 
 }

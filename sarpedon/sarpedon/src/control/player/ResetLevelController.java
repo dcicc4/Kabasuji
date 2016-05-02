@@ -29,14 +29,21 @@ public class ResetLevelController implements ActionListener{
 	Level level;
 	JFrame parentFrame;
 	SarpedonKabasuji game;
-	
+	/**
+	 * Constructor for ResetLevelController
+	 * @param l - Current Level
+	 * @param g - Current Game
+	 * @param parent - Current frame
+	 */
 	public ResetLevelController(Level l, SarpedonKabasuji g, JFrame parent){
 		level = l;
 		game = g;
 		parentFrame = parent;
 		
 	}
-
+	/**
+	 * Resets Level when reset is pressed
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Loader l = new Loader();

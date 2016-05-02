@@ -61,7 +61,11 @@ public Level getLevel (int x)
 	}
 	return null;
 }
-
+/**
+ * Takes in a level number and returns the correct level momento
+ * @param x - level number
+ * @return correct level momento
+ */
 public LevelMomento getMomento(int x){
 	FileInputStream saveFile;
 	try {

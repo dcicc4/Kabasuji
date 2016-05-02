@@ -12,6 +12,7 @@ import control.player.BullpenToBoardController;
 import control.player.EndLevelController;
 import control.player.FlipController;
 import control.player.PlaceReleasePieceController;
+import control.player.ResetLevelController;
 import control.player.RotateController;
 import control.player.SelectPieceController;
 import control.player.SwitchWindowController;
@@ -191,6 +192,7 @@ public class ReleaseLevelGui extends JFrame {
 		PlaceReleasePieceController prpc = new PlaceReleasePieceController(l, boardView, rgbCovered, lblStars);
 		boardView.addMouseListener(prpc);
 		boardView.addMouseListener(new EndLevelController(game, this, level));
+		btnReset.addActionListener(new ResetLevelController(level, game, this));
 	}
 
 }

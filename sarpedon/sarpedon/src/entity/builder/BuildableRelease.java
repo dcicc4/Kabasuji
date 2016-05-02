@@ -81,7 +81,7 @@ PieceBuilder PB = new PieceBuilder();
 	}
 	/**
 	 * adds a move to the list of moves
-	 * @param aMove
+	 * @param aMove - most recent move
 	 */
 	public void addMove(IMove aMove)
 	{

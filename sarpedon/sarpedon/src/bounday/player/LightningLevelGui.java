@@ -83,7 +83,8 @@ public class LightningLevelGui extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @param aGame 
+	 * @param l a lightning level in the SarpedonKabasuji game being played
+	 * @param game the SarpedonKabasuji game being played
 	 */
 	public LightningLevelGui(LightningLevel l, SarpedonKabasuji game) {
 		level = l;

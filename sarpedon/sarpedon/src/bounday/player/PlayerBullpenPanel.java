@@ -162,7 +162,7 @@ public class PlayerBullpenPanel extends JPanel {
 	 * @param idx - what number the piece is in the bullpen arraylist of pieces
 	 * @param j - the jth square you are drawing
 	 * @param drawn - the list of squares that make up the piece.
-	 * @return
+	 * @return an integer representing the y position of the square, relative to the piece
 	 */
 	private int getY(int idx, int j, Square[] drawn) {
 		return offsetY + drawn[j].getY()*N;
@@ -174,7 +174,7 @@ public class PlayerBullpenPanel extends JPanel {
 	 * @param idx - what number the piece is in the bullpen arraylist of pieces
 	 * @param j - the jth square you are drawing
 	 * @param drawn - the list of squares that make up the piece.
-	 * @return
+	 * @return an integer representing the x position of the square, relative to the piece
 	 */
 	private int getX(int idx, int j, Square[] drawn) {
 		return offsetX + idx*7*N + drawn[j].getX()*N;

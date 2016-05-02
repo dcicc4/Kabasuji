@@ -3,7 +3,7 @@ package entity.player;
 import control.player.Loader;
 /**
  * Main model class for team Sarpedon's implementation of the Kabasuji game
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class SarpedonKabasuji {
 	/** an array storing the levels of the game */

@@ -9,7 +9,7 @@ import java.util.UUID;
  * Contains:
  * shape = a two dimensional array with tiles where the board is playable and null, elsewhere
  * pieces = a hash of UUIDs to pieces
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class Board implements Serializable{
 	private static final long serialVersionUID = -6584127615090719915L;

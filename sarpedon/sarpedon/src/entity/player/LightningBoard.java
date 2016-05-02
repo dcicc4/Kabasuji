@@ -3,7 +3,7 @@ package entity.player;
 import java.util.UUID;
 /**
  * the Lightning variant of a Board
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LightningBoard extends Board {
 	/**

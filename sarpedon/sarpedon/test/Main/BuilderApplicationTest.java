@@ -4,7 +4,7 @@ import control.builder.SwitchWindowController;
 import junit.framework.TestCase;
 /**
  * Testing for BuilderApplication: initializeControllers()
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class BuilderApplicationTest extends TestCase {
 	BuilderApplication bldApp;

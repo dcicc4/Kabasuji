@@ -27,7 +27,13 @@ public class PlaceReleasePieceController implements MouseListener{
 	/** an array of the labels that describe the number of red blue and green numbers covered. In that order.*/
 	JLabel[] rgbCovered;
 	JLabel stars;
-	
+	/**
+	 * Constructor for PlaceReleasePieceController
+	 * @param m - Current Release Level
+	 * @param b - Current Player Board Panel
+	 * @param rgb - Array of labels to describe the numbers covered
+	 * @param s - Current stars
+	 */
 	public PlaceReleasePieceController(ReleaseLevel m, PlayerBoardPanel b, JLabel[] rgb, JLabel s){
 		model = m;
 		boardView = b;
@@ -40,6 +46,9 @@ public class PlaceReleasePieceController implements MouseListener{
 		return;
 		
 	}
+	/**
+	 * Handles the placing of a release piece when the mouse is pressed
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		//only do this if you are left clicking

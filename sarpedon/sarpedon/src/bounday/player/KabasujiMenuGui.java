@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import control.player.NewGameController;
 import control.player.SwitchWindowController;
 import entity.player.SarpedonKabasuji;
 
@@ -49,10 +50,6 @@ public class KabasujiMenuGui extends JFrame {
 		btnNewGame.setBackground(Color.YELLOW);
 		btnNewGame.setForeground(Color.RED);
 		btnNewGame.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		btnNewGame.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNewGame.setBounds(561, 287, 304, 110);
 		contentPane.add(btnNewGame);
 		
@@ -73,12 +70,21 @@ public class KabasujiMenuGui extends JFrame {
 		contentPane.add(lblKabasuji);
 		
 		btnLevelSelect.addActionListener(new SwitchWindowController(this, new LevelSelectGui(game)));
+		btnNewGame.addActionListener(new NewGameController(game));
 	}
 
+	/**
+	 * Returns the actionable level select button element.
+	 * @return
+	 */
 	public JButton getBtnLevelSelect() {
 		return btnLevelSelect;
 	}
 
+	/**
+	 * returns the actionable new game button element.
+	 * @return
+	 */
 	public JButton getBtnNewGame() {
 		return btnNewGame;
 	}

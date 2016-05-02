@@ -127,6 +127,9 @@ public class BuilderStockPanel extends JPanel {
 			}
 
 	}
+	/**
+	 * redraws the offScreenGraphics for double buffering.
+	 */
 	public void redraw() {
 		// Once created, draw each, with buffer.
 

@@ -36,11 +36,11 @@ public class PlayerBoardPanel extends JPanel {
 	Graphics offScreenGraphics = null;
 	
 	Point mouse = null;
-	
-	
-	public int getN(){
-		return N;
-	}
+
+	/**
+	 * sets the current mouse location so the panel knows where to draw the moving piec or tile.
+	 * @param p - the mouse point.
+	 */
 	public void setMouse(Point p){
 		mouse = p;
 	}
@@ -148,6 +148,10 @@ public class PlayerBoardPanel extends JPanel {
 			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
 		}
 	}
+	
+	/***
+	 * redraws offscreenGraphics for double buffering.
+	 */
 	public void redraw() {
 
 		Dimension dim = getPreferredSize();
@@ -209,6 +213,11 @@ public class PlayerBoardPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * draws the release board and numbers.
+	 * @param rTiles - release tiles.
+	 * @param g - the graphics object.
+	 */
 	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){

@@ -26,7 +26,13 @@ public class BullpenToBoardController implements MouseMotionListener{
 	Bullpen bullpen;
 	PlayerBoardPanel boardView;
 	PlayerBullpenPanel bullpenPanel;
-	
+	/**
+	 * Constructor for BullpenToBoardController
+	 * @param newboard - Current board
+	 * @param newbullpen - Current bullpen
+	 * @param newboardPanel - Current board panel
+	 * @param newbullpenPanel - Current bullpen panel
+	 */
 	public BullpenToBoardController(Board newboard, Bullpen newbullpen, PlayerBoardPanel newboardPanel, PlayerBullpenPanel newbullpenPanel){
 		board = newboard;
 		bullpen = newbullpen;
@@ -54,7 +60,7 @@ public class BullpenToBoardController implements MouseMotionListener{
 	public void mouseMoved (MouseEvent me) {
 		Piece selected = bullpen.getSelectedPiece();
 		if (selected == null) { return; }
-		Point p = new Point(me.getX() - boardView.getN()/2, me.getY() - boardView.getN()/2);
+		Point p = new Point(me.getX() - boardView.N/2, me.getY() - boardView.N/2);
 		boardView.setMouse(p);
 		boardView.redraw();
 		boardView.repaint();

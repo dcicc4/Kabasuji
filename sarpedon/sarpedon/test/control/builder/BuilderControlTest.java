@@ -1,6 +1,5 @@
 package control.builder;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
@@ -16,13 +15,11 @@ import boundary.builder.BuilderBullpenPanel;
 import boundary.builder.BuilderStockPanel;
 import boundary.builder.LevelBuilderGui;
 import boundary.builder.LoadGui;
-import bounday.player.ReleaseLevelGui;
 import entity.builder.BuildableLightning;
 import entity.builder.BuildablePuzzle;
 import entity.builder.BuildableRelease;
 import entity.player.Board;
 import entity.player.Bullpen;
-import entity.player.Level;
 import entity.player.LightningLevel;
 import entity.player.Piece;
 import entity.player.PuzzleLevel;
@@ -30,7 +27,6 @@ import entity.player.ReleaseLevel;
 import entity.player.SarpedonKabasuji;
 import entity.player.Square;
 import junit.framework.TestCase;
-import control.builder.*;
 
 public class BuilderControlTest extends TestCase {
 	Bullpen bp;

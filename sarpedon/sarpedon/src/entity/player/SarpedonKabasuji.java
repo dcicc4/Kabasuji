@@ -81,5 +81,12 @@ public class SarpedonKabasuji {
 	public Level[] getLevels(){
 		return levels;
 	}
+	
+	/**
+	 * Sets the current unlocked level back to one.
+	 */
+	public void resetCurrentLevel(){
+		unlockedLevels = 1;
+	}
 
 }

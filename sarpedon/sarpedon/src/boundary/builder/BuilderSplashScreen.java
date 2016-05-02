@@ -12,6 +12,11 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 
+/**
+ * This is the splash screen that comes up when you load the uilder or player.
+ * @author Nathan
+ *
+ */
 public class BuilderSplashScreen extends JFrame{
 
 	JPanel contentPane;

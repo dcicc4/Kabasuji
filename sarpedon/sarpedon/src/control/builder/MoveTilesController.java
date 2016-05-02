@@ -119,7 +119,15 @@ public class MoveTilesController extends MouseAdapter {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		return;
+		if(model.getBoard().getMovingTile()){
+			Tile t = new Tile(origin.x, origin.y);
+			if(model.getBoard() instanceof ReleaseBoard){
+				t = new ReleaseTile(origin.x, origin.y, null, null);
+			}
+
+			model.getBoard().setMovingTile(false);
+			model.getBoard().setTile(t);
+		}
 	}
 
 

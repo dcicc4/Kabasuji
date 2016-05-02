@@ -169,7 +169,7 @@ public class Board implements Serializable{
 				int drow = row + s.getxFromAnchor();
 				t = this.shape[drow][dcol];
 				t.setCoveredBy(pUUID);
-				Tile dummy = t;
+			
 				}
 			pieces.put(pUUID, p); // put mapping into hashmap
 			return true;

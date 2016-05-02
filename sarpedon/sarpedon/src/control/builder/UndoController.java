@@ -31,13 +31,13 @@ public class UndoController implements ActionListener {
 			Piece tempP = aLevel.getBullpen().getSelectedPiece();
 			aLevel.getBullpen().removeSelected();
 			aLevel.getBullpen().addPiece(tempP);
-		} else {
+		} 
 			IMove aMove = aLevel.getLastMove();
 			if (aMove == null) {
 				return;
 			}
 			aMove.undo();
-		}
+		
 		boardView.redraw();
 		boardView.repaint();
 		bpView.redraw();

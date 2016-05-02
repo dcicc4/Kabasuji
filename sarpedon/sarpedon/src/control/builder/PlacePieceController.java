@@ -65,9 +65,10 @@ public class PlacePieceController implements MouseListener{
 			} else {
 				//you are trying to place a piece
 				if(b.addPiece(clicked.x, clicked.y, adding)){
+					IMove aMove = new PieceMoveToBoard(clicked.x, clicked.y, model.getBoard(), model.getBullpen(), adding);
+					model.addMove(aMove);
 					model.getBullpen().removeSelected();
-			IMove aMove = new PieceMoveToBoard(clicked.x, clicked.y, model.getBoard(), model.getBullpen(), adding);
-			model.addMove(aMove);
+			
 			startX =  null;
 			startY =  null;
 					boardView.redraw();

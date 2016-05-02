@@ -23,7 +23,10 @@ public class PieceMoveToBP implements IMove {
 
 	@Override
 	public boolean undo() {
-		b.addPiece(startX, startY, aPiece);
+		if (!b.addPiece(startX, startY, aPiece))
+		{
+			System.out.print("Fail");
+		}
 		bP.removePiece(aPiece);
 		return true;
 	}

@@ -12,6 +12,7 @@ import entity.player.*;
 
 import javax.swing.*;
 
+import Moves.HintMove;
 import boundary.builder.BuilderBoardPanel;
 /**
  * Allows the adding of hints
@@ -49,12 +50,21 @@ public class HintController extends MouseAdapter{
 					model.getHints().remove(removing);
 					boardView.redraw();
 					boardView.repaint();
+					IMove aMove = new HintMove(model,adding, removing);
+					model.addMove(aMove);
 				}
+			
 			} else {
 				//you are trying to place a hint
-					model.getHints().add(new Hint(adding.clone(), clicked.x, clicked.y));
+				Hint aH = new Hint(adding.clone(), clicked.x, clicked.y);
+					model.getHints().add(aH);
+					IMove aMove = new HintMove(model,aH);
+					model.addMove(aMove);
+					
 					boardView.redraw();
 					boardView.repaint();
+					
+					
 				
 			}
 		}

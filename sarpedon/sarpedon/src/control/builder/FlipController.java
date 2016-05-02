@@ -3,6 +3,7 @@ package control.builder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Moves.RotateFlipMove;
 import entity.builder.IBuilderModel;
 import entity.player.*;
 import boundary.builder.*;
@@ -38,8 +39,12 @@ public class FlipController implements ActionListener{
 		if (piece == null){return;}
 		if (direction){
 			piece.flipVertical();
+			IMove aMove = new RotateFlipMove(piece, "Vertical");
+			model.addMove(aMove);
 		} else {
 			piece.flipHorizontal();
+			IMove aMove = new RotateFlipMove(piece, "Horizontal");
+			model.addMove(aMove);
 		}
 		model.getBullpen().setSelected(piece);
 		boardPanel.redraw();

@@ -3,6 +3,7 @@ package control.builder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Moves.RotateFlipMove;
 import entity.builder.IBuilderModel;
 import entity.player.*;
 import boundary.builder.*;
@@ -39,9 +40,13 @@ public class RotateController implements ActionListener{
 		Piece piece = model.getBullpen().getSelectedPiece();
 		if (piece == null){return;}
 		if (direction){
-			piece.rotateCounterClockwise();;
+			piece.rotateCounterClockwise();
+			IMove aMove = new RotateFlipMove(piece, "Counter");
+			model.addMove(aMove);
 		} else {
 			piece.rotateClockwise();
+			IMove aMove = new RotateFlipMove(piece, "Clockwise");
+			model.addMove(aMove);
 		}
 		model.getBullpen().setSelected(piece);
 		boardPanel.redraw();

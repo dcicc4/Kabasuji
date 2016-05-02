@@ -38,6 +38,7 @@ public class PlayerControlTest extends TestCase {
 	LevelSelectController lsc;
 	LevelSelectGui lsg;
 	Loader l;
+	NewGameController ngc;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
@@ -64,6 +65,7 @@ public class PlayerControlTest extends TestCase {
 		lsg = new LevelSelectGui(sk);
 		lsc = new LevelSelectController(lsg, rl);
 		l = new Loader();
+		ngc = new NewGameController(sk);
 	}
 	public void testBullpenToBoardController() {
 		btbc.mouseDragged(null);
@@ -90,5 +92,8 @@ public class PlayerControlTest extends TestCase {
 	public void testLoader() {
 		l.getLevel(1);
 		l.getMomento(1);
+	}
+	public void testNewGameController() {
+		ngc.actionPerformed(null);
 	}
 }

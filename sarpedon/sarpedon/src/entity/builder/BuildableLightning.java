@@ -39,14 +39,14 @@ Integer timeAllotted;
 	}
 	/**
 	 * gets the time allotted
-	 * @return
+	 * @return time allotted
 	 */
 	public Integer getTimeAllotted(){
 		return timeAllotted;
 	}
 	/**
 	 * sets the time allotted
-	 * @param t
+	 * @param t - time allotted being set for the level
 	 */
 	public void setTimeAllotted(Integer t){
 		timeAllotted = t;
@@ -90,7 +90,7 @@ Integer timeAllotted;
 	}
 	/**
 	 * adds a move to the list of moves
-	 * @param aMove
+	 * @param aMove - most recent move
 	 */
 	public void addMove(IMove aMove)
 	{

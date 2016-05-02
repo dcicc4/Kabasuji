@@ -7,7 +7,10 @@ import bounday.player.PlayerBoardPanel;
 
 public class ResetController implements ActionListener{
 	PlayerBoardPanel parentPanel;
-	
+	/**
+	 * Constructor for ResetController
+	 * @param parentPanel - Current Player Board Panel
+	 */
 	ResetController(PlayerBoardPanel parentPanel) {
 		this.parentPanel = parentPanel;
 	}

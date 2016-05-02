@@ -25,7 +25,11 @@ public class PlaceLightningPieceController implements MouseListener{
 	LightningLevel level;
 	PlayerBoardPanel boardView;
 	PlayerBullpenPanel bullpenView;
-	
+	/**
+	 * Constructor for PlaceLightningPieceController
+	 * @param l - Current lightning level
+	 * @param g - Current lightning level GUI
+	 */
 	public PlaceLightningPieceController(LightningLevel l, LightningLevelGui g){
 		level = l;
 		boardView = g.getBoardView();

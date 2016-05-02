@@ -4,12 +4,10 @@ import java.util.HashMap;
 import java.util.UUID;
 /**
  * The Release variant of a Board
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class ReleaseBoard extends Board {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 9055398407614672409L;
 
 

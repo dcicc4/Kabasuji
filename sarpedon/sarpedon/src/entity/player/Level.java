@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import entity.builder.BuildableReleaseBoard;
 /**
  *  A Level contains the objects necessary to play a round in the game
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 abstract public class Level implements Serializable {
 	

@@ -14,7 +14,7 @@ import entity.player.Tile;
 import junit.framework.TestCase;
 /**
  * Testing for BuildableRelease
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class BuildableReleaseTest extends TestCase {
 	BuildableRelease bR;

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 /**
  * Implementation of the abstract superclass Level for the Release variation
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class ReleaseLevel extends Level {
 	private static final long serialVersionUID = 1L;

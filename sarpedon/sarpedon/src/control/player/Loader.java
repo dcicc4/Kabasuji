@@ -29,33 +29,49 @@ public Level getLevel (int x)
 	FileInputStream saveFile;
 	try {
 		saveFile = new FileInputStream("Level" + x +".ext");
-	
-	ObjectInputStream restore = new ObjectInputStream(saveFile);
-	LevelMomento obj = (LevelMomento) restore.readObject();
-	restore.close();
-	Level level = null;
-	String type = obj.getType();
-	if(type.equals("Release")){
-		ReleaseLevel rlevel = new ReleaseLevel();
-		 rlevel.restore(obj);
-		 rlevel.setNumber(x);
-		 return rlevel;
-		
+
+		ObjectInputStream restore = new ObjectInputStream(saveFile);
+		LevelMomento obj = (LevelMomento) restore.readObject();
+		restore.close();
+		Level level = null;
+		String type = obj.getType();
+		if(type.equals("Release")){
+			ReleaseLevel rlevel = new ReleaseLevel();
+			rlevel.restore(obj);
+			rlevel.setNumber(x);
+			return rlevel;
+
+		}
+		if(type.equals("Lightning")){
+			LightningLevel llevel = new LightningLevel();
+			llevel.restore(obj);
+			llevel.setNumber(x);
+			return llevel;
+		}
+		if(type.equals("Puzzle")){
+			PuzzleLevel plevel = new PuzzleLevel();
+			plevel.restore(obj);
+			plevel.setNumber(x);
+			return plevel;
+		}
+		return level;
+
+	} catch (Exception e) {
+		System.err.println("There is no Level " + x + " saved." );
 	}
-	if(type.equals("Lightning")){
-		LightningLevel llevel = new LightningLevel();
-		 llevel.restore(obj);
-		 llevel.setNumber(x);
-		 return llevel;
-	}
-	if(type.equals("Puzzle")){
-		PuzzleLevel plevel = new PuzzleLevel();
-		 plevel.restore(obj);
-		 plevel.setNumber(x);
-		 return plevel;
-	}
-	return level;
-	
+	return null;
+}
+
+public LevelMomento getMomento(int x){
+	FileInputStream saveFile;
+	try {
+		saveFile = new FileInputStream("Level" + x +".ext");
+
+		ObjectInputStream restore = new ObjectInputStream(saveFile);
+		LevelMomento obj = (LevelMomento) restore.readObject();
+		restore.close();
+		obj.setNumber(x);
+		return obj;
 	} catch (Exception e) {
 		System.err.println("There is no Level " + x + " saved." );
 	}

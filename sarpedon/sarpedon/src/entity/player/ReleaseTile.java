@@ -7,7 +7,7 @@ import java.util.UUID;
 /**
  *  An extension of the base Tile class that encapsulates the additional data required
  *  for Tiles of ReleaseBoards
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class ReleaseTile extends Tile {
 	

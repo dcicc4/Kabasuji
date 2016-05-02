@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * A Hint is a suggested location for a specific Piece
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  * @author Nathan
  */
 public class Hint implements Serializable{

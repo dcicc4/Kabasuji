@@ -71,6 +71,9 @@ public class LevelMomento implements Serializable{
 	public Integer getMovesAllotted(){
 		return movesAllotted;
 	}
+	public void setNumber(int n){
+		number = n;
+	}
 	
 	
 }

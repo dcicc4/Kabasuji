@@ -174,7 +174,7 @@ public class LightningLevelGui extends JFrame {
 		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
 		boardView.addMouseListener(new EndLevelController(game, this, level));
 		
-		MenuController toMenu = new MenuController (this, game);
+		MenuController toMenu = new MenuController (this, game, level);
 		btnReturn.addActionListener(toMenu);
 		
 		ActionListener updateTime = new TimeController(level, lblTime, this, game);

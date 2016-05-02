@@ -20,7 +20,9 @@ public class BuildableRelease  extends Level implements IBuilderModel{
 PieceBuilder PB = new PieceBuilder();
 	BuildableReleaseBoard rBoard;
 
-
+	/**
+	 * BuildableRelease constructor
+	 */
 	public BuildableRelease(){
 		super("Release");
 		board = new BuildableReleaseBoard();
@@ -33,22 +35,35 @@ PieceBuilder PB = new PieceBuilder();
 		
 	
 		}
+	/**
+	 * Gets the board
+	 */
 	public Board getBoard(){
 		return board;
 	}
-
+	/**
+	 * Gets the bullpen
+	 */
 	public Bullpen getBullpen(){
 		return super.getBullpen();
 	}
+	/**
+	 * sets the bullpen
+	 */
 	public void setBullpen(Bullpen bp){
 		bullpen = bp;
 	}
-
+	/**
+	 * sets the board
+	 */
 	public void setBoard(Board b){
 		board = (BuildableReleaseBoard) b;
 
 
 	}
+	/**
+	 * sets the type
+	 */
 	public void setType(String s){
 		type = s;
 	}

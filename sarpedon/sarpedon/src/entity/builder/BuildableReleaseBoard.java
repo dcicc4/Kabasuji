@@ -10,11 +10,15 @@ import entity.player.Square;
 import entity.player.Tile;
 
 public class BuildableReleaseBoard extends ReleaseBoard {
-	
+	/**
+	 * Constructor for a BuildableReleaseBoard
+	 */
 	public BuildableReleaseBoard() {
 		super();
 	}
-
+/**
+ * Removes a piece at the given row or column or returns false if one tried to remove a piece from a tile that is not covered
+ */
 public boolean removePiece(Integer row, Integer col){
 	Tile t = shape[row][col];
 	if (t == null){ return false;}

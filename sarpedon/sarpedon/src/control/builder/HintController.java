@@ -51,7 +51,7 @@ public class HintController extends MouseAdapter{
 					boardView.repaint();
 				}
 			} else {
-				//you are trying to place a piece
+				//you are trying to place a hint
 					model.getHints().add(new Hint(adding.clone(), clicked.x, clicked.y));
 					boardView.redraw();
 					boardView.repaint();

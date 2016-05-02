@@ -3,7 +3,11 @@ package Moves;
 import control.builder.IMove;
 import entity.player.Bullpen;
 import entity.player.Piece;
-
+/**
+ * captures a rotation or flipping of a piece
+ * @author Drew
+ *
+ */
 public class RotateFlipMove implements IMove{
 
 	Piece aPiece;
@@ -14,6 +18,9 @@ public class RotateFlipMove implements IMove{
 		this.aPiece = aPiece;
 		this.Type = Type;
 	}
+	/**undoes a rotation or flip
+	 * 
+	 */
 	public boolean undo() {
 	if (Type.equals("Clockwise"))
 	{

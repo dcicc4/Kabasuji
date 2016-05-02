@@ -4,7 +4,11 @@ import control.builder.IMove;
 import entity.player.Board;
 import entity.player.Bullpen;
 import entity.player.Piece;
-
+/**
+ * Captures a move from Board to Bullpen
+ * @author Drew
+ *
+ */
 public class PieceMoveToBP implements IMove {
 
 	Integer startX;
@@ -20,7 +24,9 @@ public class PieceMoveToBP implements IMove {
 		this.bP = bP;
 		this.aPiece = P;
 	}
-
+/**
+ * Undoes a move from the bullpen to board
+ */
 	@Override
 	public boolean undo() {
 		if (!b.addPiece(startX, startY, aPiece))

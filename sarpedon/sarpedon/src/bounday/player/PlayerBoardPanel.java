@@ -179,7 +179,7 @@ public class PlayerBoardPanel extends JPanel {
 	 * 
 	 * @param g - the graphics object being drawn to.
 	 * @param p - the piece being drawn.
-	 * @param i - the number piece it is.
+	 * @param point - the location
 	 */
 	public void drawPiece(Graphics g, Piece p, Point point) {
 		Square[] drawn = p.getDependant();

@@ -3,7 +3,7 @@ package entity.player;
 import java.util.ArrayList;
 /**
  * Implementation of the abstract superclass Level for Puzzle variation
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class PuzzleLevel extends Level {
 

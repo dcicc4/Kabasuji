@@ -3,7 +3,7 @@ package entity.player;
 import java.util.ArrayList;
 /**
  * Implementation of the abstract superclass Level for the Lightning variation
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LightningLevel extends Level {
 	/** the amount of time left */

@@ -6,7 +6,7 @@ import java.util.UUID;
  *  A basic component of a board.
  *  Contains the row and column where the tile is located as well as a unique identifier
  *  for the Piece covering the Tile or null if the Tile is not covered by a Piece.
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class Tile implements Serializable {
 	

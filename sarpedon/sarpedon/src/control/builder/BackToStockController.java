@@ -19,6 +19,13 @@ public class BackToStockController implements MouseListener{
 	BuilderStockPanel stockPanel;
 	BuilderBoardPanel boardView;
 	IBuilderModel aModel;
+	/**
+	 * Constructor for BackToStockController
+	 * @param bp - Current bullpen
+	 * @param bs - Current stock panel
+	 * @param bbp - current builder board panel
+	 * @param aModel - current builder model
+	 */
 	public BackToStockController(Bullpen bp, BuilderStockPanel bs, BuilderBoardPanel bbp, IBuilderModel aModel){
 		bullpen = bp;
 		stockPanel = bs;
@@ -31,7 +38,9 @@ public class BackToStockController implements MouseListener{
 		return;
 		
 	}
-
+	/**
+	 * Manages moving a piece from the bullpen to stock
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		Piece removing = bullpen.getSelectedPiece();

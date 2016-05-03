@@ -63,7 +63,9 @@ public class ReleaseBoard extends Board {
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRwo, Integer endCol){
 		return false; // pieces not movable after placement in Release
 	}
-	
+	/**
+	 * removes a tile from the release board
+	 */
 	@Override
 	public void removeTile(int row, int column){
 		shape[row][column] = null;

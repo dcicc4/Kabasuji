@@ -16,6 +16,9 @@ import entity.player.ReleaseLevel;
  *
  */
 public class Loader {
+	/**
+	 * Constructor for Loader
+	 */
 public Loader()
 {
 	

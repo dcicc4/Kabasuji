@@ -36,11 +36,11 @@ public class PlayerBoardPanel extends JPanel {
 	Graphics offScreenGraphics = null;
 	
 	Point mouse = null;
-	
-	
-	public int getN(){
-		return N;
-	}
+
+	/**
+	 * sets the current mouse location so the panel knows where to draw the moving piec or tile.
+	 * @param p - the mouse point.
+	 */
 	public void setMouse(Point p){
 		mouse = p;
 	}
@@ -148,26 +148,34 @@ public class PlayerBoardPanel extends JPanel {
 			g.drawRect(mouse.x-N/2, mouse.y-N/2, N, N);
 		}
 	}
+	
+	/***
+	 * redraws offscreenGraphics for double buffering.
+	 */
 	public void redraw() {
 
 		Dimension dim = getPreferredSize();
-		offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
+		if (offScreenGraphics != null) {
+			offScreenGraphics.clearRect(0, 0, dim.width, dim.height);
+		
 
-		//Board b = level.getBoard();
-		offScreenGraphics.setColor(Color.WHITE);
-		offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
-		offScreenGraphics.setColor(Color.black);
-		Tile[][] tiles = level.getBoard().getTileArray();
+			//Board b = level.getBoard();
+			offScreenGraphics.setColor(Color.WHITE);
+			offScreenGraphics.fillRect(0, 0, 16*N, 16*N);
+			offScreenGraphics.setColor(Color.black);
+		
+			Tile[][] tiles = level.getBoard().getTileArray();
 
-		if(level.getBoard()instanceof ReleaseBoard){
-			drawReleaseBoard(level.getBoard().getTileArray(), offScreenGraphics);
-			return;
-		}
+			if(level.getBoard()instanceof ReleaseBoard){
+				drawReleaseBoard(level.getBoard().getTileArray(), offScreenGraphics);
+				return;
+			}
 
-		for(int i = 0; i<12; i++){
-			for(int j = 0; j<12; j++){
-				if(tiles[i][j] != null)
-					offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);				
+			for(int i = 0; i<12; i++){
+				for(int j = 0; j<12; j++){
+					if(tiles[i][j] != null)
+						offScreenGraphics.drawRect(offset + i*N, offset + j*N, N, N);				
+				}
 			}
 		}
 	}
@@ -209,6 +217,11 @@ public class PlayerBoardPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * draws the release board and numbers.
+	 * @param rTiles - release tiles.
+	 * @param g - the graphics object.
+	 */
 	public void drawReleaseBoard(Tile[][] rTiles, Graphics g){
 		for(int i = 0; i<12; i++){
 			for(int j = 0; j<12; j++){

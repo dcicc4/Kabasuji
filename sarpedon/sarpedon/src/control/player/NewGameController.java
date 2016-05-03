@@ -15,7 +15,10 @@ import entity.player.SarpedonKabasuji;
 public class NewGameController implements ActionListener{
 
 	SarpedonKabasuji game;
-	
+	/**
+	 * Constructor for NewGameController
+	 * @param g - Current game
+	 */
 	public NewGameController(SarpedonKabasuji g){
 		game = g;
 	}

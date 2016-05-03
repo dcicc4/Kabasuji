@@ -35,7 +35,10 @@ public class LevelMomento implements Serializable{
 	Integer movesAllotted;
 	/** Alternate Board for Lightning*/
 	LightningBoard lBoard;
-	
+	/**
+	 * LevelMomento Constructor
+	 * @param m - Current model
+	 */
 	public LevelMomento(IBuilderModel m){
 		board = m.getBoard();
 		bullpen = m.getBullpen();
@@ -59,18 +62,31 @@ public class LevelMomento implements Serializable{
 			
 		}
 	}
-	
+	/**
+	 * Gets the level type
+	 * @return the level type as a string
+	 */
 	public String getType(){
 		return type;
 	}
-	
+	/**
+	 * Gets the time allotted for the level
+	 * @return the time the level has allotted as an integer
+	 */
 	public Integer getTimeAllotted(){
 		return timeAllotted;
 	}
-	
+	/**
+	 * Gets the amount of moves allotted for the level
+	 * @return the amount of moves alloted as an integer
+	 */
 	public Integer getMovesAllotted(){
 		return movesAllotted;
 	}
+	/**
+	 * Sets the level number
+	 * @param n - level number
+	 */
 	public void setNumber(int n){
 		number = n;
 	}

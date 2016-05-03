@@ -20,7 +20,14 @@ public class AddPieceToBullpenController extends MouseAdapter {
 	BuilderStockPanel stock;
 	BuilderBullpenPanel bullpenView;
 	Bullpen bullpen;
-IBuilderModel aModel;
+	IBuilderModel aModel;
+	/**
+	 * Constructor for AddPieceToBullpenController
+	 * @param bp - Current bullpen
+	 * @param s - current stock panel
+	 * @param bv - current bullpen panel
+	 * @param aModel - current builder model
+	 */
 	public AddPieceToBullpenController(Bullpen bp, BuilderStockPanel s, BuilderBullpenPanel bv, IBuilderModel aModel){
 		stock = s;
 		bullpen = bp;

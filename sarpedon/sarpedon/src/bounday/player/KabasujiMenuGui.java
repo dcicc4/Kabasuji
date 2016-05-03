@@ -73,10 +73,18 @@ public class KabasujiMenuGui extends JFrame {
 		btnNewGame.addActionListener(new NewGameController(game));
 	}
 
+	/**
+	 * Returns the actionable level select button element.
+	 * @return
+	 */
 	public JButton getBtnLevelSelect() {
 		return btnLevelSelect;
 	}
 
+	/**
+	 * returns the actionable new game button element.
+	 * @return
+	 */
 	public JButton getBtnNewGame() {
 		return btnNewGame;
 	}

@@ -25,13 +25,19 @@ public class SaveController implements ActionListener {
 	LevelMomento aLevel;
 	JTextField aText;
 	IBuilderModel model;
-	
+	/**
+	 * Constructor for SaveController
+	 * @param aText - Text
+	 * @param model - Current model
+	 */
 	public SaveController(JTextField aText, IBuilderModel model) {
 		this.aText = aText;
 		this.model = model;
 
 	}
-
+	/**
+	 * handles saving a level momento
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {

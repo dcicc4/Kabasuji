@@ -74,13 +74,17 @@ public class LightningLevel extends Level {
 			throw new RuntimeException("LightningLevel::updateStars: Error calculating stars");
 		}
 	}
-	
+	/**
+	 * Gets whether the level has been completed or not as a boolean
+	 */
 	@Override
 	public boolean getCompleted(){
 		return (super.getCompleted() || timeLeft == 0);
 	}
 	
-	
+	/**
+	 * Restores the level to a given momento
+	 */
 	@Override
 	public void restore(LevelMomento m){
 	

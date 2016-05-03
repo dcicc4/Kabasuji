@@ -85,15 +85,31 @@ public class Square implements Serializable {
 	void flipVertical(){
 		setyFromAnchor(-1*getyFromAnchor());
 	}
+	/**
+	 * Gets y from the anchor
+	 * @return y from anchor as an integer
+	 */
 	public int getyFromAnchor() {
 		return yFromAnchor;
 	}
+	/**
+	 * Sets the y from the anchor
+	 * @param yFromAnchor - distance from anchor in the y direction
+	 */
 	public void setyFromAnchor(int yFromAnchor) {
 		this.yFromAnchor = yFromAnchor;
 	}
+	/**
+	 * Gets x from the anchor
+	 * @return x from anchor as an integer
+	 */
 	public int getxFromAnchor() {
 		return xFromAnchor;
 	}
+	/**
+	 * Sets the x from the anchor
+	 * @param xFromAnchor - distance from anchor in the x direction
+	 */
 	public void setxFromAnchor(int xFromAnchor) {
 		this.xFromAnchor = xFromAnchor;
 	}

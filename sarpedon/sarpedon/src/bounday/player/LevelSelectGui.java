@@ -63,10 +63,18 @@ public class LevelSelectGui extends JFrame {
 	private JLabel lbl15;
 	
 
+	/**
+	 * returns the list of buttons so you can iterate through them to attach controllers.
+	 * @return
+	 */
 	public JButton[] getButtons(){
 		return new JButton[]{btnLevel1, btnLevel2, btnLevel3, btnLevel4, btnLevel5, btnLevel6, btnLevel7, 
 				btnLevel8, btnLevel9, btnLevel10, btnLevel11, btnLevel12, btnLevel13, btnLevel14, btnLevel15, };
 	}
+	/**
+	 * returns an array of labels so that you can iterate through them when displaying stars.
+	 * @return
+	 */
 	public JLabel[] getLabels(){
 		return new JLabel[]{lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9, lbl10, lbl11, lbl12, lbl13, 
 				lbl14, lbl15};

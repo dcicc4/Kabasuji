@@ -58,6 +58,10 @@ public class PlayerBullpenPanel extends JPanel {
 		setBackground(Color.WHITE);
 	}
 
+	/**
+	 * sets the pieces in the bullpen panel to the given bullpen.
+	 * @param b
+	 */
 	public void setPieces(Bullpen b){
 		bullpen = b;
 	}

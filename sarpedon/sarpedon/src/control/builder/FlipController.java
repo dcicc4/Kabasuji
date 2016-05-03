@@ -21,7 +21,12 @@ public class FlipController implements ActionListener{
 	BuilderBoardPanel boardPanel;
 	IBuilderModel model;
 	Boolean direction;
-	
+	/**
+	 * Constructor for FlipController
+	 * @param newBoardPanel - Current board panel
+	 * @param bm - Current model
+	 * @param newdirection - Given direction
+	 */
 	public FlipController(BuilderBoardPanel newBoardPanel, IBuilderModel bm, Boolean newdirection){
 		boardPanel = newBoardPanel;
 		model = bm;

@@ -11,6 +11,7 @@ import boundary.builder.BuilderBoardPanel;
 import control.player.BullpenToBoardController;
 import control.player.EndLevelController;
 import control.player.FlipController;
+import control.player.MenuController;
 import control.player.PlaceReleasePieceController;
 import control.player.ResetLevelController;
 import control.player.RotateController;
@@ -181,7 +182,7 @@ public class ReleaseLevelGui extends JFrame {
 		btnRotateClockwise.addActionListener(new RotateController(boardView, level, true));
 		btnrotateCClockwise.addActionListener(new RotateController(boardView, level, false));
 		
-		MenuController toMenu = new MenuController (this, game);
+		MenuController toMenu = new MenuController (this, game, level);
 		btnReturn.addActionListener(toMenu);
 		
 		SelectPieceController spc = new SelectPieceController(level, boardView, bullpenView);

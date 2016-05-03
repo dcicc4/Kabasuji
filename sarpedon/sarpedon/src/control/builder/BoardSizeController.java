@@ -27,7 +27,13 @@ public class BoardSizeController implements ActionListener{
 	JComboBox<Integer> boardSize;
 	BuilderBullpenPanel bullpenView;
 	IBuilderModel model;
-	
+	/**
+	 * Constructor for BoardSizeController
+	 * @param size - Current board size
+	 * @param bv - Current board panel
+	 * @param bpv - Current bullpen panel
+	 * @param bm - Current builder model
+	 */
 	public BoardSizeController(JComboBox<Integer> size, BuilderBoardPanel bv, BuilderBullpenPanel bpv, IBuilderModel bm){
 		boardView = bv;
 		boardSize = size;
@@ -74,7 +80,9 @@ public class BoardSizeController implements ActionListener{
 				}
 			}
 		}
-	
+		if(currsize != size){
+			boardSize.setSelectedItem(currsize/6);
+		}
 		bullpenView.redraw();
 		bullpenView.repaint();
 		boardView.redraw();

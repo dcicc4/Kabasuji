@@ -47,39 +47,34 @@ public class LightningLevelGui extends JFrame {
 	
 	LightningLevel level;
 
+	/**
+	 * returns the bullpen panel.
+	 * @return
+	 */
 	public PlayerBullpenPanel getBullpenView(){
 		return bullpenView;
 	}
+	/**
+	 * returns the board panel.
+	 * @return
+	 */
 	public PlayerBoardPanel getBoardView(){
 		return boardView;
 	}
+	/**
+	 * returns the label that displays the current number of stars.
+	 * @return
+	 */
 	public JLabel getStarsView(){
 		return lblStars;
 	}
+	/**
+	 * sets the number of stars label to the given string.
+	 * @param s
+	 */
 	public void setStarsView(String s){
 		lblStars.setText(s); 
 	}
-	/**
-	 * Launch the application.
-	 */
-	
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PieceBuilder pb = new PieceBuilder();
-					LightningBoard lBoard= new LightningBoard();
-					Bullpen bp = new Bullpen();
-					bp.addPiece(pb.getPiece(1));
-					LightningLevel l = new LightningLevel(lBoard, bp, 0, false, null, 2, 100);
-					LightningLevelGui frame = new LightningLevelGui(l);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
@@ -179,7 +174,7 @@ public class LightningLevelGui extends JFrame {
 		boardView.addMouseListener(new PlaceLightningPieceController(level, this));
 		boardView.addMouseListener(new EndLevelController(game, this, level));
 		
-		MenuController toMenu = new MenuController (this, game);
+		MenuController toMenu = new MenuController (this, game, level);
 		btnReturn.addActionListener(toMenu);
 		
 		ActionListener updateTime = new TimeController(level, lblTime, this, game);

@@ -8,7 +8,10 @@ import entity.player.*;
 public interface IBuilderModel{
 
 PieceBuilder PB = new PieceBuilder();
-	
+	/**
+	 * Method given to all builder models that returns the last move
+	 * @return returns a move
+	 */
 public IMove getLastMove();
 	public Board getBoard();
 	public Bullpen getBullpen();

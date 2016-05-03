@@ -29,20 +29,20 @@ public class BuilderBoundaryTests extends TestCase {
 
 	
 	public void testBuilderBoundry(){
-		BuilderApplication game = new BuilderApplication();
-		game.main(null);
+		BuilderApplication game = new BuilderApplication(); //constructs the builder application
+		game.main(null); //runs the game builder application
 		
-		BuildableLightning model = new BuildableLightning();
-		LightningBuilderGui lbg = new LightningBuilderGui(model);
-		lbg.setVisible(true);
+		BuildableLightning model = new BuildableLightning(); //constructs a buildable lightning model
+		LightningBuilderGui lbg = new LightningBuilderGui(model); //constructs a lightning level GUI
+		lbg.setVisible(true); //ensures GUI is run and displays
 		
-		BuildablePuzzle model2 = new BuildablePuzzle();
-		PuzzleBuilderGui pbg = new PuzzleBuilderGui(model2);
-		pbg.setVisible(true);
+		BuildablePuzzle model2 = new BuildablePuzzle(); //constructs a buildable puzzle model
+		PuzzleBuilderGui pbg = new PuzzleBuilderGui(model2); //constructs a puzzle level GUI
+		pbg.setVisible(true); //ensures GUI is run and displays
 		
-		BuildableRelease model3 = new BuildableRelease();
-		ReleaseBuilderGui rbg = new ReleaseBuilderGui(model3);
-		rbg.setVisible(true);
+		BuildableRelease model3 = new BuildableRelease(); //constructs a buildable release model
+		ReleaseBuilderGui rbg = new ReleaseBuilderGui(model3); //constructs a release level GUI
+		rbg.setVisible(true); //ensures GUI is run and displays
 		
 		/*ReleaseTile t = new ReleaseTile(1, 5, 3, Color.white);
 		Tile tt[][] = {{t},{t,t}};
@@ -51,6 +51,7 @@ public class BuilderBoundaryTests extends TestCase {
 		Graphics g = offScreenGraphics.getGraphics();
 		bbp.drawReleaseBoard(tt, g);*/
 		
+		//Tests run to ensure the models are constructed properly and get methods are functioning
 		assertEquals(model.getType(),"Lightning");
 		assertEquals(model2.getType(),"Puzzle");
 		assertEquals(model3.getType(),"Release");

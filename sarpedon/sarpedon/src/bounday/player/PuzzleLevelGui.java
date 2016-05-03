@@ -167,7 +167,7 @@ public class PuzzleLevelGui extends JFrame {
 		BullpenToBoardController movePiece = new BullpenToBoardController(level.getBoard(), level.getBullpen(), boardView, bullpenView);
 		boardView.addMouseMotionListener(movePiece);
 		
-		MenuController toMenu = new MenuController (this, game);
+		MenuController toMenu = new MenuController (this, game, level);
 		btnReturn.addActionListener(toMenu);
 		
 		PlacePuzzlePieceController place = new PlacePuzzlePieceController(level, boardView, lblMoves, lblStars);

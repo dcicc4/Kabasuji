@@ -242,16 +242,29 @@ public class Piece implements Serializable{
 	{return true;}
 	else{return false;}
 	}
-
+	/**
+	 * Checks if a tile and a square fits together
+	 * @param aTile - Desired tile
+	 * @param aSquare - Desired square
+	 * @return whether the tile fits or not as a boolean
+	 */
 	boolean tileFit(Tile aTile, Square aSquare)
 	{
 		if (aTile.getColumn() == aSquare.getX()+column && aTile.getRow() == aSquare.getY() + row)
 			return true;
 		return false;
 	}
+	/**
+	 * Gets the dependent square from an array of squares
+	 * @return the dependent square
+	 */
 	public Square[] getDependent() {
 		return dependent;
 	}
+	/**
+	 * sets the dependent square
+	 * @param dependent - sets a square as the dependent
+	 */
 	public void setDependent(Square[] dependent) {
 		this.dependent = dependent;
 	}

@@ -154,7 +154,6 @@ public class BuilderBullpenPanel extends JPanel {
 		return null;
 	}
 
-
 	private int getY(int idx, int j, Square[] drawn) {
 		return offsetY + drawn[j].getY()*N;
 	}

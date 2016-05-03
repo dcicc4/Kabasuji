@@ -19,7 +19,12 @@ public class UpdateTimeController implements ActionListener{
 	JTextField timeAllotted;
 	BuildableLightning model;
 	JLabel error;
-	
+	/**
+	 * Constructor for UpdateTimeController
+	 * @param time - Given time
+	 * @param m - Current model
+	 * @param e - Error label
+	 */
 	public UpdateTimeController(JTextField time, BuildableLightning m, JLabel e	){
 		timeAllotted = time;
 		model = m;

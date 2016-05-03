@@ -9,7 +9,10 @@ import javax.swing.*;
 public class SplashScreenController implements ActionListener{
 
 	JPanel parentPanel;
-	
+	/**
+	 * Constructor for SplashScreenController
+	 * @param panel - Current panel
+	 */
 	public SplashScreenController(JPanel panel){
 		parentPanel = panel;
 	}

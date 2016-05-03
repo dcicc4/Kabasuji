@@ -107,7 +107,7 @@ public class ReleaseLevel extends Level {
 	 * Restores a level from a LevelMomento
 	 */
 	public void restore(LevelMomento m){
-		board = (ReleaseBoard)m.board;
+		board = m.board; //removed cast to ReleaseBoard, if there are problems, add the cast back
 		bullpen = m.bullpen;
 		stars = m.stars;
 		hints = m.hints;

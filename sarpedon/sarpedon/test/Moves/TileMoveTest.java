@@ -5,7 +5,7 @@ import entity.player.Tile;
 import junit.framework.TestCase;
 /**
  * Testing for the TileMove class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class TileMoveTest extends TestCase {
 	Board brd;

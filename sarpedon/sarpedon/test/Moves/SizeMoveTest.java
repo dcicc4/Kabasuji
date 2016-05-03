@@ -8,7 +8,7 @@ import entity.builder.BuildableRelease;
 import junit.framework.TestCase;
 /**
  * Testing for the SizeMove class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class SizeMoveTest extends TestCase {
 	int sz;

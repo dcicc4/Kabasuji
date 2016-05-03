@@ -3,7 +3,7 @@ package entity.player;
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity ReleaseBoard class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class ReleaseBoardTest extends TestCase {
 	/** a 12 x 12 ReleaseTile array */

@@ -7,7 +7,7 @@ import entity.player.Square;
 import junit.framework.TestCase;
 /**
  * Testing for the BuildableReleaseBoard
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class BuildableReleaseBoardTest extends TestCase {
 	BuildableReleaseBoard brb;

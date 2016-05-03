@@ -3,7 +3,7 @@ package entity.player;
 import junit.framework.TestCase;
 /**
  *  Tests for Piece Builder
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class PieceBuilderTest extends TestCase {
 	PieceBuilder pB;

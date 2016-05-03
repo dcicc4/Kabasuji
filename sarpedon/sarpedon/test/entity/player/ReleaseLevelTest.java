@@ -7,7 +7,10 @@ import java.util.UUID;
 import entity.builder.BuildableRelease;
 import entity.builder.BuildableReleaseBoard;
 import junit.framework.TestCase;
-
+/**
+ * Testing for ReleaseLevel
+ * @author Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class ReleaseLevelTest extends TestCase {
 	/** Lightning Levels for Testing */
 	ReleaseLevel rL; // default

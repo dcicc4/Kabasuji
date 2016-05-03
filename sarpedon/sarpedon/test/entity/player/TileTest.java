@@ -5,7 +5,7 @@ import java.util.UUID;
 import junit.framework.TestCase;
 /**
  *  Tests for the entity.player.Tile class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class TileTest extends TestCase {
 	/** A arbitrary tile without an UUID */

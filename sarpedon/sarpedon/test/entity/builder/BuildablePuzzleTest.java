@@ -12,7 +12,7 @@ import entity.player.Tile;
 import junit.framework.TestCase;
 /**
  * Testing for BuildablePuzzle
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class BuildablePuzzleTest extends TestCase {
 	BuildablePuzzle bP;

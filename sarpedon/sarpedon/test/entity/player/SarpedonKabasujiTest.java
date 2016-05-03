@@ -1,7 +1,10 @@
 package entity.player;
 
 import junit.framework.TestCase;
-
+/**
+ * Testing for SarpedonKabasuji main model class
+ * @author Tesia Shizume (ttshiz@wpi.edu)
+ */
 public class SarpedonKabasujiTest extends TestCase {
 	SarpedonKabasuji sKbsj;
 	protected void setUp() throws Exception {

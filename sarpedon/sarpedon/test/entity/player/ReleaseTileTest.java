@@ -7,7 +7,7 @@ import java.awt.Color;
 import junit.framework.TestCase;
 /**
  * Tests for the player.entity ReleaseTile class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class ReleaseTileTest extends TestCase {
 	/** A arbitrary tile without an UUID */

@@ -3,7 +3,7 @@ package entity.player;
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity LightningBoard class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LightningBoardTest extends TestCase {
 	/** a 12 x 12 Tile array */

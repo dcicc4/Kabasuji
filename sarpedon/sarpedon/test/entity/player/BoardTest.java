@@ -3,7 +3,7 @@ package entity.player;
 import junit.framework.TestCase;
 /**
  *  Tests for the entity.player.Board class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class BoardTest extends TestCase {
 	/** a 12 x 12 Tile array */

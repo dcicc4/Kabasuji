@@ -7,7 +7,7 @@ import entity.builder.BuildablePuzzle;
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity LightningLevel class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LightningLevelTest extends TestCase {
 	/** Lightning Levels for Testing */

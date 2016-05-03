@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import junit.framework.TestCase;
 /**
  * Testing for the player.entity Hint class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class HintTest extends TestCase {
 	/**Pieces for used in testing */

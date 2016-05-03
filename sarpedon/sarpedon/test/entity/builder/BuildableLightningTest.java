@@ -13,7 +13,7 @@ import entity.player.Tile;
 import junit.framework.TestCase;
 /**
  * Testing for BuildableLightning
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class BuildableLightningTest extends TestCase {
 	BuildableLightning bL;

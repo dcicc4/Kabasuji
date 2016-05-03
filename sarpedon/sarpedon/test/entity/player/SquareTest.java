@@ -3,7 +3,7 @@ package entity.player;
 import junit.framework.TestCase;
 /**
  * Tests for the Square class
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class SquareTest extends TestCase {
 

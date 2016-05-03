@@ -6,7 +6,7 @@ import entity.builder.BuildableRelease;
 import junit.framework.TestCase;
 /**
  * Testing for LevelMomento
- * @Tesia Shizume (ttshiz@wpi.edu)
+ * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LevelMomentoTest extends TestCase {
 	BuildableRelease bR = new BuildableRelease();

@@ -49,6 +49,7 @@ public class PlayerControlTest extends TestCase {
 	JLabel jl1;
 	JLabel jl2;
 	JLabel jl3;
+	JLabel jl4;
 	JLabel[] jla;
 	PlaceReleasePieceController prpc;
 	ResetController rc;
@@ -96,9 +97,11 @@ public class PlayerControlTest extends TestCase {
 		jl1 = new JLabel();
 		jl2 = new JLabel();
 		jl3 = new JLabel();
+		jl4 = new JLabel();
 		jla = new JLabel[10];
 		jla[0] = jl2;
 		jla[1] = jl3;
+		jla[2] = jl4;
 		pppc = new PlacePuzzlePieceController(pl, pbp, jl1, jl2);
 		prpc = new PlaceReleasePieceController(rl, pbp, jla, jl1);
 		rc = new ResetController(pbp);
@@ -114,15 +117,18 @@ public class PlayerControlTest extends TestCase {
 	}
 	public void testMenuController() {
 		rl.setStars(2);
-		System.out.println(rl.getStars());
-		//mc.actionPerformed(null);
+		rl.setNumber(1);
+		mc = new MenuController(rlg, sk, rl);
+		mc.actionPerformed(null);
 	}
 	public void testBullpenToBoardController() {
 		btbc.mouseDragged(null);
 		btbc.mouseEntered(new MouseEvent(pbp, 0, 0, 0, 0, 0, 0, false));
-		//btbc.mouseExited(null);
+		btbc.mouseExited(null);
 		btbc.mouseMoved(null);
 		btbc.move(p, 0, 0);
+		bp.setSelected(p);
+		btbc.mouseMoved(new MouseEvent(pbp, 0, 0, 0, 0, 0, 0, false));
 	}
 	public void testEndLevelController() {
 		rl.setNumber(1);
@@ -159,14 +165,15 @@ public class PlayerControlTest extends TestCase {
 		pppc.mouseClicked(null);
 		pppc.mouseEntered(null);
 		pppc.mouseExited(null);
-		pppc.mousePressed(new MouseEvent(pbp, 0, 0, 0, 0, 0, 0, false));
+		pppc.mousePressed(new MouseEvent(pbp, MouseEvent.MOUSE_PRESSED, 0, MouseEvent.BUTTON1_MASK, 0, 0, 1, false));
 		pppc.mouseReleased(null);
 	}
 	public void testPlaceReleasePieceController() {
 		prpc.mouseClicked(null);
 		prpc.mouseEntered(null);
 		prpc.mouseExited(null);
-		prpc.mousePressed(new MouseEvent(pbp, 0, 0, 0, 0, 0, 0, false));
+		b.addPiece(0, 0, p);
+		prpc.mousePressed(new MouseEvent(pbp, MouseEvent.MOUSE_PRESSED, 0, MouseEvent.BUTTON1_MASK, 0, 0, 1, false));
 		prpc.mouseReleased(null);
 	}
 	public void testResetController() {
@@ -174,7 +181,12 @@ public class PlayerControlTest extends TestCase {
 	}
 	public void testResetLevelController() {
 		rl.setNumber(1);
-		//rlc.actionPerformed(null);
+		rlc = new ResetLevelController(rl, sk, rlg);
+		rlc.actionPerformed(null);
+		rlc = new ResetLevelController(ll, sk, llg);
+		rlc.actionPerformed(null);
+		rlc = new ResetLevelController(pl, sk, plg);
+		rlc.actionPerformed(null);
 	}
 	public void testReturnToMenuController() {
 		rtmc.actionPerformed(null);
@@ -194,6 +206,9 @@ public class PlayerControlTest extends TestCase {
 		spc.mousePressed(new MouseEvent(pbup, 0, 0, 0, 0, 0, 0, false));
 		spc.mouseReleased(null);
 		spc.mouseWheelMoved(null);
+		bp.setSelected(p);
+		spc = new SelectPieceController(rl, pbp, pbup);
+		spc.mousePressed(new MouseEvent(pbup, 0, 0, 0, 0, 0, 0, false));
 	}
 	public void testSplashScreenController() {
 		
@@ -203,5 +218,6 @@ public class PlayerControlTest extends TestCase {
 	}
 	public void testTimeController() {
 		tc.actionPerformed(null);
+		
 	}
 }

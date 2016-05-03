@@ -62,9 +62,11 @@ public class PlayerControlTest extends TestCase {
 	KabasujiMenuGui kmg;
 	PlayerSplashScreen pss;
 	ReleaseBoard rb;
+	MenuController mc;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
+		mc = new MenuController(rlg, sk, rl);
 		rb = new ReleaseBoard();
 		b = new Board();
 		bp = new Bullpen();
@@ -109,6 +111,11 @@ public class PlayerControlTest extends TestCase {
 		ssc = new SplashScreenController(pss);
 		swc = new SwitchWindowController(kmg, rlg);
 		tc = new TimeController(ll, jl1, llg, sk);
+	}
+	public void testMenuController() {
+		rl.setStars(2);
+		System.out.println(rl.getStars());
+		//mc.actionPerformed(null);
 	}
 	public void testBullpenToBoardController() {
 		btbc.mouseDragged(null);
@@ -173,6 +180,10 @@ public class PlayerControlTest extends TestCase {
 		rtmc.actionPerformed(null);
 	}
 	public void testRotateController() {
+		roc.actionPerformed(null);
+		rl.getBullpen().addPiece(p);
+		rl.getBullpen().setSelected(p);
+		//System.out.println(rl.getBullpen().getSelectedPiece().toString());
 		roc.actionPerformed(null);
 	}
 	public void testSelectPieceController() {

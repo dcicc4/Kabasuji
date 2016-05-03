@@ -36,10 +36,8 @@ public boolean undo() {
 }
 @Override
 public void redo() {
-	if (!b.addPiece(endX, endY, aPiece))
-	{
-		System.out.print("Fail");
-	}
+	b.addPiece(endX, endY, aPiece);
+	
 	bP.removePiece(aPiece);
 
 }

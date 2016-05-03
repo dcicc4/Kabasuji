@@ -55,8 +55,8 @@ public class LightningLevelGui extends JFrame {
 		return bullpenView;
 	}
 	/**
-	 * returns the board panel.
-	 * @return
+	 * gets the board panel.
+	 * @return the board panel.
 	 */
 	public PlayerBoardPanel getBoardView(){
 		return boardView;

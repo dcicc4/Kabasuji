@@ -48,8 +48,8 @@ public class LightningLevelGui extends JFrame {
 	LightningLevel level;
 
 	/**
-	 * returns the bullpen panel.
-	 * @return
+	 * gets the bullpen panel.
+	 * @return the bullpen panel
 	 */
 	public PlayerBullpenPanel getBullpenView(){
 		return bullpenView;
@@ -62,8 +62,8 @@ public class LightningLevelGui extends JFrame {
 		return boardView;
 	}
 	/**
-	 * returns the label that displays the current number of stars.
-	 * @return
+	 * gets the label that displays the current number of stars.
+	 * @return the label that displays the current number of stars
 	 */
 	public JLabel getStarsView(){
 		return lblStars;

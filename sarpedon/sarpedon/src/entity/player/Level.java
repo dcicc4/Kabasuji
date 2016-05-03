@@ -147,7 +147,10 @@ abstract public class Level implements Serializable {
 			throw new RuntimeException("entity.player::Level::setNumber: number out of range");
 		}
 	}
-	
+	/**
+	 * Restores a level to a given momento
+	 * @param m - new level momento
+	 */
 	public void restore(LevelMomento m){
 		board = m.board;
 		bullpen = m.bullpen;

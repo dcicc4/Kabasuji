@@ -128,7 +128,9 @@ public class PieceBuilder implements Serializable {
 
 	Piece P35 = new Piece(35,  new Square(0, 1), new Square(1, 1), new Square(1, 2), new Square(2, 2), new Square(1, 3) ); // rotated
 	// clockwise
-
+	/**
+	 * Constructor for PieceBuilder
+	 */
 	public PieceBuilder(){
 		//make all pieces then set their colors
 		initialize();
@@ -137,7 +139,9 @@ public class PieceBuilder implements Serializable {
 			pieces.get(i).setColor(palette[i%palette.length]);
 		}
 	}
-	
+	/**
+	 * initialized the game pieces
+	 */
 	public void initialize() {
 		pieces.put(1,P1);
 		pieces.put(2,P2);
@@ -179,7 +183,11 @@ public class PieceBuilder implements Serializable {
 		pieces.put(35, P35);
 
 	}
-
+	/**
+	 * Gets a piece based on its number
+	 * @param num - Desired piece's number
+	 * @return the desired piece
+	 */
 	public Piece getPiece (int num){
 		return pieces.get(num).clone();
 	}

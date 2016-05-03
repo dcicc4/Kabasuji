@@ -40,7 +40,9 @@ public class LightningBoard extends Board {
 			return true;
 		}
 	}
-	
+	/**
+	 * checks to see if a given piece can be placed on the given spot on a lightning board
+	 */
 	@Override
 	protected boolean piecePlaceable(Integer row, Integer col, Piece p){
 		boolean placeable = true;
@@ -53,7 +55,9 @@ public class LightningBoard extends Board {
 			}
 			return placeable;
 	}
-	
+	/**
+	 * adds a piece to the lightning board
+	 */
 	@Override
 	public
 	boolean addPiece(Integer row, Integer col, Piece p){
@@ -76,7 +80,9 @@ public class LightningBoard extends Board {
 			return false;
 		}
 	}
-
+	/**
+	 * Returns false if a piece is attempted to be moved on a lightning board
+	 */
 	@Override
 	boolean movePiece(Integer startRow, Integer startCol, Integer endRow, Integer endCol){
 		return false; // can't move a piece on a board in Lightning

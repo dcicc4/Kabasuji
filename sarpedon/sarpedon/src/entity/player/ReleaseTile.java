@@ -30,6 +30,10 @@ public class ReleaseTile extends Tile {
 	public Integer getNumber(){
 		return this.rnumber;
 	}
+	/**
+	 * Sets a number to a tile
+	 * @param i - the number to be set to the tile
+	 */
 	public void setNumber(int i){
 		rnumber = i;
 	}

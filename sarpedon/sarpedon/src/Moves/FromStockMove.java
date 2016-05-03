@@ -27,4 +27,9 @@ public class FromStockMove implements IMove{
 		bP.removePiece(aPiece);
 		return true;
 	}
+	@Override
+	public void redo() {
+		bP.addPiece(aPiece);
+		
+	}
 }

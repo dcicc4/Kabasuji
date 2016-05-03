@@ -35,5 +35,18 @@ public boolean undo() {
 		aModel.getHints().add(aHint);
 	}
 	return true;
+	
+}
+
+@Override
+public void redo() {
+	if(add){
+		aModel.getHints().remove(aHint);
+	}
+	else{
+		aModel.getHints().add(aHint);
+	}
+	
+	
 }
 }

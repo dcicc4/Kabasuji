@@ -36,4 +36,11 @@ public class PieceMoveToBP implements IMove {
 		bP.removePiece(aPiece);
 		return true;
 	}
+@Override
+public void redo() {
+	bP.addPiece(aPiece);
+	b.removePiece(startX, startY);
+	
+	
+}
 }

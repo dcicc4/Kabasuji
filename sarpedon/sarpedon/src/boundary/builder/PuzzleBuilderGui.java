@@ -266,7 +266,7 @@ public class PuzzleBuilderGui extends JFrame {
 		boardSizeCombo.addActionListener(size);
 		
 		UndoController uC = new UndoController(this.model, boardView, bullpenView);
-		btnUndo.addActionListener(uC);
+		btnUndo.addMouseListener(uC);
 		
 		textField.addActionListener(new UpdateMovesController(textField, model, warningLabel));
 		btnSave.addActionListener(new SaveLevelController(warningLabel, model, this));

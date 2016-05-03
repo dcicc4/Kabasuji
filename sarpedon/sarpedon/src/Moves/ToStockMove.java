@@ -24,5 +24,10 @@ public class ToStockMove implements IMove{
 		bP.addPiece(aPiece);
 		return true;
 	}
+	@Override
+	public void redo() {
+		bP.removePiece(aPiece);
+		
+	}
 
 }

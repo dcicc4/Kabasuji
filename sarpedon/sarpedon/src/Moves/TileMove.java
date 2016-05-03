@@ -29,4 +29,12 @@ Board aBoard;
 		aBoard.setTile(start);
 		return true;
 	}
+
+
+	@Override
+	public void redo() {
+		aBoard.removeTile(start.getRow(), start.getColumn());
+		aBoard.setTile(end);
+		
+	}
 }

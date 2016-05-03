@@ -234,7 +234,7 @@ public class LightningBuilderGui extends JFrame {
 		boardSizeCombo.addActionListener(size);
 		
 		UndoController uC = new UndoController(this.model, boardView, bullpenView);
-		btnUndo.addActionListener(uC);
+		btnUndo.addMouseListener(uC);
 		
 		
 		timeTextField.addActionListener(new UpdateTimeController(timeTextField, model, warningLabel));

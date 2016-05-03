@@ -225,7 +225,7 @@ public class ReleaseBuilderGui extends JFrame {
 		boardSizeCombo.addActionListener(size);
 	
 		UndoController uC = new UndoController(this.model, boardView, bullpenView);
-		btnUndo.addActionListener(uC);
+		btnUndo.addMouseListener(uC);
 		
 	}
 }

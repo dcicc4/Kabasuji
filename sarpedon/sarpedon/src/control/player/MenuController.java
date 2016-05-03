@@ -21,16 +21,19 @@ public class MenuController implements ActionListener{
 	Level model;
 	
 	/**
-	 * 
-	 * @param l
-	 * @param g
+	 * Constructor for MenuController
+	 * @param l - Current Level Frame
+	 * @param g - Current Game
+	 * @param m - Current Level model
 	 */
 	public MenuController(JFrame l, SarpedonKabasuji g, Level m){
 		level = l;
 		game = g;
 		model = m;
 	}
-	
+	/**
+	 * Handles setting the game level and displaying the Kabasuji menu GUI
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(model.getStars()> 0){

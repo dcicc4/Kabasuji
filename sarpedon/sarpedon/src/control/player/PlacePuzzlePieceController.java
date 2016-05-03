@@ -29,7 +29,13 @@ public class PlacePuzzlePieceController implements MouseListener {
 	PlayerBoardPanel boardView;
 	JLabel movesLeft;
 	JLabel stars;
-	
+	/**
+	 * Constructor for PlacePuzzlePieceController
+	 * @param l - Current level model
+	 * @param bv - Current board panel
+	 * @param ml - Moves left label
+	 * @param s - Stars label
+	 */
 	public PlacePuzzlePieceController(PuzzleLevel l, PlayerBoardPanel bv, JLabel ml, JLabel s){
 		model = l;
 		boardView = bv;

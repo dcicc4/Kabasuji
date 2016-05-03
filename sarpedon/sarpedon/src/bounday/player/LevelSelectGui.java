@@ -69,7 +69,7 @@ public class LevelSelectGui extends JFrame {
 	 */
 	public JButton[] getButtons(){
 		return new JButton[]{btnLevel1, btnLevel2, btnLevel3, btnLevel4, btnLevel5, btnLevel6, btnLevel7, 
-				btnLevel8, btnLevel9, btnLevel10, btnLevel11, btnLevel12, btnLevel13, btnLevel14, btnLevel15, };
+				btnLevel8, btnLevel9, btnLevel10, btnLevel11, btnLevel12, btnLevel13, btnLevel14, btnLevel15 };
 	}
 	/**
 	 * returns an array of labels so that you can iterate through them when displaying stars.
@@ -173,18 +173,18 @@ public class LevelSelectGui extends JFrame {
 		btnLevel12.setBounds(923, 722, 250, 120);
 		contentPane.add(btnLevel12);
 		
-		btnLevel13 = new JButton("Level 14");
+		btnLevel13 = new JButton("Level 13");
 		btnLevel13.setEnabled(false);
 		btnLevel13.setBackground(Color.LIGHT_GRAY);
 		btnLevel13.setForeground(Color.BLACK);
-		btnLevel13.setBounds(1210, 541, 250, 120);
+		btnLevel13.setBounds(1210, 359, 250, 120);
 		contentPane.add(btnLevel13);
 		
-		btnLevel14 = new JButton("Level 13");
+		btnLevel14 = new JButton("Level 14");
 		btnLevel14.setEnabled(false);
 		btnLevel14.setBackground(Color.LIGHT_GRAY);
 		btnLevel14.setForeground(Color.BLACK);
-		btnLevel14.setBounds(1210, 359, 250, 120);
+		btnLevel14.setBounds(1210, 541, 250, 120);
 		contentPane.add(btnLevel14);
 		
 		btnLevel15 = new JButton("Level 15");

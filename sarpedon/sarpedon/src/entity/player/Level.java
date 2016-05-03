@@ -141,7 +141,7 @@ abstract public class Level implements Serializable {
 	 * @param num which position in the play order of the game the Level is being assigned
 	 */
 	public void setNumber(Integer num){
-		if ((num < 15)&&(num>=0)){
+		if ((num <= 15)&&(num>=0)){
 			number = num;
 		} else {
 			throw new RuntimeException("entity.player::Level::setNumber: number out of range");

@@ -165,11 +165,7 @@ public class BuilderControlTest extends TestCase {
 		bp.setSelected(p);
 		//fc.actionPerformed(null);
 	}
-//	public void testHintController() {
-//		hc.mousePressed(null);
-//		jrb.setSelected(true);
-//		hc.mousePressed(null);
-//	}
+
 	public void testLevelNumberController() {
 		lnc1.changeLevelNumber(5);
 		lnc2.changeLevelNumber(5);
@@ -261,9 +257,7 @@ public class BuilderControlTest extends TestCase {
 	public void testSwitchWindowController() {
 		swc.actionPerformed(null);
 	}
-//	public void testUndoController() {
-//		uc.actionPerformed(null);
-//	}
+
 	public void testUpdateMovesController() {
 		jtf.setText("1");
 		umc.actionPerformed(null);

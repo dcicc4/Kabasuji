@@ -110,29 +110,29 @@ public class LevelBuilderGui extends JFrame {
 	}
 	
 	/**
-	 * returns the actionable Lightning button element.
-	 * @return
+	 * gets the actionable Lightning button element.
+	 * @return the actionable Lightning button element
 	 */
 	public JButton getLButton(){
 		return btnLightningBuilder;
 	}
 	/**
-	 * returns the actionable Puzzle button element.
-	 * @return
+	 * gets the actionable Puzzle button element.
+	 * @return the actionable Puzzle button element
 	 */
 	public JButton getPButton(){
 		return btnPuzzleBuilder;
 	}
 	/**
-	 * returns the actionable Release button element.
-	 * @return
+	 * gets the actionable Release button element.
+	 * @return the actionable Release button element.
 	 */
 	public JButton getRButton(){
 		return btnReleaseBuilder;
 	}
 	/**
-	 * returns the actionable Edit level button element.
-	 * @return
+	 * gets the actionable Edit level button element.
+	 * @return the actionable Edit level button element.
 	 */
 	public JButton getEButton(){
 		return btnEditExisting;

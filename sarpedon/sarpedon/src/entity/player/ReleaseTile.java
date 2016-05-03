@@ -71,7 +71,6 @@ public class ReleaseTile extends Tile {
 	/** Constructor without UUID 
 	 * @param rw the row in which the ReleaseTile is located
 	 * @param cl the column in which the ReleaseTile is located
-	 * @param cvrd the UUID of the piece that covers the Tile, or null if there is no Piece covering the Tile 
 	 * @param rnum the number assigned to the ReleaseTile
 	 * @param rcolr the color assigned to the ReleaseTile
 	 */

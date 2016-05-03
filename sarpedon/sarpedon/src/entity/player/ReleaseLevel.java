@@ -133,8 +133,8 @@ public class ReleaseLevel extends Level {
 	}
 	/**
 	 * Gets the tile's text and color based on given color
-	 * @param c
-	 * @return
+	 * @param c the color
+	 * @return the tile's text
 	 */
 	public String getText(Color c){
 		String s = "";

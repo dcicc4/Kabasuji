@@ -27,6 +27,12 @@ public class MoveTilesController extends MouseAdapter {
 	JRadioButton moveTiles;
 	Point origin;
 	Tile startTile;
+	/**
+	 * Constructor for MoveTilesController
+	 * @param m - Current model
+	 * @param newboard - Current board
+	 * @param movingTiles - tile movement button
+	 */
 	public MoveTilesController(IBuilderModel m, BuilderBoardPanel newboard, JRadioButton movingTiles){
 		boardView = newboard;
 		model = m;

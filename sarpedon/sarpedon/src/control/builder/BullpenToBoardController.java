@@ -21,7 +21,13 @@ public class BullpenToBoardController implements MouseMotionListener{
 	Bullpen bullpen;
 	BuilderBoardPanel boardView;
 	BuilderBullpenPanel bullpenPanel;
-	
+	/**
+	 * Constructor for BullpenToBoardController
+	 * @param newboard - Current board
+	 * @param newbullpen - Current bullpen
+	 * @param newboardPanel - Current board panel
+	 * @param newbullpenPanel - Current bullpen panel
+	 */
 	public BullpenToBoardController(Board newboard, Bullpen newbullpen, BuilderBoardPanel newboardPanel, BuilderBullpenPanel newbullpenPanel){
 		board = newboard;
 		bullpen = newbullpen;

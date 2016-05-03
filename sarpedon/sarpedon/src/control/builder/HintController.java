@@ -24,14 +24,21 @@ public class HintController extends MouseAdapter{
 	IBuilderModel model;
 	JRadioButton addHint;
 	BuilderBoardPanel boardView;
-	
+	/**
+	 * Constructor for HintController
+	 * @param model - Current model
+	 * @param boardView - Current board view
+	 * @param addHintRadio - Add hint button
+	 */
 	public HintController(IBuilderModel model, BuilderBoardPanel boardView, JRadioButton addHintRadio){
 		this.model = model;
 		this.boardView = boardView;
 		this.addHint = addHintRadio;
 	}
 	
-
+	/**
+	 * Handles adding hints to the board and removing them
+	 */
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if (addHint.isSelected()){

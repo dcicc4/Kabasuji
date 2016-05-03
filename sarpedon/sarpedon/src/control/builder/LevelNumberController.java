@@ -59,6 +59,10 @@ JFrame LG;
 	public JFrame getFrame(){
 return LG;
 	}
+	/**
+	 * Sets the level's number to a new number
+	 * @param number - Given new level number
+	 */
 	public void changeLevelNumber(Integer number){
 		level.setNumber(number);
 	}

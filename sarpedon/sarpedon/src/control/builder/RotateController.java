@@ -20,7 +20,12 @@ public class RotateController implements ActionListener{
 	IBuilderModel model;
 	BuilderBoardPanel boardPanel;
 	boolean direction;
-	
+	/**
+	 * Constructor for RotateController
+	 * @param newBoardPanel - Current board panel
+	 * @param bm - Current model
+	 * @param newdirection - direction
+	 */
 	public RotateController(BuilderBoardPanel newBoardPanel, IBuilderModel bm, Boolean newdirection){
 		boardPanel = newBoardPanel;
 		model = bm;

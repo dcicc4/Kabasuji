@@ -20,7 +20,14 @@ public class NumberTileController implements MouseListener{
 	JRadioButton addingNumbers;
 	BuildableRelease level;
 	BuilderBoardPanel boardView;
-	
+	/**
+	 * Constructor for NumberTileController
+	 * @param n - number
+	 * @param c - color
+	 * @param l - current level
+	 * @param b - current board panel
+	 * @param a - adding numbers button
+	 */
 	public NumberTileController(JComboBox<Integer> n, JComboBox<String> c, BuildableRelease l, BuilderBoardPanel b, JRadioButton a){
 		number = n;
 		color = c;
@@ -34,7 +41,9 @@ public class NumberTileController implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		return;
 	}
-
+	/**
+	 * handles adding a number and color to a selected tile
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(addingNumbers.isSelected()){

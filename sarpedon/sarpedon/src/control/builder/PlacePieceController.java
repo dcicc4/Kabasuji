@@ -28,6 +28,12 @@ public class PlacePieceController implements MouseListener{
 	JRadioButton movePieces;
 	Integer startX;
 	Integer startY;
+	/**
+	 * Constructor for PlacePieceController
+	 * @param bm - Current model
+	 * @param bv - Current board panel
+	 * @param b - move pieces button
+	 */
 	public PlacePieceController(IBuilderModel bm, BuilderBoardPanel bv, JRadioButton b){
 		model = bm;
 		boardView = bv;

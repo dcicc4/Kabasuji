@@ -24,13 +24,20 @@ public class SaveLevelController implements ActionListener{
 	JLabel warning;
 	IBuilderModel model;
 	JFrame currentGui;
-	
+	/**
+	 * Constructor for SaveLevelController
+	 * @param w - Warning label
+	 * @param m - Current model
+	 * @param c - Current GUI
+	 */
 	public SaveLevelController(JLabel w, IBuilderModel m, JFrame c){
 		warning = w;
 		model = m;
 		currentGui = c;
 	}
-	
+	/**
+	 * Handles writing warning labels should a level not be ready to save
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(model.getBullpen().getSelectedPiece() != null){warning.setText("Please place the selected piece in the bullpen."); return;}

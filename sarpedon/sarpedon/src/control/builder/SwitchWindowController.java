@@ -13,7 +13,11 @@ public class SwitchWindowController implements ActionListener{
 
 	JFrame currentFrame;
 	JFrame nextFrame;
-	
+	/**
+	 * Constructor for SwitchWindowController
+	 * @param current - Current Frame
+	 * @param next - Next Frame
+	 */
 	public SwitchWindowController(JFrame current, JFrame next){
 		currentFrame = current;
 		nextFrame = next;

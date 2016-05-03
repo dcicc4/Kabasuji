@@ -18,13 +18,20 @@ public class UndoController implements ActionListener {
 	IBuilderModel aLevel;
 	BuilderBoardPanel boardView;
 	BuilderBullpenPanel bpView;
-
+	/**
+	 * Constructor for UndoController
+	 * @param aLevel - Current model
+	 * @param boardView - Current board view
+	 * @param bpView - Current bullpen view
+	 */
 	public UndoController(IBuilderModel aLevel, BuilderBoardPanel boardView, BuilderBullpenPanel bpView) {
 		this.aLevel = aLevel;
 		this.boardView = boardView;
 		this.bpView = bpView;
 	}
-
+	/**
+	 * Handles undoing the last move made
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (aLevel.getBullpen().getSelectedPiece() != null) {

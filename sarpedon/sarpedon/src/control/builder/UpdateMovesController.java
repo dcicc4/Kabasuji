@@ -18,7 +18,12 @@ public class UpdateMovesController implements ActionListener{
 	JTextField moves;
 	BuildablePuzzle model;
 	JLabel error;
-	
+	/**
+	 * Constructor for UpdateMovesController
+	 * @param tf - input number of moves
+	 * @param m - Current model
+	 * @param e - Error label
+	 */
 	public UpdateMovesController(JTextField tf, BuildablePuzzle m, JLabel e){
 		moves = tf;
 		model = m;

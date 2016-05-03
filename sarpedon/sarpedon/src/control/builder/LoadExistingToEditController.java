@@ -24,7 +24,11 @@ import entity.player.LevelMomento;
 public class LoadExistingToEditController implements ActionListener{
 	JTextField fileNameText;
 	LoadGui loadGui;
-	
+	/**
+	 * Constructor for LoadExistingToEditController
+	 * @param t - Given text
+	 * @param load - Load GUI
+	 */
 	public LoadExistingToEditController(JTextField t, LoadGui load){
 		fileNameText = t;
 		loadGui = load;

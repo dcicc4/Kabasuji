@@ -22,7 +22,13 @@ public class SelectPieceController extends MouseAdapter {
 	BuilderBoardPanel boardView;
 	BuilderBullpenPanel bullpenView;
 	JRadioButton movePieces;
-	
+	/**
+	 * Constructor for SelectPieceController
+	 * @param bp - Current bullpen
+	 * @param boardv - Current board view
+	 * @param bullv - Current bullpen view
+	 * @param b - move pieces button
+	 */
 	public SelectPieceController(Bullpen bp, BuilderBoardPanel boardv, BuilderBullpenPanel bullv, JRadioButton b){
 		bullpen = bp;
 		boardView = boardv;

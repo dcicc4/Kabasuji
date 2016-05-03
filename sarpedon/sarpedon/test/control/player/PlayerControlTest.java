@@ -2,10 +2,14 @@ package control.player;
 
 import java.awt.event.MouseEvent;
 
+import javax.swing.JLabel;
+
+import bounday.player.KabasujiMenuGui;
 import bounday.player.LevelSelectGui;
 import bounday.player.LightningLevelGui;
 import bounday.player.PlayerBoardPanel;
 import bounday.player.PlayerBullpenPanel;
+import bounday.player.PlayerSplashScreen;
 import bounday.player.PuzzleLevelGui;
 import bounday.player.ReleaseLevelGui;
 import entity.player.Board;
@@ -13,6 +17,7 @@ import entity.player.Bullpen;
 import entity.player.LightningLevel;
 import entity.player.Piece;
 import entity.player.PuzzleLevel;
+import entity.player.ReleaseBoard;
 import entity.player.ReleaseLevel;
 import entity.player.SarpedonKabasuji;
 import entity.player.Square;
@@ -39,9 +44,28 @@ public class PlayerControlTest extends TestCase {
 	LevelSelectGui lsg;
 	Loader l;
 	NewGameController ngc;
+	PlaceLightningPieceController plpc;
+	PlacePuzzlePieceController pppc;
+	JLabel jl1;
+	JLabel jl2;
+	JLabel jl3;
+	JLabel[] jla;
+	PlaceReleasePieceController prpc;
+	ResetController rc;
+	ResetLevelController rlc;
+	ReturnToMenuController rtmc;
+	RotateController roc;
+	SelectPieceController spc;
+	SplashScreenController ssc;
+	SwitchWindowController swc;
+	TimeController tc;
+	KabasujiMenuGui kmg;
+	PlayerSplashScreen pss;
+	ReleaseBoard rb;
 	
 	protected void setUp() throws Exception{
 		super.setUp();
+		rb = new ReleaseBoard();
 		b = new Board();
 		bp = new Bullpen();
 		pl = new PuzzleLevel();
@@ -66,6 +90,25 @@ public class PlayerControlTest extends TestCase {
 		lsc = new LevelSelectController(lsg, rl);
 		l = new Loader();
 		ngc = new NewGameController(sk);
+		plpc = new PlaceLightningPieceController(ll, llg);
+		jl1 = new JLabel();
+		jl2 = new JLabel();
+		jl3 = new JLabel();
+		jla = new JLabel[10];
+		jla[0] = jl2;
+		jla[1] = jl3;
+		pppc = new PlacePuzzlePieceController(pl, pbp, jl1, jl2);
+		prpc = new PlaceReleasePieceController(rl, pbp, jla, jl1);
+		rc = new ResetController(pbp);
+		rlc = new ResetLevelController(rl, sk, rlg);
+		kmg = new KabasujiMenuGui(sk);
+		rtmc = new ReturnToMenuController(kmg);
+		roc = new RotateController(pbp, rl, false);
+		spc = new SelectPieceController(rl, pbp, pbup);
+		pss = new PlayerSplashScreen();
+		ssc = new SplashScreenController(pss);
+		swc = new SwitchWindowController(kmg, rlg);
+		tc = new TimeController(ll, jl1, llg, sk);
 	}
 	public void testBullpenToBoardController() {
 		btbc.mouseDragged(null);
@@ -85,6 +128,8 @@ public class PlayerControlTest extends TestCase {
 	}
 	public void testFlipController() {
 		fc.actionPerformed(null);
+		rl.getBullpen().setSelected(p);
+		fc.actionPerformed(null);
 	}
 	public void testLevelSelectController() {
 		lsc.start(rl);
@@ -95,5 +140,57 @@ public class PlayerControlTest extends TestCase {
 	}
 	public void testNewGameController() {
 		ngc.actionPerformed(null);
+	}
+	public void testPlaceLightningPieceController() {
+		plpc.mouseClicked(null);
+		plpc.mouseEntered(null);
+		plpc.mouseExited(null);
+		plpc.mousePressed(null);
+		plpc.mouseReleased(null);
+	}
+	public void testPlacePuzzleLevelController() {
+		pppc.mouseClicked(null);
+		pppc.mouseEntered(null);
+		pppc.mouseExited(null);
+		pppc.mousePressed(new MouseEvent(pbp, 0, 0, 0, 0, 0, 0, false));
+		pppc.mouseReleased(null);
+	}
+	public void testPlaceReleasePieceController() {
+		prpc.mouseClicked(null);
+		prpc.mouseEntered(null);
+		prpc.mouseExited(null);
+		prpc.mousePressed(new MouseEvent(pbp, 0, 0, 0, 0, 0, 0, false));
+		prpc.mouseReleased(null);
+	}
+	public void testResetController() {
+		rc.actionPerformed(null);
+	}
+	public void testResetLevelController() {
+		rl.setNumber(1);
+		//rlc.actionPerformed(null);
+	}
+	public void testReturnToMenuController() {
+		rtmc.actionPerformed(null);
+	}
+	public void testRotateController() {
+		roc.actionPerformed(null);
+	}
+	public void testSelectPieceController() {
+		spc.mouseClicked(null);
+		spc.mouseDragged(null);
+		spc.mouseEntered(null);
+		spc.mouseExited(null);
+		spc.mousePressed(new MouseEvent(pbup, 0, 0, 0, 0, 0, 0, false));
+		spc.mouseReleased(null);
+		spc.mouseWheelMoved(null);
+	}
+	public void testSplashScreenController() {
+		
+	}
+	public void testSwitchWindowController() {
+		swc.actionPerformed(null);
+	}
+	public void testTimeController() {
+		tc.actionPerformed(null);
 	}
 }

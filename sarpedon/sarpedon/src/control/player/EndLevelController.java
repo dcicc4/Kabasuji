@@ -16,30 +16,35 @@ import entity.player.ReleaseLevel;
 import entity.player.SarpedonKabasuji;
 
 /**
- * This is the class that will return the player to the level select screen when they've finished a level.
- * In all games, the final move involves a piece placed on the board, so it will be a mouse listener attached to the board.
+ * This is the class that will return the player to the level select screen when
+ * they've finished a level. In all games, the final move involves a piece
+ * placed on the board, so it will be a mouse listener attached to the board.
  * 
  * @author Nathan
  */
-public class EndLevelController implements MouseListener{
+public class EndLevelController implements MouseListener {
 
 	SarpedonKabasuji game;
 	JFrame levelGui;
 	Level level;
+
 	/**
 	 * Constructor for EndLevelContoller
-	 * @param g - Current game
-	 * @param f - Current level frame
-	 * @param l - Current level
+	 * 
+	 * @param g
+	 *            - Current game
+	 * @param f
+	 *            - Current level frame
+	 * @param l
+	 *            - Current level
 	 */
-	public EndLevelController(SarpedonKabasuji g, JFrame f,  Level l){
+	public EndLevelController(SarpedonKabasuji g, JFrame f, Level l) {
 		game = g;
 		levelGui = f;
 		level = l;
 
 	}
-	
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		return;
@@ -49,6 +54,7 @@ public class EndLevelController implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		return;
 	}
+
 	/**
 	 * When mouse is release the game checks wether the player has won yet and sets stars end end level if the player has won
 	 */
@@ -75,8 +81,12 @@ public class EndLevelController implements MouseListener{
 			int prevStars = game.getLevel(level.getNumber()).getStars();
 			if(currStars >= prevStars){
 				game.setLevel(level);
+				
 			}
-			new EndLevelGui(game, levelGui).setVisible(true);
+			if(currStars> 0)
+			{new EndLevelGui(game, levelGui, true).setVisible(true);}
+			else{
+			new EndLevelGui(game, levelGui, false).setVisible(true);}
 		}
 		else{
 			return;
@@ -93,8 +103,5 @@ public class EndLevelController implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		return;
 	}
-
-
-
 
 }

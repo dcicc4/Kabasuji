@@ -58,7 +58,11 @@ public class TimeController implements ActionListener {
 				if(currStars >= prevStars){
 					game.setLevel(level);
 				}
-				new EndLevelGui(game, frame).setVisible(true);
+				if (currStars> 0)
+						new EndLevelGui(game, frame, true ).setVisible(true);
+				else {
+					new EndLevelGui(game, frame, false ).setVisible(true);
+				}
 
 		}
 	}

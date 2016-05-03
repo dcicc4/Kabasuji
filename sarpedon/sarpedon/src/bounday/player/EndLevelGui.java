@@ -25,26 +25,36 @@ import javax.swing.JButton;
 public class EndLevelGui extends JFrame {
 
 	private JPanel contentPane;
-
+	SarpedonKabasuji game;
+	
 	/**
 	 * Create the frame.
 	 */
-	public EndLevelGui(SarpedonKabasuji game, JFrame levelGui) {
+	public EndLevelGui(SarpedonKabasuji game, JFrame levelGui, boolean Won) {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.game = game;
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
 		JLabel lblNewLabel = new JLabel("Congratulations!");
+		if ( !Won)
+		{
+			lblNewLabel = new JLabel("Better Luck Next Time!");
+		}
+		
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 53));
 		lblNewLabel.setBounds(10, 11, 414, 111);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Level Completed!");
+		if ( !Won)
+		{
+			lblNewLabel_1 = new JLabel("Level Failed...");
+		}
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 19));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(10, 133, 414, 42);

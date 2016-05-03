@@ -6,6 +6,8 @@ import java.util.ArrayList;
  * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LightningLevel extends Level {
+
+	private static final long serialVersionUID = 1267201638847484961L;
 	/** the amount of time left */
 	Integer timeLeft;
 	

@@ -136,7 +136,7 @@ public class ReleaseLevelTest extends TestCase {
 	}
 
 	public void testCalculateColor() {
-		rL.calculateColor(rL.blueNumCovered, rL.numBlue);
+		rL.calculateColor(rL.blueNumCovered, Color.blue);
 		assertTrue(rL.numBlue == 0);
 		rL.blueNumCovered.add(true);
 		

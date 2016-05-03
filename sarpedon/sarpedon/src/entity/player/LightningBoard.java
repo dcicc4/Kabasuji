@@ -6,6 +6,8 @@ import java.util.UUID;
  * @author Tesia Shizume (ttshiz@wpi.edu)
  */
 public class LightningBoard extends Board {
+
+	private static final long serialVersionUID = -6838121895530945975L;
 	/**
 	 * default constructor for the Lightning Board
 	 */

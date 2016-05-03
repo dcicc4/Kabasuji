@@ -244,7 +244,7 @@ public class PuzzleLevelTest extends TestCase {
 		assertTrue(thrown);
 		boolean thrown2 = false;
 		try {
-			pL.setNumber(15);
+			pL.setNumber(16);
 		} catch (RuntimeException e) {
 			thrown2 = true;
 		}

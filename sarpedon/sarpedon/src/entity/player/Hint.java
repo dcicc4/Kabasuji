@@ -61,7 +61,7 @@ public class Hint implements Serializable{
 	 * Tells if a this hint covers the tile at the given row, column. 
 	 * @param row
 	 * @param column
-	 * @return
+	 * @return True if the hint covers the tile at the given row and column
 	 */
 	public boolean covers(int row, int column) {
 		for(Square s: piece.getDependant()){

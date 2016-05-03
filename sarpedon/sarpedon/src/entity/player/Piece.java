@@ -125,7 +125,7 @@ public class Piece implements Serializable{
 	}
 	/**
 	 * 
-	 * @param color to set the piece too
+	 * @param c the color to set the piece too
 	 */
 	public void setColor(Color c){
 		color = c;
@@ -138,9 +138,8 @@ public class Piece implements Serializable{
 		return color;
 	}
 	/**
-	 * returns true if the piece was on the board.
-	 * returns false if the piece was not on the board.
-	 * @return
+	 * Gets whether a Piece is on the board
+	 * @return true if the piece was on the board, false if the piece was not on the board.
 	 */
 	public boolean getBoardStatus(){
 		return board;
@@ -223,7 +222,7 @@ public class Piece implements Serializable{
 /**
  * checks if a piece fits into a combination of a tile
  * @param aTile
- * @return
+ * @return returns true if the piece fits into the combination of tile
  */
 	boolean fits(Tile[] aTile)
 	{ int match = 0;

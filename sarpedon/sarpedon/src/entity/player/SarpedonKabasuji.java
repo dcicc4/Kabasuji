@@ -66,7 +66,9 @@ public class SarpedonKabasuji {
 	 * @param l a level to add/overwrite a current level
 	 */
 	public void setLevel(Level l){
-		levels[l.getNumber()-1] = l;
+		if (l != null && levels != null) {
+			levels[l.getNumber()-1] = l;
+		}
 	}
 	/**
 	 * increment the number of unlocked levels

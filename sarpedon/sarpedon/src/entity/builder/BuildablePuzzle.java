@@ -11,6 +11,7 @@ public class BuildablePuzzle extends Level implements IBuilderModel{
 	 */
 	private static final long serialVersionUID = 1L;
 	ArrayList<IMove> MoveList = new ArrayList<IMove>();
+	ArrayList<IMove> RedoList = new ArrayList<IMove>();
 PieceBuilder PB = new PieceBuilder();
 Integer movesAllotted;	
 	/**
@@ -79,6 +80,7 @@ Integer movesAllotted;
 			return null;
 		}
 		IMove aMove= MoveList.get(MoveList.size()-1);
+		RedoList.add(aMove);
 		MoveList.remove(MoveList.size()-1);
 		return aMove;
 	}
@@ -89,5 +91,18 @@ Integer movesAllotted;
 	public void addMove(IMove aMove)
 	{
 		MoveList.add(aMove);
+	}
+	
+	/**
+	 * Redoes a move
+	 */
+	public IMove getRedoMove() {
+		if (RedoList.isEmpty())
+		{
+			return null;
+		}
+		IMove aMove= RedoList.get(RedoList.size()-1);
+		RedoList.remove(RedoList.size()-1);
+		return aMove;
 	}
 }

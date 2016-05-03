@@ -11,4 +11,6 @@ public interface IMove {
 	 * @return if the move can be undone
 	 */
 	public boolean undo();
+
+	public void redo();
 }

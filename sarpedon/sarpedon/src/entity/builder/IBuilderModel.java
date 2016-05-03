@@ -23,4 +23,5 @@ public IMove getLastMove();
 	public void addMove(IMove aMove);
 	
 	public void restore(LevelMomento m);
+	public IMove getRedoMove();
 }

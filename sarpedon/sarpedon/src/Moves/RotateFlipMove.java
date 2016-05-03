@@ -40,5 +40,27 @@ public class RotateFlipMove implements IMove{
 	}
 		return true;
 	}
+	@Override
+	public void redo() {
+		if (Type.equals("Clockwise"))
+		{
+			aPiece.rotateClockwise();
+		}
+		if (Type.equals("Counter"))
+		{
+			aPiece.rotateCounterClockwise();
+		}
+		if (Type.equals("Horizontal"))
+		{
+			aPiece.flipVertical();
+		}
+		if (Type.equals("Vertical"))
+		{
+			aPiece.flipHorizontal();
+		}
+			
+		}
+		
+	}
 
-}
+

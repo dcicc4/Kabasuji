@@ -34,4 +34,16 @@ public boolean undo() {
 	b.removePiece(endX, endY);
 	return true;
 }
+@Override
+public void redo() {
+	if (!b.addPiece(endX, endY, aPiece))
+	{
+		System.out.print("Fail");
+	}
+	bP.removePiece(aPiece);
+
+}
+	// TODO Auto-generated method stub
+	
+
 }

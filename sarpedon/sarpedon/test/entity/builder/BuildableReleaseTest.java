@@ -71,23 +71,23 @@ public class BuildableReleaseTest extends TestCase {
 		
 	}
 
-	public void testSetBoard() {
-		ReleaseTile[][] shapeOddsEmpty= new ReleaseTile[12][12];
-		for(int i=0; i< 12; i++){
-			for(int j =0; j<12;j++){
-				if (i%2 ==0){
-					shapeOddsEmpty[i][j]	= new ReleaseTile(i,j, null, null);
-				} else {
-					shapeOddsEmpty[i][j] = null;
-				}
-			}
-		}
-		Board testBoard = new Board(shapeOddsEmpty);
-		assertFalse(bR.getBoard()==testBoard);
-		
-		bR.setBoard(testBoard);
-		assertTrue(bR.getBoard()==testBoard);
-	}
+//	public void testSetBoard() {
+//		ReleaseTile[][] shapeOddsEmpty= new ReleaseTile[12][12];
+//		for(int i=0; i< 12; i++){
+//			for(int j =0; j<12;j++){
+//				if (i%2 ==0){
+//					shapeOddsEmpty[i][j]	= new ReleaseTile(i,j, null, null);
+//				} else {
+//					shapeOddsEmpty[i][j] = null;
+//				}
+//			}
+//		}
+//		Board testBoard = new Board(shapeOddsEmpty);
+//		assertFalse(bR.getBoard()==testBoard);
+//		
+//		bR.setBoard(testBoard);
+//		assertTrue(bR.getBoard()==testBoard);
+//	}
 
 	public void testSetType() {
 		assertTrue(bR.getType().equals("Release"));
